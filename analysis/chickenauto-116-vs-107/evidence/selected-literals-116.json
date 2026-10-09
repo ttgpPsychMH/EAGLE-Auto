@@ -1,0 +1,368 @@
+[
+  {
+    "literal": "AutoSettings.json",
+    "file_offsets": [
+      "0x823fdc"
+    ]
+  },
+  {
+    "literal": "enableAuto",
+    "file_offsets": [
+      "0x82402c"
+    ]
+  },
+  {
+    "literal": "enableAutoAttack",
+    "file_offsets": [
+      "0x824038"
+    ]
+  },
+  {
+    "literal": "enableAutoKs",
+    "file_offsets": [
+      "0x82404c"
+    ]
+  },
+  {
+    "literal": "enableUseF1",
+    "file_offsets": [
+      "0x82405c"
+    ]
+  },
+  {
+    "literal": "ignoreMonsterList",
+    "file_offsets": [
+      "0x824068"
+    ]
+  },
+  {
+    "literal": "enableAttackFollowLeader",
+    "file_offsets": [
+      "0x82407c"
+    ]
+  },
+  {
+    "literal": "enableAttackRadius",
+    "file_offsets": [
+      "0x824098"
+    ]
+  },
+  {
+    "literal": "attackRadiusPoint.x()",
+    "file_offsets": [
+      "0x8240ac"
+    ]
+  },
+  {
+    "literal": "attackRadiusPoint.y()",
+    "file_offsets": [
+      "0x8240c4"
+    ]
+  },
+  {
+    "literal": "attackRadiusMap",
+    "file_offsets": [
+      "0x8240dc"
+    ]
+  },
+  {
+    "literal": "enableUseSkillPet",
+    "file_offsets": [
+      "0x8240ec"
+    ]
+  },
+  {
+    "literal": "autoRecoverHp",
+    "file_offsets": [
+      "0x824100"
+    ]
+  },
+  {
+    "literal": "autoRecoverHpPercent",
+    "file_offsets": [
+      "0x824110"
+    ]
+  },
+  {
+    "literal": "autoRecoverMp",
+    "file_offsets": [
+      "0x824128"
+    ]
+  },
+  {
+    "literal": "autoRecoverMpPercent",
+    "file_offsets": [
+      "0x824138"
+    ]
+  },
+  {
+    "literal": "autoRecoverPetHp",
+    "file_offsets": [
+      "0x824150"
+    ]
+  },
+  {
+    "literal": "autoRecoverPetHpPercent",
+    "file_offsets": [
+      "0x824164"
+    ]
+  },
+  {
+    "literal": "autoUsePetRecoverHpSkill",
+    "file_offsets": [
+      "0x82417c"
+    ]
+  },
+  {
+    "literal": "autoUsePetRecoverHpSkillPercent",
+    "file_offsets": [
+      "0x824198"
+    ]
+  },
+  {
+    "literal": "autoUsePetRecoverMpSkill",
+    "file_offsets": [
+      "0x8241b8"
+    ]
+  },
+  {
+    "literal": "autoUsePetRecoverMpSkillPercent",
+    "file_offsets": [
+      "0x8241d4"
+    ]
+  },
+  {
+    "literal": "enableAutoLotusBuffHp",
+    "file_offsets": [
+      "0x8241f4"
+    ]
+  },
+  {
+    "literal": "autoLotusBuffHpPercent",
+    "file_offsets": [
+      "0x82420c"
+    ]
+  },
+  {
+    "literal": "autoLotusBuffPlayerList",
+    "file_offsets": [
+      "0x824224"
+    ]
+  },
+  {
+    "literal": "enableAutoActionWhenDead",
+    "file_offsets": [
+      "0x82423c"
+    ]
+  },
+  {
+    "literal": "autoLogoutGameAfterDeadSeconds",
+    "file_offsets": [
+      "0x824268"
+    ]
+  },
+  {
+    "literal": "enableAutoAlertHp",
+    "file_offsets": [
+      "0x824288"
+    ]
+  },
+  {
+    "literal": "autoAlertHpPercent",
+    "file_offsets": [
+      "0x82429c"
+    ]
+  },
+  {
+    "literal": "enableAutoLevelup",
+    "file_offsets": [
+      "0x8242b0"
+    ]
+  },
+  {
+    "literal": "autoLevelupTo",
+    "file_offsets": [
+      "0x8242c4"
+    ]
+  },
+  {
+    "literal": "enableAutoUseX2dot5ExpItem",
+    "file_offsets": [
+      "0x8242d4"
+    ]
+  },
+  {
+    "literal": "enableAutoUseSkill",
+    "file_offsets": [
+      "0x8242f0"
+    ]
+  },
+  {
+    "literal": "autoSkillList",
+    "file_offsets": [
+      "0x824304"
+    ]
+  },
+  {
+    "literal": "inventoryBagPassword",
+    "file_offsets": [
+      "0x824344"
+    ]
+  },
+  {
+    "literal": "enableAutoAcceptSceneTransfer",
+    "file_offsets": [
+      "0x82435c"
+    ]
+  },
+  {
+    "literal": "enableAutoAcceptTeamRequest",
+    "file_offsets": [
+      "0x82437c"
+    ]
+  },
+  {
+    "literal": "enableAutoPickupLootPackage",
+    "file_offsets": [
+      "0x824398"
+    ]
+  },
+  {
+    "literal": "enableAutoThrowTrashItem",
+    "file_offsets": [
+      "0x8243b4"
+    ]
+  },
+  {
+    "literal": "autoThrowTrashItemList",
+    "file_offsets": [
+      "0x8243d0"
+    ]
+  },
+  {
+    "literal": "enableAutoSummonPet",
+    "file_offsets": [
+      "0x8243e8"
+    ]
+  },
+  {
+    "literal": "autoSummonPetId",
+    "file_offsets": [
+      "0x8243fc"
+    ]
+  },
+  {
+    "literal": "enableAutoResetOnlineTime",
+    "file_offsets": [
+      "0x82440c"
+    ]
+  },
+  {
+    "literal": "AutoSettings::gameExePath",
+    "file_offsets": [
+      "0x825350"
+    ]
+  },
+  {
+    "literal": "AutoSettings::enableAlertSound",
+    "file_offsets": [
+      "0x828e84"
+    ]
+  },
+  {
+    "literal": "AutoSettings::enableMinimizeToSystemTray",
+    "file_offsets": [
+      "0x828ea4"
+    ]
+  },
+  {
+    "literal": "AutoSettings::enableConfirmAlertBeforeClosing",
+    "file_offsets": [
+      "0x828ed0"
+    ]
+  },
+  {
+    "literal": "AutoSettings::enableShortcutKeys",
+    "file_offsets": [
+      "0x828f08"
+    ]
+  },
+  {
+    "literal": "Bin/ChickenAuto.log",
+    "file_offsets": [
+      "0x823f88"
+    ]
+  },
+  {
+    "literal": "Bin/EasyHook.dll",
+    "file_offsets": [
+      "0x825144"
+    ]
+  },
+  {
+    "literal": ":/Resources/EasyHook.dll",
+    "file_offsets": [
+      "0x825158"
+    ]
+  },
+  {
+    "literal": "LuaPlus.dll",
+    "file_offsets": [
+      "0x826744"
+    ]
+  },
+  {
+    "literal": "UI_CEGUI.dll",
+    "file_offsets": [
+      "0x826750"
+    ]
+  },
+  {
+    "literal": "WorkerDetectGameInstance::updateAuto",
+    "file_offsets": [
+      "0x825b84"
+    ]
+  },
+  {
+    "literal": "Version",
+    "file_offsets": [
+      "0x825bd0"
+    ]
+  },
+  {
+    "literal": "NewAutoUrl",
+    "file_offsets": [
+      "0x825be8"
+    ]
+  },
+  {
+    "literal": "NewAutoUrl_1",
+    "file_offsets": [
+      "0x825bf4"
+    ]
+  },
+  {
+    "literal": "NewAutoUrl_2",
+    "file_offsets": [
+      "0x825c04"
+    ]
+  },
+  {
+    "literal": "NewAutoUrl_3",
+    "file_offsets": [
+      "0x825c14"
+    ]
+  },
+  {
+    "literal": "NewAutoUrl_4",
+    "file_offsets": [
+      "0x825c24"
+    ]
+  },
+  {
+    "literal": "Data/(ChickenAuto_commands)",
+    "file_offsets": [
+      "0x825b2c"
+    ]
+  }
+]
