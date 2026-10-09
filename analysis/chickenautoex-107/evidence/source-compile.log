@@ -1,0 +1,53 @@
+Microsoft (R) Visual C# Compiler version 4.11.0-3.25569.22 (3fb752d4)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/Unity.cs(135,8): warning CS0219: The variable 'num' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/TienIch.cs(33,11): warning CS0219: The variable 'text' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/TienIch.cs(106,8): warning CS0219: The variable 'num' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/FrmMain.cs(49,18): warning CS0649: Field 'FrmMain.COPYDATASTRUCT.lpData' is never assigned to, and will always have its default value 
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(18,17): warning CS0649: Field 'NativeMethods.TCHITTESTINFO.pt' is never assigned to, and will always have its default value 
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(507,16): warning CS0169: The field 'Game.IsHideAgain' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(418,18): warning CS0169: The field 'Game.InitThread' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs(12,22): warning CS0649: Field 'AlarmVaoPhai.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Settings.cs(9,24): warning CS0649: Field 'Settings.xml' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto.Controllers/User.cs(19,29): warning CS0067: The event 'User.Updated' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(13,15): warning CS0649: Field 'NativeMethods.POINT.y' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(563,15): warning CS0169: The field 'Game.lastResetTime' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Global.cs(31,22): warning CS0649: Field 'Global.ssss' is never assigned to, and will always have its default value false
+analysis/chickenautoex-107/recovered/ProtoBuf.Serializers/LogManager.cs(9,24): warning CS0169: The field 'LogManager.timer' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/FrmMain.cs(47,15): warning CS0649: Field 'FrmMain.COPYDATASTRUCT.cbData' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/ThietLapAuto.cs(11,22): warning CS0649: Field 'ThietLapAuto.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(27,18): warning CS0649: Field 'NativeMethods.WINDOWPOS.hwndInsertAfter' is never assigned to, and will always have its default value 
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(33,15): warning CS0649: Field 'NativeMethods.WINDOWPOS.cx' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/SellItem.cs(12,22): warning CS0649: Field 'SellItem.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(120,38): warning CS0169: The field 'Game.LuaToStringFunc' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(446,16): warning CS0169: The field 'Game.isQuangCao' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(432,15): warning CS0169: The field 'Game.biendem' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/FrmMain.cs(45,18): warning CS0649: Field 'FrmMain.COPYDATASTRUCT.dwData' is never assigned to, and will always have its default value 
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(11,15): warning CS0649: Field 'NativeMethods.POINT.x' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/DropItem.cs(12,22): warning CS0649: Field 'DropItem.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(37,15): warning CS0649: Field 'NativeMethods.WINDOWPOS.flags' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/AutoEatItem.cs(13,22): warning CS0649: Field 'AutoEatItem.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(29,15): warning CS0649: Field 'NativeMethods.WINDOWPOS.x' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(25,18): warning CS0649: Field 'NativeMethods.WINDOWPOS.hwnd' is never assigned to, and will always have its default value 
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(497,16): warning CS0169: The field 'Game.IsMini' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(31,15): warning CS0649: Field 'NativeMethods.WINDOWPOS.y' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/ChangeLogs.cs(9,22): warning CS0649: Field 'ChangeLogs.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Chat.cs(10,22): warning CS0649: Field 'Chat.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/ThongQR.cs(11,22): warning CS0649: Field 'ThongQR.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/FrmMain.cs(90,16): warning CS0649: Field 'FrmMain.Running' is never assigned to, and will always have its default value false
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(412,15): warning CS0169: The field 'Game.IsBossVanKiemCocDie' is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(35,15): warning CS0649: Field 'NativeMethods.WINDOWPOS.cy' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/HotKey.cs(10,22): warning CS0649: Field 'HotKey.components' is never assigned to, and will always have its default value null
+analysis/chickenautoex-107/recovered/TinhKiemAuto/NativeMethods.cs(20,16): warning CS0649: Field 'NativeMethods.TCHITTESTINFO.flags' is never assigned to, and will always have its default value 0
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(555,15): warning CS0414: The field 'Game.WM_KEYUP' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(487,16): warning CS0414: The field 'Game.come' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/ProtoBuf.Serializers/LogManager.cs(17,25): warning CS0414: The field 'LogManager.BasrRate' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(719,18): warning CS0414: The field 'Game.trangthaichayvong' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/ProtoBuf.Serializers/LogManager.cs(15,22): warning CS0414: The field 'LogManager.BaseV' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(579,18): warning CS0414: The field 'Game.lpmh' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(440,15): warning CS0414: The field 'Game.IsTalked' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(489,16): warning CS0414: The field 'Game.comeex' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(372,15): warning CS0414: The field 'Game.idHoa' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(617,16): warning CS0414: The field 'Game.IsDauCo' is assigned but its value is never used
+analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs(553,15): warning CS0414: The field 'Game.WM_KEYDOWN' is assigned but its value is never used

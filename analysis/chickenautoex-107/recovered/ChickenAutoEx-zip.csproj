@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>ChickenAutoEx</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net35</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="TinhKiemAuto.MapPath.dat" />
+    <None Remove="TinhKiemAuto.skillList.json" />
+    <None Remove="TinhKiemAuto.sdbai.json" />
+    <None Remove="TinhKiemAuto.Newtonsoft.Json.dll" />
+    <None Remove="TinhKiemAuto.EasyHook.dll" />
+    <None Remove="TinhKiemAuto.allmap.txt" />
+    <None Remove="TinhKiemAuto.PathList.txt" />
+    <None Remove="TinhKiemAuto.Screen.txt" />
+    <None Remove="TinhKiemAuto.Scripts.xml" />
+    <EmbeddedResource Include="TinhKiemAuto.MapPath.dat" LogicalName="TinhKiemAuto.MapPath.dat" />
+    <EmbeddedResource Include="TinhKiemAuto.skillList.json" LogicalName="TinhKiemAuto.skillList.json" />
+    <EmbeddedResource Include="TinhKiemAuto.sdbai.json" LogicalName="TinhKiemAuto.sdbai.json" />
+    <EmbeddedResource Include="TinhKiemAuto.Newtonsoft.Json.dll" LogicalName="TinhKiemAuto.Newtonsoft.Json.dll" />
+    <EmbeddedResource Include="TinhKiemAuto.EasyHook.dll" LogicalName="TinhKiemAuto.EasyHook.dll" />
+    <EmbeddedResource Include="TinhKiemAuto.allmap.txt" LogicalName="TinhKiemAuto.allmap.txt" />
+    <EmbeddedResource Include="TinhKiemAuto.PathList.txt" LogicalName="TinhKiemAuto.PathList.txt" />
+    <EmbeddedResource Include="TinhKiemAuto.Screen.txt" LogicalName="TinhKiemAuto.Screen.txt" />
+    <EmbeddedResource Include="TinhKiemAuto.Scripts.xml" LogicalName="TinhKiemAuto.Scripts.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Core">
+      <HintPath>../../reference/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>../../reference/System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management">
+      <HintPath>../../reference/System.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="Zen.Barcode.Core">
+      <HintPath>../../reference/Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>../original-extracted/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,351 @@
+{
+  "original_files": {
+    "ChickenAuto-new.7z": {
+      "size": 6574084,
+      "sha256": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49"
+    },
+    "ChickenAuto-new.exe": {
+      "size": 6974980,
+      "sha256": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9"
+    },
+    "ChickenAuto-new.zip": {
+      "size": 6912216,
+      "sha256": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08"
+    },
+    "ChickenAutoEx-new.7z": {
+      "size": 873956,
+      "sha256": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02"
+    },
+    "ChickenAutoEx-new.exe": {
+      "size": 3314330,
+      "sha256": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44"
+    },
+    "ChickenAutoEx-new.zip": {
+      "size": 901230,
+      "sha256": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+    }
+  },
+  "wrapper_overlay_offset": 400896,
+  "all_ex_payloads_identical": true,
+  "executable": {
+    "file": "ChickenAutoEx-zip.exe",
+    "size": 2913280,
+    "sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573",
+    "machine": "0x14c",
+    "subsystem": 2,
+    "managed": true,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "mscoree.dll"
+    ],
+    "clr_metadata_version": "v2.0.50727",
+    "clr_flags": "0x3",
+    "entrypoint_token": "0x6000eb6",
+    "type_definitions": 446,
+    "method_definitions": 4580,
+    "module_mvid": "47af2eb6-e4fd-4067-9165-831dd37513ed",
+    "namespaces": {
+      "": 121,
+      "ComponentAce.Compression.Libs.zlib": 14,
+      "System.Runtime.CompilerServices": 1,
+      "ProtoBuf": 34,
+      "ProtoBuf.Serializers": 47,
+      "ProtoBuf.Meta": 13,
+      "ClientTools.Log": 1,
+      "TinhKiemAuto": 168,
+      "TinhKiemAuto.Properties": 2,
+      "TinhKiemAuto.Models": 29,
+      "TinhKiemAuto.CostumeControlner": 1,
+      "TinhKiemAuto.Controllers": 4,
+      "TinhKiemAuto.AutoControl": 11
+    },
+    "assemblies": [
+      {
+        "name": "ChickenAutoEx",
+        "version": "1.0.0.0"
+      }
+    ],
+    "references": [
+      {
+        "name": "mscorlib",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Windows.Forms",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Core",
+        "version": "3.5.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Drawing",
+        "version": "2.0.0.0",
+        "public_key_token": "b03f5f7f11d50a3a"
+      },
+      {
+        "name": "System.Xml",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Management",
+        "version": "2.0.0.0",
+        "public_key_token": "b03f5f7f11d50a3a"
+      },
+      {
+        "name": "Zen.Barcode.Core",
+        "version": "3.1.0.0",
+        "public_key_token": "b5ae55aa76d2d9de"
+      },
+      {
+        "name": "Newtonsoft.Json",
+        "version": "12.0.0.0",
+        "public_key_token": "30ad4fe6b2a6aeed"
+      }
+    ],
+    "resources": [
+      {
+        "name": "TinhKiemAuto.AutoEatItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.BoQua.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.Buff.resources",
+        "size": 34501,
+        "sha256": "af453a17b099051ed47ac0ff276bd28ef58c2eb8ac1176b67ea1e787bd714803"
+      },
+      {
+        "name": "TinhKiemAuto.CanhBao.resources",
+        "size": 10271,
+        "sha256": "07336d7c4f751fe63b908f3bf48cc6486f95cf3a2a14fd42b9d2ab0b53d6d871"
+      },
+      {
+        "name": "TinhKiemAuto.ChangeLogs.resources",
+        "size": 33246,
+        "sha256": "3e2e581a13219fb7e9e24de92cb6325543fc138d73d039d81f143916198a04ad"
+      },
+      {
+        "name": "TinhKiemAuto.Chat.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.CostumeControlner.AlarmVaoPhai.resources",
+        "size": 180,
+        "sha256": "a3237a994521c1904b0367691fdafc8b4b309371b845157bd149f27b53849d76"
+      },
+      {
+        "name": "TinhKiemAuto.Debug.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.DropItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.FrmMain.resources",
+        "size": 65399,
+        "sha256": "1c7edc8b42a7ab06c5791e5b29bf9e4db800ab61f4fed0a443ca2a5740ab2eed"
+      },
+      {
+        "name": "TinhKiemAuto.Games.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.HotKey.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ImageResource.resources",
+        "size": 46744,
+        "sha256": "4e04351380919307f1bf8e19b2cfff84504beaa7ebde298bd63fc52b6bf93bf9"
+      },
+      {
+        "name": "TinhKiemAuto.Properties.Resources.resources",
+        "size": 6624,
+        "sha256": "2568261352ec372c2b39e1d4d439739dc289fb2d3ac10523505b9521b08f9b51"
+      },
+      {
+        "name": "TinhKiemAuto.SellItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ShutDown.resources",
+        "size": 180,
+        "sha256": "a3237a994521c1904b0367691fdafc8b4b309371b845157bd149f27b53849d76"
+      },
+      {
+        "name": "TinhKiemAuto.ThietLapAuto.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ThongQR.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.MapPath.dat",
+        "size": 4609,
+        "sha256": "361c681f110be51cfb9c71f84526cf3c0153584e84a43e7461faf9fd6bf26250"
+      },
+      {
+        "name": "TinhKiemAuto.skillList.json",
+        "size": 564872,
+        "sha256": "423d00d017d3435f49c07bbc2c6b1705cfb65ad50dc272613799442e4e4fe418"
+      },
+      {
+        "name": "TinhKiemAuto.sdbai.json",
+        "size": 21805,
+        "sha256": "4c4db374f227d63717fe21f2ff6999ffc9e16827ff82817fe5b78c6163868145"
+      },
+      {
+        "name": "TinhKiemAuto.Newtonsoft.Json.dll",
+        "size": 494592,
+        "sha256": "c2386d0f4992c6bc97e93882ff57875e7ad3d1597d2fb68e05bad060b9f76894"
+      },
+      {
+        "name": "TinhKiemAuto.EasyHook.dll",
+        "size": 202240,
+        "sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79"
+      },
+      {
+        "name": "TinhKiemAuto.allmap.txt",
+        "size": 521,
+        "sha256": "9b8d9ee139dada1bf065cb92a614ffed12613a8e82cdaf25000bd1de59d39198"
+      },
+      {
+        "name": "TinhKiemAuto.PathList.txt",
+        "size": 23822,
+        "sha256": "76e2e28371aa4b6dddc4fb37d66cdaa94c0992225229481191248bb6d3a138c2"
+      },
+      {
+        "name": "TinhKiemAuto.Screen.txt",
+        "size": 1807,
+        "sha256": "68ef304f5c7784126921d066e543f51b4702ba49492beabc06942354e8e07268"
+      },
+      {
+        "name": "TinhKiemAuto.Scripts.xml",
+        "size": 55389,
+        "sha256": "0bc74cb06d820e4cb9331ef05f2bb833d164e1f16f0e2390172084174e786208"
+      }
+    ]
+  },
+  "standalone_wrapper": {
+    "file": "ChickenAutoEx-new.exe",
+    "size": 3314330,
+    "sha256": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "machine": "0x8664",
+    "subsystem": 2,
+    "managed": false,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "OLEAUT32.dll",
+      "ole32.dll",
+      "USER32.dll",
+      "SHELL32.dll",
+      "KERNEL32.dll"
+    ],
+    "exports": []
+  },
+  "embedded_dependencies": [
+    {
+      "file": "EasyHook.dll",
+      "size": 202240,
+      "sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+      "machine": "0x14c",
+      "subsystem": 2,
+      "managed": false,
+      "authenticode_directory_size": 0,
+      "imports": [
+        "KERNEL32.DLL",
+        "USER32.dll",
+        "WS2_32.dll"
+      ],
+      "exports": [
+        "GetMSG",
+        "SetHook",
+        "UnHook"
+      ]
+    },
+    {
+      "file": "Newtonsoft.Json.dll",
+      "size": 494592,
+      "sha256": "c2386d0f4992c6bc97e93882ff57875e7ad3d1597d2fb68e05bad060b9f76894",
+      "machine": "0x14c",
+      "subsystem": 3,
+      "managed": true,
+      "authenticode_directory_size": 0,
+      "imports": [
+        "mscoree.dll"
+      ],
+      "clr_metadata_version": "v2.0.50727",
+      "clr_flags": "0x9",
+      "entrypoint_token": "0x0",
+      "type_definitions": 391,
+      "method_definitions": 3738,
+      "module_mvid": "8eefec89-8a2d-4ae9-93c8-042d8e6f7f43",
+      "namespaces": {
+        "": 142,
+        "System.Runtime.CompilerServices": 1,
+        "Newtonsoft.Json": 50,
+        "Newtonsoft.Json.Schema": 16,
+        "Newtonsoft.Json.Utilities": 39,
+        "Newtonsoft.Json.Utilities.LinqBridge": 7,
+        "Newtonsoft.Json.Serialization": 59,
+        "Newtonsoft.Json.Linq": 23,
+        "Newtonsoft.Json.Linq.JsonPath": 15,
+        "Newtonsoft.Json.Converters": 23,
+        "Newtonsoft.Json.Bson": 16
+      },
+      "assemblies": [
+        {
+          "name": "Newtonsoft.Json",
+          "version": "10.0.0.0"
+        }
+      ],
+      "references": [
+        {
+          "name": "mscorlib",
+          "version": "2.0.0.0",
+          "public_key_token": "b77a5c561934e089"
+        },
+        {
+          "name": "System",
+          "version": "2.0.0.0",
+          "public_key_token": "b77a5c561934e089"
+        },
+        {
+          "name": "System.Xml",
+          "version": "2.0.0.0",
+          "public_key_token": "b77a5c561934e089"
+        },
+        {
+          "name": "System.Data",
+          "version": "2.0.0.0",
+          "public_key_token": "b77a5c561934e089"
+        }
+      ],
+      "resources": []
+    }
+  ]
+}

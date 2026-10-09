@@ -1,0 +1,1844 @@
+{
+  "redactions": [
+    {
+      "path": "TinhKiemAuto/Debug.cs",
+      "line": 674,
+      "reason": "credential/key material or encrypted embedded payload omitted"
+    },
+    {
+      "path": "TinhKiemAuto/Game.cs",
+      "line": 11658,
+      "reason": "credential/key material or encrypted embedded payload omitted"
+    },
+    {
+      "path": "TinhKiemAuto.ImageResource.resx",
+      "line": 494,
+      "reason": "additional occurrence of omitted key material in text"
+    },
+    {
+      "path": "TinhKiemAuto.ImageResource.resx",
+      "line": 806,
+      "reason": "additional occurrence of omitted key material in text"
+    },
+    {
+      "path": "TinhKiemAuto.ImageResource.resx",
+      "line": 1291,
+      "reason": "additional occurrence of omitted key material in text"
+    },
+    {
+      "path": "TinhKiemAuto.Models/LoadFile.cs",
+      "line": 23,
+      "reason": "credential/key material or encrypted embedded payload omitted"
+    },
+    {
+      "path": "TinhKiemAuto.Models/LoadFile.cs",
+      "line": 39,
+      "reason": "credential/key material or encrypted embedded payload omitted"
+    },
+    {
+      "path": "TinhKiemAuto.Models/TienIch.cs",
+      "line": 54,
+      "reason": "credential/key material or encrypted embedded payload omitted"
+    }
+  ],
+  "omitted_binary_resources": [
+    {
+      "path": "TinhKiemAuto.EasyHook.dll",
+      "size": 202240,
+      "sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79"
+    },
+    {
+      "path": "TinhKiemAuto.MapPath.dat",
+      "size": 4609,
+      "sha256": "361c681f110be51cfb9c71f84526cf3c0153584e84a43e7461faf9fd6bf26250"
+    },
+    {
+      "path": "TinhKiemAuto.Newtonsoft.Json.dll",
+      "size": 494592,
+      "sha256": "c2386d0f4992c6bc97e93882ff57875e7ad3d1597d2fb68e05bad060b9f76894"
+    },
+    {
+      "path": "app.ico",
+      "size": 32038,
+      "sha256": "45e6346379fd795ddc94234ae2b977da671f8a95e241a1783bc0263c7d7c03bc"
+    }
+  ],
+  "files": [
+    {
+      "path": "ChickenAutoEx-zip.csproj",
+      "raw_source_sha256": "d180938d2047e2d2372cca5a79b8755c63397530350a3687f664b7a3fa3b8c1d",
+      "review_sha256": "d180938d2047e2d2372cca5a79b8755c63397530350a3687f664b7a3fa3b8c1d"
+    },
+    {
+      "path": "ClientTools.Log/IDebugTextLog.cs",
+      "raw_source_sha256": "a96ab6608293f0ccc94cd953730fe6166e7df1f92bae5939b82326e427ada7eb",
+      "review_sha256": "a96ab6608293f0ccc94cd953730fe6166e7df1f92bae5939b82326e427ada7eb"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/Adler32.cs",
+      "raw_source_sha256": "a70d32cbb6c2246a475cbfdac0d8ba8143b138dcda3a28ed94fd5fa7f5f2849c",
+      "review_sha256": "a70d32cbb6c2246a475cbfdac0d8ba8143b138dcda3a28ed94fd5fa7f5f2849c"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/Deflate.cs",
+      "raw_source_sha256": "4f9bfc72511dffcf0cfa590ff0bf222e1431ef84d15db138cabd12e5f5ec9411",
+      "review_sha256": "4f9bfc72511dffcf0cfa590ff0bf222e1431ef84d15db138cabd12e5f5ec9411"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/InfBlocks.cs",
+      "raw_source_sha256": "0137c5f01e07f54362ff0e008bc2bc91af027b4bf1605dcc578aff4c0f1a1db5",
+      "review_sha256": "0137c5f01e07f54362ff0e008bc2bc91af027b4bf1605dcc578aff4c0f1a1db5"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/InfCodes.cs",
+      "raw_source_sha256": "d11b46f2692afa2089dd138782d1a163022b1a99ad9e2834cded348be9701d2f",
+      "review_sha256": "d11b46f2692afa2089dd138782d1a163022b1a99ad9e2834cded348be9701d2f"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/InfTree.cs",
+      "raw_source_sha256": "cef99bbc9811875afd13718e5f214a9b3d6d785e746b9f26eed077adb0eb7d24",
+      "review_sha256": "cef99bbc9811875afd13718e5f214a9b3d6d785e746b9f26eed077adb0eb7d24"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/Inflate.cs",
+      "raw_source_sha256": "fbfa438ee61a0de9783773dbd22f4f5b923119550157fae58af8ed067769c22f",
+      "review_sha256": "fbfa438ee61a0de9783773dbd22f4f5b923119550157fae58af8ed067769c22f"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/StaticTree.cs",
+      "raw_source_sha256": "0821102b2bbdd6bad4ad9b480e1e72ffef98dd237f285630b4b14e8944315936",
+      "review_sha256": "0821102b2bbdd6bad4ad9b480e1e72ffef98dd237f285630b4b14e8944315936"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/SupportClass.cs",
+      "raw_source_sha256": "a450ebb137c78ded671b504a4e8e72ce734ae258968f20043ffc302e4597b817",
+      "review_sha256": "a450ebb137c78ded671b504a4e8e72ce734ae258968f20043ffc302e4597b817"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/Tree.cs",
+      "raw_source_sha256": "f035b9b560b498f6476521d155e5e0c1b64571ee04913b827b2bd959f27590ea",
+      "review_sha256": "f035b9b560b498f6476521d155e5e0c1b64571ee04913b827b2bd959f27590ea"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/ZInputStream.cs",
+      "raw_source_sha256": "214739d10727f58d18701ccabaf65fb4e80bb4d5f32f0413deb4f95fdb5c0d84",
+      "review_sha256": "214739d10727f58d18701ccabaf65fb4e80bb4d5f32f0413deb4f95fdb5c0d84"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/ZOutputStream.cs",
+      "raw_source_sha256": "8af304dda1586742252a273c67cce13524e8977eda35d501ffbe9288724ce2fc",
+      "review_sha256": "8af304dda1586742252a273c67cce13524e8977eda35d501ffbe9288724ce2fc"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/ZStream.cs",
+      "raw_source_sha256": "df2b7c3b31be1392adbd2d2348fde77614b807b484f2deda091b30d8307bda4b",
+      "review_sha256": "df2b7c3b31be1392adbd2d2348fde77614b807b484f2deda091b30d8307bda4b"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/ZStreamException.cs",
+      "raw_source_sha256": "21123423cd267bf2376bb4588ce780e17d876655be58b9949da2ac22c26f202f",
+      "review_sha256": "21123423cd267bf2376bb4588ce780e17d876655be58b9949da2ac22c26f202f"
+    },
+    {
+      "path": "ComponentAce.Compression.Libs.zlib/zlibConst.cs",
+      "raw_source_sha256": "6beaf298ec03c76bd996107d52998674dc8603f6c093653c8982c396ed58fd9c",
+      "review_sha256": "6beaf298ec03c76bd996107d52998674dc8603f6c093653c8982c396ed58fd9c"
+    },
+    {
+      "path": "ConfusedByAttribute.cs",
+      "raw_source_sha256": "9d193718de683510c7bf28bf8a044b23f50596522c2d2c6a75f38d1452985217",
+      "review_sha256": "9d193718de683510c7bf28bf8a044b23f50596522c2d2c6a75f38d1452985217"
+    },
+    {
+      "path": "DebugTextLog.cs",
+      "raw_source_sha256": "13219bcef3c0f3ae3a99bddf938ca4bfb539f25399c34eaa873bf6935e9106f4",
+      "review_sha256": "13219bcef3c0f3ae3a99bddf938ca4bfb539f25399c34eaa873bf6935e9106f4"
+    },
+    {
+      "path": "FindPath.cs",
+      "raw_source_sha256": "bb228b4c817c8f4684ce745da4d693b2031dd3bf1c76777a8403346c76bb1bea",
+      "review_sha256": "bb228b4c817c8f4684ce745da4d693b2031dd3bf1c76777a8403346c76bb1bea"
+    },
+    {
+      "path": "FunctionLoader.cs",
+      "raw_source_sha256": "29a43a1c2ecf9dbc07429bcc425eaaa314382ba70180b11a2550ed9ec01487ff",
+      "review_sha256": "29a43a1c2ecf9dbc07429bcc425eaaa314382ba70180b11a2550ed9ec01487ff"
+    },
+    {
+      "path": "IniFile.cs",
+      "raw_source_sha256": "de3cd3f457e045461a609c00a320475adab2eb94e40660a4ea63f041de84b2d5",
+      "review_sha256": "de3cd3f457e045461a609c00a320475adab2eb94e40660a4ea63f041de84b2d5"
+    },
+    {
+      "path": "Properties/AssemblyInfo.cs",
+      "raw_source_sha256": "bf846c0ab7e856e523fbfd5f07540137da8edee4e587912631cb6633d431a7dd",
+      "review_sha256": "bf846c0ab7e856e523fbfd5f07540137da8edee4e587912631cb6633d431a7dd"
+    },
+    {
+      "path": "ProtoBuf/BclHelpers.cs",
+      "raw_source_sha256": "c4db9a08d3645227ba34ddcd48466269fd3386c25db105ce949e87360d8cc028",
+      "review_sha256": "c4db9a08d3645227ba34ddcd48466269fd3386c25db105ce949e87360d8cc028"
+    },
+    {
+      "path": "ProtoBuf/BufferExtension.cs",
+      "raw_source_sha256": "77d11a76d0ef68baf40981cfa7b8c791ea33747083932ae4e6992366890b99a7",
+      "review_sha256": "77d11a76d0ef68baf40981cfa7b8c791ea33747083932ae4e6992366890b99a7"
+    },
+    {
+      "path": "ProtoBuf/BufferPool.cs",
+      "raw_source_sha256": "e5e8169318ef843e2ec960fed004400591dc063edc35d6c8b84cecd2ff6895c6",
+      "review_sha256": "e5e8169318ef843e2ec960fed004400591dc063edc35d6c8b84cecd2ff6895c6"
+    },
+    {
+      "path": "ProtoBuf/DataFormat.cs",
+      "raw_source_sha256": "2900775ec3301e97d9f183ba0917e35eb725cdfd176257097b674db2566a3d6e",
+      "review_sha256": "2900775ec3301e97d9f183ba0917e35eb725cdfd176257097b674db2566a3d6e"
+    },
+    {
+      "path": "ProtoBuf/Extensible.cs",
+      "raw_source_sha256": "5113f5200937b1cae316136dede65f9a4f402bb40a001eb4d8c8434fea74e105",
+      "review_sha256": "5113f5200937b1cae316136dede65f9a4f402bb40a001eb4d8c8434fea74e105"
+    },
+    {
+      "path": "ProtoBuf/ExtensibleUtil.cs",
+      "raw_source_sha256": "5a9e7aff826e3a237800c42887f5a6140fd13bb7e0d39b2a4957f55c3e513cb4",
+      "review_sha256": "5a9e7aff826e3a237800c42887f5a6140fd13bb7e0d39b2a4957f55c3e513cb4"
+    },
+    {
+      "path": "ProtoBuf/FriendData.cs",
+      "raw_source_sha256": "75edf5394cddd46a3b60639ce7c7d5e58c50a30e8a35abe9f3c6ded783f44f3f",
+      "review_sha256": "75edf5394cddd46a3b60639ce7c7d5e58c50a30e8a35abe9f3c6ded783f44f3f"
+    },
+    {
+      "path": "ProtoBuf/Helpers.cs",
+      "raw_source_sha256": "ba87c4a518aa73cbc75a8d00184e6edc00f78c9a0695e33d1c306ab67ea9f035",
+      "review_sha256": "ba87c4a518aa73cbc75a8d00184e6edc00f78c9a0695e33d1c306ab67ea9f035"
+    },
+    {
+      "path": "ProtoBuf/IExtensible.cs",
+      "raw_source_sha256": "c7fa5382c6c3417eb8e6958881aba016b6aec517493b869b75cb7c2439850723",
+      "review_sha256": "c7fa5382c6c3417eb8e6958881aba016b6aec517493b869b75cb7c2439850723"
+    },
+    {
+      "path": "ProtoBuf/IExtension.cs",
+      "raw_source_sha256": "39541afa026054e1b01bc1635ade460d35886d6e6d94190dbc9736700a004583",
+      "review_sha256": "39541afa026054e1b01bc1635ade460d35886d6e6d94190dbc9736700a004583"
+    },
+    {
+      "path": "ProtoBuf/ImplicitFields.cs",
+      "raw_source_sha256": "524379f42eb1e9df4f8555b437982d137b986c5a393cc601a8ca4af49b42286e",
+      "review_sha256": "524379f42eb1e9df4f8555b437982d137b986c5a393cc601a8ca4af49b42286e"
+    },
+    {
+      "path": "ProtoBuf/MemberSerializationOptions.cs",
+      "raw_source_sha256": "df8ae9189dbe2b5f61fda977d229a11dca0ebf095560ed38f56c0d37425012af",
+      "review_sha256": "df8ae9189dbe2b5f61fda977d229a11dca0ebf095560ed38f56c0d37425012af"
+    },
+    {
+      "path": "ProtoBuf/NetObjectCache.cs",
+      "raw_source_sha256": "c044ee13ecf35f5fb6c71e346ea124e77afaec660afb93b6ab9414a4cf57088b",
+      "review_sha256": "c044ee13ecf35f5fb6c71e346ea124e77afaec660afb93b6ab9414a4cf57088b"
+    },
+    {
+      "path": "ProtoBuf/PrefixStyle.cs",
+      "raw_source_sha256": "ab0a785141d168391fab14f89f977b3bcbf71a1ed419f11cbfa7097ea601b106",
+      "review_sha256": "ab0a785141d168391fab14f89f977b3bcbf71a1ed419f11cbfa7097ea601b106"
+    },
+    {
+      "path": "ProtoBuf/ProtoAfterDeserializationAttribute.cs",
+      "raw_source_sha256": "8d68c9f512469317605f055f94df076f8810d77429c2572ad6756138763f677c",
+      "review_sha256": "8d68c9f512469317605f055f94df076f8810d77429c2572ad6756138763f677c"
+    },
+    {
+      "path": "ProtoBuf/ProtoAfterSerializationAttribute.cs",
+      "raw_source_sha256": "115c63875292c4657032cff774791bb3ea8e7fb7b8d38db8976b151e912ed692",
+      "review_sha256": "115c63875292c4657032cff774791bb3ea8e7fb7b8d38db8976b151e912ed692"
+    },
+    {
+      "path": "ProtoBuf/ProtoBeforeDeserializationAttribute.cs",
+      "raw_source_sha256": "76bca933fabbbc08a2c2c5f013e3cab95850f101f4e3ccd16f6e9b1830a37f76",
+      "review_sha256": "76bca933fabbbc08a2c2c5f013e3cab95850f101f4e3ccd16f6e9b1830a37f76"
+    },
+    {
+      "path": "ProtoBuf/ProtoBeforeSerializationAttribute.cs",
+      "raw_source_sha256": "a66257ea023dc83a06076d7f789b4f3a57705237a38b21d3e72f2ca561deaf31",
+      "review_sha256": "a66257ea023dc83a06076d7f789b4f3a57705237a38b21d3e72f2ca561deaf31"
+    },
+    {
+      "path": "ProtoBuf/ProtoContractAttribute.cs",
+      "raw_source_sha256": "100ca1dea679d24da4156ad7e2ab461168b50735e4eda2888c64d977ece694f7",
+      "review_sha256": "100ca1dea679d24da4156ad7e2ab461168b50735e4eda2888c64d977ece694f7"
+    },
+    {
+      "path": "ProtoBuf/ProtoEnumAttribute.cs",
+      "raw_source_sha256": "1ea414e71eb8c80421a81dcbbba13e6a8e298346b0d31f0a1d32983f64c44f3a",
+      "review_sha256": "1ea414e71eb8c80421a81dcbbba13e6a8e298346b0d31f0a1d32983f64c44f3a"
+    },
+    {
+      "path": "ProtoBuf/ProtoException.cs",
+      "raw_source_sha256": "90dba60bd8b321b160bbde3953f3c7f345492c866edcde69f83a7d201e73f65c",
+      "review_sha256": "90dba60bd8b321b160bbde3953f3c7f345492c866edcde69f83a7d201e73f65c"
+    },
+    {
+      "path": "ProtoBuf/ProtoIgnoreAttribute.cs",
+      "raw_source_sha256": "a9015d4182a9ec6c1b6887834a251345c2f0e36237581318bd94d580cbed92ad",
+      "review_sha256": "a9015d4182a9ec6c1b6887834a251345c2f0e36237581318bd94d580cbed92ad"
+    },
+    {
+      "path": "ProtoBuf/ProtoIncludeAttribute.cs",
+      "raw_source_sha256": "e7ed7e4d2386eca0a50392abd3f08f78ad61a8b375123f4409bb10068dccde24",
+      "review_sha256": "e7ed7e4d2386eca0a50392abd3f08f78ad61a8b375123f4409bb10068dccde24"
+    },
+    {
+      "path": "ProtoBuf/ProtoMemberAttribute.cs",
+      "raw_source_sha256": "bcd532eb91e8fced6f48a4f20318ff96e63ea87d7432b5d67fd31e321293f293",
+      "review_sha256": "bcd532eb91e8fced6f48a4f20318ff96e63ea87d7432b5d67fd31e321293f293"
+    },
+    {
+      "path": "ProtoBuf/ProtoPartialIgnoreAttribute.cs",
+      "raw_source_sha256": "820f05b966745ce3dc30673905c73c85a8d96510c9e68133ba5191212fe3d1c4",
+      "review_sha256": "820f05b966745ce3dc30673905c73c85a8d96510c9e68133ba5191212fe3d1c4"
+    },
+    {
+      "path": "ProtoBuf/ProtoPartialMemberAttribute.cs",
+      "raw_source_sha256": "d529e36993a5e42b9a818eaf4322ada58a0dd804ae3d8177165d9a49b3f10b20",
+      "review_sha256": "d529e36993a5e42b9a818eaf4322ada58a0dd804ae3d8177165d9a49b3f10b20"
+    },
+    {
+      "path": "ProtoBuf/ProtoReader.cs",
+      "raw_source_sha256": "0a105277c1ae8d1529d0650a6e153ccd756ffc283874ac929c0c3fb2d39ea23a",
+      "review_sha256": "0a105277c1ae8d1529d0650a6e153ccd756ffc283874ac929c0c3fb2d39ea23a"
+    },
+    {
+      "path": "ProtoBuf/ProtoTypeCode.cs",
+      "raw_source_sha256": "d51f830158e757fed7909ff669b75d4cd3c389bd4b1276d8d9e04239ec76141e",
+      "review_sha256": "d51f830158e757fed7909ff669b75d4cd3c389bd4b1276d8d9e04239ec76141e"
+    },
+    {
+      "path": "ProtoBuf/ProtoWriter.cs",
+      "raw_source_sha256": "0f6df0657db4d537b4d7fcbdaa4d20f3c6ba72f8ccd3ef5442aa86f887459d78",
+      "review_sha256": "0f6df0657db4d537b4d7fcbdaa4d20f3c6ba72f8ccd3ef5442aa86f887459d78"
+    },
+    {
+      "path": "ProtoBuf/SerializationContext.cs",
+      "raw_source_sha256": "d2c7dae78bac86564343240bfce8a65bd02e75e9af034f1af8ce97f44e045b0c",
+      "review_sha256": "d2c7dae78bac86564343240bfce8a65bd02e75e9af034f1af8ce97f44e045b0c"
+    },
+    {
+      "path": "ProtoBuf/Serializer.cs",
+      "raw_source_sha256": "149c575ac1b2ab9ad30eb0f2529e69327cc2b9233bea9069510b0c139d063bc1",
+      "review_sha256": "149c575ac1b2ab9ad30eb0f2529e69327cc2b9233bea9069510b0c139d063bc1"
+    },
+    {
+      "path": "ProtoBuf/SubItemToken.cs",
+      "raw_source_sha256": "a7aae6a837c09c4160767e76399725b2b14ec768cf81487ab9d264ca7fa044b7",
+      "review_sha256": "a7aae6a837c09c4160767e76399725b2b14ec768cf81487ab9d264ca7fa044b7"
+    },
+    {
+      "path": "ProtoBuf/TimeSpanScale.cs",
+      "raw_source_sha256": "1a4d02dc6bc7608e98bd606f7d614b742eb904a04c17bf8c488af62c1848de67",
+      "review_sha256": "1a4d02dc6bc7608e98bd606f7d614b742eb904a04c17bf8c488af62c1848de67"
+    },
+    {
+      "path": "ProtoBuf/WireType.cs",
+      "raw_source_sha256": "b0f827b14383d7681705b279e6d24f713b1797add00b16fb6709ad4715040eb8",
+      "review_sha256": "b0f827b14383d7681705b279e6d24f713b1797add00b16fb6709ad4715040eb8"
+    },
+    {
+      "path": "ProtoBuf.Meta/AttributeMap.cs",
+      "raw_source_sha256": "751b7434d341f7d9f519c604c4c4e4482e8126378db1605a71e4a4ee67d065bb",
+      "review_sha256": "751b7434d341f7d9f519c604c4c4e4482e8126378db1605a71e4a4ee67d065bb"
+    },
+    {
+      "path": "ProtoBuf.Meta/BasicList.cs",
+      "raw_source_sha256": "9a864ef6173a5c6ed3db50023581027dd54c87965908ca532001c0ba881480cc",
+      "review_sha256": "9a864ef6173a5c6ed3db50023581027dd54c87965908ca532001c0ba881480cc"
+    },
+    {
+      "path": "ProtoBuf.Meta/CallbackSet.cs",
+      "raw_source_sha256": "45c6f5d7c594e5057cd6771ef25b366dd97cfee6cb8473e6082fe00235374387",
+      "review_sha256": "45c6f5d7c594e5057cd6771ef25b366dd97cfee6cb8473e6082fe00235374387"
+    },
+    {
+      "path": "ProtoBuf.Meta/LockContentedEventArgs.cs",
+      "raw_source_sha256": "b1bf6c358b9704628962c27be803760f8b7662306f1c6852820d58dcb47922fd",
+      "review_sha256": "b1bf6c358b9704628962c27be803760f8b7662306f1c6852820d58dcb47922fd"
+    },
+    {
+      "path": "ProtoBuf.Meta/LockContentedEventHandler.cs",
+      "raw_source_sha256": "26cbc1e099f77eafdc6e197b7d041fe73c9585878f45dbd3532aafa57ccc4874",
+      "review_sha256": "26cbc1e099f77eafdc6e197b7d041fe73c9585878f45dbd3532aafa57ccc4874"
+    },
+    {
+      "path": "ProtoBuf.Meta/MetaType.cs",
+      "raw_source_sha256": "9dc7279bfd2bef362377790169ab7fa493e0d5760007fb9279d05843430c0fde",
+      "review_sha256": "9dc7279bfd2bef362377790169ab7fa493e0d5760007fb9279d05843430c0fde"
+    },
+    {
+      "path": "ProtoBuf.Meta/MutableList.cs",
+      "raw_source_sha256": "e23b2c2ee375474abf16a9d1dbfd711fc5a84bff8609aa6cde76d0a83f2d28d7",
+      "review_sha256": "e23b2c2ee375474abf16a9d1dbfd711fc5a84bff8609aa6cde76d0a83f2d28d7"
+    },
+    {
+      "path": "ProtoBuf.Meta/RuntimeTypeModel.cs",
+      "raw_source_sha256": "ecc2d41c6f48a61df71860ef1d36031ddeabffceea5d3833570938f451c73033",
+      "review_sha256": "ecc2d41c6f48a61df71860ef1d36031ddeabffceea5d3833570938f451c73033"
+    },
+    {
+      "path": "ProtoBuf.Meta/SubType.cs",
+      "raw_source_sha256": "bc95aa88dcdfebc86d3e88fd2bf902f10adce4065dcc4b4622441044e9d8f978",
+      "review_sha256": "bc95aa88dcdfebc86d3e88fd2bf902f10adce4065dcc4b4622441044e9d8f978"
+    },
+    {
+      "path": "ProtoBuf.Meta/TypeFormatEventArgs.cs",
+      "raw_source_sha256": "8ed8a3010bbabbfb43f91abe25406c713968e795f2fad97bfe9a7a1010da863f",
+      "review_sha256": "8ed8a3010bbabbfb43f91abe25406c713968e795f2fad97bfe9a7a1010da863f"
+    },
+    {
+      "path": "ProtoBuf.Meta/TypeFormatEventHandler.cs",
+      "raw_source_sha256": "3a9c40abb0e046365c535b728ad11c1d2df5e4d7345f518e66818478499d8855",
+      "review_sha256": "3a9c40abb0e046365c535b728ad11c1d2df5e4d7345f518e66818478499d8855"
+    },
+    {
+      "path": "ProtoBuf.Meta/TypeModel.cs",
+      "raw_source_sha256": "e469f805b9a1a5e999face7555bd2918711f4fe05043f35ec83dbe46a15f9633",
+      "review_sha256": "e469f805b9a1a5e999face7555bd2918711f4fe05043f35ec83dbe46a15f9633"
+    },
+    {
+      "path": "ProtoBuf.Meta/ValueMember.cs",
+      "raw_source_sha256": "de503fb9b72fcdf83a13555493eea00158ebe1fd2629e26f6b606044c1b6f786",
+      "review_sha256": "de503fb9b72fcdf83a13555493eea00158ebe1fd2629e26f6b606044c1b6f786"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ABCDStruct.cs",
+      "raw_source_sha256": "45a2895824be1bbe76706cbfe78b2ee7676025624d15e2118a0ed657c8f26ea4",
+      "review_sha256": "45a2895824be1bbe76706cbfe78b2ee7676025624d15e2118a0ed657c8f26ea4"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ArrayDecorator.cs",
+      "raw_source_sha256": "11f9acdd29161be63074a1668e1777886f071146fd0446aec1e325f0d50011f4",
+      "review_sha256": "11f9acdd29161be63074a1668e1777886f071146fd0446aec1e325f0d50011f4"
+    },
+    {
+      "path": "ProtoBuf.Serializers/BlobSerializer.cs",
+      "raw_source_sha256": "0709ef0a76bd899f3556b12dcce73a94e7a946271041b79afe953f5f65fbb428",
+      "review_sha256": "0709ef0a76bd899f3556b12dcce73a94e7a946271041b79afe953f5f65fbb428"
+    },
+    {
+      "path": "ProtoBuf.Serializers/BooleanSerializer.cs",
+      "raw_source_sha256": "799c135fa4e29e01023905e3a9573c2c8a33533fba13fbdfa60e305d07631def",
+      "review_sha256": "799c135fa4e29e01023905e3a9573c2c8a33533fba13fbdfa60e305d07631def"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ByteSerializer.cs",
+      "raw_source_sha256": "9cd0736cc42f3b1325e7862e5787f3800196c3fd86569781fc1202a4bfc66db5",
+      "review_sha256": "9cd0736cc42f3b1325e7862e5787f3800196c3fd86569781fc1202a4bfc66db5"
+    },
+    {
+      "path": "ProtoBuf.Serializers/CRC32.cs",
+      "raw_source_sha256": "816b1497d713a71a4286030757fc99c95ba2455dab6368c03b3444d192c1c157",
+      "review_sha256": "816b1497d713a71a4286030757fc99c95ba2455dab6368c03b3444d192c1c157"
+    },
+    {
+      "path": "ProtoBuf.Serializers/CharSerializer.cs",
+      "raw_source_sha256": "cdc7be4e3a82f62018e3385ffedf1d1ff8e8edc34caca42cfbb6bd5a2ebab241",
+      "review_sha256": "cdc7be4e3a82f62018e3385ffedf1d1ff8e8edc34caca42cfbb6bd5a2ebab241"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ColorSerializer.cs",
+      "raw_source_sha256": "ef66b646c3d8dfec4a18be9dcba59986c6e07e5dfe60acd5da0471ba60c2f46c",
+      "review_sha256": "ef66b646c3d8dfec4a18be9dcba59986c6e07e5dfe60acd5da0471ba60c2f46c"
+    },
+    {
+      "path": "ProtoBuf.Serializers/DateTimeSerializer.cs",
+      "raw_source_sha256": "ced3aa40518c450a4d25e510a19aa94af29ba5063aec35176ba2c1214de5b04d",
+      "review_sha256": "ced3aa40518c450a4d25e510a19aa94af29ba5063aec35176ba2c1214de5b04d"
+    },
+    {
+      "path": "ProtoBuf.Serializers/DecimalSerializer.cs",
+      "raw_source_sha256": "480fbb86a7e02f36618e37859a4576ddcbb7a895292a1fdfa3995d2994d6cb29",
+      "review_sha256": "480fbb86a7e02f36618e37859a4576ddcbb7a895292a1fdfa3995d2994d6cb29"
+    },
+    {
+      "path": "ProtoBuf.Serializers/DefaultValueDecorator.cs",
+      "raw_source_sha256": "43993570f8f1af99f78850fadd80c972f9e39af775d63e05df06e5886af27c1a",
+      "review_sha256": "43993570f8f1af99f78850fadd80c972f9e39af775d63e05df06e5886af27c1a"
+    },
+    {
+      "path": "ProtoBuf.Serializers/DoubleSerializer.cs",
+      "raw_source_sha256": "d1cc35eafe9a7bed8240adda757a6894bd37d1a293351b5a0f3a863a2f5b2fec",
+      "review_sha256": "d1cc35eafe9a7bed8240adda757a6894bd37d1a293351b5a0f3a863a2f5b2fec"
+    },
+    {
+      "path": "ProtoBuf.Serializers/EnumSerializer.cs",
+      "raw_source_sha256": "e574e4ebe0de2dde0a61c5f42291b04546f57f1b1da37bfcbeb225615099acc8",
+      "review_sha256": "e574e4ebe0de2dde0a61c5f42291b04546f57f1b1da37bfcbeb225615099acc8"
+    },
+    {
+      "path": "ProtoBuf.Serializers/FieldDecorator.cs",
+      "raw_source_sha256": "6e6938353d26e55f1adb4ece0774eb94b9eb4397d601a78409567c3c76229b1d",
+      "review_sha256": "6e6938353d26e55f1adb4ece0774eb94b9eb4397d601a78409567c3c76229b1d"
+    },
+    {
+      "path": "ProtoBuf.Serializers/GuidSerializer.cs",
+      "raw_source_sha256": "c9c20d4ce2d49797a96a6c4653592ce541a5aba86e0410290ab60cb5b982ad07",
+      "review_sha256": "c9c20d4ce2d49797a96a6c4653592ce541a5aba86e0410290ab60cb5b982ad07"
+    },
+    {
+      "path": "ProtoBuf.Serializers/IProtoSerializer.cs",
+      "raw_source_sha256": "be1760bb4e7f4a37221ea9f5c101c9f10de6364e26cbdffc41eea2cdda0e8118",
+      "review_sha256": "be1760bb4e7f4a37221ea9f5c101c9f10de6364e26cbdffc41eea2cdda0e8118"
+    },
+    {
+      "path": "ProtoBuf.Serializers/IProtoTypeSerializer.cs",
+      "raw_source_sha256": "80c83291cf7a07f663d45a594290dbaad9bad40f401292e10540cd060aa3ff69",
+      "review_sha256": "80c83291cf7a07f663d45a594290dbaad9bad40f401292e10540cd060aa3ff69"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ISerializerProxy.cs",
+      "raw_source_sha256": "923830b4a04c495a9a83ff47f00930767d743dc4fe7db459bcae2a2c56ce7b72",
+      "review_sha256": "923830b4a04c495a9a83ff47f00930767d743dc4fe7db459bcae2a2c56ce7b72"
+    },
+    {
+      "path": "ProtoBuf.Serializers/Int16Serializer.cs",
+      "raw_source_sha256": "e7da2361721e072975d8f8e0f543ebb6e482f0b39e218209472853894db09259",
+      "review_sha256": "e7da2361721e072975d8f8e0f543ebb6e482f0b39e218209472853894db09259"
+    },
+    {
+      "path": "ProtoBuf.Serializers/Int32Serializer.cs",
+      "raw_source_sha256": "bfc21810b5f51767a6d8c8e9bf9fef0b03b9e3a81c9a7bddc0d7dc8b4acdf82b",
+      "review_sha256": "bfc21810b5f51767a6d8c8e9bf9fef0b03b9e3a81c9a7bddc0d7dc8b4acdf82b"
+    },
+    {
+      "path": "ProtoBuf.Serializers/Int64Serializer.cs",
+      "raw_source_sha256": "568160b4d485c414deaf210282d3c6419ebace201a64815dc63228349ff45ce4",
+      "review_sha256": "568160b4d485c414deaf210282d3c6419ebace201a64815dc63228349ff45ce4"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ListDecorator.cs",
+      "raw_source_sha256": "f23910d059bf3cf93a81dc800c7f36011b251fceb2dc3ad1f4bf816edb00ddf6",
+      "review_sha256": "f23910d059bf3cf93a81dc800c7f36011b251fceb2dc3ad1f4bf816edb00ddf6"
+    },
+    {
+      "path": "ProtoBuf.Serializers/LogManager.cs",
+      "raw_source_sha256": "025c7e19a64872883ffb6118bf00bed84e09401edab928aa03ede8a579560fc4",
+      "review_sha256": "025c7e19a64872883ffb6118bf00bed84e09401edab928aa03ede8a579560fc4"
+    },
+    {
+      "path": "ProtoBuf.Serializers/LogTypes.cs",
+      "raw_source_sha256": "7606e0bd5df11cb7ac5c10933eb14aafd2ba14cb7bed5a4e9b64e0a594059f05",
+      "review_sha256": "7606e0bd5df11cb7ac5c10933eb14aafd2ba14cb7bed5a4e9b64e0a594059f05"
+    },
+    {
+      "path": "ProtoBuf.Serializers/MD5Core.cs",
+      "raw_source_sha256": "cdb175fdfbe76b207322a81a3b789c77f8500e06fe2b6b5f709364de50844562",
+      "review_sha256": "cdb175fdfbe76b207322a81a3b789c77f8500e06fe2b6b5f709364de50844562"
+    },
+    {
+      "path": "ProtoBuf.Serializers/MUJson.cs",
+      "raw_source_sha256": "bf234d77c70fc2e100c186aa507876e3dd7e928b18d4a6a4973a45cf5a490bd9",
+      "review_sha256": "bf234d77c70fc2e100c186aa507876e3dd7e928b18d4a6a4973a45cf5a490bd9"
+    },
+    {
+      "path": "ProtoBuf.Serializers/MemberSpecifiedDecorator.cs",
+      "raw_source_sha256": "2d04bd9bda249fa5a0102b70669ca58afdfb6418beb7c29e1fb208583d3c379b",
+      "review_sha256": "2d04bd9bda249fa5a0102b70669ca58afdfb6418beb7c29e1fb208583d3c379b"
+    },
+    {
+      "path": "ProtoBuf.Serializers/NetObjectSerializer.cs",
+      "raw_source_sha256": "5ff7625461501f194107e10de8f8807e5d891b648aa0536fd839756994c5eb0d",
+      "review_sha256": "5ff7625461501f194107e10de8f8807e5d891b648aa0536fd839756994c5eb0d"
+    },
+    {
+      "path": "ProtoBuf.Serializers/NullDecorator.cs",
+      "raw_source_sha256": "94436ed0e6bd0ed35cd5fd98dd12a650efcfbd3bfb02c81882cda5af250574c3",
+      "review_sha256": "94436ed0e6bd0ed35cd5fd98dd12a650efcfbd3bfb02c81882cda5af250574c3"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ParseableSerializer.cs",
+      "raw_source_sha256": "1da7bae922129d249c7497617fc89f194b762313026ae387f1a9d67090856291",
+      "review_sha256": "1da7bae922129d249c7497617fc89f194b762313026ae387f1a9d67090856291"
+    },
+    {
+      "path": "ProtoBuf.Serializers/PropertyDecorator.cs",
+      "raw_source_sha256": "bf019f11d58a12c0cd3f8cb09ba98ca1dde45f83e5fec3542feb9d311793b839",
+      "review_sha256": "bf019f11d58a12c0cd3f8cb09ba98ca1dde45f83e5fec3542feb9d311793b839"
+    },
+    {
+      "path": "ProtoBuf.Serializers/ProtoDecoratorBase.cs",
+      "raw_source_sha256": "d87f435bfc064389f06e6a4a64252f60848c3e97b88508c6150f76c863d5165b",
+      "review_sha256": "d87f435bfc064389f06e6a4a64252f60848c3e97b88508c6150f76c863d5165b"
+    },
+    {
+      "path": "ProtoBuf.Serializers/SByteSerializer.cs",
+      "raw_source_sha256": "6ea74834ee9004bb505761abee8a489eebf2a2f9eac97dda1b3f8a800fa70934",
+      "review_sha256": "6ea74834ee9004bb505761abee8a489eebf2a2f9eac97dda1b3f8a800fa70934"
+    },
+    {
+      "path": "ProtoBuf.Serializers/SingleSerializer.cs",
+      "raw_source_sha256": "bb008aa6e7c372848c3cc95ef22f178c46d45289e0187241d8a4cea9ee9f038f",
+      "review_sha256": "bb008aa6e7c372848c3cc95ef22f178c46d45289e0187241d8a4cea9ee9f038f"
+    },
+    {
+      "path": "ProtoBuf.Serializers/StringEncrypt.cs",
+      "raw_source_sha256": "b279694c3e41a7c336b9f9d08fa37a6532ab173de6eac83c49a90e85a6d415db",
+      "review_sha256": "b279694c3e41a7c336b9f9d08fa37a6532ab173de6eac83c49a90e85a6d415db"
+    },
+    {
+      "path": "ProtoBuf.Serializers/StringSerializer.cs",
+      "raw_source_sha256": "13bab74cdbb8a987296a38c58029d8eab34e3a20b612a9e9a899734432c660dc",
+      "review_sha256": "13bab74cdbb8a987296a38c58029d8eab34e3a20b612a9e9a899734432c660dc"
+    },
+    {
+      "path": "ProtoBuf.Serializers/SubItemSerializer.cs",
+      "raw_source_sha256": "b93f8ab76962f1e24410d06060984316b1fa4b254a6c61c72b4f81a007a385c6",
+      "review_sha256": "b93f8ab76962f1e24410d06060984316b1fa4b254a6c61c72b4f81a007a385c6"
+    },
+    {
+      "path": "ProtoBuf.Serializers/SurrogateSerializer.cs",
+      "raw_source_sha256": "058603b33bf16581c2c7e42e8eb58b11f49d02093daeebc341071f0ba54ccc8d",
+      "review_sha256": "058603b33bf16581c2c7e42e8eb58b11f49d02093daeebc341071f0ba54ccc8d"
+    },
+    {
+      "path": "ProtoBuf.Serializers/SystemTypeSerializer.cs",
+      "raw_source_sha256": "15288e6c8edab47a534c4f257fb536238522fb18a0856f6e9bf4a06f37d61da4",
+      "review_sha256": "15288e6c8edab47a534c4f257fb536238522fb18a0856f6e9bf4a06f37d61da4"
+    },
+    {
+      "path": "ProtoBuf.Serializers/TagDecorator.cs",
+      "raw_source_sha256": "c7b92c86ba1e70879ef5232132b22fd51c32420254aa0709b428d83627c9da40",
+      "review_sha256": "c7b92c86ba1e70879ef5232132b22fd51c32420254aa0709b428d83627c9da40"
+    },
+    {
+      "path": "ProtoBuf.Serializers/TimeSpanSerializer.cs",
+      "raw_source_sha256": "9692a06371bf67217dc174a8d700858f54261c64f9d563eb92d73143917c44bd",
+      "review_sha256": "9692a06371bf67217dc174a8d700858f54261c64f9d563eb92d73143917c44bd"
+    },
+    {
+      "path": "ProtoBuf.Serializers/TupleSerializer.cs",
+      "raw_source_sha256": "1aa5408b102bfa72b7b387620c96442b0b0b8a8bd6b3b17b4610bb82cbd52fa1",
+      "review_sha256": "1aa5408b102bfa72b7b387620c96442b0b0b8a8bd6b3b17b4610bb82cbd52fa1"
+    },
+    {
+      "path": "ProtoBuf.Serializers/TypeSerializer.cs",
+      "raw_source_sha256": "7b9077ee9c6acf79bc5d99c630dc55bc4a8f34614fe9cc0a01c27d0cf34057de",
+      "review_sha256": "7b9077ee9c6acf79bc5d99c630dc55bc4a8f34614fe9cc0a01c27d0cf34057de"
+    },
+    {
+      "path": "ProtoBuf.Serializers/UInt16Serializer.cs",
+      "raw_source_sha256": "89262115d99eef110369e12ec7814c71df6ca73afb21b2f4b1147c97150bee51",
+      "review_sha256": "89262115d99eef110369e12ec7814c71df6ca73afb21b2f4b1147c97150bee51"
+    },
+    {
+      "path": "ProtoBuf.Serializers/UInt32Serializer.cs",
+      "raw_source_sha256": "ad503c53ea465cca7647c3097739916ccf1720ad866697e48322bd4a7237b40a",
+      "review_sha256": "ad503c53ea465cca7647c3097739916ccf1720ad866697e48322bd4a7237b40a"
+    },
+    {
+      "path": "ProtoBuf.Serializers/UInt64Serializer.cs",
+      "raw_source_sha256": "5c11dc5dcc3587149ac98ef307d7757efb818d38d294ad113b44555b3f0d051e",
+      "review_sha256": "5c11dc5dcc3587149ac98ef307d7757efb818d38d294ad113b44555b3f0d051e"
+    },
+    {
+      "path": "ProtoBuf.Serializers/UriDecorator.cs",
+      "raw_source_sha256": "87833c1787e524889c534435911e98f44ce07b9dc6b4cb4c2140124944173fa7",
+      "review_sha256": "87833c1787e524889c534435911e98f44ce07b9dc6b4cb4c2140124944173fa7"
+    },
+    {
+      "path": "System.Runtime.CompilerServices/ExtensionAttribute.cs",
+      "raw_source_sha256": "2d3dd548b55d78ebb68bcfbd86a0045a3b7da0b8ffd3609cf3502a0bff9d9234",
+      "review_sha256": "2d3dd548b55d78ebb68bcfbd86a0045a3b7da0b8ffd3609cf3502a0bff9d9234"
+    },
+    {
+      "path": "TinhKiemAuto/AOBScan.cs",
+      "raw_source_sha256": "b5312e8fc2a59b6e2f2c75059751023f68f0ee8779e600146d823216c2aa90d4",
+      "review_sha256": "b5312e8fc2a59b6e2f2c75059751023f68f0ee8779e600146d823216c2aa90d4"
+    },
+    {
+      "path": "TinhKiemAuto/ASM.cs",
+      "raw_source_sha256": "5869df1ceb1bf553e3d335c9f7e10474fbab3a7a788b813a0b63b12a47aec9b4",
+      "review_sha256": "5869df1ceb1bf553e3d335c9f7e10474fbab3a7a788b813a0b63b12a47aec9b4"
+    },
+    {
+      "path": "TinhKiemAuto/Account.cs",
+      "raw_source_sha256": "bf71bcc0485590a02a05f499a8add92fd1893471a442917d154e7081c5a71b66",
+      "review_sha256": "bf71bcc0485590a02a05f499a8add92fd1893471a442917d154e7081c5a71b66"
+    },
+    {
+      "path": "TinhKiemAuto/Address.cs",
+      "raw_source_sha256": "1e4ea72cfe26a6d2650b8927f98c6327b884228920e02cd78ef50cdfe27efd09",
+      "review_sha256": "1e4ea72cfe26a6d2650b8927f98c6327b884228920e02cd78ef50cdfe27efd09"
+    },
+    {
+      "path": "TinhKiemAuto/AntiDump.cs",
+      "raw_source_sha256": "52c44843f52549def64e5406ce985c2f907b7edcdacc2ef0cc9324eeb68b4070",
+      "review_sha256": "52c44843f52549def64e5406ce985c2f907b7edcdacc2ef0cc9324eeb68b4070"
+    },
+    {
+      "path": "TinhKiemAuto/AsyncUserToken.cs",
+      "raw_source_sha256": "8f94b45ac9cb3f0ba296968832bad9679142157d2a51c9f5bffb4863b6e323d8",
+      "review_sha256": "8f94b45ac9cb3f0ba296968832bad9679142157d2a51c9f5bffb4863b6e323d8"
+    },
+    {
+      "path": "TinhKiemAuto/AutoEatItem.cs",
+      "raw_source_sha256": "8c5c798f04881c71df2d371760aba4deb938d296eebe629b80678a8a8f0e6d80",
+      "review_sha256": "8c5c798f04881c71df2d371760aba4deb938d296eebe629b80678a8a8f0e6d80"
+    },
+    {
+      "path": "TinhKiemAuto/BANG.cs",
+      "raw_source_sha256": "3b8a1143028f3b096b93c8cacda30209f681137d14822bca117506151eaaae31",
+      "review_sha256": "3b8a1143028f3b096b93c8cacda30209f681137d14822bca117506151eaaae31"
+    },
+    {
+      "path": "TinhKiemAuto/Bank.cs",
+      "raw_source_sha256": "38f7f00bad41bdd6de94fd20b6ab378b3184212ee2902b11ce73a2d97b588eae",
+      "review_sha256": "38f7f00bad41bdd6de94fd20b6ab378b3184212ee2902b11ce73a2d97b588eae"
+    },
+    {
+      "path": "TinhKiemAuto/BoQua.cs",
+      "raw_source_sha256": "01062a6f51c9453d028fcdb3ca381cbd30b65881f65f0c00332578961d383a77",
+      "review_sha256": "01062a6f51c9453d028fcdb3ca381cbd30b65881f65f0c00332578961d383a77"
+    },
+    {
+      "path": "TinhKiemAuto/BoolFormatter.cs",
+      "raw_source_sha256": "c6b2905a99c731611d538576d7df82e4516d30221d71aba2be3da49a6656b56f",
+      "review_sha256": "c6b2905a99c731611d538576d7df82e4516d30221d71aba2be3da49a6656b56f"
+    },
+    {
+      "path": "TinhKiemAuto/Buff.cs",
+      "raw_source_sha256": "dcc65332c52bfb20c58691016f63bbf5c1d16c1a2ca329c56ea07f4ed8ef1ac3",
+      "review_sha256": "dcc65332c52bfb20c58691016f63bbf5c1d16c1a2ca329c56ea07f4ed8ef1ac3"
+    },
+    {
+      "path": "TinhKiemAuto/ByteFormatter.cs",
+      "raw_source_sha256": "a2ec2cab49dfef92a8629dd30cef9d597955bcb5c9db699f187329d90202d7d7",
+      "review_sha256": "a2ec2cab49dfef92a8629dd30cef9d597955bcb5c9db699f187329d90202d7d7"
+    },
+    {
+      "path": "TinhKiemAuto/CAIBANG.cs",
+      "raw_source_sha256": "1778f271f33b5e3bf9aff4c897d2b43ede10bdf93d61a7f9d143cc4b8526839c",
+      "review_sha256": "1778f271f33b5e3bf9aff4c897d2b43ede10bdf93d61a7f9d143cc4b8526839c"
+    },
+    {
+      "path": "TinhKiemAuto/CRTInjection.cs",
+      "raw_source_sha256": "5d9e4502518e8496535a5a52fbb6d00927ebc01a98990c687e5e5439049ac41b",
+      "review_sha256": "5d9e4502518e8496535a5a52fbb6d00927ebc01a98990c687e5e5439049ac41b"
+    },
+    {
+      "path": "TinhKiemAuto/CalculatedSegment.cs",
+      "raw_source_sha256": "35306bd4d776a2b3a1254573a887f7bfc2987b000d819c78a026606c8bffcb43",
+      "review_sha256": "35306bd4d776a2b3a1254573a887f7bfc2987b000d819c78a026606c8bffcb43"
+    },
+    {
+      "path": "TinhKiemAuto/CanhBao.cs",
+      "raw_source_sha256": "03c2e44dde4ab18687ecd6fec0e9c3b0a77e00c568bf7c4bce4142c5632d4d30",
+      "review_sha256": "03c2e44dde4ab18687ecd6fec0e9c3b0a77e00c568bf7c4bce4142c5632d4d30"
+    },
+    {
+      "path": "TinhKiemAuto/ChangeLogs.cs",
+      "raw_source_sha256": "7edceafce1699aca96b91c342d6d16c5108dbb4a14735652a15604e2ac6bb7df",
+      "review_sha256": "7edceafce1699aca96b91c342d6d16c5108dbb4a14735652a15604e2ac6bb7df"
+    },
+    {
+      "path": "TinhKiemAuto/Chat.cs",
+      "raw_source_sha256": "26bb3ea5f8815f0e8cf8201fe3bb5c366f99fbcf058cefc3587c64ce0673f287",
+      "review_sha256": "26bb3ea5f8815f0e8cf8201fe3bb5c366f99fbcf058cefc3587c64ce0673f287"
+    },
+    {
+      "path": "TinhKiemAuto/Class95.cs",
+      "raw_source_sha256": "17c509f253e1c546951865f5d53960b49577d1030916e02035e50560986b62b5",
+      "review_sha256": "17c509f253e1c546951865f5d53960b49577d1030916e02035e50560986b62b5"
+    },
+    {
+      "path": "TinhKiemAuto/Config.cs",
+      "raw_source_sha256": "8bd093cc2d5357347bb119aa3f71c1e8be24c46585a1d9e3a9450baaa4601e05",
+      "review_sha256": "8bd093cc2d5357347bb119aa3f71c1e8be24c46585a1d9e3a9450baaa4601e05"
+    },
+    {
+      "path": "TinhKiemAuto/Configs.cs",
+      "raw_source_sha256": "d8ff413d15c237f8cf2ecdebda593e0af2dc341cc3ba99ff853e6f1266e356aa",
+      "review_sha256": "d8ff413d15c237f8cf2ecdebda593e0af2dc341cc3ba99ff853e6f1266e356aa"
+    },
+    {
+      "path": "TinhKiemAuto/Constants.cs",
+      "raw_source_sha256": "2cbb01a64136cc7a21d81f3513aaa98434898ba13ba86a6082935bb5e0de0f75",
+      "review_sha256": "2cbb01a64136cc7a21d81f3513aaa98434898ba13ba86a6082935bb5e0de0f75"
+    },
+    {
+      "path": "TinhKiemAuto/ConverterEx.cs",
+      "raw_source_sha256": "93d44f2c283d21a48aab26e8b9031b82d6c9d7ba59e5ca3a671b869069d377f8",
+      "review_sha256": "93d44f2c283d21a48aab26e8b9031b82d6c9d7ba59e5ca3a671b869069d377f8"
+    },
+    {
+      "path": "TinhKiemAuto/DAILY.cs",
+      "raw_source_sha256": "d303d64f39392873b3514c447182510ce75b0ecd5197a507759b652fade6cf4a",
+      "review_sha256": "d303d64f39392873b3514c447182510ce75b0ecd5197a507759b652fade6cf4a"
+    },
+    {
+      "path": "TinhKiemAuto/DATA_DIRECTORIES.cs",
+      "raw_source_sha256": "848822b22c28f634dac8dcc88eddffc181221755639c295919d73a909ee1f7b7",
+      "review_sha256": "848822b22c28f634dac8dcc88eddffc181221755639c295919d73a909ee1f7b7"
+    },
+    {
+      "path": "TinhKiemAuto/DLLInjector.cs",
+      "raw_source_sha256": "459ab0c9b6a9256a872fb6e50dc922dad59563d6a81adccd303813517a957af2",
+      "review_sha256": "459ab0c9b6a9256a872fb6e50dc922dad59563d6a81adccd303813517a957af2"
+    },
+    {
+      "path": "TinhKiemAuto/DUONGMON.cs",
+      "raw_source_sha256": "b0744f2689f64abd74930ec7bff1d3dedaf984a41880600add96cf32cb9e4c44",
+      "review_sha256": "b0744f2689f64abd74930ec7bff1d3dedaf984a41880600add96cf32cb9e4c44"
+    },
+    {
+      "path": "TinhKiemAuto/DataHelper.cs",
+      "raw_source_sha256": "520c6b590d70006f2c5fa68880ab80e0910e6a21ed136cc5753c722d07fe5a99",
+      "review_sha256": "520c6b590d70006f2c5fa68880ab80e0910e6a21ed136cc5753c722d07fe5a99"
+    },
+    {
+      "path": "TinhKiemAuto/Debug.cs",
+      "raw_source_sha256": "c5ea0e60c5cdf789e31845a369c7a4a89496b1c6f9daaa6c80668467e2897bbd",
+      "review_sha256": "8cb20846454f0290d22890d07e796ae35dcfba95a12c67f5b736864a819e6250"
+    },
+    {
+      "path": "TinhKiemAuto/DownloadSettings.cs",
+      "raw_source_sha256": "c38429a0b7bcafe796f3614c969d995d48ee4012ac356aa17a90f3583d8237ee",
+      "review_sha256": "c38429a0b7bcafe796f3614c969d995d48ee4012ac356aa17a90f3583d8237ee"
+    },
+    {
+      "path": "TinhKiemAuto/Downloader.cs",
+      "raw_source_sha256": "4d08e1705080aab0e2124afaaa9ed0e31d1b5bd7be38fb4c6c8ca9313a4a154b",
+      "review_sha256": "4d08e1705080aab0e2124afaaa9ed0e31d1b5bd7be38fb4c6c8ca9313a4a154b"
+    },
+    {
+      "path": "TinhKiemAuto/DownloaderEventArgs.cs",
+      "raw_source_sha256": "4d1f31beef14c84af6b03dcc82482e5a4cb60012eff71fecf696833af342cab5",
+      "review_sha256": "4d1f31beef14c84af6b03dcc82482e5a4cb60012eff71fecf696833af342cab5"
+    },
+    {
+      "path": "TinhKiemAuto/DownloaderState.cs",
+      "raw_source_sha256": "65f5550cb65043dd4cec56058df6abad5b725fe13a7835d9c1f19eb0f8650e44",
+      "review_sha256": "65f5550cb65043dd4cec56058df6abad5b725fe13a7835d9c1f19eb0f8650e44"
+    },
+    {
+      "path": "TinhKiemAuto/DropItem.cs",
+      "raw_source_sha256": "0f88ef777de776253ba60aa29a3dea1e5a6c1f21372feb81b77ee3b83580c56e",
+      "review_sha256": "0f88ef777de776253ba60aa29a3dea1e5a6c1f21372feb81b77ee3b83580c56e"
+    },
+    {
+      "path": "TinhKiemAuto/ErrorBase.cs",
+      "raw_source_sha256": "9470344288b998886129f601094b5f5fcbbe4758a39260b59a7362f5bc16cde2",
+      "review_sha256": "9470344288b998886129f601094b5f5fcbbe4758a39260b59a7362f5bc16cde2"
+    },
+    {
+      "path": "TinhKiemAuto/FingerPrint.cs",
+      "raw_source_sha256": "b5d4ae71ff04df8e7bd035d5c774824a345fe13e9a6dce1bbf6f1877450361d2",
+      "review_sha256": "b5d4ae71ff04df8e7bd035d5c774824a345fe13e9a6dce1bbf6f1877450361d2"
+    },
+    {
+      "path": "TinhKiemAuto/FormUpload.cs",
+      "raw_source_sha256": "d7d2e4357f972cc8ff0716d924b3d317143dbd6063c26bd07e55038c38167575",
+      "review_sha256": "d7d2e4357f972cc8ff0716d924b3d317143dbd6063c26bd07e55038c38167575"
+    },
+    {
+      "path": "TinhKiemAuto/FrmMain.cs",
+      "raw_source_sha256": "9b784ed734b91532c5af9d23546d42aca83bd8139dff94370faa811c0b4afb1d",
+      "review_sha256": "9b784ed734b91532c5af9d23546d42aca83bd8139dff94370faa811c0b4afb1d"
+    },
+    {
+      "path": "TinhKiemAuto/GAMEDIC.cs",
+      "raw_source_sha256": "70559bd808faca8e62d72f761add7e9598129e2f3ffa6987358f010e45977d80",
+      "review_sha256": "70559bd808faca8e62d72f761add7e9598129e2f3ffa6987358f010e45977d80"
+    },
+    {
+      "path": "TinhKiemAuto/Game.cs",
+      "raw_source_sha256": "6829da3d72333035a30c8d2530e82b53919e6a7330ecaadf9bfb86c5fe158d47",
+      "review_sha256": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e"
+    },
+    {
+      "path": "TinhKiemAuto/GameControl.cs",
+      "raw_source_sha256": "b1190e22ea7048b736dbdb5c283334c9b7d5a4d090e3b3b2d71e5d8fcf9f8d0a",
+      "review_sha256": "b1190e22ea7048b736dbdb5c283334c9b7d5a4d090e3b3b2d71e5d8fcf9f8d0a"
+    },
+    {
+      "path": "TinhKiemAuto/GameObject.cs",
+      "raw_source_sha256": "dfebde2aa842657ec97f84ee036876a8562e45178efc08e13bf885d416c716c5",
+      "review_sha256": "dfebde2aa842657ec97f84ee036876a8562e45178efc08e13bf885d416c716c5"
+    },
+    {
+      "path": "TinhKiemAuto/GameObjects.cs",
+      "raw_source_sha256": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd",
+      "review_sha256": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd"
+    },
+    {
+      "path": "TinhKiemAuto/Games.cs",
+      "raw_source_sha256": "459ab2c6ac05fd7b5da9f5a14d1891df9f792a14c6b26866135ff8993bcc732d",
+      "review_sha256": "459ab2c6ac05fd7b5da9f5a14d1891df9f792a14c6b26866135ff8993bcc732d"
+    },
+    {
+      "path": "TinhKiemAuto/GdiMemoryContext.cs",
+      "raw_source_sha256": "19c829c24c661b660c97e498d076a08254f60ee9cfc9535be32abcfca7c1c5a1",
+      "review_sha256": "19c829c24c661b660c97e498d076a08254f60ee9cfc9535be32abcfca7c1c5a1"
+    },
+    {
+      "path": "TinhKiemAuto/Global.cs",
+      "raw_source_sha256": "e21628396224edf0693811371a451cc3049a1d9741e00940e8cfc8ed907ea441",
+      "review_sha256": "e21628396224edf0693811371a451cc3049a1d9741e00940e8cfc8ed907ea441"
+    },
+    {
+      "path": "TinhKiemAuto/GlobalKeyboardHook.cs",
+      "raw_source_sha256": "6b8eb88e40afcad09230ddb1559428e9dc91bb134c67285a382a27a7ce5926d2",
+      "review_sha256": "6b8eb88e40afcad09230ddb1559428e9dc91bb134c67285a382a27a7ce5926d2"
+    },
+    {
+      "path": "TinhKiemAuto/HotKey.cs",
+      "raw_source_sha256": "30d4dac083ee8395ca0a9757bc91115b885cd01cb18fd9dd77b09e9ab67688ca",
+      "review_sha256": "30d4dac083ee8395ca0a9757bc91115b885cd01cb18fd9dd77b09e9ab67688ca"
+    },
+    {
+      "path": "TinhKiemAuto/IExtension.cs",
+      "raw_source_sha256": "25a7aab0bce94875dfc2046eb59d272711fe97c8f50cae374f33877c6562eca7",
+      "review_sha256": "25a7aab0bce94875dfc2046eb59d272711fe97c8f50cae374f33877c6562eca7"
+    },
+    {
+      "path": "TinhKiemAuto/IExtensionParameters.cs",
+      "raw_source_sha256": "8096fad0c9b2015c3f74aa5f6d9e15b25830aca3a8cabd09d565d0c3d1d36b2d",
+      "review_sha256": "8096fad0c9b2015c3f74aa5f6d9e15b25830aca3a8cabd09d565d0c3d1d36b2d"
+    },
+    {
+      "path": "TinhKiemAuto/IHttpFtpProtocolParameters.cs",
+      "raw_source_sha256": "bb13b02047469871f4ab8c43dadd08bac5f4361b89694b5a166b4fe15b0726c2",
+      "review_sha256": "bb13b02047469871f4ab8c43dadd08bac5f4361b89694b5a166b4fe15b0726c2"
+    },
+    {
+      "path": "TinhKiemAuto/IInitializable.cs",
+      "raw_source_sha256": "eccc3ddf374e1e4962b8de576d73fcc7806fd384d41e85762568c60123bfcadc",
+      "review_sha256": "eccc3ddf374e1e4962b8de576d73fcc7806fd384d41e85762568c60123bfcadc"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_BASE_RELOCATION.cs",
+      "raw_source_sha256": "98622164fef3399766773bec2a15bb5946a0e62fedbdffa554b279698cd0d3d4",
+      "review_sha256": "98622164fef3399766773bec2a15bb5946a0e62fedbdffa554b279698cd0d3d4"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_DATA_DIRECTORY.cs",
+      "raw_source_sha256": "1745a836e26b036532a6876e2e81bd59de9dbdd1aef67c21925ac834acaa686b",
+      "review_sha256": "1745a836e26b036532a6876e2e81bd59de9dbdd1aef67c21925ac834acaa686b"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_DOS_HEADER.cs",
+      "raw_source_sha256": "f4070750584a00a2caa331ec54ed343922cb72aa162d174c175282a641961df7",
+      "review_sha256": "f4070750584a00a2caa331ec54ed343922cb72aa162d174c175282a641961df7"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_FILE_HEADER.cs",
+      "raw_source_sha256": "bb206660c252432f8a53da02ce89243f5f3016184c6babedc1d47a25d952bdfa",
+      "review_sha256": "bb206660c252432f8a53da02ce89243f5f3016184c6babedc1d47a25d952bdfa"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_IMPORT_DESCRIPTOR.cs",
+      "raw_source_sha256": "fd477a55755193c4792ca1fedf490ff141be2992bfe5488e714fa20600b85299",
+      "review_sha256": "fd477a55755193c4792ca1fedf490ff141be2992bfe5488e714fa20600b85299"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_NT_HEADER32.cs",
+      "raw_source_sha256": "ff3ecabef92d84861d443e84126513c98e5f65a9ac084fc8b097721c568abb64",
+      "review_sha256": "ff3ecabef92d84861d443e84126513c98e5f65a9ac084fc8b097721c568abb64"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_OPTIONAL_HEADER32.cs",
+      "raw_source_sha256": "95279801b5f44522e4b91ec4519f697d8642a66d3b63bd8ffa52e817f0e26d99",
+      "review_sha256": "95279801b5f44522e4b91ec4519f697d8642a66d3b63bd8ffa52e817f0e26d99"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_RESOURCE_DATA_ENTRY.cs",
+      "raw_source_sha256": "2f74ca8a750d2a808323b9d8a323a1c78450f827fab6689b34741ffc36deafa6",
+      "review_sha256": "2f74ca8a750d2a808323b9d8a323a1c78450f827fab6689b34741ffc36deafa6"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_RESOURCE_DIRECTORY.cs",
+      "raw_source_sha256": "50e409833906cfed6ead19887dec9874447225f9a13a5e80f2b6b0a69d2a8368",
+      "review_sha256": "50e409833906cfed6ead19887dec9874447225f9a13a5e80f2b6b0a69d2a8368"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_RESOURCE_DIRECTORY_ENTRY.cs",
+      "raw_source_sha256": "1555499183a4e6dd6a8512024c652b5fa02135a2fccc1abcadaceffa9a8f6b99",
+      "review_sha256": "1555499183a4e6dd6a8512024c652b5fa02135a2fccc1abcadaceffa9a8f6b99"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_SECTION_HEADER.cs",
+      "raw_source_sha256": "cd4a3b4650617bebc1b56bc1af8fa6bf6ca4507965bb26c0373eab15b3e4e86d",
+      "review_sha256": "cd4a3b4650617bebc1b56bc1af8fa6bf6ca4507965bb26c0373eab15b3e4e86d"
+    },
+    {
+      "path": "TinhKiemAuto/IMAGE_THUNK_DATA.cs",
+      "raw_source_sha256": "964d0bc9a107ef284dea89dc424c34bc890d2390d034072e554a4495be0a5f04",
+      "review_sha256": "964d0bc9a107ef284dea89dc424c34bc890d2390d034072e554a4495be0a5f04"
+    },
+    {
+      "path": "TinhKiemAuto/IMirrorSelector.cs",
+      "raw_source_sha256": "ee5807d96202656a95d1071d8fa237af8b5f3c2072666ac4fd3ec0300cac0860",
+      "review_sha256": "ee5807d96202656a95d1071d8fa237af8b5f3c2072666ac4fd3ec0300cac0860"
+    },
+    {
+      "path": "TinhKiemAuto/IProtocolProvider.cs",
+      "raw_source_sha256": "7350ea1eafe33707d809b8a78d31010a1196d6599933fa888b6530427067812a",
+      "review_sha256": "7350ea1eafe33707d809b8a78d31010a1196d6599933fa888b6530427067812a"
+    },
+    {
+      "path": "TinhKiemAuto/ISegmentCalculator.cs",
+      "raw_source_sha256": "f297cf8bc7b33731841d21f60aa7f3ee289c31cd573b5206165cb00d2879b322",
+      "review_sha256": "f297cf8bc7b33731841d21f60aa7f3ee289c31cd573b5206165cb00d2879b322"
+    },
+    {
+      "path": "TinhKiemAuto/IUIExtension.cs",
+      "raw_source_sha256": "ec7b3735f6616efad65b6510f56279035540de6546324642feb0d784f8c105c4",
+      "review_sha256": "ec7b3735f6616efad65b6510f56279035540de6546324642feb0d784f8c105c4"
+    },
+    {
+      "path": "TinhKiemAuto/IdleTimeFinder.cs",
+      "raw_source_sha256": "1b1de65a77e969e177acd493f5a18b999561b1d8d250f4452e1126d9e8e1ad01",
+      "review_sha256": "1b1de65a77e969e177acd493f5a18b999561b1d8d250f4452e1126d9e8e1ad01"
+    },
+    {
+      "path": "TinhKiemAuto/ImageResource.cs",
+      "raw_source_sha256": "d1f66df47169084185fc49fb6e17e837f9c43a5db1082415a85b04d724b45c34",
+      "review_sha256": "d1f66df47169084185fc49fb6e17e837f9c43a5db1082415a85b04d724b45c34"
+    },
+    {
+      "path": "TinhKiemAuto/IniFileEx.cs",
+      "raw_source_sha256": "87a293c1decc52db6a157fdf703722d341bdd6a8c86da2fbb75d39b69c837e22",
+      "review_sha256": "87a293c1decc52db6a157fdf703722d341bdd6a8c86da2fbb75d39b69c837e22"
+    },
+    {
+      "path": "TinhKiemAuto/InjectionMethod.cs",
+      "raw_source_sha256": "42359d5e8ab2b559e3bbed02839cceed38c303719f1241e492ac45c4f814e3db",
+      "review_sha256": "42359d5e8ab2b559e3bbed02839cceed38c303719f1241e492ac45c4f814e3db"
+    },
+    {
+      "path": "TinhKiemAuto/InjectionMethodType.cs",
+      "raw_source_sha256": "ea5743b256c9410ae4f7af64242fd52ebca8cbb7313720e52b8dce012ca4c3f6",
+      "review_sha256": "ea5743b256c9410ae4f7af64242fd52ebca8cbb7313720e52b8dce012ca4c3f6"
+    },
+    {
+      "path": "TinhKiemAuto/LACDUONG.cs",
+      "raw_source_sha256": "c2ac43867a893363e229889d74c80fac04a187d11378b25c57d540d70c364ac8",
+      "review_sha256": "c2ac43867a893363e229889d74c80fac04a187d11378b25c57d540d70c364ac8"
+    },
+    {
+      "path": "TinhKiemAuto/LASTINPUTINFO.cs",
+      "raw_source_sha256": "05ad544d21aa481527cd5eb4c5c604001de6bc5b98e7cb662b783de757952bba",
+      "review_sha256": "05ad544d21aa481527cd5eb4c5c604001de6bc5b98e7cb662b783de757952bba"
+    },
+    {
+      "path": "TinhKiemAuto/LAULAN.cs",
+      "raw_source_sha256": "50911fed6146295dc1d9b1427449a0f469d6507c047d20b321ac096d5560a5e0",
+      "review_sha256": "50911fed6146295dc1d9b1427449a0f469d6507c047d20b321ac096d5560a5e0"
+    },
+    {
+      "path": "TinhKiemAuto/LUA.cs",
+      "raw_source_sha256": "0e463fac02ff34427fe54fb05b863b64efeced393da5ae36c778615cf84482e9",
+      "review_sha256": "0e463fac02ff34427fe54fb05b863b64efeced393da5ae36c778615cf84482e9"
+    },
+    {
+      "path": "TinhKiemAuto/ListViewExtensions.cs",
+      "raw_source_sha256": "4efe981c09e56ed2cf2ba6f737481dffd6972bd1ff58176996e025c7177176c2",
+      "review_sha256": "4efe981c09e56ed2cf2ba6f737481dffd6972bd1ff58176996e025c7177176c2"
+    },
+    {
+      "path": "TinhKiemAuto/MAP.cs",
+      "raw_source_sha256": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0",
+      "review_sha256": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0"
+    },
+    {
+      "path": "TinhKiemAuto/MAXEXP.cs",
+      "raw_source_sha256": "e9fe949937b1c21df5548e3f2b075d9ebc701d8a26a1e498c17fffca534e9ee8",
+      "review_sha256": "e9fe949937b1c21df5548e3f2b075d9ebc701d8a26a1e498c17fffca534e9ee8"
+    },
+    {
+      "path": "TinhKiemAuto/MD5Util.cs",
+      "raw_source_sha256": "8735c2ae6743eb1204a8618df11574d187393e6b3d1747c833e839d63397b19d",
+      "review_sha256": "8735c2ae6743eb1204a8618df11574d187393e6b3d1747c833e839d63397b19d"
+    },
+    {
+      "path": "TinhKiemAuto/MENPAI.cs",
+      "raw_source_sha256": "820cc61bb5a932a110b712d07decccfbe18b25bd03b2021c70ec340238290da0",
+      "review_sha256": "820cc61bb5a932a110b712d07decccfbe18b25bd03b2021c70ec340238290da0"
+    },
+    {
+      "path": "TinhKiemAuto/MINHGIAO.cs",
+      "raw_source_sha256": "4c26b445a55ad9a683db9d42368cb2c5d2323cae555e424fc80152e022958cfa",
+      "review_sha256": "4c26b445a55ad9a683db9d42368cb2c5d2323cae555e424fc80152e022958cfa"
+    },
+    {
+      "path": "TinhKiemAuto/MISSION.cs",
+      "raw_source_sha256": "8b76a586ab4d4f43ad69f3148cefed0e0694c3d8d92b7abb3e572a5131608a95",
+      "review_sha256": "8b76a586ab4d4f43ad69f3148cefed0e0694c3d8d92b7abb3e572a5131608a95"
+    },
+    {
+      "path": "TinhKiemAuto/MODUNG.cs",
+      "raw_source_sha256": "a5d50229387dbc149fd66f6eac6dc9cb251fb3f375337482a946da3ab8029a3c",
+      "review_sha256": "a5d50229387dbc149fd66f6eac6dc9cb251fb3f375337482a946da3ab8029a3c"
+    },
+    {
+      "path": "TinhKiemAuto/ManualMap.cs",
+      "raw_source_sha256": "11a74861cf976b86bb148f8e559587131b550d0eb746746e0e960a4ea021a24d",
+      "review_sha256": "11a74861cf976b86bb148f8e559587131b550d0eb746746e0e960a4ea021a24d"
+    },
+    {
+      "path": "TinhKiemAuto/Memory.cs",
+      "raw_source_sha256": "33a9aa0cd2f28f26fc72c1c3a46b92c0e5560b03df0f0a611b10110eb1111c83",
+      "review_sha256": "33a9aa0cd2f28f26fc72c1c3a46b92c0e5560b03df0f0a611b10110eb1111c83"
+    },
+    {
+      "path": "TinhKiemAuto/MemoryHelper.cs",
+      "raw_source_sha256": "f5e2fa5a18cdc77ddb2508e73aac5d2a93f97c9b4cf2d71bb43137961a4afb30",
+      "review_sha256": "f5e2fa5a18cdc77ddb2508e73aac5d2a93f97c9b4cf2d71bb43137961a4afb30"
+    },
+    {
+      "path": "TinhKiemAuto/MemoryIterator.cs",
+      "raw_source_sha256": "73e5bc6b439f5b0be944238a906fefc7530299d6173f5869ab19b706bcc6a4b2",
+      "review_sha256": "73e5bc6b439f5b0be944238a906fefc7530299d6173f5869ab19b706bcc6a4b2"
+    },
+    {
+      "path": "TinhKiemAuto/MinSizeSegmentCalculator.cs",
+      "raw_source_sha256": "2703a2fd852751346f5374e78aa34f7991681688f71da897d307113d311aeceb",
+      "review_sha256": "2703a2fd852751346f5374e78aa34f7991681688f71da897d307113d311aeceb"
+    },
+    {
+      "path": "TinhKiemAuto/ModifyRegistry.cs",
+      "raw_source_sha256": "8a19f8c54dba05cda85c0a571e81d1ac9c0b4062b2a4497ff194750f26dc53a3",
+      "review_sha256": "8a19f8c54dba05cda85c0a571e81d1ac9c0b4062b2a4497ff194750f26dc53a3"
+    },
+    {
+      "path": "TinhKiemAuto/Modules.cs",
+      "raw_source_sha256": "58316b666aa69dfebf6d7c75ad990ca306a1c1f055c090e13367376cb5b12a20",
+      "review_sha256": "58316b666aa69dfebf6d7c75ad990ca306a1c1f055c090e13367376cb5b12a20"
+    },
+    {
+      "path": "TinhKiemAuto/Music.cs",
+      "raw_source_sha256": "53e0c3b937f8a5f9865fd502bf5746e41fc493fc79a1feb57737b1ed4c37cdef",
+      "review_sha256": "53e0c3b937f8a5f9865fd502bf5746e41fc493fc79a1feb57737b1ed4c37cdef"
+    },
+    {
+      "path": "TinhKiemAuto/NGAMY.cs",
+      "raw_source_sha256": "3145d06e38ab25caa05f01ee7a0606a4cd0634f674777b0d7931c92667b8b48c",
+      "review_sha256": "3145d06e38ab25caa05f01ee7a0606a4cd0634f674777b0d7931c92667b8b48c"
+    },
+    {
+      "path": "TinhKiemAuto/NPC.cs",
+      "raw_source_sha256": "1d190ed3a864ec275e6ec149bee9dbe00f765ad6585c5d3492a6f638bf6b17f3",
+      "review_sha256": "1d190ed3a864ec275e6ec149bee9dbe00f765ad6585c5d3492a6f638bf6b17f3"
+    },
+    {
+      "path": "TinhKiemAuto/Native.cs",
+      "raw_source_sha256": "c98206aedca1d6324286734e003b11b0f2f7d5acfe5ee5cf6816fc79c3f45f69",
+      "review_sha256": "c98206aedca1d6324286734e003b11b0f2f7d5acfe5ee5cf6816fc79c3f45f69"
+    },
+    {
+      "path": "TinhKiemAuto/NativeMethods.cs",
+      "raw_source_sha256": "4129bc7b26d6b3be0ff97f043df68c93e17fdea49214d2862fc345bf8655a458",
+      "review_sha256": "4129bc7b26d6b3be0ff97f043df68c93e17fdea49214d2862fc345bf8655a458"
+    },
+    {
+      "path": "TinhKiemAuto/ObjectLocker.cs",
+      "raw_source_sha256": "26024fedd3e0696f5d7648d6957729154674eda3ced2e4ae8fc1f70711d52870",
+      "review_sha256": "26024fedd3e0696f5d7648d6957729154674eda3ced2e4ae8fc1f70711d52870"
+    },
+    {
+      "path": "TinhKiemAuto/PHUNGHOANGCOTHANH.cs",
+      "raw_source_sha256": "64138b74b4903bece8ed58d82ce4fc37e2a8d7a3ec8e2e7849272bfb7a12970f",
+      "review_sha256": "64138b74b4903bece8ed58d82ce4fc37e2a8d7a3ec8e2e7849272bfb7a12970f"
+    },
+    {
+      "path": "TinhKiemAuto/PHUNGMINHTRAN.cs",
+      "raw_source_sha256": "b3a61fffabfacd7063fb3fb0b8bd016843f8b2681c401c08aa660e132e5a851d",
+      "review_sha256": "b3a61fffabfacd7063fb3fb0b8bd016843f8b2681c401c08aa660e132e5a851d"
+    },
+    {
+      "path": "TinhKiemAuto/POINT.cs",
+      "raw_source_sha256": "a516c63e0608d804dbf1c42cfd585188045693212ec5a3b4c4078144aa5d5fd0",
+      "review_sha256": "a516c63e0608d804dbf1c42cfd585188045693212ec5a3b4c4078144aa5d5fd0"
+    },
+    {
+      "path": "TinhKiemAuto/PROCESS.cs",
+      "raw_source_sha256": "e97c3b6337d5638a23d5a323b6b2e654ddc3b2fb19687e492fa1c55afd7a937b",
+      "review_sha256": "e97c3b6337d5638a23d5a323b6b2e654ddc3b2fb19687e492fa1c55afd7a937b"
+    },
+    {
+      "path": "TinhKiemAuto/PacketItem.cs",
+      "raw_source_sha256": "6bafb36a4d644b48116cc8196c97c493de8489f87bedb12daf98e50275bbfc7f",
+      "review_sha256": "6bafb36a4d644b48116cc8196c97c493de8489f87bedb12daf98e50275bbfc7f"
+    },
+    {
+      "path": "TinhKiemAuto/PathHelper.cs",
+      "raw_source_sha256": "b3d8ed68a2d20df206cb2504444663698e30e23ec1755f0c3da20e21d6dfd59a",
+      "review_sha256": "b3d8ed68a2d20df206cb2504444663698e30e23ec1755f0c3da20e21d6dfd59a"
+    },
+    {
+      "path": "TinhKiemAuto/PlayerState.cs",
+      "raw_source_sha256": "60f7d98a3da420aecd377557870fded923bd7b124423bc5dff366602aa4dc5a9",
+      "review_sha256": "60f7d98a3da420aecd377557870fded923bd7b124423bc5dff366602aa4dc5a9"
+    },
+    {
+      "path": "TinhKiemAuto/PortableExecutable.cs",
+      "raw_source_sha256": "216d4ded496c88dc166e414b93c130441a991fb9e6af6c93a7cd5f011744d93b",
+      "review_sha256": "216d4ded496c88dc166e414b93c130441a991fb9e6af6c93a7cd5f011744d93b"
+    },
+    {
+      "path": "TinhKiemAuto/Poster.cs",
+      "raw_source_sha256": "fdff831348d1c51ca243851c3dd45dd2078370fbf2fc6dbbb19e6b847e534dee",
+      "review_sha256": "fdff831348d1c51ca243851c3dd45dd2078370fbf2fc6dbbb19e6b847e534dee"
+    },
+    {
+      "path": "TinhKiemAuto/ProcessManager.cs",
+      "raw_source_sha256": "f856090d7d9ba43ea53c75a90d1ca2f0dfcdf888a0c987980471ded58e489c8a",
+      "review_sha256": "f856090d7d9ba43ea53c75a90d1ca2f0dfcdf888a0c987980471ded58e489c8a"
+    },
+    {
+      "path": "TinhKiemAuto/Program.cs",
+      "raw_source_sha256": "0511aef27c5b94871255c6bd531cb51fef4eaadd48925c3dacb7c6a75abc727d",
+      "review_sha256": "0511aef27c5b94871255c6bd531cb51fef4eaadd48925c3dacb7c6a75abc727d"
+    },
+    {
+      "path": "TinhKiemAuto/ProtocolProviderFactory.cs",
+      "raw_source_sha256": "97118be2554ce848477c6aa10400670d994043e035fda27471e9797a2ea97630",
+      "review_sha256": "97118be2554ce848477c6aa10400670d994043e035fda27471e9797a2ea97630"
+    },
+    {
+      "path": "TinhKiemAuto/QuestFrame.cs",
+      "raw_source_sha256": "09530c5ab9c412ff3c8f5e3a2339095f15a1ba32588ffd0487a721251c2e2aeb",
+      "review_sha256": "09530c5ab9c412ff3c8f5e3a2339095f15a1ba32588ffd0487a721251c2e2aeb"
+    },
+    {
+      "path": "TinhKiemAuto/ReaderWriterObjectLocker.cs",
+      "raw_source_sha256": "72f9ce1765b64969ff5376649576520142272020b48f90529a8da4793084b00a",
+      "review_sha256": "72f9ce1765b64969ff5376649576520142272020b48f90529a8da4793084b00a"
+    },
+    {
+      "path": "TinhKiemAuto/RemoteFileInfo.cs",
+      "raw_source_sha256": "a87eca7ce3b61f4e53008121b6cc90dd0c4278341cc02a89cd31679debfb7a02",
+      "review_sha256": "a87eca7ce3b61f4e53008121b6cc90dd0c4278341cc02a89cd31679debfb7a02"
+    },
+    {
+      "path": "TinhKiemAuto/ResolvingProtocolProviderEventArgs.cs",
+      "raw_source_sha256": "0265ae24b99858a20526be839d08fe11295ed2c5db78c0115ce0310e9e8fcb4b",
+      "review_sha256": "0265ae24b99858a20526be839d08fe11295ed2c5db78c0115ce0310e9e8fcb4b"
+    },
+    {
+      "path": "TinhKiemAuto/ResourceLocation.cs",
+      "raw_source_sha256": "6a39d4a5c4f7e3524d9ae60bd9f7b91bd782eaffc530d8ee899df36456ab389f",
+      "review_sha256": "6a39d4a5c4f7e3524d9ae60bd9f7b91bd782eaffc530d8ee899df36456ab389f"
+    },
+    {
+      "path": "TinhKiemAuto/ResourceWalker.cs",
+      "raw_source_sha256": "52b1ee54648036e6e94f3b83cc787ba9059d80bd0212e5b6c7d6b64ec8f90e85",
+      "review_sha256": "52b1ee54648036e6e94f3b83cc787ba9059d80bd0212e5b6c7d6b64ec8f90e85"
+    },
+    {
+      "path": "TinhKiemAuto/SMTPAuthenticationType.cs",
+      "raw_source_sha256": "22c29b276aa40db51a9a2432e8921025feb965f7e7f96a387c191fbf25a5a6ef",
+      "review_sha256": "22c29b276aa40db51a9a2432e8921025feb965f7e7f96a387c191fbf25a5a6ef"
+    },
+    {
+      "path": "TinhKiemAuto/STATE.cs",
+      "raw_source_sha256": "80b6a10e0c16c3ffd117f699ee99168b2e4d57ef32eb93234ba456fd66a8d2af",
+      "review_sha256": "80b6a10e0c16c3ffd117f699ee99168b2e4d57ef32eb93234ba456fd66a8d2af"
+    },
+    {
+      "path": "TinhKiemAuto/SciptsInfo.cs",
+      "raw_source_sha256": "6719f1057d6f60a48e6ef750642398eb911beaf4895c16c4c2491b76891d12cc",
+      "review_sha256": "6719f1057d6f60a48e6ef750642398eb911beaf4895c16c4c2491b76891d12cc"
+    },
+    {
+      "path": "TinhKiemAuto/Script.cs",
+      "raw_source_sha256": "10c9b0d3fcea85b98bf1e75aa5603dc7eeb5bd7259c8623ef0cba08ff3c3025f",
+      "review_sha256": "10c9b0d3fcea85b98bf1e75aa5603dc7eeb5bd7259c8623ef0cba08ff3c3025f"
+    },
+    {
+      "path": "TinhKiemAuto/Scripts.cs",
+      "raw_source_sha256": "ae0fe5029a0361623ba1428dabcd485fbb3aeedb6345038e42149557d2dad232",
+      "review_sha256": "ae0fe5029a0361623ba1428dabcd485fbb3aeedb6345038e42149557d2dad232"
+    },
+    {
+      "path": "TinhKiemAuto/SearchableBrowser.cs",
+      "raw_source_sha256": "419b5626a0e863394a30a3bfeed42a85d5b1058fc8411601b1ab28a5ce73d48b",
+      "review_sha256": "419b5626a0e863394a30a3bfeed42a85d5b1058fc8411601b1ab28a5ce73d48b"
+    },
+    {
+      "path": "TinhKiemAuto/Segment.cs",
+      "raw_source_sha256": "d786e0ae80a6bd6f1da9402f285883ac94ee7728c6b62875ab57a54c66bd4d0c",
+      "review_sha256": "d786e0ae80a6bd6f1da9402f285883ac94ee7728c6b62875ab57a54c66bd4d0c"
+    },
+    {
+      "path": "TinhKiemAuto/SegmentEventArgs.cs",
+      "raw_source_sha256": "ba558e068852cf760e7fd10ce5d6ad51c2658c36d3dee30b79449a77a813a674",
+      "review_sha256": "ba558e068852cf760e7fd10ce5d6ad51c2658c36d3dee30b79449a77a813a674"
+    },
+    {
+      "path": "TinhKiemAuto/SegmentState.cs",
+      "raw_source_sha256": "bc3f37d66f61267b1c000c4ec02fdbaa3e6f3f9778ef5f44b3101725d09558b4",
+      "review_sha256": "bc3f37d66f61267b1c000c4ec02fdbaa3e6f3f9778ef5f44b3101725d09558b4"
+    },
+    {
+      "path": "TinhKiemAuto/SellItem.cs",
+      "raw_source_sha256": "c4c267268ae6129fa5d6de2e471773dccccd83595b4ae0e996bd9cdb9eac70ce",
+      "review_sha256": "c4c267268ae6129fa5d6de2e471773dccccd83595b4ae0e996bd9cdb9eac70ce"
+    },
+    {
+      "path": "TinhKiemAuto/SequentialMirrorSelector.cs",
+      "raw_source_sha256": "a0b004b06bb87a75a410e3c9106c2c844dc125caa2366fc0347064d5c2853d6f",
+      "review_sha256": "a0b004b06bb87a75a410e3c9106c2c844dc125caa2366fc0347064d5c2853d6f"
+    },
+    {
+      "path": "TinhKiemAuto/Setting.cs",
+      "raw_source_sha256": "069bf1a05e1b77b6596a5c147067f1a627cd16c743df8bd1fed7c162d1d02f65",
+      "review_sha256": "069bf1a05e1b77b6596a5c147067f1a627cd16c743df8bd1fed7c162d1d02f65"
+    },
+    {
+      "path": "TinhKiemAuto/SettingEx.cs",
+      "raw_source_sha256": "225f2b07d2e22113aa69fe22c9203461a30f11bb23bdbc9450052df13af05284",
+      "review_sha256": "225f2b07d2e22113aa69fe22c9203461a30f11bb23bdbc9450052df13af05284"
+    },
+    {
+      "path": "TinhKiemAuto/Settings.cs",
+      "raw_source_sha256": "8fc2c1590e6bdaabd9eb1a95656db6616916b8c4bead5e99bcabc579df75846e",
+      "review_sha256": "8fc2c1590e6bdaabd9eb1a95656db6616916b8c4bead5e99bcabc579df75846e"
+    },
+    {
+      "path": "TinhKiemAuto/Shop.cs",
+      "raw_source_sha256": "04e973219a635cc998e531c0c4c49924094aec62fe966134c1c7c7e3ba3069da",
+      "review_sha256": "04e973219a635cc998e531c0c4c49924094aec62fe966134c1c7c7e3ba3069da"
+    },
+    {
+      "path": "TinhKiemAuto/ShutDown.cs",
+      "raw_source_sha256": "9d896a068e837eb896751b0a007a5ad04043e19a8624bb7d7190e8a624d2baa8",
+      "review_sha256": "9d896a068e837eb896751b0a007a5ad04043e19a8624bb7d7190e8a624d2baa8"
+    },
+    {
+      "path": "TinhKiemAuto/Skill.cs",
+      "raw_source_sha256": "e24b6671653f4a3dbf33b88dcb8faf05b3c7274c9f8fbd9f46837a3142f1c50a",
+      "review_sha256": "e24b6671653f4a3dbf33b88dcb8faf05b3c7274c9f8fbd9f46837a3142f1c50a"
+    },
+    {
+      "path": "TinhKiemAuto/SocketClient.cs",
+      "raw_source_sha256": "a43a7e38f0804d029fbd4bc33de1c36d666cbce90338f20990ac10ea9043e330",
+      "review_sha256": "a43a7e38f0804d029fbd4bc33de1c36d666cbce90338f20990ac10ea9043e330"
+    },
+    {
+      "path": "TinhKiemAuto/StandardInjectionMethod.cs",
+      "raw_source_sha256": "03e2180e06392a78d3f904c396d994541eaa4213c1b9099763b680c53f886907",
+      "review_sha256": "03e2180e06392a78d3f904c396d994541eaa4213c1b9099763b680c53f886907"
+    },
+    {
+      "path": "TinhKiemAuto/THAIHO.cs",
+      "raw_source_sha256": "ccd5c57d2c479a7a0ea0994b28c823c8a20ac7f2c6b6ee63d3fb7008f51f1e09",
+      "review_sha256": "ccd5c57d2c479a7a0ea0994b28c823c8a20ac7f2c6b6ee63d3fb7008f51f1e09"
+    },
+    {
+      "path": "TinhKiemAuto/THIENLONG.cs",
+      "raw_source_sha256": "12c454f7e69fc4a5c0ed44353fda0037de2ceaa0944f33f47c81d43c84712d32",
+      "review_sha256": "12c454f7e69fc4a5c0ed44353fda0037de2ceaa0944f33f47c81d43c84712d32"
+    },
+    {
+      "path": "TinhKiemAuto/THIENSON.cs",
+      "raw_source_sha256": "ae5f0a2fae4d5fef68fdd9dd0545f5111886c8c2b064918c728c96aa029c88e2",
+      "review_sha256": "ae5f0a2fae4d5fef68fdd9dd0545f5111886c8c2b064918c728c96aa029c88e2"
+    },
+    {
+      "path": "TinhKiemAuto/THIEULAM.cs",
+      "raw_source_sha256": "00274d53c9bbce42502001fa854b7cc725ceff90983fc886c5e1e0a43ca9a457",
+      "review_sha256": "00274d53c9bbce42502001fa854b7cc725ceff90983fc886c5e1e0a43ca9a457"
+    },
+    {
+      "path": "TinhKiemAuto/THUCHACOTRAN.cs",
+      "raw_source_sha256": "87a16022ee0a7363dd21bc4568153faf757ad714373a89bcd48194dbc3932499",
+      "review_sha256": "87a16022ee0a7363dd21bc4568153faf757ad714373a89bcd48194dbc3932499"
+    },
+    {
+      "path": "TinhKiemAuto/TIEUDAO.cs",
+      "raw_source_sha256": "be7c727bb8511e0a9221da1c74bb3dfb8e891959f3779dbccca1f10a6f27af6d",
+      "review_sha256": "be7c727bb8511e0a9221da1c74bb3dfb8e891959f3779dbccca1f10a6f27af6d"
+    },
+    {
+      "path": "TinhKiemAuto/TINHKIEM.cs",
+      "raw_source_sha256": "0675c3665c6ae67a8a5479f900f144a4f4bce8d6c0d971ba8f166984d25cec7d",
+      "review_sha256": "0675c3665c6ae67a8a5479f900f144a4f4bce8d6c0d971ba8f166984d25cec7d"
+    },
+    {
+      "path": "TinhKiemAuto/TINHTUC.cs",
+      "raw_source_sha256": "9f9c8181ef768a40da1516850f5b3913c3879eba6a76882f1aa92f973aae4b6f",
+      "review_sha256": "9f9c8181ef768a40da1516850f5b3913c3879eba6a76882f1aa92f973aae4b6f"
+    },
+    {
+      "path": "TinhKiemAuto/TLBB.cs",
+      "raw_source_sha256": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c",
+      "review_sha256": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c"
+    },
+    {
+      "path": "TinhKiemAuto/TLBBSTRING.cs",
+      "raw_source_sha256": "b1ec7e51a5bed79ecec9187dfbabc5fbbe7d138205cc4fa99daebf0e8796c183",
+      "review_sha256": "b1ec7e51a5bed79ecec9187dfbabc5fbbe7d138205cc4fa99daebf0e8796c183"
+    },
+    {
+      "path": "TinhKiemAuto/TOCHAU.cs",
+      "raw_source_sha256": "f60d16380583a177a4851e3f187799fd71e8dcd9988fd5b994ca427da798a263",
+      "review_sha256": "f60d16380583a177a4851e3f187799fd71e8dcd9988fd5b994ca427da798a263"
+    },
+    {
+      "path": "TinhKiemAuto/TRANLONGKYCUOC.cs",
+      "raw_source_sha256": "c110df6a75a0c981ead45a60ebae51e7e53e65475ac229cb59a23ba004b5234a",
+      "review_sha256": "c110df6a75a0c981ead45a60ebae51e7e53e65475ac229cb59a23ba004b5234a"
+    },
+    {
+      "path": "TinhKiemAuto/Task.cs",
+      "raw_source_sha256": "e6c8b383ef6d5f63c73a5cbf0ad0aeaddd0a8ceef5c1cd8bfb2f3ced46c2cd56",
+      "review_sha256": "e6c8b383ef6d5f63c73a5cbf0ad0aeaddd0a8ceef5c1cd8bfb2f3ced46c2cd56"
+    },
+    {
+      "path": "TinhKiemAuto/TaskInfo.cs",
+      "raw_source_sha256": "2123ce6040a47fb9f9b4ed64c7973b88745b7a85327a97b9cafd46d5d3dc646a",
+      "review_sha256": "2123ce6040a47fb9f9b4ed64c7973b88745b7a85327a97b9cafd46d5d3dc646a"
+    },
+    {
+      "path": "TinhKiemAuto/TaskListComparer.cs",
+      "raw_source_sha256": "cfdd45e75fa22d7d91b37b339ca0a67bd9f3f8b84af9344e656655d0c2718de8",
+      "review_sha256": "cfdd45e75fa22d7d91b37b339ca0a67bd9f3f8b84af9344e656655d0c2718de8"
+    },
+    {
+      "path": "TinhKiemAuto/ThietLapAuto.cs",
+      "raw_source_sha256": "bd0cd77ab93dbfb1e0cebaa0d877417802d49d06338758b96799ea2702339325",
+      "review_sha256": "bd0cd77ab93dbfb1e0cebaa0d877417802d49d06338758b96799ea2702339325"
+    },
+    {
+      "path": "TinhKiemAuto/ThongQR.cs",
+      "raw_source_sha256": "03f6126207c54f376bafcb6410ecf86bf4d83ade6ec8e9d56c7c92ca534fa7ea",
+      "review_sha256": "03f6126207c54f376bafcb6410ecf86bf4d83ade6ec8e9d56c7c92ca534fa7ea"
+    },
+    {
+      "path": "TinhKiemAuto/ThreadHijack.cs",
+      "raw_source_sha256": "9f610bf80d42598681b4311ec05c00be325b2d484ab71758c62bfb6a471e6914",
+      "review_sha256": "9f610bf80d42598681b4311ec05c00be325b2d484ab71758c62bfb6a471e6914"
+    },
+    {
+      "path": "TinhKiemAuto/TimeSpanFormatter.cs",
+      "raw_source_sha256": "94542c13d7b87206f019dfcfc3c62c308b99fb8a65e805058043e5c588728ade",
+      "review_sha256": "94542c13d7b87206f019dfcfc3c62c308b99fb8a65e805058043e5c588728ade"
+    },
+    {
+      "path": "TinhKiemAuto/U1.cs",
+      "raw_source_sha256": "e6757d5c291b9b269c2662854242785291c7351e30a0b4500f92dadfaa8c3b18",
+      "review_sha256": "e6757d5c291b9b269c2662854242785291c7351e30a0b4500f92dadfaa8c3b18"
+    },
+    {
+      "path": "TinhKiemAuto/UnmanagedBuffer.cs",
+      "raw_source_sha256": "6f4b9fa9f973b391bd02902703b549e5062ec933cf861abc89f759dbbb2471e3",
+      "review_sha256": "6f4b9fa9f973b391bd02902703b549e5062ec933cf861abc89f759dbbb2471e3"
+    },
+    {
+      "path": "TinhKiemAuto/Utils.cs",
+      "raw_source_sha256": "4389fd9c12b7f39bdce6937db8bf2ba4053b338454915b79b8589bbe2e8f967b",
+      "review_sha256": "4389fd9c12b7f39bdce6937db8bf2ba4053b338454915b79b8589bbe2e8f967b"
+    },
+    {
+      "path": "TinhKiemAuto/VISCII.cs",
+      "raw_source_sha256": "67783e5ec71247d417a04057b2dd8d0c178046bcdf9cc4e4171479cd21b67b95",
+      "review_sha256": "67783e5ec71247d417a04057b2dd8d0c178046bcdf9cc4e4171479cd21b67b95"
+    },
+    {
+      "path": "TinhKiemAuto/VISCIIDecoder.cs",
+      "raw_source_sha256": "a74de2424399391e6067827f977500cfe7e29687f53c1af742d5837d590f0188",
+      "review_sha256": "a74de2424399391e6067827f977500cfe7e29687f53c1af742d5837d590f0188"
+    },
+    {
+      "path": "TinhKiemAuto/VISCIIEncoder.cs",
+      "raw_source_sha256": "d7dc1014f537795f0d622fb52e29cb41dd38b2583597782520e57456c84ef6b9",
+      "review_sha256": "d7dc1014f537795f0d622fb52e29cb41dd38b2583597782520e57456c84ef6b9"
+    },
+    {
+      "path": "TinhKiemAuto/VODANG.cs",
+      "raw_source_sha256": "53431cae16b033b2001e73cc5d76e535df939cd34192f7de687e62a095b0b181",
+      "review_sha256": "53431cae16b033b2001e73cc5d76e535df939cd34192f7de687e62a095b0b181"
+    },
+    {
+      "path": "TinhKiemAuto/VirtualKeyStates.cs",
+      "raw_source_sha256": "dcab43fa4217dfc837eb6217d49722600ff2713233115fc4e9f70d41161e0946",
+      "review_sha256": "dcab43fa4217dfc837eb6217d49722600ff2713233115fc4e9f70d41161e0946"
+    },
+    {
+      "path": "TinhKiemAuto/Win.cs",
+      "raw_source_sha256": "0a6626362ed22e556ed7a001c915e33d5047497e91bbdcfd19ca022a808495d4",
+      "review_sha256": "0a6626362ed22e556ed7a001c915e33d5047497e91bbdcfd19ca022a808495d4"
+    },
+    {
+      "path": "TinhKiemAuto/Win32Ptr.cs",
+      "raw_source_sha256": "d08c13be908c039a6fab0880c6f3963a7adcf002d8dfd5907fd165c632449403",
+      "review_sha256": "d08c13be908c039a6fab0880c6f3963a7adcf002d8dfd5907fd165c632449403"
+    },
+    {
+      "path": "TinhKiemAuto/WinAPI.cs",
+      "raw_source_sha256": "8afb650454e73390f098069cc4eeb54c05fb4ca1c593c023911853c9dc362bb6",
+      "review_sha256": "8afb650454e73390f098069cc4eeb54c05fb4ca1c593c023911853c9dc362bb6"
+    },
+    {
+      "path": "TinhKiemAuto/XXTEA.cs",
+      "raw_source_sha256": "a34637f372bb3ef5853f94e7b871ed73d8e216de6462493e43891712add09244",
+      "review_sha256": "a34637f372bb3ef5853f94e7b871ed73d8e216de6462493e43891712add09244"
+    },
+    {
+      "path": "TinhKiemAuto/YENTUO.cs",
+      "raw_source_sha256": "76497febe52e672b0b8ab9483c69c7219c0eb22d9fe6ad4880b8052641aef256",
+      "review_sha256": "76497febe52e672b0b8ab9483c69c7219c0eb22d9fe6ad4880b8052641aef256"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/AutoReport.cs",
+      "raw_source_sha256": "c480abd9e4726a9ad13c2e460782b434e537e7323bffb65cc7f047ea8dc3ad38",
+      "review_sha256": "c480abd9e4726a9ad13c2e460782b434e537e7323bffb65cc7f047ea8dc3ad38"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/CheDo.cs",
+      "raw_source_sha256": "9e0e28be8708b6be4de1b0e14b8b36c3232cfcff849948b3a2a2031c0f1f8b21",
+      "review_sha256": "9e0e28be8708b6be4de1b0e14b8b36c3232cfcff849948b3a2a2031c0f1f8b21"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/Features.cs",
+      "raw_source_sha256": "5cd566c1e76361f89a2a7c2a135bc0efcdd944418c44d2bfc8aa96e32ee5282e",
+      "review_sha256": "5cd566c1e76361f89a2a7c2a135bc0efcdd944418c44d2bfc8aa96e32ee5282e"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/LenBai.cs",
+      "raw_source_sha256": "c7f0fecc8c17a901a201cf12eb5e14d148e664390538833b945596cf41386983",
+      "review_sha256": "c7f0fecc8c17a901a201cf12eb5e14d148e664390538833b945596cf41386983"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/OverView.cs",
+      "raw_source_sha256": "ce24cc0ef9053ed5e1c0b9d233d0d92802be73f20ddd239889dcf0ec07493ddf",
+      "review_sha256": "ce24cc0ef9053ed5e1c0b9d233d0d92802be73f20ddd239889dcf0ec07493ddf"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/PacketSend.cs",
+      "raw_source_sha256": "b77e6763061ddb48a1017b27ec7d2a09e232652fbfd5a668459bc2bff4eaaabd",
+      "review_sha256": "b77e6763061ddb48a1017b27ec7d2a09e232652fbfd5a668459bc2bff4eaaabd"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/PetAutoInfo.cs",
+      "raw_source_sha256": "0b69290247f56abf0cb6fdb2553adefa54ce0d7a625346a0d2e637dd69b9524d",
+      "review_sha256": "0b69290247f56abf0cb6fdb2553adefa54ce0d7a625346a0d2e637dd69b9524d"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/PickUpItems.cs",
+      "raw_source_sha256": "1d71492550ec46aef881c4373c184a56adc069503c72fb6c3102ba4bc19bf2f8",
+      "review_sha256": "1d71492550ec46aef881c4373c184a56adc069503c72fb6c3102ba4bc19bf2f8"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/SkillAuto.cs",
+      "raw_source_sha256": "eccf98cf494852e109e36cd425c0a35331ca1994fb11bd69a0c5e15f5f06114b",
+      "review_sha256": "eccf98cf494852e109e36cd425c0a35331ca1994fb11bd69a0c5e15f5f06114b"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/TotalPet.cs",
+      "raw_source_sha256": "1afd8e033a4a28b432c69787738b6a7e06f97ac60d3f6110ce57697ab3570c40",
+      "review_sha256": "1afd8e033a4a28b432c69787738b6a7e06f97ac60d3f6110ce57697ab3570c40"
+    },
+    {
+      "path": "TinhKiemAuto.AutoControl/TotalSkill.cs",
+      "raw_source_sha256": "47527a38cd5e7e611fdbb0444d64c1761b8e0b92fb972b6c84f1e8d07a64e55d",
+      "review_sha256": "47527a38cd5e7e611fdbb0444d64c1761b8e0b92fb972b6c84f1e8d07a64e55d"
+    },
+    {
+      "path": "TinhKiemAuto.AutoEatItem.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.BoQua.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.Buff.resx",
+      "raw_source_sha256": "6c23e1930477ed29200e1a991d954ba0b53cab756b8ea38afe3d7a57016a0571",
+      "review_sha256": "568f016790ceb9acd9240c7d473ae4f3b24d6c18f2899dae6a754d6763ea10c7"
+    },
+    {
+      "path": "TinhKiemAuto.CanhBao.resx",
+      "raw_source_sha256": "d6a1c1c29aa54242be039e41321a13e889ff91cd9a7d9179355d7efd3b4b8de4",
+      "review_sha256": "74738044dc5c9285c8da5ecf1a6e6933062ee50ba19a36117ad40e841c3fcd7b"
+    },
+    {
+      "path": "TinhKiemAuto.ChangeLogs.resx",
+      "raw_source_sha256": "7f5e3118b5e4cba7e384d6f9fdf32ad7062fbb2b97762188d6168e3ce7efb45c",
+      "review_sha256": "8558e45ffe5a5a1e8f53c17a609d9c1fc4d58793649c51acca898a4b92683c8e"
+    },
+    {
+      "path": "TinhKiemAuto.Chat.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.Controllers/Impact.cs",
+      "raw_source_sha256": "fdab559acf25e148801b510cc16c253c68a9f95ee7a187a2d79bd6437e7f7f27",
+      "review_sha256": "fdab559acf25e148801b510cc16c253c68a9f95ee7a187a2d79bd6437e7f7f27"
+    },
+    {
+      "path": "TinhKiemAuto.Controllers/SkillData.cs",
+      "raw_source_sha256": "fab1fda0d0610cb2cbe88024a12cbe6d210b00fa22391e3a769e89db58c6f09b",
+      "review_sha256": "fab1fda0d0610cb2cbe88024a12cbe6d210b00fa22391e3a769e89db58c6f09b"
+    },
+    {
+      "path": "TinhKiemAuto.Controllers/SkillModel.cs",
+      "raw_source_sha256": "ecf9ab0a281b9199d749305378825f30814099b1f66ffbb5cd9668d056b90b32",
+      "review_sha256": "ecf9ab0a281b9199d749305378825f30814099b1f66ffbb5cd9668d056b90b32"
+    },
+    {
+      "path": "TinhKiemAuto.Controllers/User.cs",
+      "raw_source_sha256": "220dffec7d323bd36f37ee91ec932a036632c7856d47eb5ce20d488d97f16daa",
+      "review_sha256": "220dffec7d323bd36f37ee91ec932a036632c7856d47eb5ce20d488d97f16daa"
+    },
+    {
+      "path": "TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs",
+      "raw_source_sha256": "64d1dfed0cb6ffb21c95ca6afcf42c3135ef4bf2a7e646f2efbc523494ab9d8c",
+      "review_sha256": "64d1dfed0cb6ffb21c95ca6afcf42c3135ef4bf2a7e646f2efbc523494ab9d8c"
+    },
+    {
+      "path": "TinhKiemAuto.Debug.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.DropItem.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.FrmMain.resx",
+      "raw_source_sha256": "390e2da6ecc94250993817de91830ce2e100922cb558f1d5962baf54e981f255",
+      "review_sha256": "97c615660f38d14b736dfc938e028670e5232e0e31d9246b48eea763ed995505"
+    },
+    {
+      "path": "TinhKiemAuto.Games.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.HotKey.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.ImageResource.resx",
+      "raw_source_sha256": "a9805eceab1f12b277785da7f6a2238d91a10bb49c9753ed49c14d592b07bd4a",
+      "review_sha256": "1626d87908e6f1930fdee4c91fef1392b69c0d50e643fbeeffeae5b88da67bd1"
+    },
+    {
+      "path": "TinhKiemAuto.Models/AntiDump.cs",
+      "raw_source_sha256": "7015c008b4771aba962f6137b7209e0d822fdbfd9c56a5fc2255980b84785a73",
+      "review_sha256": "7015c008b4771aba962f6137b7209e0d822fdbfd9c56a5fc2255980b84785a73"
+    },
+    {
+      "path": "TinhKiemAuto.Models/AutoEat.cs",
+      "raw_source_sha256": "532bad84b2b6a36f2cfa3c1ebb04db4d4fd1bd8b62214fa9fd955f7041118981",
+      "review_sha256": "532bad84b2b6a36f2cfa3c1ebb04db4d4fd1bd8b62214fa9fd955f7041118981"
+    },
+    {
+      "path": "TinhKiemAuto.Models/BaiTrain.cs",
+      "raw_source_sha256": "02b56aa94b482ab8f77963f145b6e1c2b658b2e9d3d2a4283bd102a8c4adfd40",
+      "review_sha256": "02b56aa94b482ab8f77963f145b6e1c2b658b2e9d3d2a4283bd102a8c4adfd40"
+    },
+    {
+      "path": "TinhKiemAuto.Models/BuffPramenter.cs",
+      "raw_source_sha256": "e3970cacdffa6aaaa047f8ae126c5e9d998841e54f1787815c8878f48a5477a6",
+      "review_sha256": "e3970cacdffa6aaaa047f8ae126c5e9d998841e54f1787815c8878f48a5477a6"
+    },
+    {
+      "path": "TinhKiemAuto.Models/CheckUpdateRequest.cs",
+      "raw_source_sha256": "35c3882fe6e7a0bdc98a6ad3644b183a25ea1ecf7aa62afba082a320fbc0fb27",
+      "review_sha256": "35c3882fe6e7a0bdc98a6ad3644b183a25ea1ecf7aa62afba082a320fbc0fb27"
+    },
+    {
+      "path": "TinhKiemAuto.Models/CheckUpdateResponse.cs",
+      "raw_source_sha256": "b64d1c7e8d0b62485fb228aff811c7730609feeff0dc97d1ab3fa092bf1c9a76",
+      "review_sha256": "b64d1c7e8d0b62485fb228aff811c7730609feeff0dc97d1ab3fa092bf1c9a76"
+    },
+    {
+      "path": "TinhKiemAuto.Models/LoadFile.cs",
+      "raw_source_sha256": "6e5cb58af144b97e3e6abcc75866e02ed9aade8b1f429efa7deca451e1cc92eb",
+      "review_sha256": "fa07fbb7dad0d8fb72b49e7044eeb08e515db091033f40b606d704ca7eae23dc"
+    },
+    {
+      "path": "TinhKiemAuto.Models/LoginResponse.cs",
+      "raw_source_sha256": "d966e18b41ce36d858676102415e2aba89fcf4a27da4b787431f545d61a73583",
+      "review_sha256": "d966e18b41ce36d858676102415e2aba89fcf4a27da4b787431f545d61a73583"
+    },
+    {
+      "path": "TinhKiemAuto.Models/MD5Util.cs",
+      "raw_source_sha256": "f8691bc138f83289768e1ae9cfef613d0316ea332b6af80c5495d37993cdb103",
+      "review_sha256": "f8691bc138f83289768e1ae9cfef613d0316ea332b6af80c5495d37993cdb103"
+    },
+    {
+      "path": "TinhKiemAuto.Models/NearScene.cs",
+      "raw_source_sha256": "c0172a2658e3b662fd8bf233630143ccc3bb066e0918e4135c05a98eb822da32",
+      "review_sha256": "c0172a2658e3b662fd8bf233630143ccc3bb066e0918e4135c05a98eb822da32"
+    },
+    {
+      "path": "TinhKiemAuto.Models/Offset.cs",
+      "raw_source_sha256": "62e529b0e5a1c19103e98f98061f888e5702d4ca0bc07d36e6f1d0b65408f65e",
+      "review_sha256": "62e529b0e5a1c19103e98f98061f888e5702d4ca0bc07d36e6f1d0b65408f65e"
+    },
+    {
+      "path": "TinhKiemAuto.Models/Option.cs",
+      "raw_source_sha256": "6b748b5c02f5246239ce63695a5b2f8d2a83e53e9d641d0b66e8b0d0e0fe34bb",
+      "review_sha256": "6b748b5c02f5246239ce63695a5b2f8d2a83e53e9d641d0b66e8b0d0e0fe34bb"
+    },
+    {
+      "path": "TinhKiemAuto.Models/PacketDef.cs",
+      "raw_source_sha256": "fdef16d786d2ed58e2b3291e1e32b7e1dd3dc3c7954c4ca3e097dc0d3e688b84",
+      "review_sha256": "fdef16d786d2ed58e2b3291e1e32b7e1dd3dc3c7954c4ca3e097dc0d3e688b84"
+    },
+    {
+      "path": "TinhKiemAuto.Models/PathInfo.cs",
+      "raw_source_sha256": "61cb1f53a0efec0d9c1bf37bcf6cd048b4b39d5d08deee201926b37798d5f892",
+      "review_sha256": "61cb1f53a0efec0d9c1bf37bcf6cd048b4b39d5d08deee201926b37798d5f892"
+    },
+    {
+      "path": "TinhKiemAuto.Models/Scene.cs",
+      "raw_source_sha256": "6faade62bc5e2a67fdb8865ea7db7a6d9f077a122b095fe186c646f1988a9cc7",
+      "review_sha256": "6faade62bc5e2a67fdb8865ea7db7a6d9f077a122b095fe186c646f1988a9cc7"
+    },
+    {
+      "path": "TinhKiemAuto.Models/SceneInfo.cs",
+      "raw_source_sha256": "f2cd2c75097ab712c60f0d6a094089de91b22c418dd350619bb93598b35c7fa5",
+      "review_sha256": "f2cd2c75097ab712c60f0d6a094089de91b22c418dd350619bb93598b35c7fa5"
+    },
+    {
+      "path": "TinhKiemAuto.Models/ScriptReponse.cs",
+      "raw_source_sha256": "d6f8085f0e31c6c97e0acec02aae76c91c3f1e2d60252b3c8d72a78cd22c90c7",
+      "review_sha256": "d6f8085f0e31c6c97e0acec02aae76c91c3f1e2d60252b3c8d72a78cd22c90c7"
+    },
+    {
+      "path": "TinhKiemAuto.Models/ScriptRequest.cs",
+      "raw_source_sha256": "a7d1a603f58de5100e9f71e8ba64318f9886ad4abe2cf68dc039335dff534be8",
+      "review_sha256": "a7d1a603f58de5100e9f71e8ba64318f9886ad4abe2cf68dc039335dff534be8"
+    },
+    {
+      "path": "TinhKiemAuto.Models/ServerList.cs",
+      "raw_source_sha256": "a897474717bbc4521741b601a4414d27d5d2158d512ac3a124a632f8c3007030",
+      "review_sha256": "a897474717bbc4521741b601a4414d27d5d2158d512ac3a124a632f8c3007030"
+    },
+    {
+      "path": "TinhKiemAuto.Models/StLoadRepsonse.cs",
+      "raw_source_sha256": "141fc8e21fcb16030ea18e61be1dcf0f2aefd23e1c60610dee95162bee9c2471",
+      "review_sha256": "141fc8e21fcb16030ea18e61be1dcf0f2aefd23e1c60610dee95162bee9c2471"
+    },
+    {
+      "path": "TinhKiemAuto.Models/StLoadRequest.cs",
+      "raw_source_sha256": "7924d370896c79ec6ca0ed8459ff822342bbd68d44df6a1decb46a120f65e867",
+      "review_sha256": "7924d370896c79ec6ca0ed8459ff822342bbd68d44df6a1decb46a120f65e867"
+    },
+    {
+      "path": "TinhKiemAuto.Models/TeleportNPC.cs",
+      "raw_source_sha256": "6fc0ad490dc06a744db5119ea2615a718310a4cf060f16e878be7ade3543de84",
+      "review_sha256": "6fc0ad490dc06a744db5119ea2615a718310a4cf060f16e878be7ade3543de84"
+    },
+    {
+      "path": "TinhKiemAuto.Models/ThongBao.cs",
+      "raw_source_sha256": "7bb273792e76fdea95e32fb22a750eac131edcfec3e0de6ccbb97692f3a87dce",
+      "review_sha256": "7bb273792e76fdea95e32fb22a750eac131edcfec3e0de6ccbb97692f3a87dce"
+    },
+    {
+      "path": "TinhKiemAuto.Models/TienIch.cs",
+      "raw_source_sha256": "fda44a3001ca75845a94a45fd66e6a811c12d0ca1ec2f274a356d59e3ed43c62",
+      "review_sha256": "4b35681ce1bc2cea1a305cc1e1e965e59958b108fc2cdb735a4fbbe52418b1e8"
+    },
+    {
+      "path": "TinhKiemAuto.Models/TimeRepsonse.cs",
+      "raw_source_sha256": "21b117dac39e34de562ce4b7a4004d8602651943350fb44417ec52f4eb53e4d6",
+      "review_sha256": "21b117dac39e34de562ce4b7a4004d8602651943350fb44417ec52f4eb53e4d6"
+    },
+    {
+      "path": "TinhKiemAuto.Models/TrainData.cs",
+      "raw_source_sha256": "1c138e73feb03a81bdd302027145515012527d6390b9eb53c0ae1f996b39c99f",
+      "review_sha256": "1c138e73feb03a81bdd302027145515012527d6390b9eb53c0ae1f996b39c99f"
+    },
+    {
+      "path": "TinhKiemAuto.Models/Unity.cs",
+      "raw_source_sha256": "78d24776b8b99e4a8b4e72861863b82cfe7648c539935d43d9331964670b75bd",
+      "review_sha256": "78d24776b8b99e4a8b4e72861863b82cfe7648c539935d43d9331964670b75bd"
+    },
+    {
+      "path": "TinhKiemAuto.Models/VatLieu.cs",
+      "raw_source_sha256": "7891b0a2d793bea4a9839a7f625f8baeab9b925747515de48ef51b608f796ef1",
+      "review_sha256": "7891b0a2d793bea4a9839a7f625f8baeab9b925747515de48ef51b608f796ef1"
+    },
+    {
+      "path": "TinhKiemAuto.Models/XXTEA.cs",
+      "raw_source_sha256": "1f5a8ffb3aaf65f4e08de89007677870a97794f2797f19393e19b0ce27a92616",
+      "review_sha256": "1f5a8ffb3aaf65f4e08de89007677870a97794f2797f19393e19b0ce27a92616"
+    },
+    {
+      "path": "TinhKiemAuto.PathList.txt",
+      "raw_source_sha256": "76e2e28371aa4b6dddc4fb37d66cdaa94c0992225229481191248bb6d3a138c2",
+      "review_sha256": "dd47e13ea10e79eaa5814ca98fa2cb5e8824e2abdc8a07357d6c48e72ea8883f"
+    },
+    {
+      "path": "TinhKiemAuto.Properties/Resources.cs",
+      "raw_source_sha256": "8755fb2fdf23e6185a900834e090ca294b598e8cafd0fe68af390d6212a1d985",
+      "review_sha256": "8755fb2fdf23e6185a900834e090ca294b598e8cafd0fe68af390d6212a1d985"
+    },
+    {
+      "path": "TinhKiemAuto.Properties/Settings.cs",
+      "raw_source_sha256": "40e0b7c8be85f0a0b16135fe5a835c2eee1f38b03ea7efd7e174eb7acc3f9982",
+      "review_sha256": "40e0b7c8be85f0a0b16135fe5a835c2eee1f38b03ea7efd7e174eb7acc3f9982"
+    },
+    {
+      "path": "TinhKiemAuto.Properties.Resources.resx",
+      "raw_source_sha256": "348f4295ab334c01fa5c3216583518eb8fd762e2654be116b7e4bca06d04dbe1",
+      "review_sha256": "53cc96a91389415dd961499a08434a07f35085b589c9cde6b52feca00fee476e"
+    },
+    {
+      "path": "TinhKiemAuto.Screen.txt",
+      "raw_source_sha256": "68ef304f5c7784126921d066e543f51b4702ba49492beabc06942354e8e07268",
+      "review_sha256": "da9e4a72677356d58ba094857049f80233fe48f6be2158344e9fce66ff8e260c"
+    },
+    {
+      "path": "TinhKiemAuto.Scripts.xml",
+      "raw_source_sha256": "0bc74cb06d820e4cb9331ef05f2bb833d164e1f16f0e2390172084174e786208",
+      "review_sha256": "d0249feaa9262ccb92ee848501b25560be97f257154a6b33b93475d63152a88e"
+    },
+    {
+      "path": "TinhKiemAuto.SellItem.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.ThietLapAuto.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.ThongQR.resx",
+      "raw_source_sha256": "942486db07171f13ab52423a4c77248934265a1fb59e12e0f86fafc55ede0418",
+      "review_sha256": "77c954c174dab83f85f568b79ce7a84eb83858dc12d261663bac8c2689f80ae8"
+    },
+    {
+      "path": "TinhKiemAuto.allmap.txt",
+      "raw_source_sha256": "9b8d9ee139dada1bf065cb92a614ffed12613a8e82cdaf25000bd1de59d39198",
+      "review_sha256": "915f9e8ecee88d6a2a4e12169bb443f899daeb3e065c2756a626447c6c601e88"
+    },
+    {
+      "path": "TinhKiemAuto.sdbai.json",
+      "raw_source_sha256": "4c4db374f227d63717fe21f2ff6999ffc9e16827ff82817fe5b78c6163868145",
+      "review_sha256": "4c4db374f227d63717fe21f2ff6999ffc9e16827ff82817fe5b78c6163868145"
+    },
+    {
+      "path": "TinhKiemAuto.skillList.json",
+      "raw_source_sha256": "423d00d017d3435f49c07bbc2c6b1705cfb65ad50dc272613799442e4e4fe418",
+      "review_sha256": "3234c8dd71b7cd7382a2c858e13c6884447835d56ca2895b0aab77875627cff5"
+    },
+    {
+      "path": "app.manifest",
+      "raw_source_sha256": "f6cded59f764960bcdfad6e7672aec98e0f207985342bc07c0df0e147418042d",
+      "review_sha256": "207c2303eb0bdef9a280ae77d1df52687f13c0f68cd00bf3415a6ecf9245cd1a"
+    }
+  ],
+  "csharp_file_count": 331
+}

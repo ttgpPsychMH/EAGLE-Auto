@@ -1,0 +1,1396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="captcha" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAASwkAAAL/2P/gABBKRklG
+AAEBAQBgAGAAAP/bAEMAAgEBAgEBAgICAgICAgIDBQMDAwMDBgQEAwUHBgcHBwYHBwgJCwkICAoI
+BwcKDQoKCwwMDAwHCQ4PDQwOCwwMDP/bAEMBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIAC0AoAMBIgACEQEDEQH/xAAf
+AAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEF
+EiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJ
+SlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEB
+AAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIy
+gQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNk
+ZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfI
+ycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AP38ooooAKKZdXMdlbST
+TOscUSl3djgKoGSSfTFeOz/tH67458RyWHgjQI79ICS093nDrjg43IIxkHG5iTxwDxSvrZDtpc9l
+orzrwF8UfEsvi6DQ/FXh0adc3iu8F1bsTA21d2zqwzgHJD8ccDrXotU0TcKKKKQwoorH8d+NbX4e
++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</value></data><data name="loading" mimetype="application/x-microsoft.net.object.binary.base64"><value>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
+kJA7jUqnEAA7Cw==</value></data><data name="Lua" xml:space="preserve"><value>function AppointLeader(name)
+
+	PushDebugMessage('Change Lear: '..name)
+
+	local count = DataPool:GetTeamMemberCount();
+	
+	local szNick;
+	local iFamily;
+	local iLevel;
+	local bDeadlink;
+	local bDead;
+	local bSex;
+    local sZoneWorldID
+	
+	for i = 0, count - 1 do
+		szNick
+		,iFamily
+		,iLevel
+		,bDead
+		,bDeadlink
+		,bSex
+		,sZoneWorldID
+		= DataPool:GetTeamMemInfoByIndex(i);
+		if szNick == name then
+			Player:AppointLeader(i);
+			break;
+		end
+	end
+	
+end
+
+function XuatPet(id)
+	for i = 1, 10 do 
+		strName,strName2,sex = Pet:GetID(i-1);
+		if strName2 == id then 
+			Pet:Feed(i-1);
+			Pet:Dome(i-1);
+			Pet:Go_Fight(i-1);
+			return;
+		end 
+	end
+end
+
+function MissionInfo(n)	
+	if n == nil then
+		return '0'
+	end
+	cnt = 0;
+	n = string.lower(n);	
+	string.gsub(n, "%s+", "")
+	while true do 
+		local name, content = DataPool:GetPlayerMission_Memo(cnt); 
+		name = string.lower(name);
+		string.gsub(name, "%s+", "")
+		if string.find(name, n) then
+			if DataPool:GetPlayerMission_Variable(cnt, 0) == 1 then 
+				return '1';
+			else
+				return content;
+			end
+		end 
+		cnt = cnt + 1; 
+		if cnt == 20 then 
+			return '0';
+		end 
+	end
+end</value></data>
+  <data name="sound" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0
+ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA1AEAAAJHSUY4OWEoACgA
+gwAAioqK+vr6rq6ufHx8s7Oz3Nzcmpqavb299fX1paWl7e3tx8fH0tLS5OTkdXV1////If8LTkVU
+U0NBUEUyLjADAQEAACH5BAAAAAAALAAAAAAoACgAAAj/AB8IHEiwoMGDCBMqXMiwocOHECNKnEix
+YQIBFSMOcIAx48IADBAU2HjAo8IFDgyAdOCggcmBAQgiAOAgwQMCDgDENFmAgMAEABQo2LggAM0F
+PAd0NJBz5QAFDJpmHMlR4MyaDxJUPVqRalWBQx0UUMBSAUoDFL1+FXggZVYHBxBsRCBR7doHATY2
+KJDzAVMGCg8YGEzYwEaWLDsOFOCAQF4HCNr6TKgVseXLigXyRcu0QFS0lC+LTlwQgYMBDxgvaNA3
+9GjMBjcGwBm3NcLKrxFnFjhXsmnUrnOTLiibNlkACnEL3/377WrbB5Xn3v35AU3PbhMGQMC9OwKc
+lndrbj0QgOXsxhPBD7e6EarbvxTVZ8bJ2cEC05ArglfMtyXrAZFhlRFOHYXlE1M+0QSYRwR0pJVK
+KAGIEnIvufRATyKxFNJGC74k00Y+PeihQUPZFKECIxoUU1QOdJhiQTSV9OJBDbg444045qjjQgEB
+ADsL</value></data><data name="FixDG" xml:space="preserve"><value>function Quest_Open()
+	this:Show();
+	
+	NpcName = Target:GetDialogNpcName();
+	MapID = GetSceneID();
+	
+	if string.find(NpcName, 'Mô Kim Hiệu Úy') then 
+		QuestFrameOptionClicked(-1, 50063, 100); 
+	end
+	
+	if string.find(NpcName, 'Ác Tặc Tạo Phản') then
+	   if MapID == 3 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 4 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 5 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 6 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 7 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 8 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		end
+	end
+	
+	if string.find(NpcName, 'Thiếu Lâm Vân Du Võ Tăng') then
+	   if MapID == 18 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 24 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 30 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 272 then
+			QuestFrameOptionClicked(-1, 402108, 1);
+		end
+	end
+	
+	if string.find(NpcName, 'Giang Hồ Tiêu Tiểu') or string.find(NpcName, 'Giang hồ tiêu tiểu') or string.find(NpcName, 'Giang hồ tà đạo') then
+		if MapID == 9then
+			QuestFrameOptionClicked(-1, 808027, 0);
+		elseif MapID == 10 then
+			QuestFrameOptionClicked(-1, 808032, 0);
+		elseif MapID == 11 then
+			QuestFrameOptionClicked(-1, 808031, 0);
+		elseif MapID == 12 then
+			QuestFrameOptionClicked(-1, 808033, 0);
+		elseif MapID == 13 then
+			QuestFrameOptionClicked(-1, 808029, 0);
+		elseif MapID == 14 then
+			QuestFrameOptionClicked(-1, 808016, 0);
+		elseif MapID == 15 then
+			QuestFrameOptionClicked(-1, 808034, 0);
+		elseif MapID == 16 then
+			QuestFrameOptionClicked(-1, 808028, 0);
+		elseif MapID == 17 then
+			QuestFrameOptionClicked(-1, 808030, 0);
+		elseif MapID == 284 then
+			QuestFrameOptionClicked(-1, 808043, 0);
+		end
+	end
+	
+	if (string.find(NpcName, 'Đinh Đinh') or string.find(NpcName, 'Đông Đông')) and MapID == 0 then
+		QuestFrameOptionClicked(-1, 800116, 2);
+	end
+	
+	if string.find(NpcName, 'Mạnh Bà') then
+		if MapID == 77 then
+			QuestFrameOptionClicked(-1, 77001, 0)
+		end
+		if MapID == 578 then
+			QuestFrameOptionClicked(-1, 77001, 0)
+		end
+	end
+	
+	
+	
+	if string.find(NpcName, 'Long Bá Thiên') then
+		if MapID == 0 or MapID == 242 then
+			QuestFrameOptionClicked(-1,129,0);
+			QuestFrameOptionClicked(-1,129,1001);			
+		end
+	end
+end
+function AntiRobot_TimeReach()		
+	AskRet2SelServer()
+end
+function ChatFrame_SetChannelSel(channel, channelname)
+	local CHANNEL_DATA_NEAR =
+	{	
+		'set:Buttons image:Channelvicinity_Normal',
+		'set:Buttons image:ChannelVicinity_Hover',
+		'set:Buttons image:ChannelVicinity_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFFFF',
+	};	
+	local CHANNEL_DATA_SCENE =
+	{
+		'set:Buttons image:ChannelWorld_Normal',
+		'set:Buttons image:ChannelWorld_Hover',
+		'set:Buttons image:ChannelWorld_Pushed',
+		'#cFFFFFF',
+		'#e010101#c00FFCC',
+	};		
+	local CHANNEL_DATA_PRIVATE =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF7C80',
+	};
+	local CHANNEL_DATA_SYSTEM =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFF0000',
+		'#e010101#cFF0000',	
+	};		
+	local CHANNEL_DATA_TEAM =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',	
+	};
+	local CHANNEL_DATA_SELF =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_HELP =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_MENPAI =
+	{
+		'set:Buttons image:ChannelMenpai_Normal',
+		'set:Buttons image:ChannelMenpai_Hover',
+		'set:Buttons image:ChannelMenpai_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFF00',		
+	};
+	local CHANNEL_DATA_GUILD =
+	{
+		'set:Buttons image:ChannelCorporative_Normal',
+		'set:Buttons image:ChannelCorporative_Hover',
+		'set:Buttons image:ChannelCorporative_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFCC99',		
+	};
+	local CHANNEL_DATA_GUILD_LEAGUE =
+	{
+		'set:CommonFrame6 image:ChannelTongMeng_Normal',
+		'set:CommonFrame6 image:ChannelTongMeng_Hover',
+		'set:CommonFrame6 image:ChannelTongMeng_Pushed',
+		'#cFFFFFF',
+		'#e010101#c66c4fc',	
+	};
+	local CHANNEL_DATA_IPREGION =
+	{
+		'set:UIIcons image:ChannelCorporative_Normal',
+		'set:UIIcons image:ChannelCorporative_Hover',
+		'set:UIIcons image:ChannelCorporative_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_RAID =
+	{
+		'set:Union1 image:Union_Channel_Normal',
+		'set:Union1 image:Union_Channel_Hover',
+		'set:Union1 image:Union_Channel_Pushed',
+		'#cFFFFFF',
+		'#e010101#cff3300',
+	};		
+	local CHANNEL_DATA_RAIDSQUAD =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',
+	};
+	local CHANNEL_DATA_BIGWORLD =
+	{
+		'set:Button12 image:ChannelOUT_Normal',
+		'set:Button12 image:ChannelOUT_Hover',
+		'set:Button12 image:ChannelOUT_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	local CHANNEL_DATA_CLAN =
+	{
+		'set:Button12 image:ChannelShili_Normal',
+		'set:Button12 image:ChannelShili_Hover',
+		'set:Button12 image:ChannelShili_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	CHANNEL_DATA = {};
+	CHANNEL_DATA['near'] = CHANNEL_DATA_NEAR;
+	CHANNEL_DATA['scene'] = CHANNEL_DATA_SCENE;
+	CHANNEL_DATA['private'] = CHANNEL_DATA_PRIVATE;
+	CHANNEL_DATA['system'] = CHANNEL_DATA_SYSTEM;
+	CHANNEL_DATA['team'] = CHANNEL_DATA_TEAM;
+	CHANNEL_DATA['self'] = CHANNEL_DATA_SELF;
+	CHANNEL_DATA['menpai'] = CHANNEL_DATA_MENPAI;
+	CHANNEL_DATA['guild'] = CHANNEL_DATA_GUILD;
+	CHANNEL_DATA['guild_league'] = CHANNEL_DATA_GUILD_LEAGUE;
+	CHANNEL_DATA['help'] = CHANNEL_DATA_HELP;
+	CHANNEL_DATA['ipregion'] = CHANNEL_DATA_IPREGION;	
+	CHANNEL_DATA['raid'] = CHANNEL_DATA_RAID;
+	CHANNEL_DATA['raidsquad'] = CHANNEL_DATA_RAIDSQUAD;
+	CHANNEL_DATA['bigworld'] = CHANNEL_DATA_BIGWORLD;
+	CHANNEL_DATA['clan'] = CHANNEL_DATA_CLAN;
+	G_TheCurrentChannel = channel;	
+	if(CHANNEL_DATA[channel] == nil) then
+		return;
+	end
+	Chat_ChannelSelecter:SetProperty("NormalImage", CHANNEL_DATA[channel][1]);
+	Chat_ChannelSelecter:SetProperty("HoverImage", CHANNEL_DATA[channel][2]);
+	Chat_ChannelSelecter:SetProperty("PushedImage", CHANNEL_DATA[channel][3]);
+end
+function ChatFrame_TextAccepted()
+	if G_TheCurrentChannel == nil then
+		G_TheCurrentChannel = 'near'
+	end
+	local txt = MainMenuBar_EditBox:GetItemElementsString();
+	TXT = txt
+	
+	MapID = GetSceneID();
+	if txt == '@map' then
+		PushDebugMessage('Map hiện tại: '..MapID)
+	end
+	
+	local bChatAction = 0;
+	if (bChatAction == 1) then		
+		g_ChatActionTxt = txt
+		ChatFrame_SetEditBoxTxt("")
+		Talk : CanDoDoubleAction_Bar()
+	elseif (bChatAction == 2) then
+		g_ChatActionTxt = ""
+		ChatFrame_SetEditBoxTxt("")
+	elseif (bChatAction == 0) then		
+		local prvname,perColor = Talk : SendChatMessage(G_TheCurrentChannel, txt);
+		if(nil == prvname ) then prvname = ""; end
+		if(nil == perColor ) then perColor = ""; end
+		local str = "";
+		if(prvname == "")then
+			str = str..perColor;
+		else
+			str = str.."/"..prvname.." "..perColor;
+		end		
+		if("" ~= str) then
+			ChatFrame_SetEditBoxTxt(str);
+		else
+			ChatFrame_SetEditBoxTxt("");
+		end
+	end	
+end
+function  MessageBox_Self_UpdateRect()
+	local nWidth, nHeight = MessageBox_Self_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Self_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	if tonumber(arg0) == 24 or arg0 == '#{SJXL_120423_08}' then		
+		IsMessageBox = true;	
+	else
+		IsMessageBox = false;
+	end
+end
+function AcceptBox_ResetFrame()
+	AcceptBox_PageHeader_Name:SetText("")
+	AcceptBox_OK_Button:Enable()
+	AcceptBox_OK_Button:Show()
+	AcceptBox_OK_Button:SetText("#{INTERFACE_XML_557}")
+	AcceptBox_Cancel_Button:Enable()
+	AcceptBox_Cancel_Button:Show()
+	AcceptBox_Cancel_Button:SetText("#{INTERFACE_XML_542}")
+	AcceptBox_Frame:SetProperty("AbsoluteSize", FrameSize_Original)
+	AcceptBox_Blank:SetProperty("UnifiedSize", AcceptBox_Blank_Orignial_Size)
+	if tonumber(arg0) == 20100717 then
+		IsAcceptBox = true;
+	else
+		IsAcceptBox = false;
+	end
+end
+function MessageBox_Other_UpdateFrame()	
+	local nWidth, nHeight = MessageBox_Other_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Other_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	local txt = MessageBox_Other_Text:GetText();
+	if string.find(txt, 'Bạn có muốn vào nhóm không?') then
+		setmetatable(_G, {__index = MessageBox_Other_Env});
+		[REDACTED]();
+		--IsMessageBoxOther = true;
+	--else
+		--IsMessageBoxOther = false;
+	end
+end</value></data>
+  <data name="Fix2D" xml:space="preserve"><value>function Quest_Open()
+	this:Show();
+	
+	NpcName = Target:GetDialogNpcName();
+	MapID = GetSceneID();
+	
+	if string.find(NpcName, 'Mô Kim Hiệu Úy') then 
+		QuestFrameOptionClicked(-1, 50063, 100); 
+	end
+	
+	if string.find(NpcName, 'Ác Tặc Tạo Phản') then
+	   if MapID == 3 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 4 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 5 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 6 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 7 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 8 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		end
+	end
+	
+	if string.find(NpcName, 'Thiếu Lâm Vân Du Võ Tăng') then
+	   if MapID == 18 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 24 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 30 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 272 then
+			QuestFrameOptionClicked(-1, 402108, 1);
+		end
+	end
+	
+	if string.find(NpcName, 'Giang Hồ Tiêu Tiểu') or string.find(NpcName, 'Giang hồ tiêu tiểu') or string.find(NpcName, 'Giang hồ tà đạo') then
+		if MapID == 9then
+			QuestFrameOptionClicked(-1, 808027, 0);
+		elseif MapID == 10 then
+			QuestFrameOptionClicked(-1, 808032, 0);
+		elseif MapID == 11 then
+			QuestFrameOptionClicked(-1, 808031, 0);
+		elseif MapID == 12 then
+			QuestFrameOptionClicked(-1, 808033, 0);
+		elseif MapID == 13 then
+			QuestFrameOptionClicked(-1, 808029, 0);
+		elseif MapID == 14 then
+			QuestFrameOptionClicked(-1, 808016, 0);
+		elseif MapID == 15 then
+			QuestFrameOptionClicked(-1, 808034, 0);
+		elseif MapID == 16 then
+			QuestFrameOptionClicked(-1, 808028, 0);
+		elseif MapID == 17 then
+			QuestFrameOptionClicked(-1, 808030, 0);
+		elseif MapID == 284 then
+			QuestFrameOptionClicked(-1, 808043, 0);
+		end
+	end
+	
+	if (string.find(NpcName, 'Đinh Đinh') or string.find(NpcName, 'Đông Đông')) and MapID == 0 then
+		QuestFrameOptionClicked(-1, 800116, 2);
+	end
+	
+	if string.find(NpcName, 'Mạnh Bà') then
+		if MapID == 77 then
+			QuestFrameOptionClicked(-1, 77001, 0)
+		end
+		if MapID == 578 then
+			QuestFrameOptionClicked(-1, 77001, 0)
+		end
+	end
+	
+	
+	
+	if string.find(NpcName, 'Long Bá Thiên') then
+		if MapID == 0 or MapID == 242 then
+			QuestFrameOptionClicked(-1,129,0);
+			QuestFrameOptionClicked(-1,129,1001);			
+		end
+	end
+end
+function AntiRobot_TimeReach()		
+	AskRet2SelServer()
+end
+function ChatFrame_SetChannelSel(channel, channelname)
+	local CHANNEL_DATA_NEAR =
+	{	
+		'set:Buttons image:Channelvicinity_Normal',
+		'set:Buttons image:ChannelVicinity_Hover',
+		'set:Buttons image:ChannelVicinity_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFFFF',
+	};	
+	local CHANNEL_DATA_SCENE =
+	{
+		'set:Buttons image:ChannelWorld_Normal',
+		'set:Buttons image:ChannelWorld_Hover',
+		'set:Buttons image:ChannelWorld_Pushed',
+		'#cFFFFFF',
+		'#e010101#c00FFCC',
+	};		
+	local CHANNEL_DATA_PRIVATE =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF7C80',
+	};
+	local CHANNEL_DATA_SYSTEM =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFF0000',
+		'#e010101#cFF0000',	
+	};		
+	local CHANNEL_DATA_TEAM =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',	
+	};
+	local CHANNEL_DATA_SELF =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_HELP =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_MENPAI =
+	{
+		'set:Buttons image:ChannelMenpai_Normal',
+		'set:Buttons image:ChannelMenpai_Hover',
+		'set:Buttons image:ChannelMenpai_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFF00',		
+	};
+	local CHANNEL_DATA_GUILD =
+	{
+		'set:Buttons image:ChannelCorporative_Normal',
+		'set:Buttons image:ChannelCorporative_Hover',
+		'set:Buttons image:ChannelCorporative_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFCC99',		
+	};
+	local CHANNEL_DATA_GUILD_LEAGUE =
+	{
+		'set:CommonFrame6 image:ChannelTongMeng_Normal',
+		'set:CommonFrame6 image:ChannelTongMeng_Hover',
+		'set:CommonFrame6 image:ChannelTongMeng_Pushed',
+		'#cFFFFFF',
+		'#e010101#c66c4fc',	
+	};
+	local CHANNEL_DATA_IPREGION =
+	{
+		'set:UIIcons image:ChannelCorporative_Normal',
+		'set:UIIcons image:ChannelCorporative_Hover',
+		'set:UIIcons image:ChannelCorporative_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_RAID =
+	{
+		'set:Union1 image:Union_Channel_Normal',
+		'set:Union1 image:Union_Channel_Hover',
+		'set:Union1 image:Union_Channel_Pushed',
+		'#cFFFFFF',
+		'#e010101#cff3300',
+	};		
+	local CHANNEL_DATA_RAIDSQUAD =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',
+	};
+	local CHANNEL_DATA_BIGWORLD =
+	{
+		'set:Button12 image:ChannelOUT_Normal',
+		'set:Button12 image:ChannelOUT_Hover',
+		'set:Button12 image:ChannelOUT_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	local CHANNEL_DATA_CLAN =
+	{
+		'set:Button12 image:ChannelShili_Normal',
+		'set:Button12 image:ChannelShili_Hover',
+		'set:Button12 image:ChannelShili_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	CHANNEL_DATA = {};
+	CHANNEL_DATA['near'] = CHANNEL_DATA_NEAR;
+	CHANNEL_DATA['scene'] = CHANNEL_DATA_SCENE;
+	CHANNEL_DATA['private'] = CHANNEL_DATA_PRIVATE;
+	CHANNEL_DATA['system'] = CHANNEL_DATA_SYSTEM;
+	CHANNEL_DATA['team'] = CHANNEL_DATA_TEAM;
+	CHANNEL_DATA['self'] = CHANNEL_DATA_SELF;
+	CHANNEL_DATA['menpai'] = CHANNEL_DATA_MENPAI;
+	CHANNEL_DATA['guild'] = CHANNEL_DATA_GUILD;
+	CHANNEL_DATA['guild_league'] = CHANNEL_DATA_GUILD_LEAGUE;
+	CHANNEL_DATA['help'] = CHANNEL_DATA_HELP;
+	CHANNEL_DATA['ipregion'] = CHANNEL_DATA_IPREGION;	
+	CHANNEL_DATA['raid'] = CHANNEL_DATA_RAID;
+	CHANNEL_DATA['raidsquad'] = CHANNEL_DATA_RAIDSQUAD;
+	CHANNEL_DATA['bigworld'] = CHANNEL_DATA_BIGWORLD;
+	CHANNEL_DATA['clan'] = CHANNEL_DATA_CLAN;
+	G_TheCurrentChannel = channel;	
+	if(CHANNEL_DATA[channel] == nil) then
+		return;
+	end
+	Chat_ChannelSelecter:SetProperty("NormalImage", CHANNEL_DATA[channel][1]);
+	Chat_ChannelSelecter:SetProperty("HoverImage", CHANNEL_DATA[channel][2]);
+	Chat_ChannelSelecter:SetProperty("PushedImage", CHANNEL_DATA[channel][3]);
+end
+function ChatFrame_TextAccepted()
+	if G_TheCurrentChannel == nil then
+		G_TheCurrentChannel = 'near'
+	end
+	local txt = MainMenuBar_EditBox:GetItemElementsString();
+	TXT = txt
+	
+	MapID = GetSceneID();
+	if txt == '@map' then
+		PushDebugMessage('Map hiện tại: '..MapID)
+	end
+	
+	local bChatAction = 0;
+	if (bChatAction == 1) then		
+		g_ChatActionTxt = txt
+		ChatFrame_SetEditBoxTxt("")
+		Talk : CanDoDoubleAction_Bar()
+	elseif (bChatAction == 2) then
+		g_ChatActionTxt = ""
+		ChatFrame_SetEditBoxTxt("")
+	elseif (bChatAction == 0) then		
+		local prvname,perColor = Talk : SendChatMessage(G_TheCurrentChannel, txt);
+		if(nil == prvname ) then prvname = ""; end
+		if(nil == perColor ) then perColor = ""; end
+		local str = "";
+		if(prvname == "")then
+			str = str..perColor;
+		else
+			str = str.."/"..prvname.." "..perColor;
+		end		
+		if("" ~= str) then
+			ChatFrame_SetEditBoxTxt(str);
+		else
+			ChatFrame_SetEditBoxTxt("");
+		end
+	end	
+end
+function  MessageBox_Self_UpdateRect()
+	local nWidth, nHeight = MessageBox_Self_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Self_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	if tonumber(arg0) == 24 or arg0 == '#{SJXL_120423_08}' then		
+		IsMessageBox = true;	
+	else
+		IsMessageBox = false;
+	end
+end
+function AcceptBox_ResetFrame()
+	AcceptBox_PageHeader_Name:SetText("")
+	AcceptBox_OK_Button:Enable()
+	AcceptBox_OK_Button:Show()
+	AcceptBox_OK_Button:SetText("#{INTERFACE_XML_557}")
+	AcceptBox_Cancel_Button:Enable()
+	AcceptBox_Cancel_Button:Show()
+	AcceptBox_Cancel_Button:SetText("#{INTERFACE_XML_542}")
+	AcceptBox_Frame:SetProperty("AbsoluteSize", FrameSize_Original)
+	AcceptBox_Blank:SetProperty("UnifiedSize", AcceptBox_Blank_Orignial_Size)
+	if tonumber(arg0) == 20100717 then
+		IsAcceptBox = true;
+	else
+		IsAcceptBox = false;
+	end
+end
+function MessageBox_Other_UpdateFrame()	
+	local nWidth, nHeight = MessageBox_Other_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Other_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	local txt = MessageBox_Other_Text:GetText();
+	if string.find(txt, 'Bạn có muốn vào nhóm không?') then
+		setmetatable(_G, {__index = MessageBox_Other_Env});
+		[REDACTED]();
+		--IsMessageBoxOther = true;
+	--else
+		--IsMessageBoxOther = false;
+	end
+end</value></data>
+  <data name="Fix3D" xml:space="preserve"><value>function Quest_Open()
+	this:Show();
+	
+	if(IsWindowShow('ChangyigeZigeCheck')) then
+		 CloseWindow('ChangyigeZigeCheck', true)
+	end
+	
+	NpcName = Target:GetDialogNpcName();
+	MapID = GetSceneID();
+	
+	if string.find(NpcName, 'Mô Kim Hi®u Úy') then 
+		QuestFrameOptionClicked(-1, 50063, 100); 
+	end
+	
+	if string.find(NpcName, 'Ác T£c TÕo Phän') then
+	   if MapID == 3 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 4 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 5 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 6 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 7 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		elseif MapID == 8 then
+			QuestFrameOptionClicked(-1, 50013, -1);
+		end
+	end
+	
+	if string.find(NpcName, 'Thiªu Lâm Vân Du Võ Tång') then
+	   if MapID == 18 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 24 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 30 then
+			QuestFrameOptionClicked(-1, 808042, 1);
+		elseif MapID == 272 then
+			QuestFrameOptionClicked(-1, 402108, 1);
+		end
+	end
+	
+	if string.find(NpcName, 'Giang h° tiêu ti¬u') or string.find(NpcName, 'Giang h° tà ðÕo') or string.find(NpcName, 'Ác Bá') then
+		if MapID == 9then
+			QuestFrameOptionClicked(-1, 808027, 0);
+		elseif MapID == 10 then
+			QuestFrameOptionClicked(-1, 808032, 0);
+		elseif MapID == 11 then
+			QuestFrameOptionClicked(-1, 808031, 0);
+		elseif MapID == 12 then
+			QuestFrameOptionClicked(-1, 808033, 0);
+		elseif MapID == 13 then
+			QuestFrameOptionClicked(-1, 808029, 0);
+		elseif MapID == 14 then
+			QuestFrameOptionClicked(-1, 808016, 0);
+		elseif MapID == 15 then
+			QuestFrameOptionClicked(-1, 808034, 0);
+		elseif MapID == 16 then
+			QuestFrameOptionClicked(-1, 808028, 0);
+		elseif MapID == 17 then
+			QuestFrameOptionClicked(-1, 808030, 0);
+		elseif MapID == 284 then
+			QuestFrameOptionClicked(-1, 808043, 0);
+		elseif MapID == 615 then
+			QuestFrameOptionClicked(-1, 808043, 0);
+		end
+	end
+	
+	if (string.find(NpcName, 'Ðinh Ðinh') or string.find(NpcName, 'Ðông Ðông')) and MapID == 0 then
+		QuestFrameOptionClicked(-1, 800116, 2);
+	end
+	
+	if string.find(NpcName, 'MÕnh Bà') then
+		if MapID == 77 then
+			QuestFrameOptionClicked(-1, 77001, 0)
+		end
+		if MapID == 578 then
+			QuestFrameOptionClicked(-1, 505072, 1)
+		end
+	end
+	
+	
+	
+	if string.find(NpcName, 'Long Bá Thiên') then
+		if MapID == 0 or MapID == 242 then
+			QuestFrameOptionClicked(-1,129,0);
+			QuestFrameOptionClicked(-1,129,1001);			
+		end
+	end
+end
+function AntiRobot_TimeReach()		
+	AskRet2SelServer()
+end
+function ChatFrame_SetChannelSel(channel, channelname)
+	local CHANNEL_DATA_NEAR =
+	{	
+		'set:Buttons image:Channelvicinity_Normal',
+		'set:Buttons image:ChannelVicinity_Hover',
+		'set:Buttons image:ChannelVicinity_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFFFF',
+	};	
+	local CHANNEL_DATA_SCENE =
+	{
+		'set:Buttons image:ChannelWorld_Normal',
+		'set:Buttons image:ChannelWorld_Hover',
+		'set:Buttons image:ChannelWorld_Pushed',
+		'#cFFFFFF',
+		'#e010101#c00FFCC',
+	};		
+	local CHANNEL_DATA_PRIVATE =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF7C80',
+	};
+	local CHANNEL_DATA_SYSTEM =
+	{
+		'set:Buttons image:ChannelPersonal_Normal',
+		'set:Buttons image:ChannelPersonal_Hover',
+		'set:Buttons image:ChannelPersonal_Pushed',
+		'#cFF0000',
+		'#e010101#cFF0000',	
+	};		
+	local CHANNEL_DATA_TEAM =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',	
+	};
+	local CHANNEL_DATA_SELF =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_HELP =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_MENPAI =
+	{
+		'set:Buttons image:ChannelMenpai_Normal',
+		'set:Buttons image:ChannelMenpai_Hover',
+		'set:Buttons image:ChannelMenpai_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFFF00',		
+	};
+	local CHANNEL_DATA_GUILD =
+	{
+		'set:Buttons image:ChannelCorporative_Normal',
+		'set:Buttons image:ChannelCorporative_Hover',
+		'set:Buttons image:ChannelCorporative_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFFCC99',		
+	};
+	local CHANNEL_DATA_GUILD_LEAGUE =
+	{
+		'set:CommonFrame6 image:ChannelTongMeng_Normal',
+		'set:CommonFrame6 image:ChannelTongMeng_Hover',
+		'set:CommonFrame6 image:ChannelTongMeng_Pushed',
+		'#cFFFFFF',
+		'#e010101#c66c4fc',	
+	};
+	local CHANNEL_DATA_IPREGION =
+	{
+		'set:UIIcons image:ChannelCorporative_Normal',
+		'set:UIIcons image:ChannelCorporative_Hover',
+		'set:UIIcons image:ChannelCorporative_Pushed',
+		'#e010101#cFFFFFF',
+		'nouse',
+	};		
+	local CHANNEL_DATA_RAID =
+	{
+		'set:Union1 image:Union_Channel_Normal',
+		'set:Union1 image:Union_Channel_Hover',
+		'set:Union1 image:Union_Channel_Pushed',
+		'#cFFFFFF',
+		'#e010101#cff3300',
+	};		
+	local CHANNEL_DATA_RAIDSQUAD =
+	{
+		'set:Buttons image:ChannelTeam_Normal',
+		'set:Buttons image:ChannelTeam_Hover',
+		'set:Buttons image:ChannelTeam_Pushed',
+		'#cFFFFFF',
+		'#e010101#cCC99FF',
+	};
+	local CHANNEL_DATA_BIGWORLD =
+	{
+		'set:Button12 image:ChannelOUT_Normal',
+		'set:Button12 image:ChannelOUT_Hover',
+		'set:Button12 image:ChannelOUT_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	local CHANNEL_DATA_CLAN =
+	{
+		'set:Button12 image:ChannelShili_Normal',
+		'set:Button12 image:ChannelShili_Hover',
+		'set:Button12 image:ChannelShili_Pushed',
+		'#cFFFFFF',
+		'#e010101#cFF0000',
+	};
+	CHANNEL_DATA = {};
+	CHANNEL_DATA['near'] = CHANNEL_DATA_NEAR;
+	CHANNEL_DATA['scene'] = CHANNEL_DATA_SCENE;
+	CHANNEL_DATA['private'] = CHANNEL_DATA_PRIVATE;
+	CHANNEL_DATA['system'] = CHANNEL_DATA_SYSTEM;
+	CHANNEL_DATA['team'] = CHANNEL_DATA_TEAM;
+	CHANNEL_DATA['self'] = CHANNEL_DATA_SELF;
+	CHANNEL_DATA['menpai'] = CHANNEL_DATA_MENPAI;
+	CHANNEL_DATA['guild'] = CHANNEL_DATA_GUILD;
+	CHANNEL_DATA['guild_league'] = CHANNEL_DATA_GUILD_LEAGUE;
+	CHANNEL_DATA['help'] = CHANNEL_DATA_HELP;
+	CHANNEL_DATA['ipregion'] = CHANNEL_DATA_IPREGION;	
+	CHANNEL_DATA['raid'] = CHANNEL_DATA_RAID;
+	CHANNEL_DATA['raidsquad'] = CHANNEL_DATA_RAIDSQUAD;
+	CHANNEL_DATA['bigworld'] = CHANNEL_DATA_BIGWORLD;
+	CHANNEL_DATA['clan'] = CHANNEL_DATA_CLAN;
+	G_TheCurrentChannel = channel;	
+	if CHANNEL_DATA[channel] == nil then
+		return;
+	end
+	Chat_ChannelSelecter:SetProperty('NormalImage', CHANNEL_DATA[channel][1]);
+	Chat_ChannelSelecter:SetProperty('HoverImage', CHANNEL_DATA[channel][2]);
+	Chat_ChannelSelecter:SetProperty('PushedImage', CHANNEL_DATA[channel][3]);
+end
+function ChatFrame_TextAccepted()
+	if G_TheCurrentChannel == nil then
+		G_TheCurrentChannel = 'near'
+	end
+	local txt = Chat_EditBox:GetItemElementsString();
+	TXT = txt
+	
+	MapID = GetSceneID();
+	if txt == '@map' then
+		PushDebugMessage('Map hi®n tÕi: '..MapID)
+	end
+	if txt == '@q' then
+		AskRet2SelServer()
+	end
+	
+	local bChatAction = Talk : IsValidChatActionString(G_TheCurrentChannel, txt);
+	if (bChatAction == 1) then
+		g_ChatActionTxt = txt
+		ChatFrame_SetEditBoxTxt("")
+		Talk : CanDoDoubleAction_Bar()
+	elseif (bChatAction == 2) then		
+		g_ChatActionTxt = ""
+		ChatFrame_SetEditBoxTxt("")
+	elseif (bChatAction == 0) then
+		local prvname,perColor = Talk : SendChatMessage(G_TheCurrentChannel, txt);
+		if(nil == prvname ) then prvname = ""; end
+		if(nil == perColor ) then perColor = ""; end
+		local str = "";
+		if(prvname == "")then
+			str = str..perColor;
+		else
+			str = str.."/"..prvname.." "..perColor;
+		end
+
+		if("" ~= str) then
+			ChatFrame_SetEditBoxTxt(str);
+		else
+			ChatFrame_SetEditBoxTxt("");
+		end
+	end
+end
+function DebugListBox_Update(arg0)
+	max_size = 400;
+	this:Show();
+	local str;
+	local fontcolor,extencolor;
+	fontcolor,extencolor = DataPool:GetUIColor(1000);	
+	if(fontcolor == "-1") then
+		fontcolor = "00FFFF";
+	end
+	if(extencolor == "-1") then
+		extencolor = "010101";
+	end	
+	if(string.len(arg0) &gt; max_size) then
+		if(DataPool:Check_StringCode(string.sub(arg0,1,max_size)) == 0) then
+				str = string.sub(arg0,1,max_size-1);
+
+		else
+				str = string.sub(arg0,1,max_size);
+		end		
+		DebugListBox_ListBox:AddInfo( "#c"..fontcolor .. "#e" .. extencolor .. str );
+		return;
+	end
+	DebugListBox_ListBox:AddInfo( "#c"..fontcolor.."#e" .. extencolor .. arg0 );
+	if arg0 ~= nil then
+		if string.find(arg0, '#{SDHDRW_091109_29}') and string.find(arg0, '#{SDHDRW_091109_30}') then		
+			COUNT = arg0;
+		end		
+		if DEBUG == nil then
+			DEBUG = ''
+		end
+		if not string.find(arg0, '#{ResultText_6}') and not string.find(arg0, 'kinh nghi®m') and not string.find(arg0, 'vô hi®u') then
+			DEBUG = arg0;
+		end
+		if DEBUG == '#{BHCJ_140523_127}' then
+			TUBAOBON = 'ChuaMo';
+		end
+		if string.find(DEBUG, '#{BHCJ_140523_89') or string.find(DEBUG, '#{BHCJ_140523_84}') then
+			TUBAOBON = 'DaDao';
+		end
+		if string.find(DEBUG, '#{BHCJ_140523_96}') or string.find(DEBUG, '#{BHCJ_140523_90}') then
+			TUBAOBON = 'DaTra';
+		end
+		if not string.find(arg0, '#{CJG_090413_32}0/1#{DSSJ_4}') then
+			DBIF = arg0;
+		end
+		if string.find(arg0, '#{CJG_090413_21}') or string.find(arg0, '#{CJG_090605_4}') then
+			TKCINFO = arg0;
+		end
+		if string.find(arg0, '#{CJG_090605_4}') then
+			DB = arg0;
+		end
+		if string.find(DEBUG, '#{DJTS_110509_46}') and string.find(DEBUG, '#{DJTS_110509_47}') then
+			ISCLICK = 1;			
+		end
+		if string.find(arg0, '200/200') or string.find(arg0, '#{FBSD_150126_06') then
+			IsDone = 'Done';
+		end
+		if string.find(arg0, '#{YZWYH_150129_02}') then
+			IsDone = 'MDP';
+		end
+		if string.find(arg0, 'tß½ng trþ Ti«n Hoành Vû') then
+			IsDone = 'CMT';
+		end
+	end	
+end
+function Split(str,delim,maxNb) 
+	if string.find(str,delim) == nil then 
+		return {str} end
+	if maxNb == nil or maxNb &lt; 1 then 
+		maxNb = 0 
+	end 
+	local result = {} 
+	local pat = '(.-)' .. delim .. '()'; 
+	local nb = 0; 
+	local lastPos; 
+	for part,pos in string.gfind(str,pat) do 
+		nb = nb + 1; 
+		result[nb] = part; 
+		lastPos = pos; 
+		if nb == maxNb then 
+			break 
+		end 
+	end 
+	if nb ~= maxNb then 
+		result[nb + 1] = string.sub(str,lastPos) 
+	end 
+	return result
+end
+function  MessageBox_Self_UpdateRect()		
+	local nWidth, nHeight = MessageBox_Self_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Self_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	MSGBOX = arg0;
+	if string.find(arg0, 'Packet_StallSale') or tonumber(arg0) == 24 or tonumber(arg0) == 255 or arg0 == '#{SJXL_120423_08}' or arg0 == '#{SJXL_120423_07}' or arg0 == '#{KVKGZ_110620_146}' or arg0 == '#{KVKGZ_110620_145}' then		
+		IsMessageBox = 1;	
+	end	
+end
+function AcceptBox_ResetFrame()	
+	AcceptBox_PageHeader_Name:SetText("")
+	AcceptBox_OK_Button:Enable()
+	AcceptBox_OK_Button:Show()
+	AcceptBox_OK_Button:SetText("#{INTERFACE_XML_557}")
+	AcceptBox_Cancel_Button:Enable()
+	AcceptBox_Cancel_Button:Show()
+	AcceptBox_Cancel_Button:SetText("#{INTERFACE_XML_542}")
+	AcceptBox_Frame:SetProperty("AbsoluteSize", FrameSize_Original)
+	ACCBOX = arg0;
+    if 1 == SystemSetup:IsClassic() then
+	    AcceptBox_Blank:SetProperty("UnifiedSize", AcceptBox_Blank_Orignial_Size)
+    end
+	if tonumber(arg0) == 20100717 or tonumber(arg0) == 20130819 then
+		IsAcceptBox = 1;
+	end
+end
+function MessageBox_Other_UpdateFrame()
+	local nWidth, nHeight = MessageBox_Other_Text:GetWindowSize();
+	local nTitleHeight = 36;
+	local nBottomHeight = 75;
+	nWindowHeight = nTitleHeight + nBottomHeight + nHeight;
+	MessageBox_Other_Frame:SetProperty( "AbsoluteHeight", tostring( nWindowHeight ) );
+	if SystemSetup:IsClassic() == 0 then
+		MessageBox_Other_Frame:SetProperty( "AbsoluteWidth", 300 );
+	else
+		MessageBox_Other_Frame:SetProperty( "AbsoluteWidth", 256 );
+	end
+	local txt = MessageBox_Other_Text:GetText();
+	if string.find(txt, 'mu¯n các hÕ theo ðµi, ð°ng ý không?') then
+		IsMessageBoxOther = 1;
+	end
+end
+function HuyNhiemVu(nhiemvu)
+	if nhiemvu == nil then
+		return
+	end
+	while true do 
+		local name, content = DataPool:GetPlayerMission_Memo(cnt); 
+		if string.find(name, nhiemvu) then 
+			if DataPool:GetPlayerMission_Variable(cnt, 0) ~= 1 then 
+				DataPool:Mission_Abnegate_Popup(cnt,DataPool:GetPlayerMission_Memo(cnt));
+				setmetatable(_G, {__index = MessageBox_Self_Env}); 
+				MessageBox_Self_OK_Clicked();
+			end 
+		end 
+		cnt = cnt + 1; 
+		if cnt == 20 then 
+			return
+		end 
+	end
+end
+function ReadMissionOutline()
+	MISSION = "";
+	for i=1,200 do
+		local iMissionType = i;
+		local DeployNum = GetMissionOutlineNum(iMissionType);
+		local nMyLevel = Player:GetData("LEVEL");
+		 for i=1, DeployNum do
+			local MissionLevel, MinLevel, MaxLevel, strNpcName, strNpcPos, strScene, strMissionName, PosX, PosY, SceneID = GetMissionOutlineInfo(iMissionType, i);		
+			if(MissionLevel &lt;= nMyLevel) then
+				local strInfo = "";
+				strNpcPos = "#{_INFOAIM"..(PosX)..","..(PosY)..","..(SceneID)..","..(strNpcName).."}";
+				if strScene and strScene ~= "" then
+					strInfo = strInfo.."   #G"..strScene.."  #R"..strNpcName..strNpcPos;
+				else
+					strInfo = strInfo.."   #R"..strNpcName..strNpcPos
+				end
+				MISSION = MISSION .. strMissionName .. '=' .. strInfo .. ';';
+			end
+		end
+	end
+	return MISSION;
+end
+function Minimap_CoordinateUpdate()
+	TimeDot = {};
+	TimeDot[1] = MiniMap_TimeDot1;
+	TimeDot[2] = MiniMap_TimeDot2;
+	TimeDot[3] = MiniMap_TimeDot3;
+	TimeDot[4] = MiniMap_TimeDot4;
+	TimeDot[5] = MiniMap_TimeDot5;
+	TimeDot[6] = MiniMap_TimeDot6;
+	TimeDot[7] = MiniMap_TimeDot7;
+	TimeDot[8] = MiniMap_TimeDot8;
+	TimeDot[9] = MiniMap_TimeDot9;
+	TimeDot[10] = MiniMap_TimeDot10;
+	TimeDot[11] = MiniMap_TimeDot11;
+	TimeDot[12] = MiniMap_TimeDot12;
+	coordinatex, coordinatey = MiniMap_MapArea:GetMouseScenePos();
+	MiniMap_Coordinate:SetText( "#cFDFF73"..tostring( coordinatex ).."  "..tostring( coordinatey ) );
+	for i=1,12 do
+		TimeDot[i]:Hide()
+	end
+	hour = GetCurrentTime() + 1;
+	MiniMap_ChineseTime:SetProperty("SetCurrentImage", "Time"..tostring(hour));
+	TimeDot[hour]:Show();
+	if IsHideMap == true then
+		IsHideMap = false;
+		this:Show();
+	end
+	--if IsIdleLogic() == 1 then
+	if IsMessageBox == nil or IsMessageBox == true or IsMessageBox == false then IsMessageBox = 0 end if IsAcceptBox == nil or IsAcceptBox == true or IsAcceptBox == false then IsAcceptBox = 0 end if IsMessageBoxOther == nil or IsMessageBoxOther == true or IsMessageBoxOther == false then IsMessageBoxOther = 0 end MapID = GetSceneID(); if MapID == 261 and IsOut then MapID = 260; end if IsMessageBox &gt; 0 then IsMessageBox = IsMessageBox + 1; if IsMessageBox &gt;= 1 then distance = 300; if MapID == 1 then CharX, CharY = Player:GetPos(); distance = math.sqrt(math.pow(363 - CharX, 2) + math.pow(243 - CharY, 2)); end if MapID ~= 261 and distance &gt; 10 then IsMessageBox = 0; setmetatable(_G, {__index = MessageBox_Self_Env}); MessageBox_Self_OK_Clicked(); IsHideMap = true; end end end if IsAcceptBox &gt; 0 then IsAcceptBox = IsAcceptBox + 1; if IsAcceptBox &gt;= 1 then if MapID ~= 261 then setmetatable(_G, {__index = AcceptBox_Env}); AcceptBox_OK_Clicked(); IsHideMap = true; end IsAcceptBox = 0; end end if IsMessageBoxOther &gt; 0 then IsMessageBoxOther = IsMessageBoxOther + 1; if IsMessageBoxOther &gt;= 1 then setmetatable(_G, {__index = MessageBox_Other_Env}); [REDACTED](); IsHideMap = true; IsMessageBoxOther = 0; end end  if ISCLICK == nil then ISCLICK = 0; end if ISCLICK &gt; 0 then ISCLICK = ISCLICK + 1; end if ISCLICK &gt; 40 then setmetatable(_G, {__index = Item_TuDunZhu_Env}); Item_TuDunZhu_OK_Clicked(); IsHideMap = true; PushDebugMessage('D¸ch Chuy¬n'); ISCLICK = 0; end
+	--end	
+	if delay == nil then delay = 0 end
+	delay = delay + 1;
+	if delay &gt; 20 then
+		delay = 0;
+		UpdatePlayerList(false); 
+		enemy = '-'; 
+		for i=1, 16 do 
+			id , name , level , guild , menpai ,iconstr, enemyFlag ,teamPower = GetPlayerFromList(i-1); 
+			if id ~= -1 then 
+				enemy = enemy .. name .. '-'; 
+			end 
+		end 
+	end
+end
+
+function Accept()
+	for i = 0, DataPool:GetApplyMemberCount() do 
+		if TEAM == nil then 
+			Player:SendAgreeJoinTeam_Apply(i); 
+		else 
+			szNick,iFamily,iLevel,iCapID,iHead,iArmourID,iCuffID,iFootID,iWeaponID,_,sZoneWorldID = DataPool:GetApplyMemberInfo(i); 
+			if string.find(TEAM, szNick) then 
+				Player:SendAgreeJoinTeam_Apply(i); 
+			end 
+		end 
+	end 
+	if DataPool:GetInviteTeamCount() &gt; 0 then 
+		Player:AgreeJoinTeam(0) 
+	end 
+	DataPool:EraseApply(0);
+end</value></data>
+  <data name="LuaEx" xml:space="preserve"><value>MISSION = "";
+for iMissionType = 1, 200 do
+	local DeployNum = GetMissionOutlineNum(iMissionType);
+	local nMyLevel = Player:GetData("LEVEL");
+	for i=1, DeployNum do
+		local MissionLevel, MinLevel, MaxLevel, strNpcName, strNpcPos, strScene, strMissionName, PosX, PosY, SceneID = GetMissionOutlineInfo(iMissionType, i);		
+		if(MissionLevel &lt;= nMyLevel) then
+			local strInfo = "";
+			strNpcPos = "#{_INFOAIM"..(PosX)..","..(PosY)..","..(SceneID)..","..(strNpcName).."}";
+			if strScene and strScene ~= "" then
+				strInfo = strInfo.."   #G"..strScene.."  #R"..strNpcName..strNpcPos;
+			else
+				strInfo = strInfo.."   #R"..strNpcName..strNpcPos
+			end
+			MISSION = MISSION .. '[' .. MissionLevel .. ']' .. ' ' .. strMissionName .. '=' .. strInfo .. ';';
+		end
+	end
+end
+return MISSION;</value></data>
+  <data name="refresh" mimetype="application/x-microsoft.net.object.binary.base64"><value>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</value></data></root>
