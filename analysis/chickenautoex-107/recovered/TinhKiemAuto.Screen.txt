@@ -1,0 +1,84 @@
+ID	SceneName
+0	Lạc Dương
+1	Tô Châu
+2	Đại Lý
+3	Tung Sơn
+4	Thái Hồ
+5	Kính Hồ
+6	Vô Lượng Sơn
+7	Kiếm Các
+8	Đôn Hoàng
+9	Thiếu Lâm Tự
+10	Cái Bang Tổng Đà
+11	Quang Minh Điện
+12	Võ Đang Sơn
+13	Thiên Long Tự
+14	Lăng Ba Động
+15	Nga My Sơn
+16	Tinh Túc Hải
+17	Thiên Sơn
+18	Nhạn Nam
+19	Nhạn Bắc
+20	Thảo Nguyên
+21	Liêu Tây
+22	Trường Bạch Sơn
+23	Hoàng Long Phủ
+24	Nhĩ Hải
+25	Thương Sơn
+26	Thạch Lâm
+27	Ngọc Khê
+28	Nam Chiêu
+29	Miêu Cương
+30	Tây Hồ
+31	Long Tuyền
+32	Võ Di
+33	Mai Lĩnh
+34	Nam Hải
+35	Quỳnh Châu
+112	Huyền Vũ Đảo
+164	Dạ Tây Hồ
+166	Bảo tàng động 1
+169	Bảo tàng động tầng 2
+191	Bảo tàng động tầng 3
+192	Bảo tàng động tầng 4
+193	Bảo tàng động tầng 5
+199	Thảo Liệu Trường
+200	Miêu nhân Động
+201	Thánh Thú Sơn
+202	Cổ Mộ tầng 1
+203	Cổ Mộ tầng 2
+204	Cổ Mộ tầng 3
+205	Cổ Mộ tầng 4
+206	Cổ Mộ tầng 5
+207	Cổ Mộ tầng 6
+208	Cổ Mộ tầng 7
+209	Cổ Mộ tầng 8
+210	Cổ Mộ tầng 9
+211	Sơn Động Thuyền Ổ
+213	Ma Nhai Động
+214	Dã Nhân Câu
+215	Ôn Tuyền Động
+216	Hoàng Long Động
+217	Thủy Kính Hồ
+218	Tiên Vương Phần
+219	Thụ Động
+220	Đào Hoa Nguyên
+221	Hải Tặc Động
+222	Tuyết Lang Hồ
+246	Lâu Lan
+229	Ngân Ngai Tuyết Nguyên
+262	Tần hoàng địa cung 1
+263	Tần hoàng địa cung 2
+264	Tần hoàng địa cung 3
+235	Diêm Hồ
+260	Thúc Hà Cổ Trấn
+244	Hỏa Diệm Sơn
+245	Cao Xương
+247	Tháp Lý Mộc
+253	Tháp Khắc Lạp Mã Can
+249	Đại Uyển
+255	Hãn Huyết Lĩnh
+284	Mộ Dung Sơn Trang
+237	Diêm Khanh
+251	Hỏa Diệm Cốc
+252	Cao Xương Mê Cung

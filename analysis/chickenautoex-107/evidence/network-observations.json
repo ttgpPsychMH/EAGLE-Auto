@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-09",
+  "user_facing_timezone": "Asia/Bangkok",
+  "requests": [
+    {
+      "method": "HEAD",
+      "url": "http://update.chickenauto.com/PatchInfoEx.ini",
+      "status": 403,
+      "server": "envoy",
+      "limitation": "Cloud/proxy response; origin availability and redirects not established"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/DevTLBB/AutoTLBB/master/PatchInfoEx.ini",
+      "status": 200,
+      "byte_count": 14,
+      "body": "Version = 107\n",
+      "matches_checkout_bytes": true
+    }
+  ],
+  "upstream_read_only_git_head": "a09b8c49f6d219ed0ab0c0cfb46f4bddf2c5de8d",
+  "user_reported_not_independently_reproduced": [
+    "Windows 11 send exception",
+    "Old domain redirects to HugeDomains",
+    "Stable 116 works"
+  ],
+  "target_binary_executed": false,
+  "credentials_submitted": false
+}

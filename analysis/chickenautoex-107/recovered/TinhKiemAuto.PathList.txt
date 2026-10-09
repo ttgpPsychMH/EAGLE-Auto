@@ -1,0 +1,399 @@
+StartSceneID	StartSceneName	ToSceneID	ToSceneName	NPCTeleportName	TeleportCost	PositionX	PositionY
+0	Lạc Dương	8	Đôn Hoàng	N/A	0	45	248
+0	Lạc Dương	3	Tung Sơn	N/A	0	256	457
+0	Lạc Dương	18	Nhạn Nam	N/A	0	443	261
+0	Lạc Dương	112	Huyền Vũ Đảo	Vân Hàm Nhi	0	275	293
+0	Lạc Dương	201	Thánh Thú Sơn	Vân Hàm Nhi	0	275	293
+0	Lạc Dương	1	Tô Châu	Ngô Đức Xương	0	235	321
+0	Lạc Dương	2	Đại Lý	Ngô Đức Xương	0	235	321
+0	Lạc Dương	246	Lâu Lan	Ngô Đức Xương	0	235	321
+0	Lạc Dương	260	Thúc Hà Cổ Trấn	Ngô Đức Xương	0	235	321
+0	Lạc Dương	9	Thiếu Lâm Tự	Ngô Đức Xương	0	235	321
+0	Lạc Dương	11	Quang Minh Điện	Ngô Đức Xương	0	235	321
+0	Lạc Dương	10	Cái Bang Tổng Đà	Ngô Đức Xương	0	235	321
+0	Lạc Dương	12	Võ Đang Sơn	Ngô Đức Xương	0	235	321
+0	Lạc Dương	15	Nga My Sơn	Ngô Đức Xương	0	235	321
+0	Lạc Dương	16	Tinh Túc Hải	Ngô Đức Xương	0	235	321
+0	Lạc Dương	13	Thiên Long Tự	Ngô Đức Xương	0	235	321
+0	Lạc Dương	17	Thiên Sơn	Ngô Đức Xương	0	235	321
+0	Lạc Dương	14	Lăng Ba Động	Ngô Đức Xương	0	235	321
+0	Lạc Dương	284	Mộ Dung Sơn Trang	Ngô Đức Xương	0	235	321
+0	Lạc Dương	34	Nam Hải	Xa Truyền Nghĩa	1	218	336
+0	Lạc Dương	28	Nam Chiêu	Xa Truyền Nghĩa	1	218	336
+0	Lạc Dương	22	Trường Bạch Sơn	Xa Truyền Nghĩa	1	218	336
+1	Tô Châu	30	Tây Hồ	N/A	0	278	413
+1	Tô Châu	4	Thái Hồ	N/A	0	279	43
+1	Tô Châu	5	Kính Hồ	N/A	0	65	270
+1	Tô Châu	0	Lạc Dương	Lý Thừa Phong	0	202	257
+1	Tô Châu	2	Đại Lý	Lý Thừa Phong	0	202	257
+1	Tô Châu	246	Lâu Lan	Lý Thừa Phong	0	202	257
+1	Tô Châu	260	Thúc Hà Cổ Trấn	Lý Thừa Phong	0	202	257
+1	Tô Châu	9	Thiếu Lâm Tự	Lý Thừa Phong	0	202	257
+1	Tô Châu	11	Quang Minh Điện	Lý Thừa Phong	0	202	257
+1	Tô Châu	10	Cái Bang Tổng Đà	Lý Thừa Phong	0	202	257
+1	Tô Châu	12	Võ Đang Sơn	Lý Thừa Phong	0	202	257
+1	Tô Châu	15	Nga My Sơn	Lý Thừa Phong	0	202	257
+1	Tô Châu	16	Tinh Túc Hải	Lý Thừa Phong	0	202	257
+1	Tô Châu	13	Thiên Long Tự	Lý Thừa Phong	0	202	257
+1	Tô Châu	17	Thiên Sơn	Lý Thừa Phong	0	202	257
+1	Tô Châu	14	Lăng Ba Động	Lý Thừa Phong	0	202	257
+1	Tô Châu	284	Mộ Dung Sơn Trang	Lý Thừa Phong	0	202	257
+1	Tô Châu	28	Nam Chiêu	Xa Truyền An	1	332	248
+1	Tô Châu	34	Nam Hải	Xa Truyền An	1	332	248
+1	Tô Châu	22	Trường Bạch Sơn	Xa Truyền An	1	332	248
+2	Đại Lý	6	Vô Lượng Sơn	N/A	0	302	149
+2	Đại Lý	7	Kiếm Các	N/A	0	30	148
+2	Đại Lý	24	Nhĩ Hải	N/A	0	160	293
+2	Đại Lý	0	Lạc Dương	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	1	Tô Châu	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	246	Lâu Lan	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	260	Thúc Hà Cổ Trấn	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	9	Thiếu Lâm Tự	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	11	Quang Minh Điện	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	10	Cái Bang Tổng Đà	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	12	Võ Đang Sơn	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	15	Nga My Sơn	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	16	Tinh Túc Hải	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	13	Thiên Long Tự	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	17	Thiên Sơn	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	14	Lăng Ba Động	Thôi Phùng Cửu	0	251	125
+2	Đại Lý	284	Mộ Dung Sơn Trang	Thôi Phùng Cửu	0	251	125
+3	Tung Sơn	4	Thái Hồ	N/A	0	286	247
+3	Tung Sơn	0	Lạc Dương	N/A	0	34	55
+3	Tung Sơn	9	Thiếu Lâm Tự	N/A	0	285	135
+4	Thái Hồ	3	Tung Sơn	N/A	0	91	23
+4	Thái Hồ	1	Tô Châu	N/A	0	215	281
+4	Thái Hồ	10	Cái Bang Tổng Đà	N/A	0	280	32
+4	Thái Hồ	11	Quang Minh Điện	N/A	0	286	230
+5	Kính Hồ	6	Vô Lượng Sơn	N/A	0	38	284
+5	Kính Hồ	12	Núi Võ Đang	N/A	0	29	232
+5	Kính Hồ	284	Mộ Dung Sơn Trang	N/A	0	50	142
+5	Kính Hồ	1	Tô Châu	N/A	0	285	44
+6	Vô Lượng Sơn	14	Lăng Ba Động	N/A	0	116	32
+6	Vô Lượng Sơn	13	Thiên Long Tự	N/A	0	94	286
+6	Vô Lượng Sơn	5	Kính Hồ	N/A	0	287	77
+6	Vô Lượng Sơn	2	Đại Lý	N/A	0	32	176
+7	Kiếm Các	8	Đôn Hoàng	N/A	0	105	40
+7	Kiếm Các	15	Nga My Sơn	N/A	0	285	172
+7	Kiếm Các	2	Đại Lý	N/A	0	36	286
+7	Kiếm Các	262	Tầng Hoàng địa cung 1	Long Cổ	0	281	81
+8	Đôn Hoàng	7	Kiếm Các	N/A	0	231	286
+8	Đôn Hoàng	0	Lạc Dương	N/A	0	284	146
+8	Đôn Hoàng	17	Thiên Sơn	N/A	0	55	34
+8	Đôn Hoàng	16	Tinh Túc Hải	N/A	0	33	277
+8	Đôn Hoàng	166	Bảo tàng động 1	N/A	0	149	38
+9	Thiếu Lâm Tự	3	Tung Sơn	N/A	0	96	156
+9	Thiếu Lâm Tự	0	Lạc Dương	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	1	Tô Châu	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	2	Đại Lý	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	246	Lâu Lan	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	260	Thúc Hà Cổ Trấn	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	11	Quang Minh Điện	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	10	Cái Bang Tổng Đà	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	12	Võ Đang Sơn	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	15	Nga My Sơn	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	16	Tinh Túc Hải	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	13	Thiên Long Tự	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	17	Thiên Sơn	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	14	Lăng Ba Động	Tuệ Luân	0	93	132
+9	Thiếu Lâm Tự	284	Mộ Dung Sơn Trang	Tuệ Luân	0	93	132
+10	Cái Bang Tổng Đà	4	Thái Hồ	N/A	0	91	158
+10	Cái Bang Tổng Đà	0	Lạc Dương	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	1	Tô Châu	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	2	Đại Lý	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	246	Lâu Lan	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	260	Thúc Hà Cổ Trấn	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	9	Thiếu Lâm Tự	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	11	Quang Minh Điện	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	12	Võ Đang Sơn	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	15	Nga My Sơn	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	16	Tinh Túc Hải	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	13	Thiên Long Tự	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	17	Thiên Sơn	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	14	Lăng Ba Động	Trương Toàn Tường	0	95	120
+10	Cái Bang Tổng Đà	284	Mộ Dung Sơn Trang	Trương Toàn Tường	0	95	120
+11	Quang Minh Điện	4	Thái Hồ	N/A	0	97	173
+11	Quang Minh Điện	0	Lạc Dương	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	1	Tô Châu	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	2	Đại Lý	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	246	Lâu Lan	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	260	Thúc Hà Cổ Trấn	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	9	Thiếu Lâm Tự	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	10	Cái Bang Tổng Đà	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	12	Võ Đang Sơn	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	15	Nga My Sơn	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	16	Tinh Túc Hải	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	13	Thiên Long Tự	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	17	Thiên Sơn	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	14	Lăng Ba Động	Phương Thất Phật	0	102	167
+11	Quang Minh Điện	284	Mộ Dung Sơn Trang	Phương Thất Phật	0	102	167
+12	Võ Đang Sơn	5	Kính Hồ	N/A	0	95	191
+12	Võ Đang Sơn	0	Lạc Dương	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	1	Tô Châu	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	2	Đại Lý	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	246	Lâu Lan	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	260	Thúc Hà Cổ Trấn	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	9	Thiếu Lâm Tự	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	11	Quang Minh Điện	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	10	Cái Bang Tổng Đà	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	15	Nga My Sơn	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	16	Tinh Túc Hải	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	13	Thiên Long Tự	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	17	Thiên Sơn	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	14	Lăng Ba Động	Mạc Thái Xung	0	101	136
+12	Võ Đang Sơn	284	Mộ Dung Sơn Trang	Mạc Thái Xung	0	101	136
+13	Thiên Long Tự	6	Vô Lượng Sơn	N/A	0	95	145
+13	Thiên Long Tự	0	Lạc Dương	Phá Sân	0	99	120
+13	Thiên Long Tự	1	Tô Châu	Phá Sân	0	99	120
+13	Thiên Long Tự	2	Đại Lý	Phá Sân	0	99	120
+13	Thiên Long Tự	246	Lâu Lan	Phá Sân	0	99	120
+13	Thiên Long Tự	260	Thúc Hà Cổ Trấn	Phá Sân	0	99	120
+13	Thiên Long Tự	9	Thiếu Lâm Tự	Phá Sân	0	99	120
+13	Thiên Long Tự	11	Quang Minh Điện	Phá Sân	0	99	120
+13	Thiên Long Tự	10	Cái Bang Tổng Đà	Phá Sân	0	99	120
+13	Thiên Long Tự	12	Võ Đang Sơn	Phá Sân	0	99	120
+13	Thiên Long Tự	15	Nga My Sơn	Phá Sân	0	99	120
+13	Thiên Long Tự	16	Tinh Túc Hải	Phá Sân	0	99	120
+13	Thiên Long Tự	17	Thiên Sơn	Phá Sân	0	99	120
+13	Thiên Long Tự	14	Lăng Ba Động	Phá Sân	0	99	120
+13	Thiên Long Tự	284	Mộ Dung Sơn Trang	Phá Sân	0	99	120
+14	Lăng Ba Động	6	Vô Lượng Sơn	N/A	0	37	130
+14	Lăng Ba Động	0	Lạc Dương	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	1	Tô Châu	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	2	Đại Lý	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	246	Lâu Lan	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	260	Thúc Hà Cổ Trấn	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	9	Thiếu Lâm Tự	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	11	Quang Minh Điện	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	10	Cái Bang Tổng Đà	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	12	Võ Đang Sơn	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	15	Nga My Sơn	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	16	Tinh Túc Hải	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	13	Thiên Long Tự	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	17	Thiên Sơn	Lý Khôi Lỗi	0	69	142
+14	Lăng Ba Động	284	Mộ Dung Sơn Trang	Lý Khôi Lỗi	0	69	142
+15	Nga My Sơn	7	Kiếm Các	N/A	0	89	156
+15	Nga My Sơn	0	Lạc Dương	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	1	Tô Châu	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	2	Đại Lý	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	246	Lâu Lan	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	260	Thúc Hà Cổ Trấn	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	9	Thiếu Lâm Tự	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	11	Quang Minh Điện	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	10	Cái Bang Tổng Đà	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	12	Võ Đang Sơn	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	16	Tinh Túc Hải	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	13	Thiên Long Tự	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	17	Thiên Sơn	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	14	Lăng Ba Động	Dương Tứ Nương	0	86	142
+15	Nga My Sơn	284	Mộ Dung Sơn Trang	Dương Tứ Nương	0	86	142
+16	Tinh Túc Hải	8	Đôn Hoàng	N/A	0	96	159
+16	Tinh Túc Hải	0	Lạc Dương	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	1	Tô Châu	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	2	Đại Lý	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	246	Lâu Lan	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	260	Thúc Hà Cổ Trấn	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	9	Thiếu Lâm Tự	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	11	Quang Minh Điện	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	10	Cái Bang Tổng Đà	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	12	Võ Đang Sơn	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	15	Nga My Sơn	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	13	Thiên Long Tự	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	17	Thiên Sơn	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	14	Lăng Ba Động	Thiên Lang Tử	0	99	150
+16	Tinh Túc Hải	284	Mộ Dung Sơn Trang	Thiên Lang Tử	0	99	150
+17	Thiên Sơn	8	Đôn Hoàng	N/A	0	94	158
+17	Thiên Sơn	0	Lạc Dương	Ô Lão Đại	0	90	120
+17	Thiên Sơn	1	Tô Châu	Ô Lão Đại	0	90	120
+17	Thiên Sơn	2	Đại Lý	Ô Lão Đại	0	90	120
+17	Thiên Sơn	246	Lâu Lan	Ô Lão Đại	0	90	120
+17	Thiên Sơn	260	Thúc Hà Cổ Trấn	Ô Lão Đại	0	90	120
+17	Thiên Sơn	9	Thiếu Lâm Tự	Ô Lão Đại	0	90	120
+17	Thiên Sơn	11	Quang Minh Điện	Ô Lão Đại	0	90	120
+17	Thiên Sơn	10	Cái Bang Tổng Đà	Ô Lão Đại	0	90	120
+17	Thiên Sơn	12	Võ Đang Sơn	Ô Lão Đại	0	90	120
+17	Thiên Sơn	15	Nga My Sơn	Ô Lão Đại	0	90	120
+17	Thiên Sơn	16	Tinh Túc Hải	Ô Lão Đại	0	90	120
+17	Thiên Sơn	13	Thiên Long Tự	Ô Lão Đại	0	90	120
+17	Thiên Sơn	14	Lăng Ba Động	Ô Lão Đại	0	90	120
+17	Thiên Sơn	284	Mộ Dung Sơn Trang	Ô Lão Đại	0	90	120
+18	Nhạn Nam	19	Nhạn Bắc	N/A	0	248	37
+18	Nhạn Nam	213	Ma Nhai Động	N/A	0	34	39
+18	Nhạn Nam	20	Thảo Nguyên	N/A	0	33	58
+18	Nhạn Nam	0	Lạc Dương	N/A	0	264	286
+19	Nhạn Bắc	18	Nhạn Nam	N/A	0	228	280
+19	Nhạn Bắc	199	Thảo Liệu Trường	N/A	0	59	60
+19	Nhạn Bắc	202	Cổ Mộ tầng 1	N/A	0	139	259
+20	Thảo Nguyên	22	Trường Bạch Sơn	N/A	0	271	33
+20	Thảo Nguyên	217	Thủy Kính Hồ	N/A	0	65	195
+20	Thảo Nguyên	21	Liêu Tây	N/A	0	119	32
+20	Thảo Nguyên	18	Nhạn Nam	N/A	0	287	258
+21	Liêu Tây	20	Thảo Nguyên	N/A	0	61	297
+21	Liêu Tây	218	Tiên Vương Phần	N/A	0	37	211
+21	Liêu Tây	229	Ngân Ngai Tuyết Nguyên	N/A	0	285	45
+22	Trường Bạch Sơn	20	Thảo Nguyên	N/A	0	33	269
+22	Trường Bạch Sơn	23	Hoàng Long Phủ	N/A	0	286	73
+22	Trường Bạch Sơn	0	Lạc Dương	Xa Truyền Nhân	1	153	107
+22	Trường Bạch Sơn	1	Tô Châu	Xa Truyền Nhân	1	153	107
+22	Trường Bạch Sơn	2	Đại Lý	Xa Truyền Nhân	1	153	107
+22	Trường Bạch Sơn	246	Lâu Lan	Xa Truyền Nhân	1	153	107
+22	Trường Bạch Sơn	34	Nam Hải	Xa Truyền Nhân	1	153	107
+22	Trường Bạch Sơn	28	Nam Chiêu	Xa Truyền Nhân	1	153	107
+23	Hoàng Long Phủ	22	Trường Bạch Sơn	N/A	0	48	287
+23	Hoàng Long Phủ	222	Tuyết Lang Hồ	N/A	0	201	255
+24	Nhĩ Hải	25	Thương Sơn	N/A	0	34	157
+24	Nhĩ Hải	2	Đại Lý	N/A	0	287	32
+24	Nhĩ Hải	26	Thạch Lâm	N/A	0	34	279
+24	Nhĩ Hải	215	Ôn Tuyền Động	N/A	0	284	87
+25	Thương Sơn	214	Dã Nhân Câu	N/A	0	278	122
+25	Thương Sơn	24	Nhĩ Hải	N/A	0	286	56
+26	Thạch Lâm	24	Nhĩ Hải	N/A	0	268	128
+26	Thạch Lâm	28	Nam Chiêu	N/A	0	33	250
+26	Thạch Lâm	219	Thụ Động	N/A	0	109	272
+26	Thạch Lâm	235	Diêm Hồ	N/A	0	37	273
+26	Thạch Lâm	27	Ngọc Khê	N/A	0	112	34
+27	Ngọc Khê	26	Thạch Lâm	N/A	0	36	46
+27	Ngọc Khê	220	Đào Hoa Nguyên	N/A	0	54	167
+28	Nam Chiêu	29	Miêu Cương	N/A	0	106	285
+28	Nam Chiêu	26	Thạch Lâm	N/A	0	280	45
+28	Nam Chiêu	0	Lạc Dương	Xa Truyền Phúc	1	187	43
+28	Nam Chiêu	1	Tô Châu	Xa Truyền Phúc	1	187	43
+28	Nam Chiêu	2	Đại Lý	Xa Truyền Phúc	1	187	43
+28	Nam Chiêu	246	Lâu Lan	Xa Truyền Phúc	1	187	43
+28	Nam Chiêu	34	Nam Hải	Xa Truyền Phúc	1	187	43
+28	Nam Chiêu	22	Trường Bạch Sơn	Xa Truyền Phúc	1	187	43
+29	Miêu Cương	28	Nam Chiêu	N/A	0	67	32
+30	Tây Hồ	164	Dạ Tây Hồ	N/A	0	91	45
+30	Tây Hồ	31	Long Tuyền	N/A	0	287	54
+30	Tây Hồ	32	Võ Di	N/A	0	275	286
+30	Tây Hồ	211	Sơn Động Thuyền Ổ	N/A	0	42	227
+30	Tây Hồ	1	Tô Châu	N/A	0	34	50
+31	Long Tuyền	30	Tây Hồ	N/A	0	34	274
+32	Võ Di	34	Nam Hải	N/A	0	248	286
+32	Võ Di	33	Mai Lĩnh	N/A	0	283	180
+32	Võ Di	216	Hoàng Long Động	N/A	0	96	44
+32	Võ Di	30	Tây Hồ	N/A	0	36	33
+33	Mai Lĩnh	200	Miêu Nhân Động	N/A	0	192	279
+33	Mai Lĩnh	32	Võ Di	N/A	0	33	275
+34	Nam Hải	221	Hải Tặc Động	N/A	0	70	188
+34	Nam Hải	35	Quỳnh Châu	N/A	0	286	174
+34	Nam Hải	32	Võ Di	N/A	0	34	36
+34	Nam Hải	0	Lạc Dương	Xa Truyền Tín	1	204	259
+34	Nam Hải	1	Tô Châu	Xa Truyền Tín	1	204	259
+34	Nam Hải	2	Đại Lý	Xa Truyền Tín	1	204	259
+34	Nam Hải	246	Lâu Lan	Xa Truyền Tín	1	204	259
+34	Nam Hải	22	Trường Bạch Sơn	Xa Truyền Tín	1	204	259
+34	Nam Hải	28	Nam Chiêu	Xa Truyền Tín	1	204	259
+35	Quỳnh Châu	34	Nam Hải	N/A	0	279	286
+112	Huyền Vũ Đảo	201	Thánh Thú Sơn	N/A	0	290	60
+112	Huyền Vũ Đảo	0	Lạc Dương	Quy Giai	0	82	30
+112	Huyền Vũ Đảo	1	Tô Châu	Quy Giai	0	82	30
+112	Huyền Vũ Đảo	2	Đại Lý	Quy Giai	0	82	30
+164	Dạ Tây Hồ	30	Tây Hồ	N/A	0	88	40
+166	Bảo tàng động 1	8	Đôn Hoàng	N/A	0	234	238
+166	Bảo tàng động 1	169	Bảo tàng động tầng 2	N/A	0	18	15
+169	Bảo tàng động tầng 2	166	Bảo tàng động 1	N/A	0	233	236
+169	Bảo tàng động tầng 2	191	Bảo tàng động tầng 3	N/A	0	20	10
+191	Bảo tàng động tầng 3	169	Bảo tàng động tầng 2	N/A	0	245	16
+191	Bảo tàng động tầng 3	192	Bảo tàng động tầng 4	N/A	0	245	17
+192	Bảo tàng động tầng 4	191	Bảo tàng động tầng 3	N/A	0	26	249
+192	Bảo tàng động tầng 4	193	Bảo tàng động tầng 5	N/A	0	246	22
+193	Bảo tàng động tầng 5	192	Bảo tàng động tầng 4	N/A	0	128	247
+199	Thảo Liệu Trường	19	Nhạn Bắc	N/A	0	23	228
+200	Miêu nhân Động	33	Mai Lĩnh	N/A	0	89	242
+201	Thánh Thú Sơn	112	Huyền Vũ Đảo	N/A	0	235	230
+202	Cổ Mộ tầng 1	19	Nhạn Bắc	N/A	0	69	104
+202	Cổ Mộ tầng 1	203	Cổ Mộ tầng 2	N/A	0	23	76
+203	Cổ Mộ tầng 2	202	Cổ Mộ tầng 1	N/A	0	87	93
+203	Cổ Mộ tầng 2	204	Cổ Mộ tầng 3	N/A	0	106	18
+204	Cổ Mộ tầng 3	203	Cổ Mộ tầng 2	N/A	0	7	24
+204	Cổ Mộ tầng 3	205	Cổ Mộ tầng 4	N/A	0	110	114
+205	Cổ Mộ tầng 4	204	Cổ Mộ tầng 3	N/A	0	103	10
+205	Cổ Mộ tầng 4	206	Cổ Mộ tầng 5	N/A	0	63	52
+206	Cổ Mộ tầng 5	205	Cổ Mộ tầng 4	N/A	0	20	19
+206	Cổ Mộ tầng 5	207	Cổ Mộ tầng 6	N/A	0	104	11
+207	Cổ Mộ tầng 6	206	Cổ Mộ tầng 5	N/A	0	64	116
+207	Cổ Mộ tầng 6	208	Cổ Mộ tầng 7	N/A	0	64	60
+208	Cổ Mộ tầng 7	207	Cổ Mộ tầng 6	N/A	0	28	115
+208	Cổ Mộ tầng 7	209	Cổ Mộ tầng 8	N/A	0	79	20
+209	Cổ Mộ tầng 8	208	Cổ Mộ tầng 7	N/A	0	10	13
+209	Cổ Mộ tầng 8	210	Cổ Mộ tầng 9	N/A	0	38	31
+210	Cổ Mộ tầng 9	209	Cổ Mộ tầng 8	N/A	0	14	15
+211	Sơn Động Thuyền Ổ	30	Tây Hồ	N/A	0	24	224
+213	Ma Nhai Động	18	Nhạn Nam	N/A	0	22	235
+214	Dã Nhân Câu	25	Thương sơn	N/A	0	21	36
+215	Ôn Tuyền Động	24	Nhĩ Hải	N/A	0	25	235
+216	Hoàng Long Động	32	Võ Di	N/A	0	108	229
+217	Thủy Kính Hồ	20	Thảo Nguyên	N/A	0	230	236
+218	Tiên Vương Phần	21	Liêu Tây	N/A	0	127	19
+219	Thụ Động	26	Thạch Lâm	N/A	0	237	18
+220	Đào Hoa Nguyên	27	Ngọc Khê	N/A	0	20	19
+221	Hải Tặc Động	34	Nam Hải	N/A	0	42	228
+222	Tuyết Lang Hồ	23	Hoàng Long Phủ	N/A	0	108	228
+246	Lâu Lan	249	Đại Uyển	N/A	0	21	143
+246	Lâu Lan	247	Tháp Lý Mộc	N/A	0	160	307
+246	Lâu Lan	245	Cao Xương	N/A	0	298	142
+246	Lâu Lan	0	Lạc Dương	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	1	Tô Châu	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	2	Đại Lý	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	260	Thúc Hà Cổ Trấn	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	9	Thiếu Lâm Tự	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	11	Quang Minh Điện	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	10	Cái Bang Tổng Đà	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	12	Võ Đang Sơn	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	15	Nga My Sơn	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	16	Tinh Túc Hải	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	13	Thiên Long Tự	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	17	Thiên Sơn	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	14	Lăng Ba Động	Ngải Ni Ngõa Nhĩ	0	285	130
+246	Lâu Lan	284	Mộ Dung Sơn Trang	Ngải Ni Ngõa Nhĩ	0	285	130
+229	Ngân Ngai Tuyết Nguyên	21	Liêu Tây	N/A	0	58	226
+262	Tần hoàng địa cung 1	263	Tần hoàng địa cung 2	N/A	0	226	233
+263	Tần hoàng địa cung 2	264	Tần hoàng địa cung 3	N/A	0	96	164
+264	Tần hoàng địa cung 3	263	Tần hoàng địa cung 2	N/A	0	237	216
+235	Diêm Hồ	26	Thạch Lâm	N/A	0	49	23
+235	Diêm Hồ	237	Diêm Khanh	N/A	0	231	169
+260	Thúc Hà Cổ Trấn	0	Lạc Dương	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	1	Tô Châu	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	2	Đại Lý	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	246	Lâu Lan	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	9	Thiếu Lâm Tự	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	11	Quang Minh Điện	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	10	Cái Bang Tổng Đà	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	12	Võ Đang Sơn	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	15	Nga My Sơn	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	16	Tinh Túc Hải	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	13	Thiên Long Tự	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	17	Thiên Sơn	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	14	Lăng Ba Động	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	284	Mộ Dung Sơn Trang	Từ Hà Khách	0	202	210
+260	Thúc Hà Cổ Trấn	25	Thương sơn	Lý Minh Dương	0	25	288
+244	Hỏa Diệm Sơn	245	Cao Xương	N/A	0	20	237
+244	Hỏa Diệm Sơn	251	Hỏa Diệm Cốc	N/A	0	26	103
+245	Cao Xương	246	Lâu Lan	N/A	0	22	37
+245	Cao Xương	252	Cao Xương Mê Cung	N/A	0	72	144
+245	Cao Xương	244	Hỏa Diệm Sơn	N/A	0	229	221
+247	Tháp Lý Mộc	253	Tháp Khắc Lạp Mã Can	N/A	0	104	215
+247	Tháp Lý Mộc	246	Lâu Lan	N/A	0	30	22
+253	Tháp Khắc Lạp Mã Can	247	Tháp Lý Mộc	N/A	0	34	18
+249	Đại Uyển	255	Hãn Huyết Lĩnh	N/A	0	20	210
+249	Đại Uyển	246	Lâu Lan	N/A	0	195	235
+255	Hãn Huyết Lĩnh	249	Đại Uyển	N/A	0	96	87
+284	Mộ Dung Sơn Trang	5	Kính Hồ	N/A	0	160	168
+284	Mộ Dung Sơn Trang	0	Lạc Dương	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	1	Tô Châu	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	2	Đại Lý	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	246	Lâu Lan	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	260	Thúc Hà Cổ Trấn	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	9	Thiếu Lâm Tự	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	11	Quang Minh Điện	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	10	Cái Bang Tổng Đà	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	12	Võ Đang Sơn	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	15	Nga My Sơn	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	16	Tinh Túc Hải	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	13	Thiên Long Tự	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	17	Thiên Sơn	Đặng Vạn Nhận	0	27	137
+284	Mộ Dung Sơn Trang	14	Lăng Ba Động	Đặng Vạn Nhận	0	27	137
+237	Diêm Khanh	235	Diêm Hồ	N/A	0	100	98
+251	Hỏa Diệm Cốc	244	Hỏa Diệm Sơn	N/A	0	68	23
+252	Cao Xương Mê Cung	245	Cao Xương	N/A	0	105	105
