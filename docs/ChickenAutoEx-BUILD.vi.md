@@ -15,6 +15,16 @@ Mã phụ bản, Game.cs, hook native, thuật toán config encryption, key/HWID
 
 ## Build trên Windows hoặc Linux
 
+### Tải gói kiểm thử từ GitHub
+
+Source nằm trên nhánh [`repair/chickenautoex-107-startup`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/chickenautoex-107-startup), chưa gộp vào `master`. Mở [ChickenAutoEx review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy mới nhất có dấu xanh, rồi tải **ChickenAutoEx-107-startup-net48-review** ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
+
+Workflow tự chạy khi nhánh sửa có thay đổi liên quan, cũng hỗ trợ **Run workflow** khi bạn chọn nhánh sửa. Artifact được giữ **7 ngày**; hết hạn thì chạy lại workflow. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
+
+CI dùng cùng lệnh bên dưới để khôi phục tài nguyên, build, kiểm tra bảo toàn binary/source và chạy test updater với dịch vụ giả lập. Không chạy EXE automation, không dùng secret của GitHub hoặc tài khoản game, không tạo GitHub Release và không tự merge. Gói CI vẫn là bản review chưa qua Windows 11 test, kế thừa các constant nhúng của binary gốc; không upload source đã hydrate hoặc thư mục generated vào artifact.
+
+### Tự build
+
 Prerequisites: .NET SDK 8.x đã kiểm tra với **8.0.425**, Python 3.12, quyền đọc repository và tải package qua HTTPS từ NuGet. Không cần chạy game hoặc cung cấp credential. Dùng checkout hiện tại; không tạo worktree nếu không được yêu cầu.
 
 Từ root repository, PowerShell trên Windows:
