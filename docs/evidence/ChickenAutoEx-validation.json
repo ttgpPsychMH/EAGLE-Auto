@@ -1,0 +1,45 @@
+{
+  "framework": "net48",
+  "architecture": "x86",
+  "embedded_resources": 27,
+  "unchanged_original_resources": 26,
+  "json_assembly_version": 13,
+  "original_release_files_unchanged": true,
+  "automation_and_entitlement_source_preserved": true,
+  "target_executable_executed": false,
+  "windows_runtime_tested": false,
+  "artifacts": {
+    "ChickenAutoEx.exe": "0df2073b6b6f0ae6825972d6495960bc7ade0a0c3f1db9efc6980f7e0e0f4682",
+    "ChickenAutoEx.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+    "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+    "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+  },
+  "tests": {
+    "target": "net8.0",
+    "configuration": "Release",
+    "total": 37,
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0,
+    "fixture": "loopback HTTP/TLS Kestrel",
+    "automation_assembly_loaded": false
+  },
+  "default_https_metadata": {
+    "url": "https://raw.githubusercontent.com/ttgpPsychMH/EAGLE-Auto/master/PatchInfoEx.ini",
+    "status": 200,
+    "matches_original_metadata": true,
+    "windows_tls_tested": false
+  },
+  "manual_python_fixture": {
+    "verified_response_cases": 8,
+    "windows_ui_tested": false
+  },
+  "build": {
+    "target": "net48",
+    "configuration": "Release",
+    "errors": 0,
+    "warnings": 50,
+    "prepared_twice": true,
+    "locked_restore_verified": true
+  }
+}

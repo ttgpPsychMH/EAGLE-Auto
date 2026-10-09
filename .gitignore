@@ -1,0 +1,6 @@
+/.build/
+**/bin/
+**/obj/
+/TestResults/
+/.vs/
+**/__pycache__/

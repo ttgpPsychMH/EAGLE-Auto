@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37EDAB23-7624-4653-A3B0-2A6DC83C0FF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenAutoEx", "src\ChickenAutoEx\ChickenAutoEx.csproj", "{4A63F442-7A9F-446E-8555-54169AFD9A01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2BD669B8-FDED-46CA-9DA8-6F2927BCC7F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenAutoEx.Startup.Tests", "tests\ChickenAutoEx.Startup.Tests\ChickenAutoEx.Startup.Tests.csproj", "{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A63F442-7A9F-446E-8555-54169AFD9A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A63F442-7A9F-446E-8555-54169AFD9A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A63F442-7A9F-446E-8555-54169AFD9A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A63F442-7A9F-446E-8555-54169AFD9A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A63F442-7A9F-446E-8555-54169AFD9A01} = {37EDAB23-7624-4653-A3B0-2A6DC83C0FF9}
+		{65CB7F08-0DCC-4E64-8840-C9E85DCFA1FD} = {2BD669B8-FDED-46CA-9DA8-6F2927BCC7F2}
+	EndGlobalSection
+EndGlobal

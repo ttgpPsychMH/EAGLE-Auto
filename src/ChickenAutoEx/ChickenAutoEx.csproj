@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>ChickenAutoEx</AssemblyName>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RootNamespace>TinhKiemAuto</RootNamespace>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RecoveryOutput>$(MSBuildProjectDirectory)/../../.build/chickenautoex</RecoveryOutput>
+    <RecoveredSource>$(MSBuildProjectDirectory)/../../analysis/chickenautoex-107/recovered</RecoveredSource>
+    <ApplicationIcon>$(RecoveryOutput)/app.ico</ApplicationIcon>
+    <ApplicationManifest>$(RecoveredSource)/app.manifest</ApplicationManifest>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Zen.Barcode.Rendering.Framework" Version="3.1.10729.1" />
+    <PackageDownload Include="Microsoft.NETFramework.ReferenceAssemblies.net35" Version="[1.0.3]" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(RecoveredSource)/**/*.cs"
+      Exclude="$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs"
+      Link="Recovered/%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="$(RecoveryOutput)/hydrated/**/*.cs" Link="Hydrated/%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="$(RecoveryOutput)/resources/*" LogicalName="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <Target Name="RequireRecoveredAssets" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(RecoveryOutput)/prepared.json')" Text="Run tools/prepare_build.py after restore; see docs/ChickenAutoEx-BUILD.vi.md. Original executables must never be run." />
+  </Target>
+</Project>
