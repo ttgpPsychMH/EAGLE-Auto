@@ -30,7 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(RecoveredSource)/**/*.cs"
-      Exclude="$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs"
+      Exclude="$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs"
       Link="Recovered/%(RecursiveDir)%(Filename)%(Extension)" />
     <Compile Include="$(RecoveryOutput)/hydrated/**/*.cs" Link="Hydrated/%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="$(RecoveryOutput)/resources/*" LogicalName="%(Filename)%(Extension)" />

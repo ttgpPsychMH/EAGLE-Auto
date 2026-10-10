@@ -18,7 +18,7 @@ def main():
             raise ValueError("Run verify_build.py again after changing output")
     artifacts = repo / ".build/artifacts"
     artifacts.mkdir(exist_ok=True)
-    path = artifacts / "ChickenAutoEx-107-startup-net48.zip"
+    path = artifacts / "EAGLE-Auto-v0.1-net48.zip"
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
         for name in verified["artifacts"]:
             archive.write(output / name, name)
@@ -26,6 +26,7 @@ def main():
         archive.write(repo / "docs/ChickenAutoEx-WINDOWS11.vi.md", "WINDOWS11.vi.md")
         archive.write(repo / "docs/ChickenAutoEx-UI-SETTINGS.vi.md", "ChickenAutoEx-UI-SETTINGS.vi.md")
         archive.write(repo / "docs/ChickenAutoEx-DUNGEON-MENU.vi.md", "ChickenAutoEx-DUNGEON-MENU.vi.md")
+        archive.write(repo / "docs/EAGLE-Auto-v0.1.vi.md", "EAGLE-Auto-v0.1.vi.md")
         # Preserve available third-party package notices; do not claim licenses were relicensed.
         archive.write(repo / "docs/ChickenAutoEx-DEPENDENCIES.md", "DEPENDENCIES.md")
     checksum = hashlib.sha256(path.read_bytes()).hexdigest()

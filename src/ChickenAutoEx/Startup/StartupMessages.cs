@@ -7,9 +7,9 @@ namespace ChickenAutoEx.Startup
             switch (result.Status)
             {
                 case UpdateStatus.UpToDate:
-                    return "Đã kiểm tra phiên bản máy chủ: " + result.RemoteVersion + ".\n";
+                    return "Đã kiểm tra dữ liệu cập nhật của bản gốc (máy chủ: " + result.RemoteVersion + ").\n";
                 case UpdateStatus.UpdateAvailable:
-                    return "Có phiên bản mới: " + result.RemoteVersion + ". Bạn có thể cập nhật thủ công; ứng dụng tiếp tục khởi động.\n";
+                    return "Bản gốc có phiên bản mới: " + result.RemoteVersion + ". Ứng dụng tiếp tục khởi động.\n";
                 case UpdateStatus.Cancelled:
                     return "";
                 default:

@@ -1,5 +1,7 @@
 # ChickenAutoEx 107: bản build khôi phục và sửa startup
 
+**Bản hiển thị mới: [EAGLE Auto v0.1](EAGLE-Auto-v0.1.vi.md)** trên nhánh `branding/eagle-auto-v0.1`. Gói mới là `EAGLE-Auto-v0.1-net48.zip`, artifact **EAGLE-Auto-v0.1-net48-review**; file chạy vẫn `ChickenAutoEx.exe`. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
+
 Project build nằm tại `src/ChickenAutoEx`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Phần sửa startup đã merge vào master; nhánh `repair/chickenautoex-107-dungeon-menu` kế thừa [hai lỗi UI/cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md) và sửa [menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md). Source điều tra được giữ nguyên. Không chạy binary gốc để khôi phục dữ liệu.
 
 ## Thay đổi
@@ -53,7 +55,7 @@ Lockfiles và tool manifest được commit. `PackageDownload` net35 chỉ cung 
 
 **`.build`, `bin`, `obj` chứa dữ liệu nhạy cảm kế thừa và binary chưa qua Windows test, phải giữ ngoài Git.** Việc khôi phục constant chỉ nhằm giữ hành vi baseline; không thử dùng key API bên thứ ba. Gói build vẫn kế thừa các constant ấy trong binary, nên chỉ phục vụ review/test cô lập, chưa phải bản phát hành công khai. Không commit thư mục generated hoặc file account/game config của người dùng.
 
-Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review: `.build/artifacts/ChickenAutoEx-107-startup-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
+Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review hiện tại: `.build/artifacts/EAGLE-Auto-v0.1-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
 
 ## Kết quả đã xác nhận
 

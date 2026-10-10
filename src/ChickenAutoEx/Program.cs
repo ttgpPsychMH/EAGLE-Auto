@@ -24,15 +24,15 @@ namespace TinhKiemAuto
 				}
 				else
 				{
-					MessageBox.Show("Đã có phiên bản [ChickenAuto] khác đang hoạt động\nNếu bạn chắc chắn rằng Auto không bật\nVui lòng khởi động lại máy tính và thử lại. ", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+					MessageBox.Show("Đã có một phiên bản Auto khác đang hoạt động\nNếu bạn chắc chắn rằng Auto không bật\nVui lòng khởi động lại máy tính và thử lại. ", AppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Hand);
 				}
 			}
 			catch (Exception ex)
 			{
 				// Resource/file/runtime failures should have a useful, non-sensitive diagnostic.
-				MessageBox.Show("Không khởi động được ChickenAutoEx. Kiểm tra .NET Framework 4.8, các tệp DLL và quyền ghi thư mục. Mã lỗi: "
+				MessageBox.Show("Không khởi động được EAGLE Auto. Kiểm tra .NET Framework 4.8, các tệp DLL và quyền ghi thư mục. Mã lỗi: "
 					+ ex.GetType().Name + " (0x" + ex.HResult.ToString("X8") + ").",
-					"ChickenAutoEx", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					AppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally
 			{

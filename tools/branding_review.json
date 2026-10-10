@@ -1,0 +1,154 @@
+{
+  "base_commit": "2fc437a01aaa9ba3cebf58b90e03459b213c6967",
+  "scope": "Reviewed presentation changes only. Keep legacy protocol version, assembly identity, mutex, native resources, recovered snapshot and entitlement/automation implementation.",
+  "branding_constants_sha256": "650203f3b2d5b36824a98323f1f3847a1b5098e4317014f5e889ab6fd15ecbf1",
+  "source_edits": [
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "original_path": "src/ChickenAutoEx/FrmMain.cs",
+      "original_sha256_lf": "e7f5e827777bb495f91e359942b4ef9524fdb3495e75c2fbdcfc37c54954aca2",
+      "edits": [
+        {
+          "original": "\t\t\t\t\t\"ChickenAutoEx\", MessageBoxButtons.OK, MessageBoxIcon.Error);\n",
+          "reviewed": "\t\t\t\t\tAppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tnotifyIcon1.Text = \"ChickenAuto\";\n",
+          "reviewed": "\t\t\tnotifyIcon1.Text = AppBranding.WindowTitle;\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tText = \"ChickenAuto | Version : \" + Global.Version;\n",
+          "reviewed": "\t\t\tText = AppBranding.WindowTitle;\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tMessageBox.Show(this, \"Bạn cần phải chọn đường dẫn tới Game.exe\\r\\nFile Game.exe nằm trong thư mục Bin của TLBB\", \"ChickenAuto\", MessageBoxButtons.OK);\n",
+          "reviewed": "\t\t\tMessageBox.Show(this, \"Bạn cần phải chọn đường dẫn tới Game.exe\\r\\nFile Game.exe nằm trong thư mục Bin của TLBB\", AppBranding.Name, MessageBoxButtons.OK);\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tif (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, \"Bạn có muốn xóa thông tin những acc đã chọn\", \"ChickenAuto\", MessageBoxButtons.YesNo) != DialogResult.Yes)\n",
+          "reviewed": "\t\t\tif (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, \"Bạn có muốn xóa thông tin những acc đã chọn\", AppBranding.Name, MessageBoxButtons.YesNo) != DialogResult.Yes)\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tnew ThongQR().Show();\n",
+          "reviewed": "\t\t\tMessageBox.Show(this, AppBranding.AboutText, AppBranding.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tthis.thôngTinAUTOToolStripMenuItem.Text = \"Thông Tin AUTO\";\n",
+          "reviewed": "\t\t\tthis.thôngTinAUTOToolStripMenuItem.Text = AppBranding.AboutTitle;\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tthis.notifyIcon1.Text = \"ChickenAuto\";\n",
+          "reviewed": "\t\t\tthis.notifyIcon1.Text = AppBranding.WindowTitle;\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tthis.Text = \"ChickenAuto\";\n",
+          "reviewed": "\t\t\tthis.Text = AppBranding.WindowTitle;\n",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/ChickenAutoEx/Program.cs",
+      "original_path": "src/ChickenAutoEx/Program.cs",
+      "original_sha256_lf": "f702ab28f697973f1f760b4a9a24ac632767452c442749d1e03536fedcbe204d",
+      "edits": [
+        {
+          "original": "\t\t\t\t\tMessageBox.Show(\"Đã có phiên bản [ChickenAuto] khác đang hoạt động\\nNếu bạn chắc chắn rằng Auto không bật\\nVui lòng khởi động lại máy tính và thử lại. \", \"Cảnh Báo\", MessageBoxButtons.OK, MessageBoxIcon.Hand);\n",
+          "reviewed": "\t\t\t\t\tMessageBox.Show(\"Đã có một phiên bản Auto khác đang hoạt động\\nNếu bạn chắc chắn rằng Auto không bật\\nVui lòng khởi động lại máy tính và thử lại. \", AppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Hand);\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\t\tMessageBox.Show(\"Không khởi động được ChickenAutoEx. Kiểm tra .NET Framework 4.8, các tệp DLL và quyền ghi thư mục. Mã lỗi: \"\n",
+          "reviewed": "\t\t\t\tMessageBox.Show(\"Không khởi động được EAGLE Auto. Kiểm tra .NET Framework 4.8, các tệp DLL và quyền ghi thư mục. Mã lỗi: \"\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\t\t\t\"ChickenAutoEx\", MessageBoxButtons.OK, MessageBoxIcon.Error);\n",
+          "reviewed": "\t\t\t\t\tAppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);\n",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/ChickenAutoEx/Startup/StartupMessages.cs",
+      "original_path": "src/ChickenAutoEx/Startup/StartupMessages.cs",
+      "original_sha256_lf": "c10dabad86aa37ed32c590bdbd2dd5410c842bb2c4e6e342de186105ee917d19",
+      "edits": [
+        {
+          "original": "                    return \"Đã kiểm tra phiên bản máy chủ: \" + result.RemoteVersion + \".\\n\";\n",
+          "reviewed": "                    return \"Đã kiểm tra dữ liệu cập nhật của bản gốc (máy chủ: \" + result.RemoteVersion + \").\\n\";\n",
+          "count": 1
+        },
+        {
+          "original": "                    return \"Có phiên bản mới: \" + result.RemoteVersion + \". Bạn có thể cập nhật thủ công; ứng dụng tiếp tục khởi động.\\n\";\n",
+          "reviewed": "                    return \"Bản gốc có phiên bản mới: \" + result.RemoteVersion + \". Ứng dụng tiếp tục khởi động.\\n\";\n",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/ChickenAutoEx/ChickenAutoEx.csproj",
+      "original_path": "src/ChickenAutoEx/ChickenAutoEx.csproj",
+      "original_sha256_lf": "89673c36179ce16e66f5eb0cd5d8b741dbe4a3c54792e419fac27c9b30aaf51b",
+      "edits": [
+        {
+          "original": "      Exclude=\"$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs\"\n",
+          "reviewed": "      Exclude=\"$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs\"\n",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/ChickenAutoEx/ChangeLogs.cs",
+      "original_path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/ChangeLogs.cs",
+      "original_sha256_lf": "7edceafce1699aca96b91c342d6d16c5108dbb4a14735652a15604e2ac6bb7df",
+      "edits": [
+        {
+          "original": "\t\t\tthis.richTextBox1.Text = resources.GetString(\"richTextBox1.Text\");\n",
+          "reviewed": "\t\t\tthis.richTextBox1.Text = AppBranding.ChangelogText;\n",
+          "count": 1
+        },
+        {
+          "original": "\t\t\tthis.Text = \"Thông tin cập nhật\";\n",
+          "reviewed": "\t\t\tthis.Text = AppBranding.UpdateTitle;\n",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "src/ChickenAutoEx/Properties/AssemblyInfo.cs",
+      "original_path": "analysis/chickenautoex-107/recovered/Properties/AssemblyInfo.cs",
+      "original_sha256_lf": "bf846c0ab7e856e523fbfd5f07540137da8edee4e587912631cb6633d431a7dd",
+      "edits": [
+        {
+          "original": "[assembly: AssemblyTitle(\"ChickenAuto\")]\n[assembly: AssemblyDescription(\"Auto Chicken\")]\n",
+          "reviewed": "[assembly: AssemblyTitle(TinhKiemAuto.AppBranding.Name)]\n[assembly: AssemblyDescription(TinhKiemAuto.AppBranding.Attribution)]\n",
+          "count": 1
+        },
+        {
+          "original": "[assembly: AssemblyCompany(\"ChickenAuto\")]\n[assembly: AssemblyProduct(\"Auto Chicken\")]\n",
+          "reviewed": "[assembly: AssemblyCompany(TinhKiemAuto.AppBranding.Author)]\n[assembly: AssemblyProduct(TinhKiemAuto.AppBranding.Name)]\n",
+          "count": 1
+        },
+        {
+          "original": "[assembly: AssemblyFileVersion(\"1.0.0.0\")]\n",
+          "reviewed": "[assembly: AssemblyFileVersion(\"0.1.0.0\")]\n",
+          "count": 1
+        },
+        {
+          "original": "",
+          "reviewed": "[assembly: AssemblyInformationalVersion(TinhKiemAuto.AppBranding.DisplayVersion)]\n",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

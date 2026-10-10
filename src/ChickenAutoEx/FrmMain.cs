@@ -825,7 +825,7 @@ namespace TinhKiemAuto
 				// Do not include exception messages which may contain account/config data.
 				MessageBox.Show("Không hoàn tất khởi tạo ứng dụng. Kiểm tra bộ tệp build và quyền ghi thư mục. Mã lỗi: "
 					+ ex.GetType().Name + " (0x" + ex.HResult.ToString("X8", CultureInfo.InvariantCulture) + ").",
-					"ChickenAutoEx", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					AppBranding.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 				return;
 			}
@@ -866,11 +866,11 @@ namespace TinhKiemAuto
 		private void InitializeStartup()
 		{
 			txtlogs.AppendText("Bật auto :" + DateTime.Now.ToString() + "\n");
-			notifyIcon1.Text = "ChickenAuto";
+			notifyIcon1.Text = AppBranding.WindowTitle;
 			notifyIcon1.ContextMenu = new ContextMenu();
 			notifyIcon1.ContextMenu.MenuItems.Add(new MenuItem("Hiện Auto", HienAuto));
 			notifyIcon1.ContextMenu.MenuItems.Add(new MenuItem("Thoát Auto", Thoat));
-			Text = "ChickenAuto | Version : " + Global.Version;
+			Text = AppBranding.WindowTitle;
 			if (!File.Exists(Global.DataPath + "\\20.dat"))
 			{
 				TINHKIEM.FileInstallMaHoa("TinhKiemAuto", "Scripts.xml", Global.DataPath + "\\20.dat");
@@ -2621,7 +2621,7 @@ namespace TinhKiemAuto
 
 		public void SettingPath()
 		{
-			MessageBox.Show(this, "Bạn cần phải chọn đường dẫn tới Game.exe\r\nFile Game.exe nằm trong thư mục Bin của TLBB", "ChickenAuto", MessageBoxButtons.OK);
+			MessageBox.Show(this, "Bạn cần phải chọn đường dẫn tới Game.exe\r\nFile Game.exe nằm trong thư mục Bin của TLBB", AppBranding.Name, MessageBoxButtons.OK);
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Game.exe |Game.exe| GameOLD.exe |GameOLD.exe| All files (*.*)|*.*";
 			if (openFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -2688,7 +2688,7 @@ namespace TinhKiemAuto
 
 		private void menuDelete_Click(object sender, EventArgs e)
 		{
-			if (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, "Bạn có muốn xóa thông tin những acc đã chọn", "ChickenAuto", MessageBoxButtons.YesNo) != DialogResult.Yes)
+			if (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, "Bạn có muốn xóa thông tin những acc đã chọn", AppBranding.Name, MessageBoxButtons.YesNo) != DialogResult.Yes)
 			{
 				return;
 			}
@@ -4558,7 +4558,7 @@ namespace TinhKiemAuto
 
 		private void thôngTinAUTOToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			new ThongQR().Show();
+			MessageBox.Show(this, AppBranding.AboutText, AppBranding.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void groupBox8_Enter(object sender, EventArgs e)
@@ -5136,7 +5136,7 @@ namespace TinhKiemAuto
 			this.thôngTinCậpNhậtToolStripMenuItem.Click += new System.EventHandler(thôngTinCậpNhậtToolStripMenuItem_Click);
 			this.thôngTinAUTOToolStripMenuItem.Name = "thôngTinAUTOToolStripMenuItem";
 			this.thôngTinAUTOToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-			this.thôngTinAUTOToolStripMenuItem.Text = "Thông Tin AUTO";
+			this.thôngTinAUTOToolStripMenuItem.Text = AppBranding.AboutTitle;
 			this.thôngTinAUTOToolStripMenuItem.Click += new System.EventHandler(thôngTinAUTOToolStripMenuItem_Click);
 			this.chươngTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[7] { this.menuactac, this.ItemAcBa, this.ItemLauLan, this.itemTranLongKyCuoc, this.ItemThuyLao, this.ItemTrungAc, this.itemchuacodoi });
 			this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
@@ -6724,7 +6724,7 @@ namespace TinhKiemAuto
 			this.timeMonitor.Interval = 2000;
 			this.timeMonitor.Tick += new System.EventHandler(timeMonitor_Tick);
 			this.notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
-			this.notifyIcon1.Text = "ChickenAuto";
+			this.notifyIcon1.Text = AppBranding.WindowTitle;
 			this.notifyIcon1.Visible = true;
 			this.notifyIcon1.DoubleClick += new System.EventHandler(notifyIcon1_DoubleClick);
 			this.tmrLogin.Enabled = true;
@@ -6768,7 +6768,7 @@ namespace TinhKiemAuto
 			this.MinimumSize = new System.Drawing.Size(398, 638);
 			base.Name = "FrmMain";
 			base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "ChickenAuto";
+			this.Text = AppBranding.WindowTitle;
 			base.FormClosing += new System.Windows.Forms.FormClosingEventHandler(FrmMain_FormClosing);
 			base.Load += new System.EventHandler(FrmMain_Load);
 			base.Resize += new System.EventHandler(FrmMain_Resize);

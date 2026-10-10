@@ -1,0 +1,74 @@
+{
+  "base_commit": "2fc437a01aaa9ba3cebf58b90e03459b213c6967",
+  "branch": "branding/eagle-auto-v0.1",
+  "display_name": "EAGLE Auto",
+  "display_version": "v0.1",
+  "attribution": "Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku.",
+  "environment": {
+    "os": "Linux",
+    "dotnet_sdk": "8.0.425",
+    "target": "net48/x86"
+  },
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "regression_tests": {
+    "total": 94,
+    "passed": 94,
+    "failed": 0,
+    "skipped": 0,
+    "new_tests_added_for_text_changes": false
+  },
+  "static_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "automation_and_entitlement_source_preserved": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.1",
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "ChickenAutoEx.exe": "30ea73c8b5294f133d8a5f691a9a8707faf2002e426da9bc8e43273988c6e39c",
+      "ChickenAutoEx.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "protected_paths_unchanged": [
+    "analysis/chickenautoex-107/recovered",
+    "src/ChickenAutoEx/Global.cs",
+    "src/ChickenAutoEx/Startup/UpdateClient.cs",
+    "src/ChickenAutoEx/Startup/UpdateMetadata.cs",
+    "src/ChickenAutoEx/Startup/UpdateOptions.cs",
+    "src/ChickenAutoEx/App.config",
+    "src/ChickenAutoEx/packages.lock.json",
+    "tests",
+    "global.json",
+    "LICENSE"
+  ],
+  "presentation_manifest": "tools/branding_review.json",
+  "local_package": {
+    "path": ".build/artifacts/EAGLE-Auto-v0.1-net48.zip",
+    "sha256": "a63da79a46eb654b9fbcacb1c098bf61f4d5f62ad5a99b3eaf543316510af551",
+    "integrity_passed": true,
+    "guide_matches_source": true
+  },
+  "limitations": {
+    "target_executables_or_dlls_executed": false,
+    "windows_ui_tested": false,
+    "game_tested": false,
+    "ci_package_hash_may_differ": true
+  }
+}

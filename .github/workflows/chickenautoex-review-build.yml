@@ -1,8 +1,8 @@
-name: ChickenAutoEx review build
+name: EAGLE Auto review build
 
 on:
   push:
-    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings, repair/chickenautoex-107-dungeon-menu]
+    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings, repair/chickenautoex-107-dungeon-menu, branding/eagle-auto-v0.1]
     paths:
       - '.github/workflows/chickenautoex-review-build.yml'
       - '.config/dotnet-tools.json'
@@ -61,10 +61,10 @@ jobs:
       - name: Upload review ZIP, checksum and validation evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: ChickenAutoEx-107-net48-review
+          name: EAGLE-Auto-v0.1-net48-review
           path: |
-            .build/artifacts/ChickenAutoEx-107-startup-net48.zip
-            .build/artifacts/ChickenAutoEx-107-startup-net48.zip.sha256
+            .build/artifacts/EAGLE-Auto-v0.1-net48.zip
+            .build/artifacts/EAGLE-Auto-v0.1-net48.zip.sha256
             .build/chickenautoex/verified.json
             .build/test-results/startup-tests.trx
           include-hidden-files: true
@@ -73,7 +73,7 @@ jobs:
       - name: Explain package status
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
-          Download **ChickenAutoEx-107-net48-review** from this run's Artifacts section.
+          Download **EAGLE-Auto-v0.1-net48-review** from this run's Artifacts section.
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
           The isolated updater, UI/settings and dungeon menu tests ran; no game automation executable was executed.

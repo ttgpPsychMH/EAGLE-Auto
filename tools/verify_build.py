@@ -49,6 +49,20 @@ def restore_reviewed_dungeon_ui(repo, original, current):
     return current
 
 
+def verify_branding(repo):
+    review = json.loads((repo / "tools/branding_review.json").read_text())
+    restored = {}
+    for entry in review["source_edits"]:
+        text = (repo / entry["path"]).read_text()
+        for edit in entry["edits"]:
+            assert text.count(edit["reviewed"]) == edit["count"], entry["path"]
+            text = text.replace(edit["reviewed"], edit["original"])
+        assert hashlib.sha256(text.encode()).hexdigest() == entry["original_sha256_lf"], entry["path"]
+        restored[entry["path"]] = text
+    assert digest(repo / "src/ChickenAutoEx/AppBranding.cs") == review["branding_constants_sha256"]
+    return restored
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
@@ -80,8 +94,10 @@ def main():
     current_global = (repo / "src/ChickenAutoEx/Global.cs").read_text()
     assert current_global.replace("https://raw.githubusercontent.com/ttgpPsychMH/EAGLE-Auto/master/PatchInfoEx.ini",
                                   "http://update.chickenauto.com/PatchInfoEx.ini") == original_global
+    assert 'public static string Version => "107";' in current_global
+    branding_restored = verify_branding(repo)
     original_form = (baseline / "TinhKiemAuto/FrmMain.cs").read_text()
-    current_form = (repo / "src/ChickenAutoEx/FrmMain.cs").read_text()
+    current_form = branding_restored["src/ChickenAutoEx/FrmMain.cs"]
     # Reverse exactly the two reviewed UI/config fixes before comparing the legacy tail.
     # Keep every other handler, automation branch and entitlement condition protected.
     mp_fix = "CurGame.IsMP = checkrengenmp.Checked;"
@@ -99,6 +115,22 @@ def main():
     code = current_form[current_form.index("private async void FrmMain_Load"):current_form.index("private void InitializeStartup")]
     assert code.index("InitializeStartup();") < code.index("await new UpdateClient().CheckAsync")
     assert "Process.Start" not in code and "Application.Exit" not in code
+
+    # Inspect presentation/version data as PE bytes; never load the application.
+    for value in ["EAGLE Auto v0.1", "Về EAGLE Auto",
+                  "Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku."]:
+        assert pe.__data__.find(value.encode("utf-16le")) >= 0, "Missing compiled branding: " + value
+    assert (pe.net.mdtables.Assembly.rows[0].MajorVersion,
+            pe.net.mdtables.Assembly.rows[0].MinorVersion) == (1, 0), "Keep legacy assembly identity"
+    pe.parse_data_directories(directories=[2])  # Win32 resource directory, including VERSIONINFO
+    version_strings = {}
+    for block in pe.FileInfo:
+        for entry in block:
+            for table in getattr(entry, "StringTable", []):
+                version_strings.update(table.entries)
+    for key, value in {b"ProductName": b"EAGLE Auto", b"CompanyName": b"tenkafuku",
+                       b"FileVersion": b"0.1.0.0", b"ProductVersion": b"v0.1"}.items():
+        assert version_strings.get(key) == value, key.decode()
 
     # Reverse only documented redactions; verify all other Game/auth/debug code stayed identical.
     # The exact preservation checks below avoid executing or interpreting this code.
@@ -121,6 +153,8 @@ def main():
         "original_release_files_unchanged": True, "automation_and_entitlement_source_preserved": True,
         "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
         "reviewed_dungeon_menu_fixes": True,
+        "display_name": "EAGLE Auto", "display_version": "v0.1",
+        "legacy_protocol_version": "107", "reviewed_branding": True,
         "target_executable_executed": False, "windows_runtime_tested": False,
         "artifacts": {name: digest(output / name) for name in
                       ("ChickenAutoEx.exe", "ChickenAutoEx.exe.config", "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
