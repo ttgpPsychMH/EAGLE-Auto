@@ -1,5 +1,7 @@
 # EAGLE Auto v0.1
 
+Hồ sơ lần branding trước khi đổi tên EXE. Với gói hiện tại, dùng [EAGLE Auto — tên file và version](EAGLE-Auto.vi.md) và nhánh `branding/eagle-auto-versioned-build`.
+
 Bản hiển thị mới của project khôi phục Chicken Auto 107. Nhánh `branding/eagle-auto-v0.1` kế thừa sửa startup net48, MP/config, menu phó bản và hồ sơ so sánh 107–116. Thông tin giới thiệu:
 
 > Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku.
@@ -14,7 +16,7 @@ Bản hiển thị mới của project khôi phục Chicken Auto 107. Nhánh `br
 
 `v0.1` là phiên bản hiển thị của fork. `Global.Version = "107"` vẫn là mã legacy dùng trong metadata cập nhật/báo cáo/giao thức; không gán `v0.1` vào trường số này. Log cập nhật gọi rõ là dữ liệu **bản gốc**, không coi remote 107/108 là phiên bản EAGLE. Endpoint, parser, timeout và logic kiểm tra cập nhật không đổi. Assembly identity, namespace/resource name, native hook, format config, HWID/licensing/VIP, thuật toán và script game/phó bản giữ nguyên. Lớp QR cũ vẫn tồn tại; chỉ menu giới thiệu chuyển sang nội dung mới.
 
-Icon gốc được giữ. Tên file chạy vẫn là **ChickenAutoEx.exe**, đi kèm `ChickenAutoEx.exe.config`; tên hiển thị và tên ZIP đã đổi. Không đổi tên hai file này riêng lẻ vì cần giữ config đi kèm và khả năng tương thích hiện tại.
+Thông tin của lần branding trước được lưu trong báo cáo này. Bản tiếp theo đã đổi file chạy thành **EAGLE-Auto-v0.1.exe**, đi kèm `EAGLE-Auto-v0.1.exe.config`; xem [hướng dẫn hiện tại và cơ chế version chung](EAGLE-Auto.vi.md).
 
 ## Tải bản mới
 

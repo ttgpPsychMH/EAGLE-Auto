@@ -1,0 +1,66 @@
+{
+  "date_local": "2026-10-10",
+  "timezone": "Asia/Bangkok",
+  "base_commit": "c1b126b0b7ed3ddf5cc1e3930c177559c779d666",
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50,
+    "generated_source_in_obj": true
+  },
+  "existing_tests": {
+    "passed": 94,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "updater, UI/settings, dungeon menus; not Thuy Lao engine"
+  },
+  "version_probe": {
+    "override": "0.2",
+    "compiled_title_and_pe_metadata_verified": true,
+    "exe_config_and_zip_names_verified": true,
+    "other_version_and_legacy_executables_excluded": true,
+    "default_0_1_restored_and_verified": true
+  },
+  "invalid_version_probe": {
+    "MSBuild_rejected_0_01": true,
+    "python_reader_rejected_8_malformed_or_out_of_range_values": true
+  },
+  "package_sha256": "d125ba54b6669b374989f5015e599790b21a669e5f4d5f2fd4a50bb551f79edc",
+  "verified_build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "automation_and_entitlement_source_preserved": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.1",
+    "product_version": {
+      "version": "0.1",
+      "display_version": "v0.1",
+      "file_version": "0.1.0.0",
+      "executable": "EAGLE-Auto-v0.1.exe",
+      "config": "EAGLE-Auto-v0.1.exe.config",
+      "zip_name": "EAGLE-Auto-v0.1-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.1-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.1.exe": "521ad1ad930d3223ecfdb0f74536fb0f44d27ea3d8be95b98f035d422d592fa0",
+      "EAGLE-Auto-v0.1.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "windows_runtime_tested": false,
+  "target_executable_executed": false,
+  "thuy_lao_engine_modified": false
+}

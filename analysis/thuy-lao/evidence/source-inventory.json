@@ -1,0 +1,146 @@
+{
+  "baseline_commit": "c1b126b0b7ed3ddf5cc1e3930c177559c779d666",
+  "scope": "Static source/data inventory, not engine tests or client compatibility validation",
+  "application_executed": false,
+  "files": {
+    "src/ChickenAutoEx/FrmMain.cs": {
+      "sha256_bytes": "11744727e3df0bb4dfeffa351b3411f5bdc1d2e08dcb288bc2b230fb69dcd03f"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": {
+      "sha256_bytes": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Task.cs": {
+      "sha256_bytes": "e6c8b383ef6d5f63c73a5cbf0ad0aeaddd0a8ceef5c1cd8bfb2f3ced46c2cd56"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TaskInfo.cs": {
+      "sha256_bytes": "2123ce6040a47fb9f9b4ed64c7973b88745b7a85327a97b9cafd46d5d3dc646a"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TLBB.cs": {
+      "sha256_bytes": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Address.cs": {
+      "sha256_bytes": "1e4ea72cfe26a6d2650b8927f98c6327b884228920e02cd78ef50cdfe27efd09"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Memory.cs": {
+      "sha256_bytes": "33a9aa0cd2f28f26fc72c1c3a46b92c0e5560b03df0f0a611b10110eb1111c83"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/LUA.cs": {
+      "sha256_bytes": "0e463fac02ff34427fe54fb05b863b64efeced393da5ae36c778615cf84482e9"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObjects.cs": {
+      "sha256_bytes": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/MAP.cs": {
+      "sha256_bytes": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/THAIHO.cs": {
+      "sha256_bytes": "ccd5c57d2c479a7a0ea0994b28c823c8a20ac7f2c6b6ee63d3fb7008f51f1e09"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TOCHAU.cs": {
+      "sha256_bytes": "f60d16380583a177a4851e3f187799fd71e8dcd9988fd5b994ca427da798a263"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Scripts.cs": {
+      "sha256_bytes": "ae0fe5029a0361623ba1428dabcd485fbb3aeedb6345038e42149557d2dad232"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.Scripts.xml": {
+      "sha256_bytes": "d0249feaa9262ccb92ee848501b25560be97f257154a6b33b93475d63152a88e"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.PathList.txt": {
+      "sha256_bytes": "dd47e13ea10e79eaa5814ca98fa2cb5e8824e2abdc8a07357d6c48e72ea8883f"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.Screen.txt": {
+      "sha256_bytes": "da9e4a72677356d58ba094857049f80233fe48f6be2158344e9fce66ff8e260c"
+    }
+  },
+  "state_references": {
+    "IsThuyLao": {
+      "src/ChickenAutoEx/FrmMain.cs": [
+        4163,
+        4190,
+        4301
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        873,
+        4666,
+        4828,
+        8837,
+        8853
+      ]
+    },
+    "TrangThaiThuyLao": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        450,
+        4601,
+        4607,
+        4609,
+        4612,
+        4614,
+        4621,
+        4625,
+        4629,
+        4654
+      ]
+    },
+    "DaNhanThuyLao": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        1238,
+        4597,
+        4620,
+        4705,
+        4832,
+        5601
+      ]
+    },
+    "IsXongThuyLao": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        1590,
+        4673,
+        5554,
+        8839,
+        8855
+      ]
+    }
+  },
+  "core_methods": {
+    "DiThuyLao": {
+      "source_line": 4562,
+      "sha256_lf": "a2960f68ffaeeff49b7d33404cfcb2aecc664fcf63ae608e58c1205a8a6a79df"
+    },
+    "NhanThuyLao": {
+      "source_line": 4595,
+      "sha256_lf": "2e29dbacf5cff2d3490beafafcc33f473c66b297bdfe943bc92b7c1e290e659d"
+    },
+    "DatDoiThuyLao": {
+      "source_line": 4664,
+      "sha256_lf": "3dee47b19f1713e0ba6fac00ea8108537a636beac386758bfaf8b062535d7aea"
+    },
+    "TrieuTap": {
+      "source_line": 4819,
+      "sha256_lf": "191abc80f59898e938a755ad5b9ee5965ec24845246dfe9a341e13b7df2067cf"
+    },
+    "ClearMission": {
+      "source_line": 5502,
+      "sha256_lf": "ae99862a74578b67bcaeebc04b63331080dd98a2149760f34eadc5bf668d5303"
+    },
+    "SetCalendar": {
+      "source_line": 6069,
+      "sha256_lf": "01dee694863447cfb19f2527b8a91e36dfc4bd9544dd0a37d3184ad38f2cd65b"
+    }
+  },
+  "original_il_cross_check": {
+    "origin": "Recorded manual IL inspection during this review; this collector does not run ILSpy",
+    "tool": "ILSpyCmd",
+    "input_archive": "ChickenAutoEx-new.zip",
+    "entry": "ChickenAutoEx.exe",
+    "methods_inspected": [
+      "DiThuyLao",
+      "NhanThuyLao",
+      "DatDoiThuyLao"
+    ],
+    "DiThuyLao_route": {
+      "map_field_instruction": "IL_004d: ldsfld int32 TinhKiemAuto.MAP::ToChau",
+      "call_instruction": "IL_0052: call instance void TinhKiemAuto.Game::TimDuong(float32, float32, int32)"
+    },
+    "input_executable_sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573"
+  }
+}

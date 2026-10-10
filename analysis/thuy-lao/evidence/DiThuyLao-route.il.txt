@@ -1,0 +1,15 @@
+ILSpyCmd static extraction from ChickenAutoEx.exe in ChickenAutoEx-new.zip
+Method: TinhKiemAuto.Game::DiThuyLao
+No target executable was run.
+
+		IL_0036: ldarg.0
+		IL_0037: ldsfld class TinhKiemAuto.NPC TinhKiemAuto.THAIHO::HoDienKhanh
+		IL_003c: ldfld int32 TinhKiemAuto.NPC::X
+		IL_0041: conv.r4
+		IL_0042: ldsfld class TinhKiemAuto.NPC TinhKiemAuto.THAIHO::HoDienKhanh
+		IL_0047: ldfld int32 TinhKiemAuto.NPC::Y
+		IL_004c: conv.r4
+		IL_004d: ldsfld int32 TinhKiemAuto.MAP::ToChau
+		IL_0052: call instance void TinhKiemAuto.Game::TimDuong(float32, float32, int32)
+		IL_0057: ret
+

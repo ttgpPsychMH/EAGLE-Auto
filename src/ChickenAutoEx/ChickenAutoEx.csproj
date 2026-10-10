@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../EagleAuto.Version.props" />
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AssemblyName>ChickenAutoEx</AssemblyName>
+    <AssemblyName>EAGLE-Auto-v$(EagleAutoVersion)</AssemblyName>
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -38,4 +39,5 @@
   <Target Name="RequireRecoveredAssets" BeforeTargets="PrepareForBuild">
     <Error Condition="!Exists('$(RecoveryOutput)/prepared.json')" Text="Run tools/prepare_build.py after restore; see docs/ChickenAutoEx-BUILD.vi.md. Original executables must never be run." />
   </Target>
+  <Import Project="EagleAuto.Version.targets" />
 </Project>

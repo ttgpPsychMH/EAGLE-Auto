@@ -33,7 +33,7 @@ Kết quả local và hash gói ở `docs/evidence/ChickenAutoEx-dungeon-menu-va
 
 ## Tải và kiểm thử Windows 11
 
-Trong [GitHub Actions](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy xanh của nhánh **repair/chickenautoex-107-dungeon-menu**, tải **ChickenAutoEx-107-net48-review**. Giải nén artifact, rồi ZIP ứng dụng bên trong. Tên ZIP giữ `ChickenAutoEx-107-startup-net48.zip`; chọn đúng nhánh/commit, kiểm tra file SHA256 và dùng thư mục thử riêng.
+Với gói EAGLE mới, dùng [hướng dẫn tải/build hiện tại](ChickenAutoEx-BUILD.vi.md) và chạy EXE/config theo version ghi trong `BUILD-INFO.json`. Nhánh **repair/chickenautoex-107-dungeon-menu** và artifact **ChickenAutoEx-107-net48-review** là hồ sơ đợt sửa menu trước. Giải nén artifact, rồi ZIP ứng dụng bên trong; chọn đúng nhánh/commit, kiểm tra SHA256 và dùng thư mục thử riêng.
 
 | Ca | Kết quả cần quan sát trên Windows |
 |---|---|

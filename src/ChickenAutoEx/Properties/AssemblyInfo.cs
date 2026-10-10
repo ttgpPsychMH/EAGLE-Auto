@@ -14,6 +14,6 @@ using System.Security.Permissions;
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("bd66eb90-342a-4187-a6e8-b4dc42ee225a")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion(TinhKiemAuto.AppBranding.FileVersion)]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion(TinhKiemAuto.AppBranding.DisplayVersion)]

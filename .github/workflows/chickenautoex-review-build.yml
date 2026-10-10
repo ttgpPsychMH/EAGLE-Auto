@@ -2,14 +2,16 @@ name: EAGLE Auto review build
 
 on:
   push:
-    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings, repair/chickenautoex-107-dungeon-menu, branding/eagle-auto-v0.1]
+    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings, repair/chickenautoex-107-dungeon-menu, branding/eagle-auto-v0.1, branding/eagle-auto-versioned-build]
     paths:
       - '.github/workflows/chickenautoex-review-build.yml'
       - '.config/dotnet-tools.json'
       - 'ChickenAutoEx.sln'
       - 'global.json'
+      - 'EagleAuto.Version.props'
       - 'ChickenAutoEx-new.zip'
       - 'analysis/chickenautoex-107/**'
+      - 'analysis/thuy-lao/**'
       - 'src/ChickenAutoEx/**'
       - 'tests/ChickenAutoEx.Startup.Tests/**'
       - 'tools/**'
@@ -50,6 +52,9 @@ jobs:
           dotnet restore ChickenAutoEx.sln --locked-mode
       - name: Recover build assets as data
         run: .build/build-venv/bin/python tools/prepare_build.py
+      - name: Read product version for artifact names
+        id: product-version
+        run: python tools/product_version.py --github-output "$GITHUB_OUTPUT"
       - name: Build net48 Windows application and isolated regression tests
         run: dotnet build ChickenAutoEx.sln -c Release --no-restore
       - name: Verify PE, preserved binaries and licensing source
@@ -61,19 +66,22 @@ jobs:
       - name: Upload review ZIP, checksum and validation evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: EAGLE-Auto-v0.1-net48-review
+          name: ${{ steps.product-version.outputs.artifact_name }}
           path: |
-            .build/artifacts/EAGLE-Auto-v0.1-net48.zip
-            .build/artifacts/EAGLE-Auto-v0.1-net48.zip.sha256
+            .build/artifacts/${{ steps.product-version.outputs.zip_name }}
+            .build/artifacts/${{ steps.product-version.outputs.zip_name }}.sha256
             .build/chickenautoex/verified.json
             .build/test-results/startup-tests.trx
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
       - name: Explain package status
+        env:
+          REVIEW_ARTIFACT: ${{ steps.product-version.outputs.artifact_name }}
+          REVIEW_EXE: ${{ steps.product-version.outputs.executable }}
         run: |
+          echo "Download **$REVIEW_ARTIFACT** from this run's Artifacts section; run **$REVIEW_EXE** on Windows." >> "$GITHUB_STEP_SUMMARY"
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
-          Download **EAGLE-Auto-v0.1-net48-review** from this run's Artifacts section.
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
           The isolated updater, UI/settings and dungeon menu tests ran; no game automation executable was executed.

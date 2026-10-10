@@ -7,6 +7,7 @@ import re
 import struct
 
 import dnfile
+from product_version import product_version
 
 
 def digest(path):
@@ -61,19 +62,23 @@ def verify_branding(repo):
         restored[entry["path"]] = text
     constants = (repo / "src/ChickenAutoEx/AppBranding.cs").read_text(encoding="utf-8")
     assert hashlib.sha256(constants.encode()).hexdigest() == review["branding_constants_sha256_lf"]
+    for path, expected in review["additional_source_hashes_lf"].items():
+        assert hashlib.sha256((repo / path).read_text(encoding="utf-8").encode()).hexdigest() == expected, path
     return restored
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--version", help="Match an explicit MSBuild EagleAutoVersion override for a version probe")
     args = parser.parse_args()
     repo = args.repo.resolve()
+    product = product_version(repo, args.version)
     baseline = repo / "analysis/chickenautoex-107/recovered"
     inventory = json.loads((baseline.parent / "evidence/inventory.json").read_text())
     manifest = json.loads((repo / ".build/chickenautoex/prepared.json").read_text())
     output = repo / "src/ChickenAutoEx/bin/Release/net48"
-    pe = dnfile.dnPE(str(output / "ChickenAutoEx.exe"))
+    pe = dnfile.dnPE(str(output / product["executable"]))
     assert pe.FILE_HEADER.Machine == 0x14c and pe.net.struct.Flags & 3 == 3, "Build must remain x86 IL-only"
     assert pe.net.metadata.struct.Version.startswith(b"v4.0.30319"), "Expected CLR 4"
     resources = embedded_resources(pe)
@@ -118,11 +123,12 @@ def main():
     assert "Process.Start" not in code and "Application.Exit" not in code
 
     # Inspect presentation/version data as PE bytes; never load the application.
-    for value in ["EAGLE Auto v0.1", "Về EAGLE Auto",
+    for value in ["EAGLE Auto " + product["display_version"], "Về EAGLE Auto",
                   "Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku."]:
         assert pe.__data__.find(value.encode("utf-16le")) >= 0, "Missing compiled branding: " + value
     assert (pe.net.mdtables.Assembly.rows[0].MajorVersion,
-            pe.net.mdtables.Assembly.rows[0].MinorVersion) == (1, 0), "Keep legacy assembly identity"
+            pe.net.mdtables.Assembly.rows[0].MinorVersion) == (1, 0), "Keep legacy CLR assembly version"
+    assert str(pe.net.mdtables.Assembly.rows[0].Name) == product["executable"][:-4]
     pe.parse_data_directories(directories=[2])  # Win32 resource directory, including VERSIONINFO
     version_strings = {}
     for block in pe.FileInfo:
@@ -130,7 +136,8 @@ def main():
             for table in getattr(entry, "StringTable", []):
                 version_strings.update(table.entries)
     for key, value in {b"ProductName": b"EAGLE Auto", b"CompanyName": b"tenkafuku",
-                       b"FileVersion": b"0.1.0.0", b"ProductVersion": b"v0.1"}.items():
+                       b"FileVersion": product["file_version"].encode(),
+                       b"ProductVersion": product["display_version"].encode()}.items():
         assert version_strings.get(key) == value, key.decode()
 
     # Reverse only documented redactions; verify all other Game/auth/debug code stayed identical.
@@ -154,11 +161,12 @@ def main():
         "original_release_files_unchanged": True, "automation_and_entitlement_source_preserved": True,
         "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
         "reviewed_dungeon_menu_fixes": True,
-        "display_name": "EAGLE Auto", "display_version": "v0.1",
+        "display_name": "EAGLE Auto", "display_version": product["display_version"],
+        "product_version": product,
         "legacy_protocol_version": "107", "reviewed_branding": True,
         "target_executable_executed": False, "windows_runtime_tested": False,
         "artifacts": {name: digest(output / name) for name in
-                      ("ChickenAutoEx.exe", "ChickenAutoEx.exe.config", "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
+                      (product["executable"], product["config"], "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
     }
     (repo / ".build/chickenautoex/verified.json").write_text(json.dumps(result, indent=2) + "\n")
     print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals and automation/licensing source.")

@@ -1,6 +1,6 @@
 # ChickenAutoEx 107: bản build khôi phục và sửa startup
 
-**Bản hiển thị mới: [EAGLE Auto v0.1](EAGLE-Auto-v0.1.vi.md)** trên nhánh `branding/eagle-auto-v0.1`. Gói mới là `EAGLE-Auto-v0.1-net48.zip`, artifact **EAGLE-Auto-v0.1-net48-review**; file chạy vẫn `ChickenAutoEx.exe`. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
+**Bản hiện tại: [EAGLE Auto — tên file và version](EAGLE-Auto.vi.md)** trên nhánh `branding/eagle-auto-versioned-build`. Với version `0.1`, gói là `EAGLE-Auto-v0.1-net48.zip`, artifact **EAGLE-Auto-v0.1-net48-review**; chạy **EAGLE-Auto-v0.1.exe** cùng `EAGLE-Auto-v0.1.exe.config`. Sửa `EagleAuto.Version.props` để tự đồng bộ tên file, giao diện, metadata, ZIP và artifact khi nâng version. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
 
 Project build nằm tại `src/ChickenAutoEx`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Phần sửa startup đã merge vào master; nhánh `repair/chickenautoex-107-dungeon-menu` kế thừa [hai lỗi UI/cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md) và sửa [menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md). Source điều tra được giữ nguyên. Không chạy binary gốc để khôi phục dữ liệu.
 
@@ -19,7 +19,7 @@ Engine phụ bản trong Game.cs, scripts, hook native, thuật toán config enc
 
 ### Tải gói kiểm thử từ GitHub
 
-Source của đợt sửa menu nằm trên nhánh [`repair/chickenautoex-107-dungeon-menu`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/chickenautoex-107-dungeon-menu). Mở [ChickenAutoEx review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **ChickenAutoEx-107-net48-review** ở mục **Artifacts**. Các lần chạy startup cũ dùng tên artifact `ChickenAutoEx-107-startup-net48-review`. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
+Source hiện tại nằm trên nhánh [`branding/eagle-auto-versioned-build`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/branding/eagle-auto-versioned-build). Mở [EAGLE Auto review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **EAGLE-Auto-v0.1-net48-review** (hoặc version mới hơn của nhánh đó) ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
 
 Workflow tự chạy khi các nhánh sửa startup/UI-settings/dungeon-menu có thay đổi liên quan. Artifact được giữ **7 ngày**; hết hạn thì người có quyền ghi repository mở lần chạy đã có và chọn **Re-run jobs** để tạo lại. Không cần merge để tải artifact từ lần chạy do push tạo ra. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
 

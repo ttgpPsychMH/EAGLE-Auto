@@ -1,0 +1,17 @@
+<Project>
+  <Target Name="GenerateEagleAutoVersion" BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <EagleAutoVersionSource>$(IntermediateOutputPath)EagleAuto.Version.g.cs</EagleAutoVersionSource>
+    </PropertyGroup>
+    <Error Condition="!$([System.Text.RegularExpressions.Regex]::IsMatch('$(EagleAutoVersion)', '^(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-4])\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-4])$'))" Text="EagleAutoVersion must be major.minor, each 0..65534, without leading zeroes." />
+    <ItemGroup>
+      <_EagleAutoVersionLine Include="namespace TinhKiemAuto { internal static partial class AppBranding {" />
+      <_EagleAutoVersionLine Include="internal const string DisplayVersion = &quot;v$(EagleAutoVersion)&quot;%3B" />
+      <_EagleAutoVersionLine Include="internal const string FileVersion = &quot;$(EagleAutoVersion).0.0&quot;%3B" />
+      <_EagleAutoVersionLine Include="} }" />
+      <Compile Include="$(EagleAutoVersionSource)" />
+      <FileWrites Include="$(EagleAutoVersionSource)" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(EagleAutoVersionSource)" Lines="@(_EagleAutoVersionLine)" Overwrite="true" WriteOnlyWhenDifferent="true" Encoding="UTF-8" />
+  </Target>
+</Project>

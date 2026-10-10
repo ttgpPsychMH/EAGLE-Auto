@@ -28,7 +28,7 @@ Round-trip ở đây kiểm tra **hai map option qua CSV trong bộ nhớ**, kh�
 
 ## Tải và kiểm thử trên Windows 11
 
-Mở [Actions của repo](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy xanh thuộc nhánh `repair/chickenautoex-107-ui-settings`, tải artifact **ChickenAutoEx-107-net48-review**. Giải nén artifact, rồi ZIP ứng dụng bên trong. Tên ZIP vẫn là `ChickenAutoEx-107-startup-net48.zip` để giữ đường dẫn đóng gói hiện có; chọn đúng nhánh/commit và so SHA256, không dựa riêng tên file.
+Với gói EAGLE mới, dùng [hướng dẫn tải/build hiện tại](ChickenAutoEx-BUILD.vi.md) và chạy EXE/config theo version ghi trong `BUILD-INFO.json`. Nhánh `repair/chickenautoex-107-ui-settings` và artifact `ChickenAutoEx-107-net48-review` là hồ sơ đợt sửa UI trước. Giải nén artifact, rồi ZIP ứng dụng bên trong; chọn đúng nhánh/commit và so SHA256.
 
 1. Thử trong thư mục riêng theo `WINDOWS11.vi.md`, với config giả lập updater. Xác nhận mở/đóng form và updater vẫn hoạt động; không chép config/tài khoản từ stable 116 vào gói thử.
 2. Trước test UI trên game, xác nhận bản build đọc đúng nhân vật, map và HP/MP trên client/server hợp lệ. Cloud chưa làm được bước này. Chưa coi việc tắt Auto là chế độ đọc thuần đã được kiểm chứng: code attach/hook cũ vẫn giữ nguyên.

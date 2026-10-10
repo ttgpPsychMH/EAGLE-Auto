@@ -18,7 +18,7 @@ Từ root checkout trong cùng máy Windows:
 python tools/fake_update_service.py --port 8765
 ```
 
-Trong **bản sao** `ChickenAutoEx.exe.config`, đổi appSettings:
+Trong **bản sao** file `.exe.config` cùng tên EXE của gói (v0.1 là `EAGLE-Auto-v0.1.exe.config`), đổi appSettings:
 
 ```xml
 <add key="UpdateMetadataUrl" value="http://127.0.0.1:8765/current.ini" />
