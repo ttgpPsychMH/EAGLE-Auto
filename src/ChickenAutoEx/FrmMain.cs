@@ -1146,6 +1146,9 @@ namespace TinhKiemAuto
 					if (array.Length > 61)
 					{
 						Option.MapBanDoIndex = array[61];
+					}
+					if (array.Length > 62)
+					{
 						Option.MaptriLieuIndex = array[62];
 					}
 				}
@@ -1931,7 +1934,7 @@ namespace TinhKiemAuto
 				{
 					notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + CurGame.TLBB.Name.ToUpper() + "]" + (checkrengenmp.Checked ? " Bật " : " Tắt ") + "tự sử dụng MP", ToolTipIcon.Info);
 				}
-				CurGame.IsMP = checkregenhp.Checked;
+				CurGame.IsMP = checkrengenmp.Checked;
 			}
 		}
 

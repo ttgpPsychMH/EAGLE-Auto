@@ -2,7 +2,7 @@ name: ChickenAutoEx review build
 
 on:
   push:
-    branches: [repair/chickenautoex-107-startup]
+    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings]
     paths:
       - '.github/workflows/chickenautoex-review-build.yml'
       - '.config/dotnet-tools.json'
@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   review-package:
-    name: Build, test updater and package for Windows review
+    name: Build, test updater and UI settings, package for Windows review
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -48,18 +48,18 @@ jobs:
           dotnet restore ChickenAutoEx.sln --locked-mode
       - name: Recover build assets as data
         run: .build/build-venv/bin/python tools/prepare_build.py
-      - name: Build net48 Windows application and isolated updater tests
+      - name: Build net48 Windows application and isolated regression tests
         run: dotnet build ChickenAutoEx.sln -c Release --no-restore
       - name: Verify PE, preserved binaries and licensing source
         run: .build/build-venv/bin/python tools/verify_build.py
-      - name: Test updater against simulated HTTP and TLS services
+      - name: Test updater, checkbox bindings and legacy settings with simulated dependencies
         run: dotnet test tests/ChickenAutoEx.Startup.Tests/ChickenAutoEx.Startup.Tests.csproj -c Release --no-build --no-restore --logger "trx;LogFileName=startup-tests.trx" --results-directory .build/test-results
       - name: Package verified files for Windows testing
         run: .build/build-venv/bin/python tools/package_build.py
       - name: Upload review ZIP, checksum and validation evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: ChickenAutoEx-107-startup-net48-review
+          name: ChickenAutoEx-107-net48-review
           path: |
             .build/artifacts/ChickenAutoEx-107-startup-net48.zip
             .build/artifacts/ChickenAutoEx-107-startup-net48.zip.sha256
@@ -71,10 +71,10 @@ jobs:
       - name: Explain package status
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
-          Download **ChickenAutoEx-107-startup-net48-review** from this run's Artifacts section.
+          Download **ChickenAutoEx-107-net48-review** from this run's Artifacts section.
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          Only the isolated updater tests ran; no game automation executable was executed.
+          The isolated updater and UI/settings tests ran; no game automation executable was executed.
           The package includes the Windows test guide and inherits the original application's embedded constants.
           Do not submit game credentials or use this build as a validated release.
           SUMMARY

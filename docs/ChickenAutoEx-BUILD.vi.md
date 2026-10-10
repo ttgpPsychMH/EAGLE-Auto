@@ -1,6 +1,6 @@
 # ChickenAutoEx 107: bản build khôi phục và sửa startup
 
-Đây là nhánh sửa `repair/chickenautoex-107-startup`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Source điều tra được giữ nguyên; project build nằm tại `src/ChickenAutoEx`. Không chạy binary gốc để khôi phục dữ liệu.
+Project build nằm tại `src/ChickenAutoEx`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Phần sửa startup đã merge vào master; nhánh `repair/chickenautoex-107-ui-settings` bổ sung [hai lỗi UI/cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md). Source điều tra được giữ nguyên. Không chạy binary gốc để khôi phục dữ liệu.
 
 ## Thay đổi
 
@@ -11,17 +11,17 @@
 - Timeout toàn yêu cầu gồm cả đọc body, mặc định 5 giây; body tối đa 32 KiB, UTF-8, MIME `text/plain`, một dòng Version nguyên dương. Không theo redirect, không bỏ qua chứng chỉ TLS, không tự tải/cài binary.
 - Hủy request khi đóng form. Các lỗi khởi tạo/resource/runtime có thông báo mã loại exception/HResult; không ghi nội dung account/config vào chẩn đoán mới.
 
-Mã phụ bản, Game.cs, hook native, thuật toán config encryption, key/HWID và các nhánh VIP không được sửa. `Global` chỉ đổi UpdateURL. Phần khởi tạo cục bộ và mọi method sau nó trong FrmMain giống snapshot gốc. AntiDump vẫn được giữ nguyên, vì thuộc code cũ cần đánh giá runtime riêng.
+Mã phụ bản, Game.cs, hook native, thuật toán config encryption, key/HWID và các nhánh VIP không được sửa. `Global` chỉ đổi UpdateURL. Ngoài hai thay đổi binding MP và guard index cấu hình, phần khởi tạo cục bộ và mọi method sau nó trong FrmMain giống snapshot gốc. `verify_build.py` đảo ngược đúng hai thay đổi này rồi đối chiếu toàn bộ phần còn lại. AntiDump vẫn được giữ nguyên, vì thuộc code cũ cần đánh giá runtime riêng.
 
 ## Build trên Windows hoặc Linux
 
 ### Tải gói kiểm thử từ GitHub
 
-Source nằm trên nhánh [`repair/chickenautoex-107-startup`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/chickenautoex-107-startup), chưa gộp vào `master`. Mở [ChickenAutoEx review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy mới nhất có dấu xanh, rồi tải **ChickenAutoEx-107-startup-net48-review** ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
+Source của đợt sửa UI/cấu hình nằm trên nhánh [`repair/chickenautoex-107-ui-settings`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/chickenautoex-107-ui-settings). Mở [ChickenAutoEx review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **ChickenAutoEx-107-net48-review** ở mục **Artifacts**. Các lần chạy startup cũ dùng tên artifact `ChickenAutoEx-107-startup-net48-review`. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
 
-Workflow tự chạy khi nhánh sửa có thay đổi liên quan. Artifact được giữ **7 ngày**; hết hạn thì người có quyền ghi repository mở lần chạy đã có và chọn **Re-run jobs** để tạo lại. Nút **Run workflow** chỉ khả dụng sau khi file workflow có trên nhánh mặc định; hiện tại không cần merge để tải artifact từ lần chạy do push tạo ra. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
+Workflow tự chạy khi hai nhánh sửa startup/UI-settings có thay đổi liên quan. Artifact được giữ **7 ngày**; hết hạn thì người có quyền ghi repository mở lần chạy đã có và chọn **Re-run jobs** để tạo lại. Không cần merge để tải artifact từ lần chạy do push tạo ra. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
 
-CI dùng cùng lệnh bên dưới để khôi phục tài nguyên, build, kiểm tra bảo toàn binary/source và chạy test updater với dịch vụ giả lập. Không chạy EXE automation, không dùng secret của GitHub hoặc tài khoản game, không tạo GitHub Release và không tự merge. Gói CI vẫn là bản review chưa qua Windows 11 test, kế thừa các constant nhúng của binary gốc; không upload source đã hydrate hoặc thư mục generated vào artifact.
+CI dùng cùng lệnh bên dưới để khôi phục tài nguyên, build, kiểm tra bảo toàn binary/source, chạy test updater với dịch vụ giả lập và test UI/cấu hình với dependency giả. Không chạy EXE automation, không dùng secret của GitHub hoặc tài khoản game, không tạo GitHub Release và không tự merge. Gói CI vẫn là bản review chưa qua Windows 11 test, kế thừa các constant nhúng của binary gốc; không upload source đã hydrate, source test fixture hoặc thư mục generated vào artifact.
 
 ### Tự build
 
@@ -59,7 +59,7 @@ Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review: `.build
 
 Build đầy đủ thành công trên Linux: **0 lỗi, 50 cảnh báo legacy**, có icon, manifest và đủ 27 embedded resource. Kiểm tra tĩnh xác nhận CLR 4/x86, identities phụ thuộc khớp, 26 resource gốc giữ nguyên từng byte; resource JSON được nâng cấp có chủ đích. Cả sáu binary stable/Ex trong repository và snapshot điều tra không đổi.
 
-Bộ test net8 chạy cùng source của updater mới (không load assembly automation): **37 passed, 0 failed, 0 skipped**. Service giả lập Kestrel dùng loopback và socket HTTP/TLS thật; kiểm tra INI hiện hành/mới/cũ, malformed/duplicate/HTML, status lỗi, redirect không tới target, payload quá lớn, UTF-8 sai, timeout headers/body, cancellation và từ chối self-signed TLS. Có thêm kiểm tra schema BaiTrain khi nâng JSON. Fixture Python dùng cho test thủ công đã được kiểm tra tám response tương ứng.
+Bộ test net8 (không load assembly automation): **56 passed, 0 failed, 0 skipped** trong đợt sửa UI/cấu hình: 37 test updater/schema và 19 test regression UI/settings. Service giả lập Kestrel dùng loopback và socket HTTP/TLS thật; kiểm tra INI hiện hành/mới/cũ, malformed/duplicate/HTML, status lỗi, redirect không tới target, payload quá lớn, UTF-8 sai, timeout headers/body, cancellation và từ chối self-signed TLS. Có thêm kiểm tra schema BaiTrain khi nâng JSON. Test UI/settings dùng Roslyn đi kèm SDK để biên dịch các method thực từ source với dependency giả; xem [phạm vi kiểm thử](ChickenAutoEx-UI-SETTINGS.vi.md). Fixture Python dùng cho test thủ công đã được kiểm tra tám response tương ứng ở đợt startup.
 
 Kiểm tra này **không xác nhận giao diện, CLR 4/WinForms, WMI, AntiDump, native hook hay phụ bản chạy được trên Windows 11**. Thực hiện [hướng dẫn Windows](ChickenAutoEx-WINDOWS11.vi.md) trước khi coi là đã sửa thành công. Reference assemblies chỉ giúp cross-compile; không cung cấp runtime Windows trong cloud.
 

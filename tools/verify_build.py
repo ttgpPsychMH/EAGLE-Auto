@@ -54,8 +54,19 @@ def main():
                                   "http://update.chickenauto.com/PatchInfoEx.ini") == original_global
     original_form = (baseline / "TinhKiemAuto/FrmMain.cs").read_text()
     current_form = (repo / "src/ChickenAutoEx/FrmMain.cs").read_text()
+    # Reverse exactly the two reviewed UI/config fixes before comparing the legacy tail.
+    # Keep every other handler, automation branch and entitlement condition protected.
+    mp_fix = "CurGame.IsMP = checkrengenmp.Checked;"
+    assert current_form.count(mp_fix) == 1, "Expected the reviewed MP checkbox binding"
+    preserved_form = current_form.replace(mp_fix, "CurGame.IsMP = checkregenhp.Checked;", 1)
+    map_fix = ("Option.MapBanDoIndex = array[61];\n"
+               "\t\t\t\t\t}\n\t\t\t\t\tif (array.Length > 62)\n\t\t\t\t\t{\n"
+               "\t\t\t\t\t\tOption.MaptriLieuIndex = array[62];")
+    assert preserved_form.count(map_fix) == 1, "Expected independent optional map guards"
+    preserved_form = preserved_form.replace(map_fix,
+        "Option.MapBanDoIndex = array[61];\n\t\t\t\t\t\tOption.MaptriLieuIndex = array[62];", 1)
     marker = '\t\t\ttxtlogs.AppendText("Bật auto :"'
-    assert original_form[original_form.index(marker):] == current_form[current_form.index(marker):]
+    assert original_form[original_form.index(marker):] == preserved_form[preserved_form.index(marker):]
     code = current_form[current_form.index("private async void FrmMain_Load"):current_form.index("private void InitializeStartup")]
     assert code.index("InitializeStartup();") < code.index("await new UpdateClient().CheckAsync")
     assert "Process.Start" not in code and "Application.Exit" not in code
@@ -80,6 +91,7 @@ def main():
         "framework": "net48", "architecture": "x86", "embedded_resources": len(resources),
         "unchanged_original_resources": 26, "json_assembly_version": 13,
         "original_release_files_unchanged": True, "automation_and_entitlement_source_preserved": True,
+        "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
         "target_executable_executed": False, "windows_runtime_tested": False,
         "artifacts": {name: digest(output / name) for name in
                       ("ChickenAutoEx.exe", "ChickenAutoEx.exe.config", "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},

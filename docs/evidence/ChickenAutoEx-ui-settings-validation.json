@@ -1,0 +1,61 @@
+{
+  "base_commit": "538572585b15db6cd2801b0d65ca01f5436c84a6",
+  "environment": "Linux, SDK 8.0.425, full Release build targeting net48/x86",
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "regression_tests_before_fix": {
+    "total": 19,
+    "executed": 19,
+    "passed": 11,
+    "failed": 8,
+    "notExecuted": 0
+  },
+  "all_tests_after_fix": {
+    "total": 56,
+    "executed": 56,
+    "passed": 56,
+    "failed": 0,
+    "notExecuted": 0
+  },
+  "test_groups_after_fix": {
+    "ui_settings_regressions": 19,
+    "updater_and_schema": 37
+  },
+  "test_method": "selected production method bodies compiled with Roslyn and inert UI/game/IO dependencies; actual updater source with loopback HTTP/TLS services",
+  "round_trip_scope": "map options at CSV positions 61 and 62; encryption and disk IO not executed",
+  "static_build_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "automation_and_entitlement_source_preserved": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "ChickenAutoEx.exe": "827f8d4cbd5b8f6b54185475a5b94505a17f6516243c5b4ac86fc67441dc2ab8",
+      "ChickenAutoEx.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "unchanged_paths": [
+    "analysis/chickenautoex-107/recovered",
+    "src/ChickenAutoEx/Global.cs",
+    "src/ChickenAutoEx/Startup",
+    "src/ChickenAutoEx/Program.cs",
+    "src/ChickenAutoEx/App.config"
+  ],
+  "local_package_sha256": "96cdb214f1304808576b049d6c11f8d388fe0478ef6732b9da60210376dc1675",
+  "package_members_verified": true,
+  "automation_executable_executed": false,
+  "windows_runtime_tested": false,
+  "in_game_tested": false
+}

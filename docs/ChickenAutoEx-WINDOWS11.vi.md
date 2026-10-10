@@ -1,6 +1,6 @@
 # Kiểm thử ChickenAutoEx trên Windows 11
 
-Bản build này chưa được chạy trên Windows. Chỉ chạy sau khi review source mới và nguồn binary/resource đã khôi phục. Không chạy executable gốc hoặc bộ tự giải nén để kiểm thử bản sửa.
+Bản UI/settings mới chưa được chạy trên Windows. Người dùng đã xác nhận bản startup trước mở được, chưa kiểm thử trong game. Chỉ chạy bản mới sau khi review source và nguồn binary/resource đã khôi phục. Không chạy executable gốc hoặc bộ tự giải nén để kiểm thử bản sửa. Đợt này cần thêm [kiểm tra HP/MP và cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md), có trong gói tải về.
 
 ## Chuẩn bị
 

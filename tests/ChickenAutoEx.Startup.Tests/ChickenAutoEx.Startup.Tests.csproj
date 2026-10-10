@@ -14,4 +14,14 @@
     <Compile Include="../../src/ChickenAutoEx/Startup/*.cs" Link="Startup/%(Filename)%(Extension)" />
     <Compile Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/BaiTrain.cs" Link="BaiTrain.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Parse/compile only selected UI/settings methods, never load the automation EXE. -->
+    <Reference Include="Microsoft.CodeAnalysis" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.dll" />
+    <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll" />
+    <None Include="../../src/ChickenAutoEx/FrmMain.cs" Link="RegressionSources/FrmMain.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/Global.cs" Link="RegressionSources/Global.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/Option.cs" Link="RegressionSources/Option.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/Setting.cs" Link="RegressionSources/Setting.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/TINHKIEM.cs" Link="RegressionSources/TINHKIEM.cs" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
