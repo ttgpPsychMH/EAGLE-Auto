@@ -53,13 +53,14 @@ def verify_branding(repo):
     review = json.loads((repo / "tools/branding_review.json").read_text())
     restored = {}
     for entry in review["source_edits"]:
-        text = (repo / entry["path"]).read_text()
+        text = (repo / entry["path"]).read_text(encoding="utf-8")
         for edit in entry["edits"]:
             assert text.count(edit["reviewed"]) == edit["count"], entry["path"]
             text = text.replace(edit["reviewed"], edit["original"])
         assert hashlib.sha256(text.encode()).hexdigest() == entry["original_sha256_lf"], entry["path"]
         restored[entry["path"]] = text
-    assert digest(repo / "src/ChickenAutoEx/AppBranding.cs") == review["branding_constants_sha256"]
+    constants = (repo / "src/ChickenAutoEx/AppBranding.cs").read_text(encoding="utf-8")
+    assert hashlib.sha256(constants.encode()).hexdigest() == review["branding_constants_sha256_lf"]
     return restored
 
 

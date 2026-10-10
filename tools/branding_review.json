@@ -1,7 +1,7 @@
 {
   "base_commit": "2fc437a01aaa9ba3cebf58b90e03459b213c6967",
   "scope": "Reviewed presentation changes only. Keep legacy protocol version, assembly identity, mutex, native resources, recovered snapshot and entitlement/automation implementation.",
-  "branding_constants_sha256": "650203f3b2d5b36824a98323f1f3847a1b5098e4317014f5e889ab6fd15ecbf1",
+  "branding_constants_sha256_lf": "650203f3b2d5b36824a98323f1f3847a1b5098e4317014f5e889ab6fd15ecbf1",
   "source_edits": [
     {
       "path": "src/ChickenAutoEx/FrmMain.cs",
