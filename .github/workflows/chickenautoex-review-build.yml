@@ -7,6 +7,7 @@ on:
       - '.github/workflows/chickenautoex-review-build.yml'
       - '.config/dotnet-tools.json'
       - 'ChickenAutoEx.sln'
+      - 'global.json'
       - 'ChickenAutoEx-new.zip'
       - 'analysis/chickenautoex-107/**'
       - 'src/ChickenAutoEx/**'
@@ -42,6 +43,7 @@ jobs:
           python-version: '3.12'
       - name: Restore pinned tools and packages
         run: |
+          dotnet --version
           python -m venv .build/build-venv
           .build/build-venv/bin/python -m pip install -r analysis/chickenautoex-107/tools/requirements.txt
           dotnet tool restore

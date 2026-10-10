@@ -40,7 +40,7 @@
     "target_executable_executed": false,
     "windows_runtime_tested": false,
     "artifacts": {
-      "ChickenAutoEx.exe": "827f8d4cbd5b8f6b54185475a5b94505a17f6516243c5b4ac86fc67441dc2ab8",
+      "ChickenAutoEx.exe": "cc7b6cb3cb4d0a466b92e510e8d774a5e5ebd48e9602c6bcf2abc041b837d9c7",
       "ChickenAutoEx.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
       "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
       "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
@@ -53,9 +53,10 @@
     "src/ChickenAutoEx/Program.cs",
     "src/ChickenAutoEx/App.config"
   ],
-  "local_package_sha256": "96cdb214f1304808576b049d6c11f8d388fe0478ef6732b9da60210376dc1675",
+  "local_package_sha256": "238a332535f333e25659b4eb3cb4fbac93aca0e5fcad807f6b52568734677fec",
   "package_members_verified": true,
   "automation_executable_executed": false,
   "windows_runtime_tested": false,
-  "in_game_tested": false
+  "in_game_tested": false,
+  "sdk_selection": "global.json selects SDK 8.0.425 with latestPatch in the 8.0.4xx feature band"
 }

@@ -25,7 +25,7 @@ CI dùng cùng lệnh bên dưới để khôi phục tài nguyên, build, kiể
 
 ### Tự build
 
-Prerequisites: .NET SDK 8.x đã kiểm tra với **8.0.425**, Python 3.12, quyền đọc repository và tải package qua HTTPS từ NuGet. Không cần chạy game hoặc cung cấp credential. Dùng checkout hiện tại; không tạo worktree nếu không được yêu cầu.
+Prerequisites: .NET SDK **8.0.425** (global.json cho phép patch mới hơn trong cùng feature band 8.0.4xx), Python 3.12, quyền đọc repository và tải package qua HTTPS từ NuGet. SDK được pin để runner có SDK 9/10 không chọn Roslyn yêu cầu runtime cao hơn net8 của test harness. Không cần chạy game hoặc cung cấp credential. Dùng checkout hiện tại; không tạo worktree nếu không được yêu cầu.
 
 Từ root repository, PowerShell trên Windows:
 
