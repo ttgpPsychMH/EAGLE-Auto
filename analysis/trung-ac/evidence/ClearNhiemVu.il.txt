@@ -1,0 +1,192 @@
+	.method public hidebysig
+		instance void ClearNhiemVu () cil managed
+	{
+		// Method begins at RVA 0x37a48
+		// Header size: 12
+		// Code size: 385 (0x181)
+		.maxstack 9
+		.locals init (
+			[0] string,
+			[1] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: ldarg.0
+		IL_0003: ldarg.0
+		IL_0004: ldarg.0
+		IL_0005: ldarg.0
+		IL_0006: ldstr ""
+		IL_000b: dup
+		IL_000c: stloc.0
+		IL_000d: stfld string TinhKiemAuto.Game::TrangThaiQD
+		IL_0012: ldloc.0
+		IL_0013: dup
+		IL_0014: stloc.0
+		IL_0015: stfld string TinhKiemAuto.Game::TrangThaiTuDuong
+		IL_001a: ldloc.0
+		IL_001b: dup
+		IL_001c: stloc.0
+		IL_001d: stfld string TinhKiemAuto.Game::TrangThaiXayDung
+		IL_0022: ldloc.0
+		IL_0023: dup
+		IL_0024: stloc.0
+		IL_0025: stfld string TinhKiemAuto.Game::TrangThaiTuBaoBon
+		IL_002a: ldloc.0
+		IL_002b: dup
+		IL_002c: stloc.0
+		IL_002d: stfld string TinhKiemAuto.Game::TrangThaiSuMon
+		IL_0032: ldloc.0
+		IL_0033: stfld string TinhKiemAuto.Game::TrangThaiLuyenKim
+		IL_0038: ldarg.0
+		IL_0039: ldarg.0
+		IL_003a: ldarg.0
+		IL_003b: ldarg.0
+		IL_003c: ldarg.0
+		IL_003d: ldarg.0
+		IL_003e: ldarg.0
+		IL_003f: ldc.i4.0
+		IL_0040: dup
+		IL_0041: stloc.1
+		IL_0042: stfld bool TinhKiemAuto.Game::IsNguyenVong
+		IL_0047: ldloc.1
+		IL_0048: dup
+		IL_0049: stloc.1
+		IL_004a: stfld bool TinhKiemAuto.Game::IsTrungAc
+		IL_004f: ldloc.1
+		IL_0050: dup
+		IL_0051: stloc.1
+		IL_0052: stfld bool TinhKiemAuto.Game::IsXayDung
+		IL_0057: ldloc.1
+		IL_0058: dup
+		IL_0059: stloc.1
+		IL_005a: stfld bool TinhKiemAuto.Game::IsTuDuong
+		IL_005f: ldloc.1
+		IL_0060: dup
+		IL_0061: stloc.1
+		IL_0062: stfld bool TinhKiemAuto.Game::IsTuBaoBon
+		IL_0067: ldloc.1
+		IL_0068: dup
+		IL_0069: stloc.1
+		IL_006a: stfld bool TinhKiemAuto.Game::IsSuMon
+		IL_006f: ldloc.1
+		IL_0070: stfld bool TinhKiemAuto.Game::IsLuyenKim
+		IL_0075: ldarg.0
+		IL_0076: ldc.i4.0
+		IL_0077: call instance void TinhKiemAuto.Game::set_IsLPMH(bool)
+		IL_007c: ldarg.0
+		IL_007d: ldc.i4.0
+		IL_007e: call instance void TinhKiemAuto.Game::set_IsNhanh(bool)
+		IL_0083: ldarg.0
+		IL_0084: ldsfld int32 TinhKiemAuto.STATE::None
+		IL_0089: call instance void TinhKiemAuto.Game::set_State(int32)
+		IL_008e: ldarg.0
+		IL_008f: ldfld bool TinhKiemAuto.Game::IsTrungAc
+		IL_0094: brfalse.s IL_00a1
+
+		IL_0096: ldarg.0
+		IL_0097: ldsfld int32 TinhKiemAuto.STATE::Null
+		IL_009c: call instance void TinhKiemAuto.Game::set_State(int32)
+
+		IL_00a1: ldarg.0
+		IL_00a2: ldc.i4.0
+		IL_00a3: stfld bool TinhKiemAuto.Game::IsDauCo
+		IL_00a8: ldarg.0
+		IL_00a9: ldc.i4.0
+		IL_00aa: stfld bool TinhKiemAuto.Game::DaNhanHoaHong
+		IL_00af: ldarg.0
+		IL_00b0: ldc.i4.0
+		IL_00b1: stfld bool TinhKiemAuto.Game::DaNhanHoaChung
+		IL_00b6: ldarg.0
+		IL_00b7: ldarg.0
+		IL_00b8: ldc.i4.0
+		IL_00b9: dup
+		IL_00ba: stloc.1
+		IL_00bb: stfld bool TinhKiemAuto.Game::IsDuoc
+		IL_00c0: ldloc.1
+		IL_00c1: stfld bool TinhKiemAuto.Game::IsKhoang
+		IL_00c6: ldarg.0
+		IL_00c7: ldarg.0
+		IL_00c8: ldc.i4.0
+		IL_00c9: dup
+		IL_00ca: stloc.1
+		IL_00cb: stfld bool TinhKiemAuto.Game::IsThuHoach
+		IL_00d0: ldloc.1
+		IL_00d1: stfld bool TinhKiemAuto.Game::IsTrongTrot
+		IL_00d6: ldarg.0
+		IL_00d7: ldarg.0
+		IL_00d8: ldarg.0
+		IL_00d9: ldc.i4.0
+		IL_00da: dup
+		IL_00db: stloc.1
+		IL_00dc: stfld bool TinhKiemAuto.Game::IsNguHanhPhap
+		IL_00e1: ldloc.1
+		IL_00e2: dup
+		IL_00e3: stloc.1
+		IL_00e4: stfld bool TinhKiemAuto.Game::IsLyHoa
+		IL_00e9: ldloc.1
+		IL_00ea: stfld bool TinhKiemAuto.Game::IsVanMay
+		IL_00ef: ldarg.0
+		IL_00f0: ldc.i4.0
+		IL_00f1: stfld bool TinhKiemAuto.Game::OkNhanDa
+		IL_00f6: ldarg.0
+		IL_00f7: ldc.i4.0
+		IL_00f8: stfld bool TinhKiemAuto.Game::IsTueHong
+		IL_00fd: ldarg.0
+		IL_00fe: ldc.i4.0
+		IL_00ff: stfld bool TinhKiemAuto.Game::IsChucPhuc
+		IL_0104: ldarg.0
+		IL_0105: ldc.i4.0
+		IL_0106: stfld bool TinhKiemAuto.Game::IsNhatHop
+		IL_010b: ldarg.0
+		IL_010c: ldc.i4.0
+		IL_010d: stfld bool TinhKiemAuto.Game::BachHoaDuyenCompleted
+		IL_0112: ldarg.0
+		IL_0113: ldc.i4.0
+		IL_0114: stfld bool TinhKiemAuto.Game::IsCauOThuoc
+		IL_0119: ldarg.0
+		IL_011a: ldc.i4.0
+		IL_011b: stfld bool TinhKiemAuto.Game::IsDead
+		IL_0120: ldarg.0
+		IL_0121: ldc.i4.0
+		IL_0122: stfld bool TinhKiemAuto.Game::IsCheDo
+		IL_0127: ldarg.0
+		IL_0128: ldc.i4.0
+		IL_0129: call instance void TinhKiemAuto.Game::set_MapAcTac(int32)
+		IL_012e: ldarg.0
+		IL_012f: ldstr "COUNT = nil;"
+		IL_0134: call instance void TinhKiemAuto.Game::LuaDoOneLineString(string)
+		IL_0139: ldarg.0
+		IL_013a: ldfld bool TinhKiemAuto.Game::IsNotClear
+		IL_013f: brtrue.s IL_0180
+
+		IL_0141: ldarg.0
+		IL_0142: ldc.i4.0
+		IL_0143: call instance void TinhKiemAuto.Game::set_IsNhanQuaBuiHoaHong(bool)
+		IL_0148: ldarg.0
+		IL_0149: ldc.i4.0
+		IL_014a: call instance void TinhKiemAuto.Game::set_IsNhanHoaHongLo(bool)
+		IL_014f: ldarg.0
+		IL_0150: ldc.i4.0
+		IL_0151: stfld bool TinhKiemAuto.Game::NhanQuaHoaHongCompleted
+		IL_0156: ldarg.0
+		IL_0157: ldc.i4.0
+		IL_0158: stfld bool TinhKiemAuto.Game::IsNhatHopall
+		IL_015d: ldarg.0
+		IL_015e: ldc.i4.0
+		IL_015f: stfld bool TinhKiemAuto.Game::IsChayVong
+		IL_0164: ldarg.0
+		IL_0165: ldc.i4.0
+		IL_0166: stfld bool TinhKiemAuto.Game::IsNhatHopQDua
+		IL_016b: ldarg.0
+		IL_016c: ldc.i4.0
+		IL_016d: stfld bool TinhKiemAuto.Game::IsQDua
+		IL_0172: ldarg.0
+		IL_0173: ldc.i4.0
+		IL_0174: stfld bool TinhKiemAuto.Game::QDuaCompleted
+		IL_0179: ldarg.0
+		IL_017a: ldc.i4.0
+		IL_017b: stfld bool TinhKiemAuto.Game::IsMoBang
+
+		IL_0180: ret
+	} // end of method Game::ClearNhiemVu

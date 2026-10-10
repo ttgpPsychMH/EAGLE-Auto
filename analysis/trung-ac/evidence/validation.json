@@ -1,0 +1,76 @@
+{
+  "baseline_application_commit": "91a93f2",
+  "date": "2026-10-10",
+  "timezone": "Asia/Bangkok",
+  "static_source_patterns": {
+    "passed": 19,
+    "failed": 0,
+    "scope": "Source assertions, not engine simulations"
+  },
+  "menu_regression": {
+    "configuration": "Release",
+    "passed": 38,
+    "failed": 0,
+    "skipped": 0,
+    "executed": 38,
+    "scope": "Existing real menu methods with fake UI/game dependencies; no TrungAc engine execution"
+  },
+  "original_il_cross_check": {
+    "tool": "ILSpyCmd 9.1.0.7988, static target read",
+    "input_executable_sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573",
+    "input_il_sha256": "0a4fa65c52e48053aec0590ff1229c3fb794f848d373f51b411f1c2a9b569c35",
+    "exported_evidence": [
+      "TrungAc.il.txt",
+      "Alarm-trung-ac-timer.il.txt",
+      "ClearNhiemVu.il.txt"
+    ],
+    "provenance_limit": "Collector verifies payload and expected IL patterns; arbitrary supplied IL is not independently attested."
+  },
+  "build_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_and_pet_aoe": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.3",
+    "product_version": {
+      "version": "0.3",
+      "display_version": "v0.3",
+      "file_version": "0.3.0.0",
+      "executable": "EAGLE-Auto-v0.3.exe",
+      "config": "EAGLE-Auto-v0.3.exe.config",
+      "zip_name": "EAGLE-Auto-v0.3-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.3-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.3.exe": "897c88c0e1fb8ed82a2328424808766856c73dec51e7c64ee21d51f81628af28",
+      "EAGLE-Auto-v0.3.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "application_changed": false,
+  "product_version_changed": false,
+  "application_rebuilt": false,
+  "target_executable_executed": false,
+  "native_dll_executed": false,
+  "trung_ac_engine_simulated": false,
+  "windows_runtime_tested": false,
+  "game_runtime_tested": false
+}

@@ -1,0 +1,66 @@
+		IL_0318: ldarg.0
+		IL_0319: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::comeTime
+		IL_031e: brfalse.s IL_0345
+
+		IL_0320: ldarg.0
+		IL_0321: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::comeTime
+		IL_0326: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_032b: stloc.2
+		IL_032c: ldloca.s 2
+		IL_032e: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_0333: ldc.r8 150
+		IL_033c: ble.un.s IL_0345
+
+		IL_033e: ldarg.0
+		IL_033f: ldc.i4.1
+		IL_0340: call instance void TinhKiemAuto.Game::set_IsHong(bool)
+
+		IL_0345: ldarg.0
+		IL_0346: call instance bool TinhKiemAuto.Game::get_IsHong()
+		IL_034b: brfalse.s IL_0360
+
+		IL_034d: ldarg.0
+		IL_034e: call instance class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::get_HongTrungAcTime()
+		IL_0353: brtrue.s IL_0360
+
+		IL_0355: ldarg.0
+		IL_0356: call class [System]System.Diagnostics.Stopwatch [System]System.Diagnostics.Stopwatch::StartNew()
+		IL_035b: call instance void TinhKiemAuto.Game::set_HongTrungAcTime(class [System]System.Diagnostics.Stopwatch)
+
+		IL_0360: ldarg.0
+		IL_0361: call instance bool TinhKiemAuto.Game::get_IsHong()
+		IL_0366: brtrue.s IL_036f
+
+		IL_0368: ldarg.0
+		IL_0369: ldnull
+		IL_036a: call instance void TinhKiemAuto.Game::set_HongTrungAcTime(class [System]System.Diagnostics.Stopwatch)
+
+		IL_036f: ldarg.0
+		IL_0370: call instance bool TinhKiemAuto.Game::get_IsHong()
+		IL_0375: brfalse.s IL_03c1
+
+		IL_0377: ldarg.0
+		IL_0378: call instance class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::get_HongTrungAcTime()
+		IL_037d: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_0382: stloc.2
+		IL_0383: ldloca.s 2
+		IL_0385: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_038a: ldc.r8 300
+		IL_0393: ble.un.s IL_03c1
+
+		IL_0395: ldarg.0
+		IL_0396: ldstr "local cnt = 0; while true do local name, content = DataPool:GetPlayerMission_Memo(cnt); if string.find(name, '#{CXDT_090304_01}') then DataPool:Mission_Abnegate_Popup(cnt,DataPool:GetPlayerMission_Memo(cnt)); end cnt = cnt + 1; if cnt == 20 then return end end"
+		IL_039b: call instance void TinhKiemAuto.Game::LuaDoUnicodeString(string)
+		IL_03a0: ldarg.0
+		IL_03a1: ldsfld int32 TinhKiemAuto.STATE::HuyQ
+		IL_03a6: call instance void TinhKiemAuto.Game::set_State(int32)
+		IL_03ab: ldarg.0
+		IL_03ac: ldnull
+		IL_03ad: call instance void TinhKiemAuto.Game::set_HongTrungAcTime(class [System]System.Diagnostics.Stopwatch)
+		IL_03b2: ldarg.0
+		IL_03b3: ldc.i4.0
+		IL_03b4: call instance void TinhKiemAuto.Game::set_IsHong(bool)
+		IL_03b9: ldarg.0
+		IL_03ba: ldnull
+		IL_03bb: stfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::comeTime
+		IL_03c0: ret

@@ -1,0 +1,398 @@
+{
+  "baseline_application_commit": "91a93f2",
+  "display_version": "v0.3",
+  "date": "2026-10-10",
+  "timezone": "Asia/Bangkok",
+  "scope": "Static source/IL review; no new engine simulation, target execution or game test",
+  "application_executed": false,
+  "native_dll_executed": false,
+  "automation_changed": false,
+  "product_version_changed": false,
+  "static_pattern_checks": {
+    "engine_unchanged_since_original": true,
+    "alarm_method_unchanged_since_original": true,
+    "parser_substring_precedes_map_validation": true,
+    "parser_accepts_any_nonzero_split_length_then_reads_index_1": true,
+    "timer_has_no_module_auto_online_pause_guard": true,
+    "ui_set_info_calls_alarm_without_auto_guard": true,
+    "menu_only_toggles_leader_task_without_session_reset": true,
+    "clear_nhiem_vu_sets_flag_false_before_testing_it": true,
+    "clear_mission_does_not_cancel_trung_ac": true,
+    "current_is_busy_omits_trung_ac": true,
+    "calendar_clears_missions_before_selecting_another": true,
+    "engine_falls_through_to_state_null": true,
+    "engine_has_no_party_dispatch": true,
+    "no_managed_assignment_to_talk_to_xa_phu": true,
+    "token_use_in_come_has_no_state_change": true,
+    "normal_combat_loops_without_break_after_live_target": true,
+    "normal_combat_marks_done_on_dead_candidate_in_city": true,
+    "completion_is_read_from_two_dialog_snapshots": true,
+    "engine_does_not_call_local_quest_completion_write": true
+  },
+  "files": {
+    "src/ChickenAutoEx/FrmMain.cs": {
+      "sha256_bytes": "11744727e3df0bb4dfeffa351b3411f5bdc1d2e08dcb288bc2b230fb69dcd03f"
+    },
+    "src/ChickenAutoEx/Global.cs": {
+      "sha256_bytes": "21cc6cb3391eebad9148f6084a49bae849413c925e518527f94a6423816bd9f9"
+    },
+    "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": {
+      "sha256_bytes": "d9f2276ea00c962d95d2885868dc93ed567f5890e6896609700828d1d644b8c7"
+    },
+    "src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs": {
+      "sha256_bytes": "d9046a1137a79a03d5a4f0476180d9e7a3fe9ba877f506c0ddc7827b2fe93cbf"
+    },
+    "EagleAuto.Version.props": {
+      "sha256_bytes": "01cddf1a7a4d7196b4c16a0c668ef414c35ac91c9795bc185439ab159c1e6b3a"
+    },
+    "tools/thuy_lao_review.json": {
+      "sha256_bytes": "52f08d2df1451aa80b417ad1933fcc3c155f696e10c1de1f32899467c9077608"
+    },
+    "tools/ky_cuoc_review.json": {
+      "sha256_bytes": "2bc8934ee6d6b3ccc33d23de774f6569f27c0707722df7fdd0db860acdcd28e8"
+    },
+    "tools/dungeon_menu_review.json": {
+      "sha256_bytes": "e2e8ea98658db164241904d7842bbb063f99964c697db5a368b2747210bd5530"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": {
+      "sha256_bytes": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/STATE.cs": {
+      "sha256_bytes": "80b6a10e0c16c3ffd117f699ee99168b2e4d57ef32eb93234ba456fd66a8d2af"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Task.cs": {
+      "sha256_bytes": "e6c8b383ef6d5f63c73a5cbf0ad0aeaddd0a8ceef5c1cd8bfb2f3ced46c2cd56"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TaskInfo.cs": {
+      "sha256_bytes": "2123ce6040a47fb9f9b4ed64c7973b88745b7a85327a97b9cafd46d5d3dc646a"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/QuestFrame.cs": {
+      "sha256_bytes": "09530c5ab9c412ff3c8f5e3a2339095f15a1ba32588ffd0487a721251c2e2aeb"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TINHKIEM.cs": {
+      "sha256_bytes": "0675c3665c6ae67a8a5479f900f144a4f4bce8d6c0d971ba8f166984d25cec7d"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObjects.cs": {
+      "sha256_bytes": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObject.cs": {
+      "sha256_bytes": "dfebde2aa842657ec97f84ee036876a8562e45178efc08e13bf885d416c716c5"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/PacketItem.cs": {
+      "sha256_bytes": "6bafb36a4d644b48116cc8196c97c493de8489f87bedb12daf98e50275bbfc7f"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Account.cs": {
+      "sha256_bytes": "bf71bcc0485590a02a05f499a8add92fd1893471a442917d154e7081c5a71b66"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TLBB.cs": {
+      "sha256_bytes": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/MAP.cs": {
+      "sha256_bytes": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Address.cs": {
+      "sha256_bytes": "1e4ea72cfe26a6d2650b8927f98c6327b884228920e02cd78ef50cdfe27efd09"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Memory.cs": {
+      "sha256_bytes": "33a9aa0cd2f28f26fc72c1c3a46b92c0e5560b03df0f0a611b10110eb1111c83"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/LUA.cs": {
+      "sha256_bytes": "0e463fac02ff34427fe54fb05b863b64efeced393da5ae36c778615cf84482e9"
+    },
+    "analysis/chickenautoex-107/recovered/FindPath.cs": {
+      "sha256_bytes": "bb228b4c817c8f4684ce745da4d693b2031dd3bf1c76777a8403346c76bb1bea"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.Models/Unity.cs": {
+      "sha256_bytes": "78d24776b8b99e4a8b4e72861863b82cfe7648c539935d43d9331964670b75bd"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Scripts.cs": {
+      "sha256_bytes": "ae0fe5029a0361623ba1428dabcd485fbb3aeedb6345038e42149557d2dad232"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.Scripts.xml": {
+      "sha256_bytes": "d0249feaa9262ccb92ee848501b25560be97f257154a6b33b93475d63152a88e"
+    },
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto.PathList.txt": {
+      "sha256_bytes": "dd47e13ea10e79eaa5814ca98fa2cb5e8824e2abdc8a07357d6c48e72ea8883f"
+    }
+  },
+  "state_references": {
+    "IsTrungAc": {
+      "src/ChickenAutoEx/FrmMain.cs": [
+        2484,
+        2883,
+        2885,
+        4164,
+        4187,
+        4312,
+        4314
+      ],
+      "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": [
+        80
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        280,
+        1102,
+        1713,
+        2643,
+        2724,
+        3841,
+        5909,
+        6813,
+        9496,
+        9500,
+        9536,
+        10551
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Account.cs": [
+        49
+      ]
+    },
+    "IsXongTrungAc": {
+      "src/ChickenAutoEx/FrmMain.cs": [
+        2830
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        905,
+        2723,
+        2802,
+        2808,
+        10493
+      ]
+    },
+    "IsBTDByLogin": {
+      "src/ChickenAutoEx/FrmMain.cs": [
+        2444,
+        2886
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        823
+      ]
+    },
+    "TrungAcInfo": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        320,
+        2782,
+        2783,
+        2784,
+        2785,
+        2786,
+        2854
+      ]
+    },
+    "MissionMap": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        290,
+        2783,
+        2787,
+        2818,
+        2820,
+        2828,
+        2872
+      ]
+    },
+    "MissionX": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        284,
+        2789,
+        2820,
+        2823,
+        2825,
+        2828,
+        2872
+      ]
+    },
+    "MissionY": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        286,
+        2790,
+        2820,
+        2823,
+        2825,
+        2828,
+        2872
+      ]
+    },
+    "comeTime": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        336,
+        2832,
+        2912,
+        2947,
+        10506,
+        10524
+      ]
+    },
+    "doneTime": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        338,
+        2833,
+        2903,
+        2906,
+        2908,
+        2910,
+        2936,
+        2940,
+        2942,
+        2944
+      ]
+    },
+    "HongTrungAcTime": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        1086,
+        1699,
+        10510,
+        10512,
+        10516,
+        10518,
+        10522
+      ]
+    },
+    "IsHong": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        907,
+        2672,
+        2717,
+        2729,
+        2801,
+        2807,
+        10508,
+        10510,
+        10514,
+        10518,
+        10523
+      ]
+    },
+    "TalkToXaPhu": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        2836
+      ],
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/STATE.cs": [
+        99
+      ]
+    },
+    "CXDT_090304_01": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        2651,
+        2748,
+        2760,
+        10520
+      ]
+    },
+    "CXDY_090423_01": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        2721
+      ]
+    },
+    "CXDY_090423_02": {
+      "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": [
+        2721
+      ]
+    }
+  },
+  "core_methods": {
+    "TrungAc": {
+      "snapshot_source_line": 2641,
+      "original_sha256_lf": "9ae2fe42ee9743db00f8beba03283d064b9fd1e8754c1fa9e88856d89157297a",
+      "current_v03_sha256_lf": "9ae2fe42ee9743db00f8beba03283d064b9fd1e8754c1fa9e88856d89157297a",
+      "unchanged_by_existing_reviews": true
+    },
+    "TheoDoiCanhBao": {
+      "snapshot_source_line": 10402,
+      "original_sha256_lf": "b049c98817112651a45fcd9de417da218d42d856c4490211ef965013f0e8bec1",
+      "current_v03_sha256_lf": "b049c98817112651a45fcd9de417da218d42d856c4490211ef965013f0e8bec1",
+      "unchanged_by_existing_reviews": true
+    },
+    "ClearNhiemVu": {
+      "snapshot_source_line": 9493,
+      "original_sha256_lf": "b44d83f1c15fd2606468782c3ee3b1b0887fdc3bb02d800fac5cc338ae5ad68a",
+      "current_v03_sha256_lf": "b44d83f1c15fd2606468782c3ee3b1b0887fdc3bb02d800fac5cc338ae5ad68a",
+      "unchanged_by_existing_reviews": true
+    },
+    "ClearMission": {
+      "snapshot_source_line": 5502,
+      "original_sha256_lf": "ae99862a74578b67bcaeebc04b63331080dd98a2149760f34eadc5bf668d5303",
+      "current_v03_sha256_lf": "94da2076e11f69fa7ede7e48e9cc147e3ffa81f4c812c02376e75a1695875009",
+      "unchanged_by_existing_reviews": false
+    },
+    "Auto": {
+      "snapshot_source_line": 5517,
+      "original_sha256_lf": "55b83ab3f9ead4bd84712d8ebbe056ed1ee222eef52a6176f3a372153bd0a486",
+      "current_v03_sha256_lf": "09083ee85cca8fe1c0f6f84e4631256deef509752c1cd1820ca81c269a86388a",
+      "unchanged_by_existing_reviews": false
+    },
+    "SetCalendar": {
+      "snapshot_source_line": 6069,
+      "original_sha256_lf": "01dee694863447cfb19f2527b8a91e36dfc4bd9544dd0a37d3184ad38f2cd65b",
+      "current_v03_sha256_lf": "01dee694863447cfb19f2527b8a91e36dfc4bd9544dd0a37d3184ad38f2cd65b",
+      "unchanged_by_existing_reviews": true
+    },
+    "TrongPhamVi": {
+      "snapshot_source_line": 2123,
+      "original_sha256_lf": "af6e03bee73bcc1f7505f44a768f45dab419ac2968a5ee3d9038a51923a22739",
+      "current_v03_sha256_lf": "af6e03bee73bcc1f7505f44a768f45dab419ac2968a5ee3d9038a51923a22739",
+      "unchanged_by_existing_reviews": true
+    },
+    "DaDenNoi": {
+      "snapshot_source_line": 2148,
+      "original_sha256_lf": "976a80f04979aad74c880d8d6b2675296f17841c7c109d8065c5a0dbaeecdda4",
+      "current_v03_sha256_lf": "976a80f04979aad74c880d8d6b2675296f17841c7c109d8065c5a0dbaeecdda4",
+      "unchanged_by_existing_reviews": true
+    },
+    "TimDuong": {
+      "snapshot_source_line": 2315,
+      "original_sha256_lf": "ecfca93187de3c413002b6c901ddc68e7aba3b11b57591c1fd1f3c4c1adee9ed",
+      "current_v03_sha256_lf": "ecfca93187de3c413002b6c901ddc68e7aba3b11b57591c1fd1f3c4c1adee9ed",
+      "unchanged_by_existing_reviews": true
+    },
+    "ForcePickItem": {
+      "snapshot_source_line": 6533,
+      "original_sha256_lf": "0d4ef62f17506a19bbb2b230437610b0626579aba675807905ab77314a27b331",
+      "current_v03_sha256_lf": "0d4ef62f17506a19bbb2b230437610b0626579aba675807905ab77314a27b331",
+      "unchanged_by_existing_reviews": true
+    },
+    "SkillDo": {
+      "snapshot_source_line": 7702,
+      "original_sha256_lf": "79a7808c287614adc8f7cddc32681d2e2fd343f6fa20aab59f0b2814bf2c9984",
+      "current_v03_sha256_lf": "79a7808c287614adc8f7cddc32681d2e2fd343f6fa20aab59f0b2814bf2c9984",
+      "unchanged_by_existing_reviews": true
+    },
+    "Attack": {
+      "snapshot_source_line": 6811,
+      "original_sha256_lf": "78cf3f30789248ea41a77accb9e5c28394d71afcfbffd0f72ca8fe4231c6c722",
+      "current_v03_sha256_lf": "78cf3f30789248ea41a77accb9e5c28394d71afcfbffd0f72ca8fe4231c6c722",
+      "unchanged_by_existing_reviews": true
+    },
+    "LuaToString": {
+      "snapshot_source_line": 10329,
+      "original_sha256_lf": "73d9a3ec4e59871ee9327fbd53cd5c3b25e62760e73b136c15ce1cbee2a6b343",
+      "current_v03_sha256_lf": "73d9a3ec4e59871ee9327fbd53cd5c3b25e62760e73b136c15ce1cbee2a6b343",
+      "unchanged_by_existing_reviews": true
+    },
+    "LuaString": {
+      "snapshot_source_line": 10356,
+      "original_sha256_lf": "fc5df330fd7973c4579fcbec2f3654f7d15274fdd87325d7270d60fab7d5484e",
+      "current_v03_sha256_lf": "fc5df330fd7973c4579fcbec2f3654f7d15274fdd87325d7270d60fab7d5484e",
+      "unchanged_by_existing_reviews": true
+    }
+  },
+  "original_executable_sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573",
+  "original_binary_files": {
+    "ChickenAuto-new.7z": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49",
+    "ChickenAuto-new.exe": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "ChickenAuto-new.zip": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08",
+    "ChickenAutoEx-new.7z": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02",
+    "ChickenAutoEx-new.exe": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "ChickenAutoEx-new.zip": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+  },
+  "original_il_cross_check": {
+    "tool": "ILSpyCmd 9.1.0.7988, static target read",
+    "input_executable_sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573",
+    "input_il_sha256": "0a4fa65c52e48053aec0590ff1229c3fb794f848d373f51b411f1c2a9b569c35",
+    "exported_evidence": [
+      "TrungAc.il.txt",
+      "Alarm-trung-ac-timer.il.txt",
+      "ClearNhiemVu.il.txt"
+    ],
+    "provenance_limit": "Collector verifies payload and expected IL patterns; arbitrary supplied IL is not independently attested."
+  }
+}
