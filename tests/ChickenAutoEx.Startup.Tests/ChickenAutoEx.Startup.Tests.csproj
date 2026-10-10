@@ -6,6 +6,12 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/MAP.cs" Link="RegressionSources/MAP.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/ac-tac/LegacyGame.cs" Link="RegressionSources/AcTacLegacyGame.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/ac-tac/ReviewedGame.cs" Link="RegressionSources/AcTacReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/ac-tac/LegacyFrmMain.cs" Link="RegressionSources/AcTacLegacyFrmMain.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/AcTac/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/POINT.cs" Link="RegressionSources/POINT.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/dungeon-reaudit/*-v03.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/trung-ac/ReviewedGame.cs" Link="RegressionSources/TrungAcReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/STATE.cs" Link="RegressionSources/STATE.cs" CopyToOutputDirectory="PreserveNewest" />

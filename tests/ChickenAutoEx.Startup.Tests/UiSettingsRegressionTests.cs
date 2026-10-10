@@ -176,7 +176,7 @@ namespace ChickenAutoEx.Startup.Tests
 
         internal static ClassDeclarationSyntax SourceClass(string file, string name)
         {
-            var source = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", file));
+            var source = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", file=="FrmMain.cs" && Environment.GetEnvironmentVariable("AC_TAC_BASELINE")=="1" ? "AcTacLegacyFrmMain.cs" : file));
             return CSharpSyntaxTree.ParseText(source).GetRoot().DescendantNodes()
                 .OfType<ClassDeclarationSyntax>().Single(c => c.Identifier.Text == name);
         }
@@ -255,7 +255,7 @@ namespace ChickenAutoEx.Startup.Tests
                 public int Calls; public string LastText;
                 public void ShowBalloonTip(int ms, string title, string text, ToolTipIcon icon) { Calls++; LastText=text; }
             }
-            public class FakePlayer { public string Name = "TestCharacter"; }
+            public class FakePlayer { public string Name = "TestCharacter",Id="leader",KeyId="leader"; }
             public static class Color { public static string Green = "green"; }
             public static class SystemColors { public static string ControlText = "normal"; }
             public static class MAP { public const int VoLuongSon=1, KinhHo=2, KiemCac=3, ThaiHo=4, TungSon=5, DonHoang=6; }
@@ -266,7 +266,7 @@ namespace ChickenAutoEx.Startup.Tests
             }
             public class Game {
                 public bool IsHP=true, IsMP=true, IsAcBa, IsTrungAc, IsLauLanTamBao, IsKyCuoc, IsThuyLao, IsTrieuTap=true;
-                public int MapAcTac;
+                public int MapAcTac; public static int ChooseAcTacMap()=>new Random().Next(1,7);
                 public FakePlayer TLBB=new FakePlayer(); public static int TrongHoaX; public static bool IsHoldPK;
                 public Game LeaderValue; public Action OnLeaderRead;
                 public Game Leader { get { var value=LeaderValue; OnLeaderRead?.Invoke(); return value; } set { LeaderValue=value; } }

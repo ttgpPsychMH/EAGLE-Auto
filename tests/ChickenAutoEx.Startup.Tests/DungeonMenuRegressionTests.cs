@@ -182,7 +182,7 @@ namespace ChickenAutoEx.Startup.Tests
         [InlineData("tungSơnToolStripMenuItem_Click", 5)]
         [InlineData("đônHoàngToolStripMenuItem_Click", 6)]
         [InlineData("tựĐộngToolStripMenuItem_Click", 0)]
-        public void AcTacSelectionShowsOneMapAndPreservesOtherQuestFlags(string handler, int expectedMap)
+        public void AcTacSelectionShowsOneMapAndStopsConflictingLeaderQuests(string handler, int expectedMap)
         {
             dynamic form = LegacyUiHarness.Create();
             dynamic leader = form.SelectWithLeader();
@@ -192,7 +192,7 @@ namespace ChickenAutoEx.Startup.Tests
             int actualMap = leader.MapAcTac;
             if (expectedMap == 0) Assert.InRange(actualMap, 1, 6);
             else Assert.Equal(expectedMap, actualMap);
-            Assert.True((bool)leader.IsTrungAc);
+            Assert.False((bool)leader.IsTrungAc);
             Assert.False((bool)leader.IsTrieuTap);
             for (int i = 0; i < MapMenus.Length; i++)
                 Assert.Equal(actualMap == i + 1, (bool)form.Menu(MapMenus[i]).Checked);

@@ -1,0 +1,72 @@
+{
+  "baseline_commit": "9ae98bd",
+  "scope": "Exact Ac Tac engine/map/lifecycle/menu deltas after v0.4; shared legacy dialog helper and all other automation bodies preserved.",
+  "edits": [
+    {
+      "name": "pure_map_with_session_lifecycle",
+      "original": "\t\tpublic int MapAcTac\n\t\t{\n\t\t\tget\n\t\t\t{\n\t\t\t\tif (mapAcTac == 0)\n\t\t\t\t{\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t\tif (TLBB.MapId == MAP.ThaiHo || TLBB.MapId == MAP.KiemCac || TLBB.MapId == MAP.KinhHo || TLBB.MapId == MAP.TungSon || TLBB.MapId == MAP.DonHoang)\n\t\t\t\t{\n\t\t\t\t\treturn TLBB.MapId;\n\t\t\t\t}\n\t\t\t\treturn mapAcTac;\n\t\t\t}\n\t\t\tset\n\t\t\t{\n\t\t\t\tmapAcTac = value;\n\t\t\t}\n\t\t}\n",
+      "reviewed": "\t\tpublic int MapAcTac\n\t\t{\n\t\t\tget { return mapAcTac; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tlock (acTacLock)\n\t\t\t\t{\n\t\t\t\t\tif (!ValidAcTacMap(value)) throw new ArgumentOutOfRangeException(nameof(value));\n\t\t\t\t\tif (mapAcTac == value) return;\n\t\t\t\t\tmapAcTac = value;\n\t\t\t\t\tResetAcTacSession();\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+      "count": 1
+    },
+    {
+      "name": "replace_menu_ac_tac_engine",
+      "original": "\t\tpublic void DatDoiAcTac()\n\t\t{\n\t\t\tif (TickCount % 9 != 0 || PickItem() || MapAcTac == 0)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tTrieuTap();\n\t\t\tif (TLBB.MapId != MAP.TacKhauDoanhDia && !IsRide && TLBB.HaveRide)\n\t\t\t{\n\t\t\t\tStopFollow();\n\t\t\t\tUpRide();\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (IsBossDie)\n\t\t\t{\n\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t{\n\t\t\t\t\tStopFollow();\n\t\t\t\t\tUpRide();\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 40.0)\n\t\t\t\t{\n\t\t\t\t\tIsBossDie = false;\n\t\t\t\t\tMapATIndex = 0;\n\t\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 20.0)\n\t\t\t\t{\n\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t\tint[,] acTacPoint = AcTacPoint;\n\t\t\tif (MapATIndex == -1)\n\t\t\t{\n\t\t\t\tMapATIndex++;\n\t\t\t}\n\t\t\tif (MapATIndex <= acTacPoint.GetLength(0) - 1 && TINHKIEM.GetDistance(CharX, CharY, acTacPoint[MapATIndex, 0], acTacPoint[MapATIndex, 1]) <= 2f)\n\t\t\t{\n\t\t\t\tMapATIndex++;\n\t\t\t}\n\t\t\tif (CurMapATIndex != -1 && CurMapATIndex <= acTacPoint.GetLength(0) - 1 && Objects.NearMonter(acTacPoint[CurMapATIndex, 0], acTacPoint[CurMapATIndex, 1], 12f).Count > 0)\n\t\t\t{\n\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t}\n\t\t\tif (TLBB.MapId != MapAcTac && TLBB.MapId != MAP.TacKhauDoanhDia)\n\t\t\t{\n\t\t\t\tGoTo(acTacPoint[0, 0], acTacPoint[0, 1], MapAcTac);\n\t\t\t}\n\t\t\telse if (TLBB.MapId == MapAcTac)\n\t\t\t{\n\t\t\t\tif (!TalkNPCPhuBan())\n\t\t\t\t{\n\t\t\t\t\tif (!IsMoveEx)\n\t\t\t\t\t{\n\t\t\t\t\t\tFixKetMap();\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tMoveNext();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != MAP.TacKhauDoanhDia)\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 2.0 || MapATIndex == 0)\n\t\t\t\t{\n\t\t\t\t\tif (MapATIndex <= acTacPoint.GetLength(0) - 1)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tUpRide();\n\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\t\tMove(acTacPoint[MapATIndex, 0], acTacPoint[MapATIndex, 1]);\n\t\t\t\t\t\tCurMapATIndex = MapATIndex;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 22.0)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (IsRide && TLBB.HaveRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tUpRide();\n\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\t}\n\t\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 10.0)\n\t\t\t\t\t{\n\t\t\t\t\t\tIsBossDie = true;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds < 1.0 && TimeStand.Elapsed.TotalSeconds >= 2.0)\n\t\t\t\t{\n\t\t\t\t\tif (IsRide && IsAuto)\n\t\t\t\t\t{\n\t\t\t\t\t\tDownRide();\n\t\t\t\t\t}\n\t\t\t\t\tStopFollow();\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic void DatDoiTKC()"
+    },
+    {
+      "name": "shared_random_pool",
+      "original": "\t\tprivate void RandomAcTac()\n\t\t{\n\t\t\tint num = new Random().Next(0, 4);\n\t\t\tif (num == 0)\n\t\t\t{\n\t\t\t\tMapAcTac = MAP.KinhHo;\n\t\t\t}\n\t\t\tif (num == 1)\n\t\t\t{\n\t\t\t\tMapAcTac = MAP.ThaiHo;\n\t\t\t}\n\t\t\tif (num == 2)\n\t\t\t{\n\t\t\t\tMapAcTac = MAP.TungSon;\n\t\t\t}\n\t\t\tif (num == 3)\n\t\t\t{\n\t\t\t\tMapAcTac = MAP.KiemCac;\n\t\t\t}\n\t\t\tif (num == 4)\n\t\t\t{\n\t\t\t\tMapAcTac = MAP.DonHoang;\n\t\t\t}\n\t\t}\n",
+      "reviewed": "\t\tprivate void RandomAcTac()\n\t\t{\n\t\t\tMapAcTac = ChooseAcTacMap();\n\t\t}\n",
+      "count": 1
+    },
+    {
+      "name": "busy_in_outdoor_map",
+      "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc;",
+      "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0;",
+      "count": 1
+    },
+    {
+      "name": "auto_off_cancels_ac_tac",
+      "original": "\t\t\t\tIsTrungAc = false;\n\t\t\t\treturn;",
+      "reviewed": "\t\t\t\tIsTrungAc = false;\n\t\t\t\tMapAcTac = 0;\n\t\t\t\treturn;",
+      "count": 1
+    },
+    {
+      "name": "early_validate_ac_tac",
+      "original": "\t\t\tCheckTrungAcSession();",
+      "reviewed": "\t\t\tCheckAcTacSession();\n\t\t\tCheckTrungAcSession();",
+      "count": 1
+    },
+    {
+      "name": "generic_control_and_ownership_guard",
+      "original": "\t\tpublic void AcTac()\n\t\t{\n",
+      "reviewed": "\t\tpublic void AcTac()\n\t\t{\n\t\t\tif (!Global.IsAcTac || !IsAuto || !IsInit || TLBB == null || !TLBB.Online || Global.Paused\n\t\t\t\t|| TLBB.PlayerState != 0 || ON_SCENE_TRANSING || IsChangeMap || TLBB.MapId == MAP.TacKhauDoanhDia) return;\n",
+      "count": 1
+    }
+  ],
+  "form_edits": [
+    {
+      "name": "selected_team_summon_only",
+      "original": "\t\t\tforeach (KeyValuePair<int, Game> item in dicGame)\n\t\t\t{\n\t\t\t\titem.Value.IsTrieuTap = false;\n\t\t\t}\n",
+      "reviewed": "\t\t\tforeach (KeyValuePair<int, Game> item in dicGame)\n\t\t\t{\n\t\t\t\tGame member = item.Value;\n\t\t\t\tif (member != null && member.TLBB != null && (member == leader || member.TLBB.KeyId == leader.TLBB.Id))\n\t\t\t\t\tmember.IsTrieuTap = false;\n\t\t\t}\n",
+      "count": 2
+    },
+    {
+      "name": "selected_quest_exclusive",
+      "original": "\t\t\tleader.MapAcTac = map;",
+      "reviewed": "\t\t\tResetDungeonActions(leader);\n\t\t\tleader.MapAcTac = map;",
+      "count": 1
+    },
+    {
+      "name": "ui_random_uses_shared_pool",
+      "original": "\t\tprivate void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)\n\t\t{\n\t\t\tif (!RequireDungeonContext(\"Lỗi Ác Tặc\", out Game selectedGame, out Game leader))\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tforeach (KeyValuePair<int, Game> item in dicGame)\n\t\t\t{\n\t\t\t\tGame member = item.Value;\n\t\t\t\tif (member != null && member.TLBB != null && (member == leader || member.TLBB.KeyId == leader.TLBB.Id))\n\t\t\t\t\tmember.IsTrieuTap = false;\n\t\t\t}\n\t\t\tint[] array = new int[6]\n\t\t\t{\n\t\t\t\tMAP.VoLuongSon,\n\t\t\t\tMAP.KinhHo,\n\t\t\t\tMAP.KiemCac,\n\t\t\t\tMAP.ThaiHo,\n\t\t\t\tMAP.TungSon,\n\t\t\t\tMAP.DonHoang\n\t\t\t};\n\t\t\tint num = new Random().Next(0, array.Length);\n\t\t\tleader.MapAcTac = array[num];\n\t\t\tUpdateDungeonMenu(selectedGame, leader);\n\t\t}\n",
+      "reviewed": "\t\tprivate void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)\n\t\t{\n\t\t\tSelectAcTacMap(Game.ChooseAcTacMap());\n\t\t}\n",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549"
+  }
+}

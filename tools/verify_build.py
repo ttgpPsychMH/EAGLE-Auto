@@ -59,6 +59,8 @@ def verify_branding(repo):
             assert text.count(edit["reviewed"]) == edit["count"], entry["path"]
             text = text.replace(edit["reviewed"], edit["original"])
         if entry["path"] == "src/ChickenAutoEx/FrmMain.cs":
+            from ac_tac_review import apply_review as ac_tac
+            text = ac_tac(repo, text, reverse=True, form=True)
             from trung_ac_review import apply_review as trung_ac
             text = trung_ac(repo, text, reverse=True, form=True)
         assert hashlib.sha256(text.encode()).hexdigest() == entry["original_sha256_lf"], entry["path"]
@@ -160,6 +162,8 @@ def main():
         if relative.endswith("/Game.cs"):
             from thuy_lao_review import apply_review
             from ky_cuoc_review import apply_review as ky_cuoc
+            from ac_tac_review import apply_review as ac_tac
+            redacted = ac_tac(repo, redacted, reverse=True)
             redacted = trung_ac(repo, redacted, reverse=True)
             redacted = ky_cuoc(repo, redacted, reverse=True)
             redacted = apply_review(repo, redacted, reverse=True)
@@ -169,8 +173,9 @@ def main():
         "framework": "net48", "architecture": "x86", "embedded_resources": len(resources),
         "unchanged_original_resources": 26, "json_assembly_version": 13,
         "original_release_files_unchanged": True, "entitlement_source_preserved": True,
-        "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_and_pet_aoe": True,
+        "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_ac_tac_and_pet_aoe": True,
         "reviewed_trung_ac_fixes": True,
+        "reviewed_ac_tac_fixes": True,
         "reviewed_three_dungeon_reaudit": True,
         "reviewed_ky_cuoc_fixes": True, "reviewed_pet_aoe_fix": True,
         "reviewed_thuy_lao_fixes": True,
@@ -184,7 +189,7 @@ def main():
                       (product["executable"], product["config"], "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
     }
     (repo / ".build/chickenautoex/verified.json").write_text(json.dumps(result, indent=2) + "\n")
-    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/Trung Ac/pet AOE deltas.")
+    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/Trung Ac/Ac Tac/pet AOE deltas.")
     print("This is static build verification, not a Windows runtime test.")
 
 

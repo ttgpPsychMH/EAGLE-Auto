@@ -4198,34 +4198,18 @@ namespace TinhKiemAuto
 			}
 			foreach (KeyValuePair<int, Game> item in dicGame)
 			{
-				item.Value.IsTrieuTap = false;
+				Game member = item.Value;
+				if (member != null && member.TLBB != null && (member == leader || member.TLBB.KeyId == leader.TLBB.Id))
+					member.IsTrieuTap = false;
 			}
+			ResetDungeonActions(leader);
 			leader.MapAcTac = map;
 			UpdateDungeonMenu(selectedGame, leader);
 		}
 
 		private void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (!RequireDungeonContext("Lỗi Ác Tặc", out Game selectedGame, out Game leader))
-			{
-				return;
-			}
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			int[] array = new int[6]
-			{
-				MAP.VoLuongSon,
-				MAP.KinhHo,
-				MAP.KiemCac,
-				MAP.ThaiHo,
-				MAP.TungSon,
-				MAP.DonHoang
-			};
-			int num = new Random().Next(0, array.Length);
-			leader.MapAcTac = array[num];
-			UpdateDungeonMenu(selectedGame, leader);
+			SelectAcTacMap(Game.ChooseAcTacMap());
 		}
 
 		private void vôLượngSơnToolStripMenuItem_Click(object sender, EventArgs e)

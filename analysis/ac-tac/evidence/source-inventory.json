@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "9ae98bd",
+  "application_version": "0.4",
+  "scope": "Pre-fix static review; no target/native execution",
+  "method_source": "Immutable original Game.cs snapshot; menu lifecycle comparison uses the v0.4 baseline FrmMain.cs",
+  "methods": {
+    "DatDoiAcTac": {
+      "line": 4109,
+      "sha256_lf": "1c4e131ab32148112b5dc57406d5ef080b99bd409687f6316428a2c416553106"
+    },
+    "AcTac": {
+      "line": 3417,
+      "sha256_lf": "634ab3c704be271acd2be4bb4f6e914d7724506935de2cf0ec73d473165779c8"
+    },
+    "TalkNPCPhuBan": {
+      "line": 3637,
+      "sha256_lf": "8e9823e5c844fe273bd63a443d7a8cf2c66e465b19f54f8ee59a0acd2809c3d3"
+    },
+    "RandomAcTac": {
+      "line": 5460,
+      "sha256_lf": "8462d27a33e00c53aa4ad0cdc81dd626b923966f2df36e6085253468ece150c4"
+    },
+    "TrieuTap": {
+      "line": 4819,
+      "sha256_lf": "191abc80f59898e938a755ad5b9ee5965ec24845246dfe9a341e13b7df2067cf"
+    },
+    "SetCalendar": {
+      "line": 6069,
+      "sha256_lf": "01dee694863447cfb19f2527b8a91e36dfc4bd9544dd0a37d3184ad38f2cd65b"
+    },
+    "ClearMission": {
+      "line": 5502,
+      "sha256_lf": "ae99862a74578b67bcaeebc04b63331080dd98a2149760f34eadc5bf668d5303"
+    }
+  },
+  "static_checks": {
+    "map_getter_uses_current_map": true,
+    "random_upper_bound_excludes_4": true,
+    "completion_from_quiet_time": true,
+    "shared_dialog_click_all": true,
+    "route_index_only_upper_bound": true
+  },
+  "files": {
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e",
+    "src/ChickenAutoEx/FrmMain.cs": "57ddd36e4f99b2f77c6cc52467e3d48467e1c0549d78d80b4475a4245dc2abfc",
+    "src/ChickenAutoEx/Global.cs": "21cc6cb3391eebad9148f6084a49bae849413c925e518527f94a6423816bd9f9",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/POINT.cs": "a516c63e0608d804dbf1c42cfd585188045693212ec5a3b4c4078144aa5d5fd0",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/MAP.cs": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObjects.cs": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/QuestFrame.cs": "09530c5ab9c412ff3c8f5e3a2339095f15a1ba32588ffd0487a721251c2e2aeb"
+  },
+  "il_input_sha256": "0a4fa65c52e48053aec0590ff1229c3fb794f848d373f51b411f1c2a9b569c35"
+}

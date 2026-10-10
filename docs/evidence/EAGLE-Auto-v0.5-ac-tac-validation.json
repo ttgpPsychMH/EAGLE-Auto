@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-10",
+  "timezone": "Etc/UTC",
+  "branch": "repair/eagle-auto-ac-tac",
+  "application_baseline_commit": "9ae98bd",
+  "product_version": "0.5",
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "tests": {
+    "passed": 375,
+    "failed": 0,
+    "skipped": 0,
+    "classes": {
+      "AcTacSimulationTests": 66,
+      "DungeonMenuRegressionTests": 41,
+      "KyCuocSimulationTests": 78,
+      "ThuyLaoSimulationTests": 49,
+      "TrungAcSimulationTests": 85,
+      "UiSettingsRegressionTests": 19,
+      "UpdateServiceTests": 37
+    }
+  },
+  "controlled_baselines": {
+    "thuy-lao": {
+      "legacy_tests_executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+    },
+    "ky-cuoc": {
+      "legacy_tests_executed": 6,
+      "expected_behavioral_failures": 6,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "trung-ac": {
+      "legacy_tests_executed": 11,
+      "expected_behavioral_failures": 11,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "dungeon-reaudit": {
+      "legacy_tests_executed": 9,
+      "expected_behavioral_failures": 9,
+      "harness_errors": 0,
+      "scope": "Restored, hash-checked v0.3 partial methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-tac": {
+      "legacy_tests_executed": 13,
+      "expected_behavioral_failures": 13,
+      "harness_errors": 0,
+      "scope": "Selected v0.4 C# methods and UI with fake dependencies; original EXE/native DLL never loaded"
+    }
+  },
+  "verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_ac_tac_and_pet_aoe": true,
+    "reviewed_trung_ac_fixes": true,
+    "reviewed_ac_tac_fixes": true,
+    "reviewed_three_dungeon_reaudit": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.5",
+    "product_version": {
+      "version": "0.5",
+      "display_version": "v0.5",
+      "file_version": "0.5.0.0",
+      "executable": "EAGLE-Auto-v0.5.exe",
+      "config": "EAGLE-Auto-v0.5.exe.config",
+      "zip_name": "EAGLE-Auto-v0.5-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.5-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.5.exe": "429f1ab3e4a89b7a4b05a03e86031a7a03c615c67240192a014cc1f5cd51cd38",
+      "EAGLE-Auto-v0.5.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "source_sha256_lf": {
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549",
+    "src/ChickenAutoEx/FrmMain.cs": "396bce2e4d31527d8be029a8ef0068d1f62a81766de40fe72603725c732a3a22",
+    "tools/ac_tac_review.json": "f796668f45e219db13422bbb4a6322e4aa954255ee8184dda617173a9a324004",
+    "tests/ChickenAutoEx.Startup.Tests/AcTacSimulationTests.cs": "3b960ec04af89f8473785528d61032b36500054683537264625f788da535f376"
+  },
+  "private_client_unverified": [
+    "NPC/dialog/map identifiers",
+    "Native memory read success",
+    "Boss death and server instance association",
+    "Exit protocol",
+    "Quest/reward acknowledgement"
+  ]
+}

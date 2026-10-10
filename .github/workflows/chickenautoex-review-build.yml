@@ -14,6 +14,7 @@ on:
       - 'analysis/thuy-lao/**'
       - 'analysis/tran-long-ky-cuoc/**'
       - 'analysis/trung-ac/**'
+      - 'analysis/ac-tac/**'
       - 'src/ChickenAutoEx/**'
       - 'tests/ChickenAutoEx.Startup.Tests/**'
       - 'tools/**'
@@ -26,7 +27,7 @@ permissions:
 
 jobs:
   review-package:
-    name: Build and test updater, settings, menus, three dungeon simulations
+    name: Build and test updater, settings, menus, four dungeon simulations
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -67,9 +68,11 @@ jobs:
         run: python tools/check_trung_ac_baseline.py
       - name: Reproduce nine additional regressions on hash-checked v0.3 partial methods
         run: python tools/check_dungeon_reaudit_baseline.py
+      - name: Reproduce thirteen Ac Tac regressions on reviewed v0.4 source
+        run: python tools/check_ac_tac_baseline.py
       - name: Verify PE, preserved binaries and licensing source
         run: .build/build-venv/bin/python tools/verify_build.py
-      - name: Test updater, settings, menus, three dungeons with simulated dependencies
+      - name: Test updater, settings, menus, four dungeons with simulated dependencies
         run: dotnet test tests/ChickenAutoEx.Startup.Tests/ChickenAutoEx.Startup.Tests.csproj -c Release --no-build --no-restore --logger "trx;LogFileName=startup-tests.trx" --results-directory .build/test-results
       - name: Package verified files for Windows testing
         run: .build/build-venv/bin/python tools/package_build.py
@@ -86,6 +89,7 @@ jobs:
             .build/test-results/ky-cuoc-baseline-summary.json
             .build/test-results/trung-ac-baseline-summary.json
             .build/test-results/dungeon-reaudit-baseline-summary.json
+            .build/test-results/ac-tac-baseline-summary.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
@@ -98,10 +102,11 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          The isolated updater, UI/settings, dungeon menu, three dungeon simulations tests ran; no game automation executable was executed.
-          The Thuy Lao menu remains unavailable pending private-client validation; four Thuy Lao, six Ky Cuoc/pet AOE and eleven Trung Ac legacy regressions were reproduced, plus nine v0.3 re-audit controls.
+          The isolated updater, UI/settings, dungeon menu, four dungeon simulations tests ran; no game automation executable was executed.
+          The Thuy Lao menu remains unavailable pending private-client validation; four Thuy Lao, six Ky Cuoc/pet AOE and eleven Trung Ac legacy regressions were reproduced, plus nine v0.3 re-audit controls and thirteen Ac Tac v0.4 controls.
           Trung Ac controls the selected character; quest/NPC/token/reward semantics still need private-client validation.
           Ky Cuoc patrol, control and exit changes need supervised testing on the actual private client; map/NPC/dialog values retain the legacy baseline.
+          Ac Tac keeps legacy map170/route14/option50013; it stops on missing boss/map confirmation, without guessing an exit or claiming rewards.
           The package includes the Windows test guide and inherits the original application's embedded constants.
           Do not submit game credentials or use this build as a validated release.
           SUMMARY
