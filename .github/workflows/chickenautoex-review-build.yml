@@ -2,7 +2,7 @@ name: EAGLE Auto review build
 
 on:
   push:
-    branches: [repair/chickenautoex-107-startup, repair/chickenautoex-107-ui-settings, repair/chickenautoex-107-dungeon-menu, branding/eagle-auto-v0.1, branding/eagle-auto-versioned-build]
+    branches: [master, 'repair/**', 'branding/**']
     paths:
       - '.github/workflows/chickenautoex-review-build.yml'
       - '.config/dotnet-tools.json'
