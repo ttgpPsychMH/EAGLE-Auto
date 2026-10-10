@@ -222,9 +222,11 @@ namespace ChickenAutoEx.Startup.Tests
                 "đônHoàngToolStripMenuItem_Click");
             // Optional for running the same behavioral tests against the pre-fix source.
             string[] menuHelpers = { "TryGetDungeonContext", "RequireDungeonContext", "UpdateDungeonMenu",
-                "ResetDungeonActions", "SelectAcTacMap" };
+                "ResetDungeonActions", "SelectAcTacMap", "StartAcBaSelection" };
             methods += string.Join("\n", form.Members.OfType<MethodDeclarationSyntax>()
                 .Where(m => menuHelpers.Contains(m.Identifier.Text)).Select(m => m.ToFullString()));
+            if (form.Members.OfType<MethodDeclarationSyntax>().Any(m=>m.Identifier.Text=="StartAcBaSelection"))
+                methods += "public void StartAcBa(int school)=>StartAcBaSelection(school);";
             string settings = Methods(SourceClass("Setting.cs", "Setting"), "String2Arr", "String2Int");
             var keyboard = SourceClass("TINHKIEM.cs", "TINHKIEM");
             string keys = Methods(keyboard, "Int2Key", "Key2Int");
@@ -266,6 +268,7 @@ namespace ChickenAutoEx.Startup.Tests
             }
             public class Game {
                 public bool IsHP=true, IsMP=true, IsAcBa, IsTrungAc, IsLauLanTamBao, IsKyCuoc, IsThuyLao, IsTrieuTap=true;
+                public int ManualAcBaSchool=-1;public void SelectManualAcBaSchool(int school){ManualAcBaSchool=school;IsAcBa=true;}
                 public int MapAcTac; public static int ChooseAcTacMap()=>new Random().Next(1,7);
                 public FakePlayer TLBB=new FakePlayer(); public static int TrongHoaX; public static bool IsHoldPK;
                 public Game LeaderValue; public Action OnLeaderRead;

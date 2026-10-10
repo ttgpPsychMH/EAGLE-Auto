@@ -21,6 +21,7 @@ namespace TinhKiemAuto
             + "• Sửa parser, dialog, target và vòng đời Trừng Ác; bảo vệ thao tác dừng.\n"
             + "• Rà soát lại ba nhiệm vụ: tạm dừng, khởi tạo, đổi nhân vật và điều khiển member.\n"
             + "• Sửa map, session, dialog và điều phối tổ đội của Ác Tặc.\n"
+            + "• Sửa Ác Bá: nhận diện môn phái, chọn thủ công, trạng thái và điều phối đội.\n"
             + "• Đổi tên hiển thị, file chạy và thông tin giới thiệu sang " + WindowTitle + ".\n\n"
             + "Khả năng hoạt động trong game đang được kiểm thử.";
     }

@@ -697,6 +697,7 @@ namespace TinhKiemAuto
 		public FrmMain()
 		{
 			InitializeComponent();
+			InitializeAcBaMenu();
 			Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.BelowNormal;
 			TxtLog = txtlogs;
 			ListView = ListViewNhanVat;
@@ -788,6 +789,33 @@ namespace TinhKiemAuto
 
 		[DllImport("Bin\\EasyHook.dll")]
 		public static extern bool SetHook(IntPtr proseccid);
+
+		private void InitializeAcBaMenu()
+		{
+			var automatic = new ToolStripMenuItem("Tự nhận diện và bắt đầu");
+			automatic.Click += (sender, args) => StartAcBaSelection(-1);
+			ItemAcBa.DropDownItems.Add(automatic);
+			foreach (int school in AcBaEvents.Schools)
+			{
+				int choice = school;
+				var manual = new ToolStripMenuItem("Chọn " + AcBaEvents.SchoolName(choice));
+				manual.Click += (sender, args) => StartAcBaSelection(choice);
+				ItemAcBa.DropDownItems.Add(manual);
+			}
+			var stop = new ToolStripMenuItem("Dừng Ác Bá");
+			stop.Click += (sender, args) => StartAcBaSelection(-2);
+			ItemAcBa.DropDownItems.Add(stop);
+		}
+
+		private void StartAcBaSelection(int school)
+		{
+			if (!RequireDungeonContext("Lỗi Ác Bá", out Game selectedGame, out Game leader)) return;
+			if (school == -2) { leader.IsAcBa = false; UpdateDungeonMenu(selectedGame, leader); return; }
+			ResetDungeonActions(leader);
+			if (school == -1) leader.IsAcBa = true;
+			else if (school >= 0) leader.SelectManualAcBaSchool(school);
+			UpdateDungeonMenu(selectedGame, leader);
+		}
 
 		public bool GetUpdate()
 		{
@@ -3707,7 +3735,10 @@ namespace TinhKiemAuto
 		{
 			if ((long)m.Msg == 74)
 			{
+				if (m.LParam == IntPtr.Zero) { base.WndProc(ref m); return; }
 				COPYDATASTRUCT cOPYDATASTRUCT = (COPYDATASTRUCT)Marshal.PtrToStructure(m.LParam, typeof(COPYDATASTRUCT));
+				if (cOPYDATASTRUCT.lpData == IntPtr.Zero || cOPYDATASTRUCT.cbData < 4 || cOPYDATASTRUCT.cbData > 65536)
+				{ base.WndProc(ref m); return; }
 				byte[] array = new byte[cOPYDATASTRUCT.cbData];
 				Marshal.Copy(cOPYDATASTRUCT.lpData, array, 0, cOPYDATASTRUCT.cbData);
 				int num = -1;
@@ -3739,74 +3770,9 @@ namespace TinhKiemAuto
 						game = item.Value;
 					}
 				}
-				string str = "";
-				if (array.Length > 25)
-				{
-					byte[] array2 = new byte[array.Length - 15];
-					for (int j = 0; j < array2.Length; j++)
-					{
-						array2[j] = array[j + 15];
-					}
-					str = ConverterEx.VISCII2UnicodeEx(array2);
-				}
-				if (num2 != -1 && game != null)
-				{
-					if (TINHKIEM.VietLien(str).Contains("duongmon") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 37;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("modung") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 32;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("tinhtuc") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 6;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("tieudao") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 9;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("thieulam") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 1;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("thienson") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 8;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("thienlong") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 7;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("ngamy") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 5;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("vodang") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 4;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("minhgiao") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 2;
-						game.IsAlarmAcBa = false;
-					}
-					if (TINHKIEM.VietLien(str).Contains("caibang") && (TINHKIEM.VietLien(str).Contains("gianghotieutieu") || TINHKIEM.VietLien(str).Contains("#{qyxt_15}")))
-					{
-						game.AcBa = 3;
-						game.IsAlarmAcBa = false;
-					}
-				}
+				string systemText;
+				if (game != null && AcBaEvents.TryDecodeSystem(array, ConfigurationManager.AppSettings["AcBaSystemEncoding"] ?? "VISCII", out systemText))
+					game.ReceiveAcBaNotice(systemText);
 				if (num != -1)
 				{
 					try
@@ -5174,11 +5140,10 @@ namespace TinhKiemAuto
 			this.dUwngfToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
 			this.dUwngfToolStripMenuItem.Text = "[Dừng Ác Tặc]";
 			this.dUwngfToolStripMenuItem.Click += new System.EventHandler(dUwngfToolStripMenuItem_Click);
-			this.ItemAcBa.CheckOnClick = true;
+			this.ItemAcBa.CheckOnClick = false;
 			this.ItemAcBa.Name = "ItemAcBa";
 			this.ItemAcBa.Size = new System.Drawing.Size(172, 22);
 			this.ItemAcBa.Text = "Ác Bá";
-			this.ItemAcBa.Click += new System.EventHandler(ItemAcBa_Click);
 			this.ItemLauLan.CheckOnClick = true;
 			this.ItemLauLan.Name = "ItemLauLan";
 			this.ItemLauLan.Size = new System.Drawing.Size(172, 22);

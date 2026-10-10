@@ -1,0 +1,137 @@
+{
+  "baseline_commit": "910020a",
+  "scope": "Exact Ac Ba managed state/event/menu changes; licensing and native ABI preserved",
+  "edits": [
+    {
+      "name": "dedicated_engine",
+      "original": "\t\tpublic void DatDoiAcBa()\n\t\t{\n\t\t\tif ((AcBa != TLBB.Menpai && AcBa != -1) || !IsAcBa || TickCount % 9 != 0 || PickItem() || TLBB.MapAcBa == -1)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (!IsMapPhuBan() && !IsRide && TLBB.HaveRide)\n\t\t\t{\n\t\t\t\tStopFollow();\n\t\t\t\tUpRide();\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tTrieuTap();\n\t\t\tint[,] acBaPoint = AcBaPoint;\n\t\t\tif (!IsMapPhuBan())\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != TLBB.MapMonPhai)\n\t\t\t\t{\n\t\t\t\t\tGoTo(acBaPoint[0, 0], acBaPoint[0, 1], TLBB.MapMonPhai);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (TLBB.MapId == TLBB.MapMonPhai)\n\t\t\t\t{\n\t\t\t\t\tif (!TalkNPCPhuBan())\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!IsMoveEx)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tFixKetMap();\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tMoveNext();\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t\telse if (Objects.NearMonter18m.Count > 0)\n\t\t\t{\n\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t\tif (IsRide && IsAuto)\n\t\t\t\t{\n\t\t\t\t\tDownRide();\n\t\t\t\t}\n\t\t\t\tStopFollow();\n\t\t\t}\n\t\t\tif (IsMapPhuBan())\n\t\t\t{\n\t\t\t\tforeach (GameObject item in Objects.All)\n\t\t\t\t{\n\t\t\t\t\tif ((item.CleanName == \"acba\" || item.CleanName == \"tyrant\") && item.HP == 0f && !IsBossDie)\n\t\t\t\t\t{\n\t\t\t\t\t\tIsBossDie = true;\n\t\t\t\t\t\tBossDieTime = Stopwatch.StartNew();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif (IsBossDie)\n\t\t\t\t{\n\t\t\t\t\tMoveIndex = -1;\n\t\t\t\t\tif (BossDieTime.Elapsed.TotalSeconds > 15.0)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tUpRide();\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 2.0)\n\t\t\t\t{\n\t\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t\t{\n\t\t\t\t\t\tUpRide();\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\tMoveNext();\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds < 1.0 && TimeStand.Elapsed.TotalSeconds >= 2.0)\n\t\t\t\t{\n\t\t\t\t\tif (IsRide && IsAuto)\n\t\t\t\t\t{\n\t\t\t\t\t\tDownRide();\n\t\t\t\t\t}\n\t\t\t\t\tStopFollow();\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (ClearTime.Elapsed.TotalSeconds > 40.0 && TLBB.MapId == TLBB.MapAcBa)\n\t\t\t{\n\t\t\t\tIsBossDie = false;\n\t\t\t\tMapATIndex = -1;\n\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\n\n\n\n\t\tpublic void DatDoiLauLanTamBao()\n\t\t{"
+    },
+    {
+      "name": "managed_lifecycle",
+      "original": "\t\tpublic bool IsAcBa { get; set; }\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic bool IsPhungHoangLangMo { get; set; }\n"
+    },
+    {
+      "name": "pure_route_fallback",
+      "original": "\t\tpublic int[,] AcBaPoint\n\t\t{\n\t\t\tget\n\t\t\t{\n\t\t\t\tstring text = Setting.LoadMAP(TLBB.MapAcBa.ToString());\n\t\t\t\tint num = 0;\n\t\t\t\tstring[] array = text.Split('-');\n\t\t\t\tforeach (string text2 in array)\n\t\t\t\t{\n\t\t\t\t\tint num2 = 0;\n\t\t\t\t\tint num3 = 0;\n\t\t\t\t\ttry\n\t\t\t\t\t{\n\t\t\t\t\t\tnum2 = TINHKIEM.ParseInt(text2.Split(',')[0]);\n\t\t\t\t\t\tnum3 = TINHKIEM.ParseInt(text2.Split(',')[1]);\n\t\t\t\t\t}\n\t\t\t\t\tcatch\n\t\t\t\t\t{\n\t\t\t\t\t}\n\t\t\t\t\tif (num2 != 0 && num3 != 0)\n\t\t\t\t\t{\n\t\t\t\t\t\tnum++;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif (num > 1)\n\t\t\t\t{\n\t\t\t\t\tint[,] array2 = new int[num, 2];\n\t\t\t\t\tint num4 = 0;\n\t\t\t\t\tarray = text.Split('-');\n\t\t\t\t\tforeach (string text3 in array)\n\t\t\t\t\t{\n\t\t\t\t\t\tint num5 = 0;\n\t\t\t\t\t\tint num6 = 0;\n\t\t\t\t\t\ttry\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tnum5 = TINHKIEM.ParseInt(text3.Split(',')[0]);\n\t\t\t\t\t\t\tnum6 = TINHKIEM.ParseInt(text3.Split(',')[1]);\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcatch\n\t\t\t\t\t\t{\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (num5 != 0 && num6 != 0)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tarray2[num4, 0] = num5;\n\t\t\t\t\t\t\tarray2[num4, 1] = num6;\n\t\t\t\t\t\t\tnum4++;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\treturn array2;\n\t\t\t\t}\n\t\t\t\treturn null;\n\t\t\t}\n\t\t}\n",
+      "reviewed": "\t\tpublic int[,] AcBaPoint\n\t\t{\n\t\t\tget { return TLBB == null ? null : AcBaEvents.ReadRoute(Setting.LoadMAP(TLBB.MapAcBa.ToString()), TLBB.Menpai); }\n\t\t}\n",
+      "count": 1
+    },
+    {
+      "name": "busy_wait_and_travel",
+      "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0;",
+      "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0 || IsAcBa;",
+      "count": 1
+    },
+    {
+      "name": "off_clears_mission",
+      "original": "\t\t\t\tMapAcTac = 0;\n\t\t\t\treturn;",
+      "reviewed": "\t\t\t\tMapAcTac = 0;\n\t\t\t\tIsAcBa = false;\n\t\t\t\tClearAcBaNotice();\n\t\t\t\tReleaseAcBaNoticeHook();\n\t\t\t\treturn;",
+      "count": 1
+    },
+    {
+      "name": "clear_discards_event",
+      "original": "\t\t\tIsAcBa = isAcBa;",
+      "reviewed": "\t\t\tIsAcBa = isAcBa;\n\t\t\tClearAcBaNotice();",
+      "count": 1
+    },
+    {
+      "name": "check_before_dispatch",
+      "original": "\t\t\tCheckAcTacSession();",
+      "reviewed": "\t\t\tCheckAcBaSession();\n\t\t\tCheckAcTacSession();",
+      "count": 1
+    },
+    {
+      "name": "remove_unacknowledged_handoff",
+      "original": "\t\t\tif (IsAcBa && AcBa != TLBB.Menpai && TickCount % 18 == 0 && TLBB.IsLeader)\n\t\t\t{\n\t\t\t\tforeach (KeyValuePair<int, Game> item4 in FrmMain.dicGame)\n\t\t\t\t{\n\t\t\t\t\tGame value2 = item4.Value;\n\t\t\t\t\tif (value2 != this && !value2.TLBB.IsLeader && value2.TLBB.KeyId == TLBB.Id && value2.TLBB.OnlineTimeSec > 3 && value2.TLBB.Menpai == AcBa)\n\t\t\t\t\t{\n\t\t\t\t\t\tvalue2.IsAcBa = true;\n\t\t\t\t\t\tAppointLeader(value2.TLBB.Name);\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\tif (!TLBB.Online)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (TickCount % 18 == 0)"
+    },
+    {
+      "name": "hook_demand",
+      "original": "!IsHooked && (Option.AlarmChat || AlarmChat || (TLBB.IsLeader && FrmMain.AlarmAcBa))",
+      "reviewed": "!IsHooked && (Option.AlarmChat || AlarmChat || (TLBB.IsLeader && (FrmMain.AlarmAcBa || RequiresAcBaNotices)))",
+      "count": 1
+    },
+    {
+      "name": "hook_lifetime",
+      "original": "IsHooked && !Option.AlarmChat && !AlarmChat && !FrmMain.AlarmAcBa",
+      "reviewed": "IsHooked && !Option.AlarmChat && !AlarmChat && !FrmMain.AlarmAcBa && !RequiresAcBaNotices",
+      "count": 1
+    },
+    {
+      "name": "bounded_hook_setup",
+      "original": "\t\t\t\t\tRecvAddress = (int)GetRemoteProcAddress(Process.GetProcessById(ProcessId), \"ws2_32.dll\", \"recv\");\n\t\t\t\t\tMemory.ReadProcessMemory(Memory.Id, RecvAddress, bufferRecv, 10, 0);\n\t\t\t\t\tPostMessage(ProcessId, -10);\n\t\t\t\t\tIsHooked = true;",
+      "reviewed": "\t\t\t\t\ttry\n\t\t\t\t\t{\n\t\t\t\t\t\tRecvAddress = (int)GetRemoteProcAddress(Process.GetProcessById(ProcessId), \"ws2_32.dll\", \"recv\");\n\t\t\t\t\t\tint read;\n\t\t\t\t\t\tif (RecvAddress != 0 && Memory.ReadProcessMemory(Memory.Id, RecvAddress, bufferRecv, 10, out read) && read == 10)\n\t\t\t\t\t\t{ PostMessage(ProcessId, -10); IsHooked = true; }\n\t\t\t\t\t}\n\t\t\t\t\tcatch (Exception) { if (RequiresAcBaNotices) StopAcBa(\"không thiết lập được bộ nhận thông báo; có thể chọn môn phái thủ công.\"); }",
+      "count": 1
+    },
+    {
+      "name": "avoid_shared_generic",
+      "original": "|| TLBB.PlayerState != 0 || ON_SCENE_TRANSING || IsChangeMap || TLBB.MapId == MAP.TacKhauDoanhDia) return;",
+      "reviewed": "|| TLBB.PlayerState != 0 || ON_SCENE_TRANSING || IsChangeMap || TLBB.MapId == MAP.TacKhauDoanhDia || IsMapAcBa || AcBaControlsCurrentActor()) return;",
+      "count": 1
+    },
+    {
+      "name": "phase_status",
+      "original": "return \"Ác Bá\";",
+      "reviewed": "return AcBaStatus;",
+      "count": 1
+    },
+    {
+      "name": "fresh_optional_alert",
+      "original": "\t\t\tif (!IsAlarmAcBa && AcBa != -1)",
+      "reviewed": "\t\t\tCheckAcBaNoticeIdentity();\n\t\t\tif (FrmMain.AlarmAcBa && !IsAlarmAcBa && AcBa != -1)",
+      "count": 1
+    }
+  ],
+  "form_edits": [
+    {
+      "name": "copydata_bounds",
+      "original": "\t\t\t\tCOPYDATASTRUCT cOPYDATASTRUCT = (COPYDATASTRUCT)Marshal.PtrToStructure(m.LParam, typeof(COPYDATASTRUCT));\n\t\t\t\tbyte[] array = new byte[cOPYDATASTRUCT.cbData];\n\t\t\t\tMarshal.Copy(cOPYDATASTRUCT.lpData, array, 0, cOPYDATASTRUCT.cbData);",
+      "reviewed": "\t\t\t\tif (m.LParam == IntPtr.Zero) { base.WndProc(ref m); return; }\n\t\t\t\tCOPYDATASTRUCT cOPYDATASTRUCT = (COPYDATASTRUCT)Marshal.PtrToStructure(m.LParam, typeof(COPYDATASTRUCT));\n\t\t\t\tif (cOPYDATASTRUCT.lpData == IntPtr.Zero || cOPYDATASTRUCT.cbData < 4 || cOPYDATASTRUCT.cbData > 65536)\n\t\t\t\t{ base.WndProc(ref m); return; }\n\t\t\t\tbyte[] array = new byte[cOPYDATASTRUCT.cbData];\n\t\t\t\tMarshal.Copy(cOPYDATASTRUCT.lpData, array, 0, cOPYDATASTRUCT.cbData);",
+      "count": 1
+    },
+    {
+      "name": "isolated_system_detection",
+      "original": "\t\t\t\tstring str = \"\";\n\t\t\t\tif (array.Length > 25)\n\t\t\t\t{\n\t\t\t\t\tbyte[] array2 = new byte[array.Length - 15];\n\t\t\t\t\tfor (int j = 0; j < array2.Length; j++)\n\t\t\t\t\t{\n\t\t\t\t\t\tarray2[j] = array[j + 15];\n\t\t\t\t\t}\n\t\t\t\t\tstr = ConverterEx.VISCII2UnicodeEx(array2);\n\t\t\t\t}\n\t\t\t\tif (num2 != -1 && game != null)\n\t\t\t\t{\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"duongmon\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 37;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"modung\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 32;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"tinhtuc\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 6;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"tieudao\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 9;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"thieulam\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 1;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"thienson\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 8;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"thienlong\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 7;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"ngamy\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 5;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"vodang\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 4;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"minhgiao\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 2;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t\tif (TINHKIEM.VietLien(str).Contains(\"caibang\") && (TINHKIEM.VietLien(str).Contains(\"gianghotieutieu\") || TINHKIEM.VietLien(str).Contains(\"#{qyxt_15}\")))\n\t\t\t\t\t{\n\t\t\t\t\t\tgame.AcBa = 3;\n\t\t\t\t\t\tgame.IsAlarmAcBa = false;\n\t\t\t\t\t}\n\t\t\t\t}\n",
+      "reviewed": "\t\t\t\tstring systemText;\n\t\t\t\tif (game != null && AcBaEvents.TryDecodeSystem(array, ConfigurationManager.AppSettings[\"AcBaSystemEncoding\"] ?? \"VISCII\", out systemText))\n\t\t\t\t\tgame.ReceiveAcBaNotice(systemText);\n",
+      "count": 1
+    },
+    {
+      "name": "attach_manual_menu",
+      "original": "\t\t\tInitializeComponent();",
+      "reviewed": "\t\t\tInitializeComponent();\n\t\t\tInitializeAcBaMenu();",
+      "count": 1
+    },
+    {
+      "name": "manual_school_actions",
+      "original": "\t\tpublic bool GetUpdate()",
+      "reviewed": "\t\tprivate void InitializeAcBaMenu()\n\t\t{\n\t\t\tvar automatic = new ToolStripMenuItem(\"Tự nhận diện và bắt đầu\");\n\t\t\tautomatic.Click += (sender, args) => StartAcBaSelection(-1);\n\t\t\tItemAcBa.DropDownItems.Add(automatic);\n\t\t\tforeach (int school in AcBaEvents.Schools)\n\t\t\t{\n\t\t\t\tint choice = school;\n\t\t\t\tvar manual = new ToolStripMenuItem(\"Chọn \" + AcBaEvents.SchoolName(choice));\n\t\t\t\tmanual.Click += (sender, args) => StartAcBaSelection(choice);\n\t\t\t\tItemAcBa.DropDownItems.Add(manual);\n\t\t\t}\n\t\t\tvar stop = new ToolStripMenuItem(\"Dừng Ác Bá\");\n\t\t\tstop.Click += (sender, args) => StartAcBaSelection(-2);\n\t\t\tItemAcBa.DropDownItems.Add(stop);\n\t\t}\n\n\t\tprivate void StartAcBaSelection(int school)\n\t\t{\n\t\t\tif (!RequireDungeonContext(\"Lỗi Ác Bá\", out Game selectedGame, out Game leader)) return;\n\t\t\tif (school == -2) { leader.IsAcBa = false; UpdateDungeonMenu(selectedGame, leader); return; }\n\t\t\tResetDungeonActions(leader);\n\t\t\tif (school == -1) leader.IsAcBa = true;\n\t\t\telse if (school >= 0) leader.SelectManualAcBaSchool(school);\n\t\t\tUpdateDungeonMenu(selectedGame, leader);\n\t\t}\n\n\t\tpublic bool GetUpdate()",
+      "count": 1
+    },
+    {
+      "name": "dropdown_without_parent_toggle",
+      "original": "\t\t\tthis.ItemAcBa.Click += new System.EventHandler(ItemAcBa_Click);\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\tthis.ItemLauLan.CheckOnClick = true;"
+    },
+    {
+      "name": "submenu_check_state_only",
+      "original": "\t\t\tthis.ItemAcBa.CheckOnClick = true;",
+      "reviewed": "\t\t\tthis.ItemAcBa.CheckOnClick = false;",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/AcBa/Game.AcBa.cs": "ab47cf52a1a4cff177e4b01c5550460742af308b26bb633f1ab5dc0c5692c0d7",
+    "src/ChickenAutoEx/AcBa/Game.AcBaEvents.cs": "f5ef6f2ee3c0cbfb7eb16da2fbc99f8c8c4f38d6e698c7b615e211c3acdb1d72",
+    "src/ChickenAutoEx/AcBa/AcBaEvents.cs": "4874f4bff6cffe971052274c9977aabae68b7067be0c0c67b09298cd35ab1560"
+  }
+}

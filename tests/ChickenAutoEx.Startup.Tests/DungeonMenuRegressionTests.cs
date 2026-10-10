@@ -13,6 +13,11 @@ namespace ChickenAutoEx.Startup.Tests
         private static readonly string[] MapMenus = { "vôLượngSơnToolStripMenuItem", "kínhHồToolStripMenuItem",
             "kiếmCácToolStripMenuItem", "tháiHồToolStripMenuItem", "tungSơnToolStripMenuItem", "đônHoàngToolStripMenuItem" };
 
+        [Theory][InlineData(-2)][InlineData(-1)][InlineData(5)]
+        public void AcBaSubmenuUsesSelectedTeamAndStopsConflictingQuest(int school)
+        {dynamic form=LegacyUiHarness.Create();dynamic leader=form.SelectWithLeader();leader.IsKyCuoc=true;leader.MapAcTac=3;form.StartAcBa(school);Assert.Equal(school!=-2,(bool)leader.IsAcBa);Assert.Equal(school==-2,(bool)leader.IsKyCuoc);Assert.Equal(school==-2?3:0,(int)leader.MapAcTac);if(school>=0)Assert.Equal(school,(int)leader.ManualAcBaSchool);}
+        [Fact] public void AcBaSubmenuRejectsLostContext(){dynamic form=LegacyUiHarness.Create();form.SelectWithLeader();form.CurGame=null;Assert.Null(Record.Exception(()=>{form.StartAcBa(5);}));Assert.Equal(1,(int)form.WarningCount);}
+
         public static IEnumerable<object[]> Handlers()
         {
             foreach (var name in new[] { "ItemTrungAc_Click", "ItemAcBa_Click", "ItemThuyLao_Click", "itemTranLongKyCuoc_Click",

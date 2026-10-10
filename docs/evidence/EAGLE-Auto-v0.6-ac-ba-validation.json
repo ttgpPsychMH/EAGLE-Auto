@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-10",
+  "branch": "repair/eagle-auto-ac-ba",
+  "application_version": "0.6",
+  "baseline_commit": "910020a",
+  "local_build": {
+    "errors": 0,
+    "warnings": 50,
+    "target": "net48/x86"
+  },
+  "tests": {
+    "passed": 488,
+    "failed": 0,
+    "skipped": 0,
+    "groups": {
+      "KyCuocSimulationTests": 78,
+      "UpdateServiceTests": 37,
+      "AcTacSimulationTests": 66,
+      "AcBaSimulationTests": 109,
+      "DungeonMenuRegressionTests": 45,
+      "TrungAcSimulationTests": 85,
+      "ThuyLaoSimulationTests": 49,
+      "UiSettingsRegressionTests": 19
+    }
+  },
+  "legacy_controls": {
+    "thuy-lao": {
+      "legacy_tests_executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+    },
+    "ky-cuoc": {
+      "legacy_tests_executed": 6,
+      "expected_behavioral_failures": 6,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "trung-ac": {
+      "legacy_tests_executed": 11,
+      "expected_behavioral_failures": 11,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "dungeon-reaudit": {
+      "legacy_tests_executed": 9,
+      "expected_behavioral_failures": 9,
+      "harness_errors": 0,
+      "scope": "Restored, hash-checked v0.3 partial methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-tac": {
+      "legacy_tests_executed": 13,
+      "expected_behavioral_failures": 13,
+      "harness_errors": 0,
+      "scope": "Selected v0.4 C# methods and UI with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-ba": {
+      "legacy_tests_executed": 8,
+      "expected_behavioral_failures": 8,
+      "harness_errors": 0,
+      "scope": "Selected redacted v0.5 C# against fake dependencies; EXE/native DLL never loaded"
+    }
+  },
+  "static_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_ac_tac_ac_ba_and_pet_aoe": true,
+    "reviewed_trung_ac_fixes": true,
+    "reviewed_ac_tac_fixes": true,
+    "reviewed_ac_ba_fixes": true,
+    "reviewed_three_dungeon_reaudit": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.6",
+    "product_version": {
+      "version": "0.6",
+      "display_version": "v0.6",
+      "file_version": "0.6.0.0",
+      "executable": "EAGLE-Auto-v0.6.exe",
+      "config": "EAGLE-Auto-v0.6.exe.config",
+      "zip_name": "EAGLE-Auto-v0.6-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.6-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.6.exe": "733ab594c501556efc0acc468e39b784079254605b5aba80ae33699f1ed44e88",
+      "EAGLE-Auto-v0.6.exe.config": "fff87832f2bd9eec56b060dd53df0a411066e2cd12a48253b16d5dd112b9b2e1",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "package": {
+    "file": "EAGLE-Auto-v0.6-net48.zip",
+    "sha256": "c25eca28592695ae1d2574a015f75ae579736b6926ca77b9584cf77a9c55b4b1"
+  },
+  "method": "Selected C# with fake process, memory, clock, dialogs and commands. Original/rebuilt EXE/native DLL never loaded or executed.",
+  "unverified": [
+    "Windows11 WinForms/runtime",
+    "native recv hook ACK and framing/reassembly",
+    "private-client system message and encoding",
+    "NPC/map/option and same-school entrance condition",
+    "native memory-read success, server/instance identity",
+    "actual boss/exit/reward semantics"
+  ],
+  "changes_review": "tools/ac_ba_review.json",
+  "report": "docs/EAGLE-Auto-AC-BA-SIMULATION.vi.md"
+}
