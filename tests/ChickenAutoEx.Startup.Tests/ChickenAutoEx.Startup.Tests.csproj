@@ -9,6 +9,9 @@
     <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs" Link="RegressionSources/LegacyGame.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/thuy-lao/ReviewedGame.cs" Link="RegressionSources/ReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../.build/thuy-lao/ReviewedGame.cs')" />
     <None Include="../../src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs" Link="RegressionSources/Game.ThuyLao.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs')" />
+    <None Include="../../.build/ky-cuoc/ReviewedGame.cs" Link="RegressionSources/KyCuocReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../.build/ky-cuoc/ReviewedGame.cs')" />
+    <None Include="../../src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs" Link="RegressionSources/Game.KyCuoc.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs')" />
+    <None Include="../../src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs" Link="RegressionSources/Game.PetAoe.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs')" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2" PrivateAssets="all" />

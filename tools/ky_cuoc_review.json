@@ -1,0 +1,61 @@
+{
+  "scope": "Only Ky Cuoc state/dispatch/boss completion and shared pet AOE; original Thuy Lao deltas remain intact",
+  "edits": [
+    {
+      "name": "scoped_ky_cuoc_lifecycle_property",
+      "original": "\t\tpublic bool IsKyCuoc { get; set; }",
+      "reviewed": "\t\tpublic bool IsKyCuoc\n\t\t{\n\t\t\tget { return kyCuocEnabled; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tlock (kyCuocLock)\n\t\t\t\t{\n\t\t\t\t\tif (kyCuocEnabled == value) return;\n\t\t\t\t\tkyCuocEnabled = value;\n\t\t\t\t\tResetKyCuocSession();\n\t\t\t\t\tif (value) InitializeKyCuocSession();\n\t\t\t\t}\n\t\t\t}\n\t\t}",
+      "count": 1
+    },
+    {
+      "name": "replace_ky_cuoc_engine",
+      "original": "\t\tpublic void DatDoiKyCuoc()\n\t\t{\n\t\t\tif (IsXongKyCuoc)\n\t\t\t{\n\t\t\t\tIsKyCuoc = false;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tif (!IsKyCuoc || TickCount % 18 != 0 || PickItem())\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (!IsRide && TLBB.HaveRide && TLBB.MapId != MAP.TranLongKyCuoc)\n\t\t\t\t{\n\t\t\t\t\tStopFollow();\n\t\t\t\t\tUpRide();\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tTrieuTap();\n\t\t\t\tif (TLBB.MapId != MAP.TranLongKyCuoc)\n\t\t\t\t{\n\t\t\t\t\tif (GoTo(LACDUONG.VuongTichTan))\n\t\t\t\t\t{\n\t\t\t\t\t\tif (TLBB.IsQuestOpen)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tQuestFrameOptionClicked(401001, -1);\n\t\t\t\t\t\t\tCloseQuest();\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tTalk(LACDUONG.VuongTichTan.Id);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse if (TLBB.MapId == MAP.TranLongKyCuoc)\n\t\t\t\t{\n\t\t\t\t\tif (ClearTime.Elapsed.TotalSeconds < 4.0)\n\t\t\t\t\t{\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t\tif (Objects.NearMonter18m.Count > 0)\n\t\t\t\t\t{\n\t\t\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t\t\t\tif (IsRide && IsAuto)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tDownRide();\n\t\t\t\t\t\t}\n\t\t\t\t\t\tStopFollow();\n\t\t\t\t\t}\n\t\t\t\t\telse if (!IsBossDie)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tUpRide();\n\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tAskTeamFollow();\n\t\t\t\t\t\tMoveNext();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tIsKyCuoc = false;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic void DatDoiLauLanTamBao()"
+    },
+    {
+      "name": "replace_empty_target_pet_aoe",
+      "original": "\t\tpublic void AOE()\n\t\t{\n\t\t\tif (TickCount % 150 == 0 && Global.UseSkillPet && Objects.NearMonter20m.Count >= 0 && SkillPetId(TLBB.SkillPetType) != -1)\n\t\t\t{\n\t\t\t\tUseSkillPet(SkillPetId(TLBB.SkillPetType), Objects.Monter[0].X, Objects.Monter[0].Y);\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic int SkillPetId(string name)"
+    },
+    {
+      "name": "ky_cuoc_owns_boss_observation",
+      "original": "\t\t\t\t\t\t\tif (item2.CleanName == \"viencokyhon\" && item2.HP == 0f)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tIsBossDie = true;\n\t\t\t\t\t\t\t\tBossDieTime = Stopwatch.StartNew();\n\t\t\t\t\t\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\t\t\t\t\tif (item2.CleanName == \"tranbaolongvuong\" && item2.HP == 0f)\n"
+    },
+    {
+      "name": "remove_unscoped_ky_cuoc_completion",
+      "original": "\t\t\t\t\tif (TLBB.MapId == MAP.TranLongKyCuoc && IsBossDie)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (BossDieTime.Elapsed.TotalSeconds > 30.0)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tGoTo(TRANLONGKYCUOC.TeThanh);\n\t\t\t\t\t\t\tIsP = true;\n\t\t\t\t\t\t\tIsXongKyCuoc = true;\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (TickCount % 6 == 0)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tPushDebugMessage(\"Di chuyển sau \" + (20 - BossDieTime.Elapsed.Seconds) + \"s\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\t\t}\n\t\t\t}\n\t\t\tif (IsSaveGold)"
+    },
+    {
+      "name": "cancel_ky_cuoc_on_auto_off",
+      "original": "\t\t\t\tIsThuyLao = false;\n\t\t\t\tResetThuyLaoProgress();\n\t\t\t\treturn;",
+      "reviewed": "\t\t\t\tIsThuyLao = false;\n\t\t\t\tResetThuyLaoProgress();\n\t\t\t\tIsKyCuoc = false;\n\t\t\t\treturn;",
+      "count": 1
+    },
+    {
+      "name": "validate_ky_cuoc_before_scene_guard",
+      "original": "\t\t\tif (ON_SCENE_TRANSING || IsChangeMap)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != TLBB.MapMonPhai)",
+      "reviewed": "\t\t\tCheckKyCuocSession();\n\t\t\tif (ON_SCENE_TRANSING || IsChangeMap)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != TLBB.MapMonPhai)",
+      "count": 1
+    },
+    {
+      "name": "calendar_waits_for_ky_cuoc_session",
+      "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao;",
+      "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc;",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": "d9f2276ea00c962d95d2885868dc93ed567f5890e6896609700828d1d644b8c7",
+    "src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs": "d9046a1137a79a03d5a4f0476180d9e7a3fe9ba877f506c0ddc7827b2fe93cbf"
+  }
+}

@@ -144,6 +144,8 @@ def main():
             if relative.endswith("/Game.cs"):
                 from thuy_lao_review import apply_review
                 review = apply_review(repo, review)
+                from ky_cuoc_review import apply_review as ky_cuoc
+                review = ky_cuoc(repo, review)
             path = hydrated / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(review)
@@ -167,6 +169,8 @@ def main():
         raise ValueError("Original file preservation failed")
     from thuy_lao_review import write_regression_source
     write_regression_source(repo)
+    from ky_cuoc_review import write_regression_source as write_ky_cuoc
+    write_ky_cuoc(repo)
     print("Prepared 27 embedded resources, icon and four hydrated source files; originals unchanged.")
     print("Generated key material is confined to ignored .build; no release executable was run.")
 

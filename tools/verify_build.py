@@ -155,6 +155,8 @@ def main():
         redacted, count = re.subn(pattern, redact, text)
         if relative.endswith("/Game.cs"):
             from thuy_lao_review import apply_review
+            from ky_cuoc_review import apply_review as ky_cuoc
+            redacted = ky_cuoc(repo, redacted, reverse=True)
             redacted = apply_review(repo, redacted, reverse=True)
         assert count == expected and redacted == (baseline / relative).read_text(), relative
 
@@ -162,7 +164,8 @@ def main():
         "framework": "net48", "architecture": "x86", "embedded_resources": len(resources),
         "unchanged_original_resources": 26, "json_assembly_version": 13,
         "original_release_files_unchanged": True, "entitlement_source_preserved": True,
-        "automation_source_preserved_except_reviewed_thuy_lao": True,
+        "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_and_pet_aoe": True,
+        "reviewed_ky_cuoc_fixes": True, "reviewed_pet_aoe_fix": True,
         "reviewed_thuy_lao_fixes": True,
         "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
         "reviewed_dungeon_menu_fixes": True,
@@ -174,7 +177,7 @@ def main():
                       (product["executable"], product["config"], "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
     }
     (repo / ".build/chickenautoex/verified.json").write_text(json.dumps(result, indent=2) + "\n")
-    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao deltas.")
+    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/pet AOE deltas.")
     print("This is static build verification, not a Windows runtime test.")
 
 

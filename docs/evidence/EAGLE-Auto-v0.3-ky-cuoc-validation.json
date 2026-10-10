@@ -1,0 +1,84 @@
+{
+  "baseline_application_commit": "6d83466",
+  "date": "2026-10-10",
+  "timezone": "Asia/Bangkok",
+  "full_suite": {
+    "executed": 207,
+    "passed": 207,
+    "failed": 0,
+    "skipped": 0,
+    "new_ky_cuoc_and_pet_aoe_cases": 72
+  },
+  "ky_cuoc_legacy_control": {
+    "legacy_tests_executed": 6,
+    "expected_behavioral_failures": 6,
+    "harness_errors": 0,
+    "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+  },
+  "unchanged_thuy_lao_legacy_control": {
+    "legacy_tests_executed": 4,
+    "expected_behavioral_failures": 4,
+    "harness_errors": 0,
+    "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+  },
+  "build": {
+    "target": "net48",
+    "architecture": "x86",
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "static_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_and_pet_aoe": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.3",
+    "product_version": {
+      "version": "0.3",
+      "display_version": "v0.3",
+      "file_version": "0.3.0.0",
+      "executable": "EAGLE-Auto-v0.3.exe",
+      "config": "EAGLE-Auto-v0.3.exe.config",
+      "zip_name": "EAGLE-Auto-v0.3-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.3-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.3.exe": "897c88c0e1fb8ed82a2328424808766856c73dec51e7c64ee21d51f81628af28",
+      "EAGLE-Auto-v0.3.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "local_package": {
+    "name": "EAGLE-Auto-v0.3-net48.zip",
+    "sha256": "1757ab763316c068a6c40082bcfc44cc6d88a1aeeaec96566789b257305d6827",
+    "archive_checked": true,
+    "source_excluded": true
+  },
+  "windows_runtime_tested": false,
+  "game_runtime_tested": false,
+  "native_dll_executed": false,
+  "known_client_limitations": [
+    "map61 vs map550 not validated",
+    "exit destination map0 assumed from legacy workflow",
+    "reward not verified",
+    "native read success and Windows UI races not simulated"
+  ]
+}
