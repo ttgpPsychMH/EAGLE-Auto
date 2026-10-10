@@ -1,0 +1,99 @@
+	.method public hidebysig specialname
+		instance int32 get_MapAcBa () cil managed
+	{
+		// Method begins at RVA 0x5108c
+		// Header size: 12
+		// Code size: 211 (0xd3)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0006: ldsfld int32 TinhKiemAuto.MENPAI::ThieuLam
+		IL_000b: bne.un.s IL_0013
+
+		IL_000d: ldsfld int32 TinhKiemAuto.MAP::ThieuLamAcBa
+		IL_0012: ret
+
+		IL_0013: ldarg.0
+		IL_0014: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0019: ldsfld int32 TinhKiemAuto.MENPAI::MinhGiao
+		IL_001e: bne.un.s IL_0026
+
+		IL_0020: ldsfld int32 TinhKiemAuto.MAP::MinhGiaoAcBa
+		IL_0025: ret
+
+		IL_0026: ldarg.0
+		IL_0027: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_002c: ldsfld int32 TinhKiemAuto.MENPAI::CaiBang
+		IL_0031: bne.un.s IL_0039
+
+		IL_0033: ldsfld int32 TinhKiemAuto.MAP::CaiBangAcBa
+		IL_0038: ret
+
+		IL_0039: ldarg.0
+		IL_003a: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_003f: ldsfld int32 TinhKiemAuto.MENPAI::VoDang
+		IL_0044: bne.un.s IL_004c
+
+		IL_0046: ldsfld int32 TinhKiemAuto.MAP::VoDangAcBa
+		IL_004b: ret
+
+		IL_004c: ldarg.0
+		IL_004d: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0052: ldsfld int32 TinhKiemAuto.MENPAI::NgaMy
+		IL_0057: bne.un.s IL_005f
+
+		IL_0059: ldsfld int32 TinhKiemAuto.MAP::NgaMyAcBa
+		IL_005e: ret
+
+		IL_005f: ldarg.0
+		IL_0060: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0065: ldsfld int32 TinhKiemAuto.MENPAI::TinhTuc
+		IL_006a: bne.un.s IL_0072
+
+		IL_006c: ldsfld int32 TinhKiemAuto.MAP::TinhTucAcBa
+		IL_0071: ret
+
+		IL_0072: ldarg.0
+		IL_0073: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0078: ldsfld int32 TinhKiemAuto.MENPAI::ThienLong
+		IL_007d: bne.un.s IL_0085
+
+		IL_007f: ldsfld int32 TinhKiemAuto.MAP::ThienLongAcBa
+		IL_0084: ret
+
+		IL_0085: ldarg.0
+		IL_0086: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_008b: ldsfld int32 TinhKiemAuto.MENPAI::ThienSon
+		IL_0090: bne.un.s IL_0098
+
+		IL_0092: ldsfld int32 TinhKiemAuto.MAP::ThienSonAcBa
+		IL_0097: ret
+
+		IL_0098: ldarg.0
+		IL_0099: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_009e: ldsfld int32 TinhKiemAuto.MENPAI::TieuDao
+		IL_00a3: bne.un.s IL_00ab
+
+		IL_00a5: ldsfld int32 TinhKiemAuto.MAP::TieuDaoAcBa
+		IL_00aa: ret
+
+		IL_00ab: ldarg.0
+		IL_00ac: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_00b1: ldsfld int32 TinhKiemAuto.MENPAI::MoDung
+		IL_00b6: bne.un.s IL_00be
+
+		IL_00b8: ldsfld int32 TinhKiemAuto.MAP::MoDungAcBa
+		IL_00bd: ret
+
+		IL_00be: ldarg.0
+		IL_00bf: call instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_00c4: ldsfld int32 TinhKiemAuto.MENPAI::DuongMon
+		IL_00c9: bne.un.s IL_00d1
+
+		IL_00cb: ldsfld int32 TinhKiemAuto.MAP::DuongMonAcBa
+		IL_00d0: ret
+
+		IL_00d1: ldc.i4.m1
+		IL_00d2: ret
+	} // end of method TLBB::get_MapAcBa

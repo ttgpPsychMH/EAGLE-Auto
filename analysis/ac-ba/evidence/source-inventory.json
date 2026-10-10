@@ -1,0 +1,233 @@
+{
+  "baseline_commit": "910020a",
+  "application_version": "0.5",
+  "scope": "Analysis only; application source/binaries unchanged",
+  "game_source": "Original redacted Game.cs plus exact v0.2-v0.5 review layers; no hydrated secrets",
+  "methods": {
+    "Game.DatDoiAcBa": {
+      "line": 4074,
+      "sha256_lf": "810b4dd885f022c31ce187a12c23573b5835be44f184679def21da545de5ddd9"
+    },
+    "Game.TalkNPCPhuBan": {
+      "line": 3357,
+      "sha256_lf": "8e9823e5c844fe273bd63a443d7a8cf2c66e465b19f54f8ee59a0acd2809c3d3"
+    },
+    "Game.TrieuTap": {
+      "line": 4214,
+      "sha256_lf": "acf141c360374a3bb42132bca69081913c7273b456679c5598c6967d123c860b"
+    },
+    "Game.Auto": {
+      "line": 4863,
+      "sha256_lf": "88afa7d3083fb35c6fa20b24bc8c66e4516d598c11e482e86d2bf51ca14e1fb1"
+    },
+    "Game.ClearMission": {
+      "line": 4845,
+      "sha256_lf": "7e127146cec5e38bb3e093332ee0cbf573da93684147152021a741ece0e134ab"
+    },
+    "Game.SetCalendar": {
+      "line": 5405,
+      "sha256_lf": "01dee694863447cfb19f2527b8a91e36dfc4bd9544dd0a37d3184ad38f2cd65b"
+    },
+    "Game.TheoDoiCanhBao": {
+      "line": 9727,
+      "sha256_lf": "302ad7cb03fc11662d59745fb6dd2088a979c6fa42d6b03d94d78f102e594b8f"
+    },
+    "Game.MoveNext": {
+      "line": 7894,
+      "sha256_lf": "da5959f8190068629d9034acb8f425a08d54a023a966b5a4792822bb5e61f5a1"
+    },
+    "Game.Next": {
+      "line": 8198,
+      "sha256_lf": "a59bbbf8994102713d1e018def9f88425e5eb9fd4c9b85ae276cee9b7439f35f"
+    },
+    "Game.AcTac": {
+      "line": 3135,
+      "sha256_lf": "6147de2085961f521555c5aba9c671e87bb96524c5d3063399306e8efce79747"
+    },
+    "Game.FixKetMap": {
+      "line": 8497,
+      "sha256_lf": "51f3a13b124cd05e9c7c4de485752469816fe2b0773e230e1f5532ac1a04ce31"
+    },
+    "Game.AppointLeader": {
+      "line": 8482,
+      "sha256_lf": "f6500f7f2ccb50cc449649c4636ca3f6d6c888d23fc496bda08f222ca41a6f72"
+    },
+    "Game.MoveNext(int[,])": {
+      "line": 8149,
+      "sha256_lf": "da8dc17ab092664c1bfbf3d3710be97d246bf28b545825e7ee027f5a8fd4280f"
+    },
+    "Game.Next(int[,])": {
+      "line": 8198,
+      "sha256_lf": "a59bbbf8994102713d1e018def9f88425e5eb9fd4c9b85ae276cee9b7439f35f"
+    },
+    "FrmMain.WndProc": {
+      "line": 3706,
+      "sha256_lf": "1bfe8d948150efcb9adcee51e640d3be6d2f811b3af44d08ffc729e56dee0acf"
+    },
+    "FrmMain.ItemAcBa_Click": {
+      "line": 4254,
+      "sha256_lf": "1f56ac338e11f63d0ce086add24b5fb8854ed0a1b5ca43977f45053b631f262d"
+    },
+    "FrmMain.ResetDungeonActions": {
+      "line": 4183,
+      "sha256_lf": "e37662736f648c8ac3a64e7fb4e593f8386dff56a5542fc3fc54e96a6124e9df"
+    },
+    "FrmMain.UpdateDungeonMenu": {
+      "line": 4149,
+      "sha256_lf": "1a55a886a1bc98c7b2fbd256cab53ce3f0edca45b6e470e7854ae6f62b3369fe"
+    }
+  },
+  "input_sha256": {
+    "EagleAuto.Version.props": "085a2d6e21fb2881d67155fd76ac260d7e97b6c3d1d2bba3be867ce7f4918769",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/ConverterEx.cs": "93d44f2c283d21a48aab26e8b9031b82d6c9d7ba59e5ca3a671b869069d377f8",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObject.cs": "dfebde2aa842657ec97f84ee036876a8562e45178efc08e13bf885d416c716c5",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/GameObjects.cs": "b7aee91344ac585ad31834042e31786e384e15fd0e9fea634a07d8b3e58cedbd",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/MAP.cs": "e06a993386bbeee57236a5a97dba5549e7d0fd99fdc0554300d5193ce54cb0c0",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/MENPAI.cs": "820cc61bb5a932a110b712d07decccfbe18b25bd03b2021c70ec340238290da0",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/POINT.cs": "a516c63e0608d804dbf1c42cfd585188045693212ec5a3b4c4078144aa5d5fd0",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/QuestFrame.cs": "09530c5ab9c412ff3c8f5e3a2339095f15a1ba32588ffd0487a721251c2e2aeb",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Setting.cs": "069bf1a05e1b77b6596a5c147067f1a627cd16c743df8bd1fed7c162d1d02f65",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TINHKIEM.cs": "0675c3665c6ae67a8a5479f900f144a4f4bce8d6c0d971ba8f166984d25cec7d",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TLBB.cs": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c",
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549",
+    "src/ChickenAutoEx/FrmMain.cs": "396bce2e4d31527d8be029a8ef0068d1f62a81766de40fe72603725c732a3a22",
+    "src/ChickenAutoEx/Global.cs": "21cc6cb3391eebad9148f6084a49bae849413c925e518527f94a6423816bd9f9",
+    "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": "1ff61a45fee1f37a727cb6aab1ee3467bd805d029a0ce6cc6a7062bf4e777c40",
+    "src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs": "d9046a1137a79a03d5a4f0476180d9e7a3fe9ba877f506c0ddc7827b2fe93cbf",
+    "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": "1f9e889735b55aa689f1b0546bd396c61dfd30b787a894b4731c53eeb4eaf3be",
+    "src/ChickenAutoEx/TrungAc/Game.TrungAc.cs": "c61e86f3efdf8467e66865dfebd04c7b5f4efacbcf21466e28efde3b87998aff",
+    "src/ChickenAutoEx/TrungAc/Game.TrungAcParser.cs": "6e0b2eefbbf7b0441a016ca65ec05467a2b584d8b9dc35e0d42dc4423ad455a6",
+    "tools/ac_tac_review.json": "f796668f45e219db13422bbb4a6322e4aa954255ee8184dda617173a9a324004",
+    "tools/dungeon_reaudit_review.json": "65ee07a3fd69ca1019b524d05640af851b4a7b32f714a626fce56065942d3aac",
+    "tools/ky_cuoc_review.json": "2bc8934ee6d6b3ccc33d23de774f6569f27c0707722df7fdd0db860acdcd28e8",
+    "tools/thuy_lao_review.json": "b1d14066371e6f76733a5eb6c21d1212b81620224bfb0e448cd746dac4791226",
+    "tools/trung_ac_review.json": "62d7ae31dfc6655de2af57543802dcf8b5875fd32429ebdb5a7987cf82838dd8"
+  },
+  "embedded_route_sha256": "361c681f110be51cfb9c71f84526cf3c0153584e84a43e7461faf9fd6bf26250",
+  "schools": [
+    {
+      "name": "ThieuLam",
+      "school_id": 1,
+      "outdoor_map": 9,
+      "dungeon_map": 173,
+      "embedded_point_count": 5,
+      "first_embedded_point": [
+        95,
+        105
+      ]
+    },
+    {
+      "name": "MinhGiao",
+      "school_id": 2,
+      "outdoor_map": 11,
+      "dungeon_map": 175,
+      "embedded_point_count": 5,
+      "first_embedded_point": [
+        97,
+        104
+      ]
+    },
+    {
+      "name": "CaiBang",
+      "school_id": 3,
+      "outdoor_map": 10,
+      "dungeon_map": 174,
+      "embedded_point_count": 8,
+      "first_embedded_point": [
+        83,
+        98
+      ]
+    },
+    {
+      "name": "VoDang",
+      "school_id": 4,
+      "outdoor_map": 12,
+      "dungeon_map": 176,
+      "embedded_point_count": 8,
+      "first_embedded_point": [
+        102,
+        167
+      ]
+    },
+    {
+      "name": "NgaMy",
+      "school_id": 5,
+      "outdoor_map": 15,
+      "dungeon_map": 179,
+      "embedded_point_count": 9,
+      "first_embedded_point": [
+        91,
+        84
+      ]
+    },
+    {
+      "name": "TinhTuc",
+      "school_id": 6,
+      "outdoor_map": 16,
+      "dungeon_map": 180,
+      "embedded_point_count": 5,
+      "first_embedded_point": [
+        96,
+        134
+      ]
+    },
+    {
+      "name": "ThienLong",
+      "school_id": 7,
+      "outdoor_map": 13,
+      "dungeon_map": 177,
+      "embedded_point_count": 11,
+      "first_embedded_point": [
+        95,
+        115
+      ]
+    },
+    {
+      "name": "ThienSon",
+      "school_id": 8,
+      "outdoor_map": 17,
+      "dungeon_map": 181,
+      "embedded_point_count": 10,
+      "first_embedded_point": [
+        78,
+        115
+      ]
+    },
+    {
+      "name": "TieuDao",
+      "school_id": 9,
+      "outdoor_map": 14,
+      "dungeon_map": 178,
+      "embedded_point_count": 8,
+      "first_embedded_point": [
+        46,
+        149
+      ]
+    },
+    {
+      "name": "MoDung",
+      "school_id": 32,
+      "outdoor_map": 284,
+      "dungeon_map": 288,
+      "embedded_point_count": 11,
+      "first_embedded_point": [
+        142,
+        136
+      ]
+    },
+    {
+      "name": "DuongMon",
+      "school_id": 37,
+      "outdoor_map": 615,
+      "dungeon_map": 618,
+      "embedded_point_count": 5,
+      "first_embedded_point": [
+        167,
+        117
+      ]
+    }
+  ],
+  "user_private_client_observation": "System event announcement includes NPC at school and Ac Ba appeared at that school; exact text/encoding not yet available",
+  "original_il_sha256": "0a4fa65c52e48053aec0590ff1229c3fb794f848d373f51b411f1c2a9b569c35"
+}

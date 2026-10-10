@@ -1,0 +1,341 @@
+	.method public hidebysig
+		instance void DatDoiAcBa () cil managed
+	{
+		// Method begins at RVA 0x2c3c0
+		// Header size: 12
+		// Code size: 767 (0x2ff)
+		.maxstack 5
+		.locals init (
+			[0] int32[0..., 0...],
+			[1] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class TinhKiemAuto.GameObject>,
+			[2] class TinhKiemAuto.GameObject,
+			[3] valuetype [mscorlib]System.TimeSpan
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 TinhKiemAuto.Game::AcBa
+		IL_0006: ldarg.0
+		IL_0007: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_000c: callvirt instance int32 TinhKiemAuto.TLBB::get_Menpai()
+		IL_0011: beq.s IL_001d
+
+		IL_0013: ldarg.0
+		IL_0014: ldfld int32 TinhKiemAuto.Game::AcBa
+		IL_0019: ldc.i4.m1
+		IL_001a: beq.s IL_001d
+
+		IL_001c: ret
+
+		IL_001d: ldarg.0
+		IL_001e: call instance bool TinhKiemAuto.Game::get_IsAcBa()
+		IL_0023: brtrue.s IL_0026
+
+		IL_0025: ret
+
+		IL_0026: call int32 TinhKiemAuto.Game::get_TickCount()
+		IL_002b: ldc.i4.s 9
+		IL_002d: rem
+		IL_002e: brfalse.s IL_0031
+
+		IL_0030: ret
+
+		IL_0031: ldarg.0
+		IL_0032: call instance bool TinhKiemAuto.Game::PickItem()
+		IL_0037: brfalse.s IL_003a
+
+		IL_0039: ret
+
+		IL_003a: ldarg.0
+		IL_003b: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_0040: callvirt instance int32 TinhKiemAuto.TLBB::get_MapAcBa()
+		IL_0045: ldc.i4.m1
+		IL_0046: bne.un.s IL_0049
+
+		IL_0048: ret
+
+		IL_0049: ldarg.0
+		IL_004a: call instance bool TinhKiemAuto.Game::IsMapPhuBan()
+		IL_004f: brtrue.s IL_0073
+
+		IL_0051: ldarg.0
+		IL_0052: ldfld bool TinhKiemAuto.Game::IsRide
+		IL_0057: brtrue.s IL_0073
+
+		IL_0059: ldarg.0
+		IL_005a: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_005f: callvirt instance bool TinhKiemAuto.TLBB::get_HaveRide()
+		IL_0064: brfalse.s IL_0073
+
+		IL_0066: ldarg.0
+		IL_0067: call instance void TinhKiemAuto.Game::StopFollow()
+		IL_006c: ldarg.0
+		IL_006d: call instance void TinhKiemAuto.Game::UpRide()
+		IL_0072: ret
+
+		IL_0073: ldarg.0
+		IL_0074: call instance bool TinhKiemAuto.Game::TrieuTap()
+		IL_0079: pop
+		IL_007a: ldarg.0
+		IL_007b: call instance int32[0..., 0...] TinhKiemAuto.Game::get_AcBaPoint()
+		IL_0080: stloc.0
+		IL_0081: ldarg.0
+		IL_0082: call instance bool TinhKiemAuto.Game::IsMapPhuBan()
+		IL_0087: brtrue.s IL_00fd
+
+		IL_0089: ldarg.0
+		IL_008a: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_008f: callvirt instance int32 TinhKiemAuto.TLBB::get_MapId()
+		IL_0094: ldarg.0
+		IL_0095: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_009a: callvirt instance int32 TinhKiemAuto.TLBB::get_MapMonPhai()
+		IL_009f: beq.s IL_00c7
+
+		IL_00a1: ldarg.0
+		IL_00a2: ldloc.0
+		IL_00a3: ldc.i4.0
+		IL_00a4: ldc.i4.0
+		IL_00a5: call instance int32 int32[0..., 0...]::Get(int32, int32)
+		IL_00aa: conv.r4
+		IL_00ab: ldloc.0
+		IL_00ac: ldc.i4.0
+		IL_00ad: ldc.i4.1
+		IL_00ae: call instance int32 int32[0..., 0...]::Get(int32, int32)
+		IL_00b3: conv.r4
+		IL_00b4: ldarg.0
+		IL_00b5: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_00ba: callvirt instance int32 TinhKiemAuto.TLBB::get_MapMonPhai()
+		IL_00bf: ldc.i4.0
+		IL_00c0: call instance bool TinhKiemAuto.Game::GoTo(float32, float32, int32, bool)
+		IL_00c5: pop
+		IL_00c6: ret
+
+		IL_00c7: ldarg.0
+		IL_00c8: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_00cd: callvirt instance int32 TinhKiemAuto.TLBB::get_MapId()
+		IL_00d2: ldarg.0
+		IL_00d3: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_00d8: callvirt instance int32 TinhKiemAuto.TLBB::get_MapMonPhai()
+		IL_00dd: bne.un.s IL_0137
+
+		IL_00df: ldarg.0
+		IL_00e0: call instance bool TinhKiemAuto.Game::TalkNPCPhuBan()
+		IL_00e5: brtrue.s IL_00fc
+
+		IL_00e7: ldarg.0
+		IL_00e8: call instance bool TinhKiemAuto.Game::get_IsMoveEx()
+		IL_00ed: brtrue.s IL_00f6
+
+		IL_00ef: ldarg.0
+		IL_00f0: call instance void TinhKiemAuto.Game::FixKetMap()
+		IL_00f5: ret
+
+		IL_00f6: ldarg.0
+		IL_00f7: call instance void TinhKiemAuto.Game::MoveNext()
+
+		IL_00fc: ret
+
+		IL_00fd: ldarg.0
+		IL_00fe: ldfld class TinhKiemAuto.GameObjects TinhKiemAuto.Game::Objects
+		IL_0103: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject> TinhKiemAuto.GameObjects::get_NearMonter18m()
+		IL_0108: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject>::get_Count()
+		IL_010d: ldc.i4.0
+		IL_010e: ble.s IL_0137
+
+		IL_0110: ldarg.0
+		IL_0111: call class [System]System.Diagnostics.Stopwatch [System]System.Diagnostics.Stopwatch::StartNew()
+		IL_0116: stfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::ClearTime
+		IL_011b: ldarg.0
+		IL_011c: ldfld bool TinhKiemAuto.Game::IsRide
+		IL_0121: brfalse.s IL_0131
+
+		IL_0123: ldarg.0
+		IL_0124: ldfld bool TinhKiemAuto.Game::IsAuto
+		IL_0129: brfalse.s IL_0131
+
+		IL_012b: ldarg.0
+		IL_012c: call instance void TinhKiemAuto.Game::DownRide()
+
+		IL_0131: ldarg.0
+		IL_0132: call instance void TinhKiemAuto.Game::StopFollow()
+
+		IL_0137: ldarg.0
+		IL_0138: call instance bool TinhKiemAuto.Game::IsMapPhuBan()
+		IL_013d: brfalse IL_02af
+
+		IL_0142: ldarg.0
+		IL_0143: ldfld class TinhKiemAuto.GameObjects TinhKiemAuto.Game::Objects
+		IL_0148: ldfld class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject> TinhKiemAuto.GameObjects::All
+		IL_014d: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject>::GetEnumerator()
+		IL_0152: stloc.1
+		.try
+		{
+			IL_0153: br.s IL_01a8
+			// loop start (head: IL_01a8)
+				IL_0155: ldloca.s 1
+				IL_0157: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class TinhKiemAuto.GameObject>::get_Current()
+				IL_015c: stloc.2
+				IL_015d: ldloc.2
+				IL_015e: callvirt instance string TinhKiemAuto.GameObject::get_CleanName()
+				IL_0163: ldstr "acba"
+				IL_0168: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_016d: brtrue.s IL_0181
+
+				IL_016f: ldloc.2
+				IL_0170: callvirt instance string TinhKiemAuto.GameObject::get_CleanName()
+				IL_0175: ldstr "tyrant"
+				IL_017a: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_017f: brfalse.s IL_01a8
+
+				IL_0181: ldloc.2
+				IL_0182: callvirt instance float32 TinhKiemAuto.GameObject::get_HP()
+				IL_0187: ldc.r4 0.0
+				IL_018c: bne.un.s IL_01a8
+
+				IL_018e: ldarg.0
+				IL_018f: call instance bool TinhKiemAuto.Game::get_IsBossDie()
+				IL_0194: brtrue.s IL_01a8
+
+				IL_0196: ldarg.0
+				IL_0197: ldc.i4.1
+				IL_0198: call instance void TinhKiemAuto.Game::set_IsBossDie(bool)
+				IL_019d: ldarg.0
+				IL_019e: call class [System]System.Diagnostics.Stopwatch [System]System.Diagnostics.Stopwatch::StartNew()
+				IL_01a3: stfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::BossDieTime
+
+				IL_01a8: ldloca.s 1
+				IL_01aa: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class TinhKiemAuto.GameObject>::MoveNext()
+				IL_01af: brtrue.s IL_0155
+			// end loop
+
+			IL_01b1: leave.s IL_01c1
+		} // end .try
+		finally
+		{
+			IL_01b3: ldloca.s 1
+			IL_01b5: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class TinhKiemAuto.GameObject>
+			IL_01bb: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_01c0: endfinally
+		} // end handler
+
+		IL_01c1: ldarg.0
+		IL_01c2: call instance bool TinhKiemAuto.Game::get_IsBossDie()
+		IL_01c7: brfalse.s IL_0211
+
+		IL_01c9: ldarg.0
+		IL_01ca: ldc.i4.m1
+		IL_01cb: stfld int32 TinhKiemAuto.Game::MoveIndex
+		IL_01d0: ldarg.0
+		IL_01d1: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::BossDieTime
+		IL_01d6: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_01db: stloc.3
+		IL_01dc: ldloca.s 3
+		IL_01de: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_01e3: ldc.r8 15
+		IL_01ec: ble.un.s IL_0210
+
+		IL_01ee: ldarg.0
+		IL_01ef: ldfld bool TinhKiemAuto.Game::IsRide
+		IL_01f4: brtrue.s IL_020a
+
+		IL_01f6: ldarg.0
+		IL_01f7: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_01fc: callvirt instance bool TinhKiemAuto.TLBB::get_HaveRide()
+		IL_0201: brfalse.s IL_020a
+
+		IL_0203: ldarg.0
+		IL_0204: call instance void TinhKiemAuto.Game::UpRide()
+		IL_0209: ret
+
+		IL_020a: ldarg.0
+		IL_020b: call instance void TinhKiemAuto.Game::AskTeamFollow()
+
+		IL_0210: ret
+
+		IL_0211: ldarg.0
+		IL_0212: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::ClearTime
+		IL_0217: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_021c: stloc.3
+		IL_021d: ldloca.s 3
+		IL_021f: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_0224: ldc.r8 2
+		IL_022d: ble.un.s IL_0257
+
+		IL_022f: ldarg.0
+		IL_0230: ldfld bool TinhKiemAuto.Game::IsRide
+		IL_0235: brtrue.s IL_024b
+
+		IL_0237: ldarg.0
+		IL_0238: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_023d: callvirt instance bool TinhKiemAuto.TLBB::get_HaveRide()
+		IL_0242: brfalse.s IL_024b
+
+		IL_0244: ldarg.0
+		IL_0245: call instance void TinhKiemAuto.Game::UpRide()
+		IL_024a: ret
+
+		IL_024b: ldarg.0
+		IL_024c: call instance void TinhKiemAuto.Game::AskTeamFollow()
+		IL_0251: ldarg.0
+		IL_0252: call instance void TinhKiemAuto.Game::MoveNext()
+
+		IL_0257: ldarg.0
+		IL_0258: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::ClearTime
+		IL_025d: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_0262: stloc.3
+		IL_0263: ldloca.s 3
+		IL_0265: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_026a: ldc.r8 1
+		IL_0273: bge.un.s IL_02af
+
+		IL_0275: ldarg.0
+		IL_0276: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::TimeStand
+		IL_027b: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_0280: stloc.3
+		IL_0281: ldloca.s 3
+		IL_0283: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_0288: ldc.r8 2
+		IL_0291: blt.un.s IL_02af
+
+		IL_0293: ldarg.0
+		IL_0294: ldfld bool TinhKiemAuto.Game::IsRide
+		IL_0299: brfalse.s IL_02a9
+
+		IL_029b: ldarg.0
+		IL_029c: ldfld bool TinhKiemAuto.Game::IsAuto
+		IL_02a1: brfalse.s IL_02a9
+
+		IL_02a3: ldarg.0
+		IL_02a4: call instance void TinhKiemAuto.Game::DownRide()
+
+		IL_02a9: ldarg.0
+		IL_02aa: call instance void TinhKiemAuto.Game::StopFollow()
+
+		IL_02af: ldarg.0
+		IL_02b0: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::ClearTime
+		IL_02b5: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_02ba: stloc.3
+		IL_02bb: ldloca.s 3
+		IL_02bd: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_02c2: ldc.r8 40
+		IL_02cb: ble.un.s IL_02fe
+
+		IL_02cd: ldarg.0
+		IL_02ce: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_02d3: callvirt instance int32 TinhKiemAuto.TLBB::get_MapId()
+		IL_02d8: ldarg.0
+		IL_02d9: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_02de: callvirt instance int32 TinhKiemAuto.TLBB::get_MapAcBa()
+		IL_02e3: bne.un.s IL_02fe
+
+		IL_02e5: ldarg.0
+		IL_02e6: ldc.i4.0
+		IL_02e7: call instance void TinhKiemAuto.Game::set_IsBossDie(bool)
+		IL_02ec: ldarg.0
+		IL_02ed: ldc.i4.m1
+		IL_02ee: stfld int32 TinhKiemAuto.Game::MapATIndex
+		IL_02f3: ldarg.0
+		IL_02f4: call class [System]System.Diagnostics.Stopwatch [System]System.Diagnostics.Stopwatch::StartNew()
+		IL_02f9: stfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::ClearTime
+
+		IL_02fe: ret
+	} // end of method Game::DatDoiAcBa

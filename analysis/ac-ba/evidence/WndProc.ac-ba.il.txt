@@ -1,0 +1,273 @@
+// Selected original FrmMain::WndProc IL excerpt; recognition branches only.
+		IL_0179: ldstr "duongmon"
+		IL_017e: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0183: brfalse.s IL_01bc
+
+		IL_0185: ldloc.s 6
+		IL_0187: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_018c: ldstr "gianghotieutieu"
+		IL_0191: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0196: brtrue.s IL_01ab
+
+		IL_0198: ldloc.s 6
+		IL_019a: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_019f: ldstr "#{qyxt_15}"
+		IL_01a4: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_01a9: brfalse.s IL_01bc
+
+		IL_01ab: ldloc.s 5
+		IL_01ad: ldc.i4.s 37
+		IL_01af: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_01b4: ldloc.s 5
+		IL_01b6: ldc.i4.0
+		IL_01b7: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_01bc: ldloc.s 6
+		IL_01be: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_01c3: ldstr "modung"
+		IL_01c8: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_01cd: brfalse.s IL_0206
+
+		IL_01cf: ldloc.s 6
+		IL_01d1: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_01d6: ldstr "gianghotieutieu"
+		IL_01db: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_01e0: brtrue.s IL_01f5
+
+		IL_01e2: ldloc.s 6
+		IL_01e4: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_01e9: ldstr "#{qyxt_15}"
+		IL_01ee: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_01f3: brfalse.s IL_0206
+
+		IL_01f5: ldloc.s 5
+		IL_01f7: ldc.i4.s 32
+		IL_01f9: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_01fe: ldloc.s 5
+		IL_0200: ldc.i4.0
+		IL_0201: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_0206: ldloc.s 6
+		IL_0208: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_020d: ldstr "tinhtuc"
+		IL_0212: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0217: brfalse.s IL_024f
+
+		IL_0219: ldloc.s 6
+		IL_021b: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0220: ldstr "gianghotieutieu"
+		IL_0225: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_022a: brtrue.s IL_023f
+
+		IL_022c: ldloc.s 6
+		IL_022e: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0233: ldstr "#{qyxt_15}"
+		IL_0238: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_023d: brfalse.s IL_024f
+
+		IL_023f: ldloc.s 5
+		IL_0241: ldc.i4.6
+		IL_0242: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_0247: ldloc.s 5
+		IL_0249: ldc.i4.0
+		IL_024a: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_024f: ldloc.s 6
+		IL_0251: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0256: ldstr "tieudao"
+		IL_025b: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0260: brfalse.s IL_0299
+
+		IL_0262: ldloc.s 6
+		IL_0264: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0269: ldstr "gianghotieutieu"
+		IL_026e: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0273: brtrue.s IL_0288
+
+		IL_0275: ldloc.s 6
+		IL_0277: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_027c: ldstr "#{qyxt_15}"
+		IL_0281: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0286: brfalse.s IL_0299
+
+		IL_0288: ldloc.s 5
+		IL_028a: ldc.i4.s 9
+		IL_028c: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_0291: ldloc.s 5
+		IL_0293: ldc.i4.0
+		IL_0294: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_0299: ldloc.s 6
+		IL_029b: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_02a0: ldstr "thieulam"
+		IL_02a5: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_02aa: brfalse.s IL_02e2
+
+		IL_02ac: ldloc.s 6
+		IL_02ae: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_02b3: ldstr "gianghotieutieu"
+		IL_02b8: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_02bd: brtrue.s IL_02d2
+
+		IL_02bf: ldloc.s 6
+		IL_02c1: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_02c6: ldstr "#{qyxt_15}"
+		IL_02cb: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_02d0: brfalse.s IL_02e2
+
+		IL_02d2: ldloc.s 5
+		IL_02d4: ldc.i4.1
+		IL_02d5: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_02da: ldloc.s 5
+		IL_02dc: ldc.i4.0
+		IL_02dd: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_02e2: ldloc.s 6
+		IL_02e4: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_02e9: ldstr "thienson"
+		IL_02ee: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_02f3: brfalse.s IL_032b
+
+		IL_02f5: ldloc.s 6
+		IL_02f7: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_02fc: ldstr "gianghotieutieu"
+		IL_0301: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0306: brtrue.s IL_031b
+
+		IL_0308: ldloc.s 6
+		IL_030a: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_030f: ldstr "#{qyxt_15}"
+		IL_0314: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0319: brfalse.s IL_032b
+
+		IL_031b: ldloc.s 5
+		IL_031d: ldc.i4.8
+		IL_031e: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_0323: ldloc.s 5
+		IL_0325: ldc.i4.0
+		IL_0326: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_032b: ldloc.s 6
+		IL_032d: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0332: ldstr "thienlong"
+		IL_0337: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_033c: brfalse.s IL_0374
+
+		IL_033e: ldloc.s 6
+		IL_0340: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0345: ldstr "gianghotieutieu"
+		IL_034a: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_034f: brtrue.s IL_0364
+
+		IL_0351: ldloc.s 6
+		IL_0353: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0358: ldstr "#{qyxt_15}"
+		IL_035d: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0362: brfalse.s IL_0374
+
+		IL_0364: ldloc.s 5
+		IL_0366: ldc.i4.7
+		IL_0367: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_036c: ldloc.s 5
+		IL_036e: ldc.i4.0
+		IL_036f: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_0374: ldloc.s 6
+		IL_0376: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_037b: ldstr "ngamy"
+		IL_0380: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0385: brfalse.s IL_03bd
+
+		IL_0387: ldloc.s 6
+		IL_0389: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_038e: ldstr "gianghotieutieu"
+		IL_0393: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0398: brtrue.s IL_03ad
+
+		IL_039a: ldloc.s 6
+		IL_039c: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_03a1: ldstr "#{qyxt_15}"
+		IL_03a6: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_03ab: brfalse.s IL_03bd
+
+		IL_03ad: ldloc.s 5
+		IL_03af: ldc.i4.5
+		IL_03b0: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_03b5: ldloc.s 5
+		IL_03b7: ldc.i4.0
+		IL_03b8: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_03bd: ldloc.s 6
+		IL_03bf: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_03c4: ldstr "vodang"
+		IL_03c9: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_03ce: brfalse.s IL_0406
+
+		IL_03d0: ldloc.s 6
+		IL_03d2: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_03d7: ldstr "gianghotieutieu"
+		IL_03dc: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_03e1: brtrue.s IL_03f6
+
+		IL_03e3: ldloc.s 6
+		IL_03e5: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_03ea: ldstr "#{qyxt_15}"
+		IL_03ef: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_03f4: brfalse.s IL_0406
+
+		IL_03f6: ldloc.s 5
+		IL_03f8: ldc.i4.4
+		IL_03f9: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_03fe: ldloc.s 5
+		IL_0400: ldc.i4.0
+		IL_0401: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_0406: ldloc.s 6
+		IL_0408: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_040d: ldstr "minhgiao"
+		IL_0412: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0417: brfalse.s IL_044f
+
+		IL_0419: ldloc.s 6
+		IL_041b: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0420: ldstr "gianghotieutieu"
+		IL_0425: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_042a: brtrue.s IL_043f
+
+		IL_042c: ldloc.s 6
+		IL_042e: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0433: ldstr "#{qyxt_15}"
+		IL_0438: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_043d: brfalse.s IL_044f
+
+		IL_043f: ldloc.s 5
+		IL_0441: ldc.i4.2
+		IL_0442: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_0447: ldloc.s 5
+		IL_0449: ldc.i4.0
+		IL_044a: stfld bool TinhKiemAuto.Game::IsAlarmAcBa
+
+		IL_044f: ldloc.s 6
+		IL_0451: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0456: ldstr "caibang"
+		IL_045b: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0460: brfalse.s IL_0498
+
+		IL_0462: ldloc.s 6
+		IL_0464: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_0469: ldstr "gianghotieutieu"
+		IL_046e: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0473: brtrue.s IL_0488
+
+		IL_0475: ldloc.s 6
+		IL_0477: call string TinhKiemAuto.TINHKIEM::VietLien(string)
+		IL_047c: ldstr "#{qyxt_15}"
+		IL_0481: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0486: brfalse.s IL_0498
+
+		IL_0488: ldloc.s 5
+		IL_048a: ldc.i4.3
+		IL_048b: stfld int32 TinhKiemAuto.Game::AcBa
+		IL_0490: ldloc.s 5
+		IL_0492: ldc.i4.0
+		IL_0493: stfld bool TinhKiemAuto.Game::IsAlarmAcBa

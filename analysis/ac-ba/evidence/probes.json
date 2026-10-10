@@ -1,0 +1,159 @@
+{
+  "baseline": "910020a",
+  "scope": "Selected v0.5 managed methods/branches compiled with fake dependencies; no automation executable/native DLL executed",
+  "probes": 27,
+  "unexpectedFailures": 0,
+  "results": [
+    {
+      "name": "legacy_recognizes_all_11_schools_with_matching_notice",
+      "observed": {
+        "recognized": 11,
+        "encoding": "Actual legacy VISCII decoder and VietLien"
+      }
+    },
+    {
+      "name": "unicode_viscii_notice_recognized",
+      "observed": 5
+    },
+    {
+      "name": "new_npc_name_notice_ignored",
+      "observed": -1
+    },
+    {
+      "name": "nga_mi_alias_ignored",
+      "observed": -1
+    },
+    {
+      "name": "end_notice_misclassified_as_active",
+      "observed": 5
+    },
+    {
+      "name": "multi_school_notice_last_branch_wins",
+      "observed": {
+        "actual": 5,
+        "eventClauseSchool": 1
+      }
+    },
+    {
+      "name": "utf8_notice_not_supported_by_viscii_decoder",
+      "observed": -1
+    },
+    {
+      "name": "private_signature_before_system_signature_stops_scan",
+      "observed": -1
+    },
+    {
+      "name": "short_payload_throws_before_notice_catch",
+      "observed": "ArgumentException"
+    },
+    {
+      "name": "notice_is_per_account_and_never_expires_on_clear",
+      "observed": {
+        "leader": 5,
+        "member": -1
+      }
+    },
+    {
+      "name": "ac_ba_menu_flag_does_not_enable_receive_hook",
+      "observed": false
+    },
+    {
+      "name": "unknown_event_goes_to_own_school",
+      "observed": [
+        "Goto:9:95:105"
+      ]
+    },
+    {
+      "name": "no_matching_school_member_means_no_travel",
+      "observed": 0
+    },
+    {
+      "name": "handoff_can_choose_auto_off_offline_uninitialized_member",
+      "observed": {
+        "command": [
+          "Appoint:member"
+        ],
+        "memberTarget": -1,
+        "memberAuto": false
+      }
+    },
+    {
+      "name": "outside_ac_ba_not_busy_for_calendar",
+      "observed": false
+    },
+    {
+      "name": "auto_off_keeps_ac_ba_flag",
+      "observed": true
+    },
+    {
+      "name": "paused_ac_ba_still_sends_travel_command",
+      "observed": [
+        "Goto:9:95:105"
+      ]
+    },
+    {
+      "name": "empty_saved_route_throws",
+      "observed": "NullReferenceException"
+    },
+    {
+      "name": "negative_move_index_throws",
+      "observed": "IndexOutOfRangeException"
+    },
+    {
+      "name": "nearest_waypoint_uses_x_as_y",
+      "observed": {
+        "actualIndex": 1,
+        "correctNearestIndex": 0,
+        "commands": [
+          "Move:40:10"
+        ]
+      }
+    },
+    {
+      "name": "generic_next_never_updates_best_distance",
+      "observed": {
+        "actualIndex": 1,
+        "correctNearestIndex": 0
+      }
+    },
+    {
+      "name": "different_dungeon_still_runs_ac_ba_patrol",
+      "observed": [
+        "FollowAll",
+        "LegacyMoveNext"
+      ]
+    },
+    {
+      "name": "unseen_dead_boss_sets_completion_state",
+      "observed": true
+    },
+    {
+      "name": "boss_dead_return_prevents_40_second_reset",
+      "observed": {
+        "bossDead": true,
+        "commands": [
+          "FollowAll"
+        ]
+      }
+    },
+    {
+      "name": "monster_with_entry_name_is_talked_to",
+      "observed": [
+        "Talk:100"
+      ]
+    },
+    {
+      "name": "wrong_dialog_clicks_all",
+      "observed": [
+        "ClickAll",
+        "Close"
+      ]
+    },
+    {
+      "name": "auto_off_member_receives_summon_command",
+      "observed": [
+        "Goto:1:0:0"
+      ]
+    }
+  ]
+}
