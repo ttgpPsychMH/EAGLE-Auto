@@ -1,0 +1,588 @@
+[
+  {
+    "class": "MainWindow",
+    "string_table_offset": "0x97ba08",
+    "metadata_offset": "0x97bc30",
+    "revision": 7,
+    "method_count": 11,
+    "signal_count": 2,
+    "static_metacall_va": "0x43cd80",
+    "methods": [
+      {
+        "name": "invoke",
+        "argument_count": 1,
+        "flags": "0x6"
+      },
+      {
+        "name": "exitEventCalled",
+        "argument_count": 0,
+        "flags": "0x6"
+      },
+      {
+        "name": "invokeCallback",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionExit_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionOpen_new_game_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionAbout_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionReport_Error_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionChangelog_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionWebsite_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionOpen_More_Game_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_actionOptions_triggered",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "DebugMessageTextarea",
+    "string_table_offset": "0x97bda8",
+    "metadata_offset": "0x97bdf8",
+    "revision": 7,
+    "method_count": 1,
+    "signal_count": 0,
+    "static_metacall_va": "0x43d250",
+    "methods": [
+      {
+        "name": "clearView",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "WorkerDetectGameInstance",
+    "string_table_offset": "0x97be70",
+    "metadata_offset": "0x97bf20",
+    "revision": 7,
+    "method_count": 2,
+    "signal_count": 1,
+    "static_metacall_va": "0x43d350",
+    "methods": [
+      {
+        "name": "invoke",
+        "argument_count": 1,
+        "flags": "0x6"
+      },
+      {
+        "name": "invokeCallback",
+        "argument_count": 1,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "WorkerUpdateUi",
+    "string_table_offset": "0x97bfb8",
+    "metadata_offset": "0x97bfd8",
+    "revision": 7,
+    "method_count": 0,
+    "signal_count": 0,
+    "static_metacall_va": "0x408270",
+    "methods": []
+  },
+  {
+    "class": "GameInstanceListWidget",
+    "string_table_offset": "0x97c030",
+    "metadata_offset": "0x97c058",
+    "revision": 7,
+    "method_count": 0,
+    "signal_count": 0,
+    "static_metacall_va": "0x408270",
+    "methods": []
+  },
+  {
+    "class": "game_controllers::ShortcutKeysManager",
+    "string_table_offset": "0x97c0b8",
+    "metadata_offset": "0x97c258",
+    "revision": 7,
+    "method_count": 9,
+    "signal_count": 0,
+    "static_metacall_va": "0x43d7d0",
+    "methods": [
+      {
+        "name": "requestTeamFollow",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "abortTeamFollow",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "switchEnableAutoState",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "switchEnableAllAutoState",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "switchEnableAutoPickLoot",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "switchEnableAutoAttack",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "switchHideShowGameWindow",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "logoutCurrentPlayer",
+        "argument_count": 0,
+        "flags": "0xa"
+      },
+      {
+        "name": "killCurrentGameWindow",
+        "argument_count": 0,
+        "flags": "0xa"
+      }
+    ]
+  },
+  {
+    "class": "others_ui::AdsDialog",
+    "string_table_offset": "0x97c388",
+    "metadata_offset": "0x97c3b0",
+    "revision": 7,
+    "method_count": 0,
+    "signal_count": 0,
+    "static_metacall_va": "0x408270",
+    "methods": []
+  },
+  {
+    "class": "others_ui::ChangelogDialog",
+    "string_table_offset": "0x97c408",
+    "metadata_offset": "0x97c434",
+    "revision": 7,
+    "method_count": 0,
+    "signal_count": 0,
+    "static_metacall_va": "0x408270",
+    "methods": []
+  },
+  {
+    "class": "others_ui::SettingAutoDialog",
+    "string_table_offset": "0x97c490",
+    "metadata_offset": "0x97c590",
+    "revision": 7,
+    "method_count": 4,
+    "signal_count": 0,
+    "static_metacall_va": "0x43dab0",
+    "methods": [
+      {
+        "name": "on_setGamePathPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_savePushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_disableShotcutKeysBtn_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_enableShotcutKeysBtn_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "others_ui::IgnoreMonsterListDialog",
+    "string_table_offset": "0x97c650",
+    "metadata_offset": "0x97c7a0",
+    "revision": 7,
+    "method_count": 5,
+    "signal_count": 0,
+    "static_metacall_va": "0x43dc30",
+    "methods": [
+      {
+        "name": "on_refreshPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_pushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_savePushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_ignoringMonsterListWidget_doubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_nearMonsterListWidget_doubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "others_ui::SettingListPlayerGetLotusBuffHp",
+    "string_table_offset": "0x97c888",
+    "metadata_offset": "0x97c9d8",
+    "revision": 7,
+    "method_count": 5,
+    "signal_count": 0,
+    "static_metacall_va": "0x43de00",
+    "methods": [
+      {
+        "name": "on_refreshPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_savePushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_nearPlayerListWidget_doubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_willBuffHpListWidget_doubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_pushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "others_ui::ThrowTrashItemDialog",
+    "string_table_offset": "0x97cac0",
+    "metadata_offset": "0x97cca0",
+    "revision": 7,
+    "method_count": 6,
+    "signal_count": 0,
+    "static_metacall_va": "0x43dfd0",
+    "methods": [
+      {
+        "name": "on_refreshPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_currentInventoryItemsListWidget_itemDoubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_currentInventoryItemsTypeNameListWidget_itemDoubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_pushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_willBeAutoRemoveItemsListWidget_doubleClicked",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_savePushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "setting_tabs::BasicSettings",
+    "string_table_offset": "0x97cda8",
+    "metadata_offset": "0x97d3b8",
+    "revision": 7,
+    "method_count": 27,
+    "signal_count": 0,
+    "static_metacall_va": "0x43e1e0",
+    "methods": [
+      {
+        "name": "on_autoAttackCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverHpCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverMpCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverPetHpCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_ksMonsterCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverHpPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverMpPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoRecoverPetHpPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_useF1_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoUsePetRecoverHpSkill_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoUsePetRecoverMpSkill_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoUsePetRecoverHpSkillPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoUsePetRecoverMpSkillPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_attackNearPos_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAlertHp_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLotusBuffHpCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLotusBuffHpPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAttackFilterMonsterPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAlertHpPercentSBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_attackFollowLeader_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLogoutSeconds_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLogoutRadioButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_deadActionGroupBox_toggled",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_getPlayerCurrentLocationPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_useSkillPet_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoBackToLastPosRadioButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLotusBuffHpSetPlayerListButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "setting_tabs::QuestSettings",
+    "string_table_offset": "0x97d748",
+    "metadata_offset": "0x97d774",
+    "revision": 7,
+    "method_count": 0,
+    "signal_count": 0,
+    "static_metacall_va": "0x408270",
+    "methods": []
+  },
+  {
+    "class": "setting_tabs::SkillSettings",
+    "string_table_offset": "0x97d7d0",
+    "metadata_offset": "0x97d858",
+    "revision": 7,
+    "method_count": 1,
+    "signal_count": 0,
+    "static_metacall_va": "0x43e5b0",
+    "methods": [
+      {
+        "name": "on_groupBoxAutoAttackSkill_toggled",
+        "argument_count": 1,
+        "flags": "0x8"
+      }
+    ]
+  },
+  {
+    "class": "setting_tabs::UtilitiesSettings",
+    "string_table_offset": "0x97d8d8",
+    "metadata_offset": "0x97dbe8",
+    "revision": 7,
+    "method_count": 12,
+    "signal_count": 0,
+    "static_metacall_va": "0x43e6c0",
+    "methods": [
+      {
+        "name": "on_autoLevelupCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoLevelupToSpinBox_valueChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoUseX2dot5ExpCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_unlockPwdBtn_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAutoPickupLootPackage_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_openAutoThrowTrashPushButton_clicked",
+        "argument_count": 0,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoResetOnlineTimeCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAcceptSceneTransferCheckbox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoAcceptTeamRequestCheckbox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoThrowTrashItemCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_petListComboBox_currentIndexChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      },
+      {
+        "name": "on_autoSummonPetCheckBox_stateChanged",
+        "argument_count": 1,
+        "flags": "0x8"
+      }
+    ]
+  }
+]

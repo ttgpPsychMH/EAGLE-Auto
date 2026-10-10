@@ -1,0 +1,1794 @@
+[
+  {
+    "translation": "",
+    "file_offset": "0x87b5c2",
+    "comment": "",
+    "source": "%",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Chế độ tự động đánh</p><p>Sử dụng kĩ năng tấn công cơ bản của môn phái</p></body></html>",
+    "file_offset": "0x87b5e5",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto attack mode</p><p>Use character 's class normal attack skill</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự động quay lại vị trí vừa bị tử vong. Ưu tiên sử dụng phù.</p></body></html>",
+    "file_offset": "0x87b74c",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto back to previous dead position. Prefer use Teleport items.</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự động tìm và sử dụng vật phẩm hồi phục HP</p></body></html>",
+    "file_offset": "0x87b89d",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto find and use recover HP item</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự động tìm và sử dụng vật phẩm hồi phục MP</p></body></html>",
+    "file_offset": "0x87b9ae",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto find and use recover MP item</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự động tìm và sử dụng vật phẩm hồi phục máu trân thú và điểm Hoan Hỷ</p></body></html>",
+    "file_offset": "0x87babf",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto find and use recover Pet HP and Pet 's join point item</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự sử dụng Thanh Tâm Phổ Thiện Chú hoặc Xung Hư Dưỡng Khí cho thành viên trong đội hoặc bản thân</p></body></html>",
+    "file_offset": "0x87bc1e",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto use Divine Vitality or Divine Healing for team 's member or yourself</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Click vào để cài tọa độ hiện tại của người chơi và bắt đầu chế độ đánh quanh</p></body></html>",
+    "file_offset": "0x87bdc1",
+    "comment": "",
+    "source": "<html><head/><body><p>Click to set player 's current pos to attack near</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Đánh quái tới khi khung tên cạnh biểu tượng chuyển sang màu đỏ/xám mới chuyển đối tượng</p></body></html>",
+    "file_offset": "0x87bf24",
+    "comment": "",
+    "source": "<html><head/><body><p>Damage monster until name wrapper beside avartar change to red/gray color then change victim</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Chỉnh sửa danh sách quái bỏ qua</p></body></html>",
+    "file_offset": "0x87c0c8",
+    "comment": "",
+    "source": "<html><head/><body><p>Edit list ignore monster</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Lấy vị trí người chơi</p></body></html>",
+    "file_offset": "0x87c1b8",
+    "comment": "",
+    "source": "<html><head/><body><p>Get player 's current location</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Hồi phục HP khi HP dưới giá trị này</p></body></html>",
+    "file_offset": "0x87c29a",
+    "comment": "",
+    "source": "<html><head/><body><p>Recover HP when HP percent lower than this value</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Hồi phục MP khi MP dưới giá trị này</p></body></html>",
+    "file_offset": "0x87c3aa",
+    "comment": "",
+    "source": "<html><head/><body><p>Recover MP when MP percent lower than this value</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Hồi phục máu trân thú khi máu trân thú dưới giá trị này</p></body></html>",
+    "file_offset": "0x87c4ba",
+    "comment": "",
+    "source": "<html><head/><body><p>Recover Pet HP when Pet HP percent lower than this value</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Cài đặt danh sách người chơi sẽ nhận Buff HP</p></body></html>",
+    "file_offset": "0x87c5fa",
+    "comment": "",
+    "source": "<html><head/><body><p>Setting up the list of players will get Buff HP</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Sử dụng kỹ năng Huyết tế hoặc Cao Huyết tế của trân thú nếu có</p></body></html>",
+    "file_offset": "0x87c71b",
+    "comment": "",
+    "source": "<html><head/><body><p>Use Pet 's Blood Sacrifice skill if available</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Sử dụng kỹ năng Cộng Sinh hoặc Cao Cộng Sinh của trân thú nếu có</p></body></html>",
+    "file_offset": "0x87c85e",
+    "comment": "",
+    "source": "<html><head/><body><p>Use Pet 's Dedication skill if available</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Dùng Huyết tế hoặc Cao Huyết tế khi MP dưới giá trị này</p></body></html>",
+    "file_offset": "0x87c9a0",
+    "comment": "",
+    "source": "<html><head/><body><p>Use pet 's Blood Sacrifice skill when MP percent lower than this value</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Dùng Cộng sinh hoặc Cao Cộng sinh khi HP dưới giá trị này</p></body></html>",
+    "file_offset": "0x87caee",
+    "comment": "",
+    "source": "<html><head/><body><p>Use pet 's Dedication skill when HP percent lower than this value</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Sử dụng kĩ năng đặt tại ô F1</p><p>Bạn cần đặt kĩ năng muốn auto sử dụng vào ô F1 trước</p></body></html>",
+    "file_offset": "0x87cc3b",
+    "comment": "",
+    "source": "<html><head/><body><p>Use skill in F1 slot</p><p>You must set a skill to F1 before</p></body></html>",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Sau khi tử vong",
+    "file_offset": "0x87cdbf",
+    "comment": "",
+    "source": "After dead",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Cảnh báo HP",
+    "file_offset": "0x87ce09",
+    "comment": "",
+    "source": "Alert HP",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Đánh quanh [x,z]",
+    "file_offset": "0x87ce49",
+    "comment": "",
+    "source": "Attack Radius [x,z]",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Tự đánh",
+    "file_offset": "0x87ce9e",
+    "comment": "",
+    "source": "Auto Attack",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Tự động đánh",
+    "file_offset": "0x87ced9",
+    "comment": "",
+    "source": "Auto attack",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Quay lại vị trí cũ",
+    "file_offset": "0x87cf1e",
+    "comment": "",
+    "source": "Back To Last Pos",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Huyết Tế MP",
+    "file_offset": "0x87cf74",
+    "comment": "",
+    "source": "Blood Sacrifice",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Cộng Sinh HP",
+    "file_offset": "0x87cfbb",
+    "comment": "",
+    "source": "Dedication",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Đánh theo Key",
+    "file_offset": "0x87cfff",
+    "comment": "",
+    "source": "Follow Leader",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87d048",
+    "comment": "",
+    "source": "Form",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87d06e",
+    "comment": "",
+    "source": "Item HP",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87d097",
+    "comment": "",
+    "source": "Item MP",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Thoát game",
+    "file_offset": "0x87d0c0",
+    "comment": "",
+    "source": "Logout Game",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "NM Buff HP",
+    "file_offset": "0x87d101",
+    "comment": "",
+    "source": "Lotus Buff HP",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Lùa Quái",
+    "file_offset": "0x87d144",
+    "comment": "",
+    "source": "Lure Monster",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Pet HP",
+    "file_offset": "0x87d182",
+    "comment": "",
+    "source": "Pet HP",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Hồi phục",
+    "file_offset": "0x87d1b6",
+    "comment": "",
+    "source": "Recover",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Dùng F1",
+    "file_offset": "0x87d1ef",
+    "comment": "",
+    "source": "Use F1",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "Dùng Skill Pet",
+    "file_offset": "0x87d225",
+    "comment": "",
+    "source": "Use Skill Pet",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "giây",
+    "file_offset": "0x87d270",
+    "comment": "",
+    "source": "s",
+    "context": "BasicSettings"
+  },
+  {
+    "translation": "%1 [%2] đang hiện mã Captcha.",
+    "file_offset": "0x87d29b",
+    "comment": "",
+    "source": "%1 [%2] Captcha is showing.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] Lượng máu thấp: %3%",
+    "file_offset": "0x87d319",
+    "comment": "",
+    "source": "%1 [%2] Hp is low: %3%",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] đang bị tấn công.",
+    "file_offset": "0x87d38e",
+    "comment": "",
+    "source": "%1 [%2] is being attacked.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] đã tử vong.",
+    "file_offset": "0x87d403",
+    "comment": "",
+    "source": "%1 [%2] is dead.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] không tìm thấy kỹ năng nào. Hãy thử tắt game hoặc tắt auto và bật lại.",
+    "file_offset": "0x87d462",
+    "comment": "",
+    "source": "%1 [%2] not found any skill. You should restart game or auto.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] đã tới [%3].",
+    "file_offset": "0x87d564",
+    "comment": "",
+    "source": "%1 [%2] was go to [%3].",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] vừa thoát game",
+    "file_offset": "0x87d5cc",
+    "comment": "",
+    "source": "%1 [%2] was logged out",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "%1 [%2] sẽ thoát game sau %3 giây nữa",
+    "file_offset": "0x87d637",
+    "comment": "",
+    "source": "%1 [%2] will be logged out after %3 second(s)",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Một cửa sổ Game vừa thoát",
+    "file_offset": "0x87d6d7",
+    "comment": "",
+    "source": "A Game Window has exited",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Đã tìm thấy một cửa sổ Game mới",
+    "file_offset": "0x87d74a",
+    "comment": "",
+    "source": "Found a new Game window",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Không tìm thấy địa chỉ của hàm %1. Bạn nên tải và cài đặt lại Auto.",
+    "file_offset": "0x87d7c8",
+    "comment": "",
+    "source": "Not found %1 address. You should reinstall this program.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Không tìm thấy thư viện Hook. Bạn nên tải và cài đặt lại Auto.",
+    "file_offset": "0x87d8af",
+    "comment": "",
+    "source": "Not found Hook library. You should reinstall this program.",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Đã khởi động auto",
+    "file_offset": "0x87d98e",
+    "comment": "",
+    "source": "Openned Auto",
+    "context": "DebugMessageTextarea"
+  },
+  {
+    "translation": "Tắt auto Game này",
+    "file_offset": "0x87d9e5",
+    "comment": "",
+    "source": "Disable auto for this Game",
+    "context": "GameInstanceListWidget"
+  },
+  {
+    "translation": "Bật auto Game này",
+    "file_offset": "0x87da4c",
+    "comment": "",
+    "source": "Enable auto for this Game",
+    "context": "GameInstanceListWidget"
+  },
+  {
+    "translation": "Kỹ năng này sẽ được sử dụng khi HP của đối tượng >= 20% và MP <= 60%",
+    "file_offset": "0x87dab2",
+    "comment": "",
+    "source": "This skill will be used when target 's HP >= 20% and MP <= 60%",
+    "context": "GameInstanceListWidget"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87dba3",
+    "comment": "",
+    "source": "0%",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87dbca",
+    "comment": "",
+    "source": "00:00:00",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "<html><head/><body><p>Tổng thời gian online game</p></body></html>",
+    "file_offset": "0x87dbf7",
+    "comment": "",
+    "source": "<html><head/><body><p>Online time total</p></body></html>",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "<html><head/><body><p>Click chuột phải để mở tùy chọn</p></body></html>",
+    "file_offset": "0x87dcd9",
+    "comment": "",
+    "source": "<html><head/><body><p>Right-Click to open options</p></body></html>",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87ddcf",
+    "comment": "",
+    "source": "Form",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87ddf8",
+    "comment": "",
+    "source": "HP",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87de1f",
+    "comment": "",
+    "source": "MP",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87de46",
+    "comment": "",
+    "source": "Online",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "Pet HP",
+    "file_offset": "0x87de71",
+    "comment": "",
+    "source": "Pet HP",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "Vị trí",
+    "file_offset": "0x87dea8",
+    "comment": "",
+    "source": "Pos",
+    "context": "GameInstanceView"
+  },
+  {
+    "translation": "Click đúp vào tên quái để thêm",
+    "file_offset": "0x87dedc",
+    "comment": "",
+    "source": "Double click to name to add ignore",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Click đúp vào tên quái để xóa",
+    "file_offset": "0x87df66",
+    "comment": "",
+    "source": "Double click to name to remove",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Danh sách quái bỏ qua",
+    "file_offset": "0x87dfea",
+    "comment": "",
+    "source": "Ignore Monster List",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Danh sách đang bị bỏ qua",
+    "file_offset": "0x87e053",
+    "comment": "",
+    "source": "Ignoring Monster List",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Những quái đang ở gần",
+    "file_offset": "0x87e0c4",
+    "comment": "",
+    "source": "Near Monster List",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Làm mới",
+    "file_offset": "0x87e12b",
+    "comment": "",
+    "source": "Refresh",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Lưu lại",
+    "file_offset": "0x87e16c",
+    "comment": "",
+    "source": "Save",
+    "context": "IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Về chúng tôi",
+    "file_offset": "0x87e1aa",
+    "comment": "",
+    "source": "About Us",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Bạn có chắc chắn muốn thoát?",
+    "file_offset": "0x87e1e9",
+    "comment": "",
+    "source": "Are you sure want to exit?",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Auto đã được ẩn xuống System Tray. Click đúp chuột vào icon để hiện lại cửa sổ.",
+    "file_offset": "0x87e25a",
+    "comment": "",
+    "source": "Auto has been minimized to System Tray. Double click on icon to show.",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Cơ bản",
+    "file_offset": "0x87e35c",
+    "comment": "",
+    "source": "Basics",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Auto Con Gà [ver.%1] (a.k.a Chicken Auto TLBB)<br />\nPhiên bản dành riêng cho game Thiên Long Bát Bộ<br />\nPhát triển bởi <a href='https://www.facebook.com/ChickenAutoTLBB/'>ChickenAuto</a> và cộng đồng<br />\nÝ tưởng dựa trên MicroAuto 6.9<br />\n",
+    "file_offset": "0x87e38d",
+    "comment": "",
+    "source": "ChickenAuto [ver.%1] (a.k.a Chicken Auto TLBB)<br />\nTian Long Ba Bu / Dragon Oath Edition<br />\nDeveloped by <a href='https://www.facebook.com/ChickenAutoTLBB/'>ChickenAuto</a> and Community<br />\nThe idea is based on MicroAuto 6.9<br />\n",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Xác nhận thoát",
+    "file_offset": "0x87e687",
+    "comment": "",
+    "source": "Confirm exit",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87e6ce",
+    "comment": "",
+    "source": "Ctrl+O",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87e6f3",
+    "comment": "",
+    "source": "Ctrl+Shift+O",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Lỗi",
+    "file_offset": "0x87e71e",
+    "comment": "",
+    "source": "Error",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Thoát",
+    "file_offset": "0x87e748",
+    "comment": "",
+    "source": "Exit",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Tệp tin",
+    "file_offset": "0x87e775",
+    "comment": "",
+    "source": "File",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Giúp đỡ",
+    "file_offset": "0x87e7a6",
+    "comment": "",
+    "source": "Help",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Nhập số cửa sổ game muốn mở:",
+    "file_offset": "0x87e7d7",
+    "comment": "",
+    "source": "Input number of game windows:",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Đã ẩn",
+    "file_offset": "0x87e84b",
+    "comment": "",
+    "source": "Minimized",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Mở nhiều Game",
+    "file_offset": "0x87e87d",
+    "comment": "",
+    "source": "Open More Game",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Mở thêm cửa sổ Game",
+    "file_offset": "0x87e8c4",
+    "comment": "",
+    "source": "Open New Game",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Tùy chọn",
+    "file_offset": "0x87e916",
+    "comment": "",
+    "source": "Options",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Nhiệm vụ",
+    "file_offset": "0x87e94c",
+    "comment": "",
+    "source": "Quest",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Báo Lỗi / Góp Ý",
+    "file_offset": "0x87e980",
+    "comment": "",
+    "source": "Report Error",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Kỹ năng",
+    "file_offset": "0x87e9c9",
+    "comment": "",
+    "source": "Skill",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Tiện ích",
+    "file_offset": "0x87e9fb",
+    "comment": "",
+    "source": "Utilities",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Đang chờ",
+    "file_offset": "0x87ea33",
+    "comment": "",
+    "source": "Waiting",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87ea69",
+    "comment": "",
+    "source": "Website",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Chương trình đang chuẩn bị tắt",
+    "file_offset": "0x87ea8f",
+    "comment": "",
+    "source": "Window is being closed",
+    "context": "MainWindow"
+  },
+  {
+    "translation": "Thoát Game Ngay",
+    "file_offset": "0x87eb00",
+    "comment": "",
+    "source": "Exit Game Now",
+    "context": "QAction"
+  },
+  {
+    "translation": "Ẩn Toàn Bộ Cửa Sổ Game",
+    "file_offset": "0x87eb47",
+    "comment": "",
+    "source": "Hide All Game",
+    "context": "QAction"
+  },
+  {
+    "translation": "Ẩn cửa sổ Game",
+    "file_offset": "0x87eb9c",
+    "comment": "",
+    "source": "Hide Game Window",
+    "context": "QAction"
+  },
+  {
+    "translation": "Chọn máy chủ",
+    "file_offset": "0x87ebe4",
+    "comment": "",
+    "source": "Logout Player",
+    "context": "QAction"
+  },
+  {
+    "translation": "Khởi động lại auto",
+    "file_offset": "0x87ec25",
+    "comment": "",
+    "source": "Restart Auto",
+    "context": "QAction"
+  },
+  {
+    "translation": "Lưu cài đặt",
+    "file_offset": "0x87ec71",
+    "comment": "",
+    "source": "Save Config",
+    "context": "QAction"
+  },
+  {
+    "translation": "Hiện Toàn Bộ Cửa Sổ Game",
+    "file_offset": "0x87ecae",
+    "comment": "",
+    "source": "Show All Game",
+    "context": "QAction"
+  },
+  {
+    "translation": "Hiện cửa sổ Game",
+    "file_offset": "0x87ed07",
+    "comment": "",
+    "source": "Show Game Window",
+    "context": "QAction"
+  },
+  {
+    "translation": "Thiên Sơn",
+    "file_offset": "0x87ed53",
+    "comment": "",
+    "source": "Assassin",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang tự đánh",
+    "file_offset": "0x87ed89",
+    "comment": "",
+    "source": "Auto Attacking",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tự vứt rác sẽ hoạt động sau %1 giây",
+    "file_offset": "0x87edcb",
+    "comment": "",
+    "source": "Auto throw trash will be actived after %1 seconds",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tự động vứt rác [%1] x%2 (%3)",
+    "file_offset": "0x87ee5e",
+    "comment": "",
+    "source": "Auto throwed [%1] x%2 (%3)",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang quay lại vị trí cũ",
+    "file_offset": "0x87eece",
+    "comment": "",
+    "source": "Backing to pos",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang quay lại vị trí cũ sau khi tử vong",
+    "file_offset": "0x87ef26",
+    "comment": "",
+    "source": "Backing to previous pos",
+    "context": "QObject"
+  },
+  {
+    "translation": "Cái Bang",
+    "file_offset": "0x87efa7",
+    "comment": "",
+    "source": "Beggars Alliance",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang chọn nhân vật",
+    "file_offset": "0x87efe3",
+    "comment": "",
+    "source": "Choosing Character",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đã tử vong",
+    "file_offset": "0x87f035",
+    "comment": "",
+    "source": "Dead",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang ăn",
+    "file_offset": "0x87f069",
+    "comment": "",
+    "source": "Eating",
+    "context": "QObject"
+  },
+  {
+    "translation": "Kẻ địch",
+    "file_offset": "0x87f099",
+    "comment": "",
+    "source": "Enemy",
+    "context": "QObject"
+  },
+  {
+    "translation": "Lỗi",
+    "file_offset": "0x87f0c8",
+    "comment": "",
+    "source": "Error Occurred",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang bay",
+    "file_offset": "0x87f0f8",
+    "comment": "",
+    "source": "Flying",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang tới nơi phục hồi sinh lực",
+    "file_offset": "0x87f12a",
+    "comment": "",
+    "source": "Going to Heal Point",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang đi nhặt vật phẩm",
+    "file_offset": "0x87f195",
+    "comment": "",
+    "source": "Going to Loot Package Pos",
+    "context": "QObject"
+  },
+  {
+    "translation": "Quỷ Cốc",
+    "file_offset": "0x87f1f4",
+    "comment": "",
+    "source": "Guigu",
+    "context": "QObject"
+  },
+  {
+    "translation": "Mới tử vong -> tới Địa Phủ",
+    "file_offset": "0x87f223",
+    "comment": "",
+    "source": "Just dead",
+    "context": "QObject"
+  },
+  {
+    "translation": "Nga My",
+    "file_offset": "0x87f27c",
+    "comment": "",
+    "source": "Lotus",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tiêu Dao",
+    "file_offset": "0x87f2a9",
+    "comment": "",
+    "source": "Minstrel",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tân Thủ",
+    "file_offset": "0x87f2dd",
+    "comment": "",
+    "source": "Newbie",
+    "context": "QObject"
+  },
+  {
+    "translation": "Không có",
+    "file_offset": "0x87f30d",
+    "comment": "",
+    "source": "No Class",
+    "context": "QObject"
+  },
+  {
+    "translation": "Không tên",
+    "file_offset": "0x87f341",
+    "comment": "",
+    "source": "No name",
+    "context": "QObject"
+  },
+  {
+    "translation": "Chưa đăng nhập",
+    "file_offset": "0x87f376",
+    "comment": "",
+    "source": "Not Login",
+    "context": "QObject"
+  },
+  {
+    "translation": "Không tìm thấy vật phẩm hồi phục HP",
+    "file_offset": "0x87f3b7",
+    "comment": "",
+    "source": "Not found HP item to recover",
+    "context": "QObject"
+  },
+  {
+    "translation": "Không tìm thấy vật phẩm hồi phục MP",
+    "file_offset": "0x87f435",
+    "comment": "",
+    "source": "Not found MP item to recover",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang mở",
+    "file_offset": "0x87f4b3",
+    "comment": "",
+    "source": "Openning",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang nhặt vật phẩm",
+    "file_offset": "0x87f4e5",
+    "comment": "",
+    "source": "Picking Loot Package",
+    "context": "QObject"
+  },
+  {
+    "translation": "Minh Giáo",
+    "file_offset": "0x87f539",
+    "comment": "",
+    "source": "Pyromancers",
+    "context": "QObject"
+  },
+  {
+    "translation": "Rảnh",
+    "file_offset": "0x87f572",
+    "comment": "",
+    "source": "Rest",
+    "context": "QObject"
+  },
+  {
+    "translation": "Thiên Long",
+    "file_offset": "0x87f59a",
+    "comment": "",
+    "source": "Royalty",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang chạy",
+    "file_offset": "0x87f5d1",
+    "comment": "",
+    "source": "Running",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang chọn máy chủ",
+    "file_offset": "0x87f606",
+    "comment": "",
+    "source": "Selecting Server",
+    "context": "QObject"
+  },
+  {
+    "translation": "Thiếu Lâm",
+    "file_offset": "0x87f654",
+    "comment": "",
+    "source": "Shaolin",
+    "context": "QObject"
+  },
+  {
+    "translation": "Mộ Dung",
+    "file_offset": "0x87f689",
+    "comment": "",
+    "source": "Sphinx",
+    "context": "QObject"
+  },
+  {
+    "translation": "Chưa rõ",
+    "file_offset": "0x87f6b9",
+    "comment": "",
+    "source": "Status not found",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đường Môn",
+    "file_offset": "0x87f6f3",
+    "comment": "",
+    "source": "Tang Men",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đào Hoa",
+    "file_offset": "0x87f729",
+    "comment": "",
+    "source": "Taohua",
+    "context": "QObject"
+  },
+  {
+    "translation": "Võ Đang",
+    "file_offset": "0x87f759",
+    "comment": "",
+    "source": "Taoist",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đội ngũ",
+    "file_offset": "0x87f789",
+    "comment": "",
+    "source": "Team",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang thay đổi bối cảnh",
+    "file_offset": "0x87f7b7",
+    "comment": "",
+    "source": "Transing scene",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang nhập mã Captcha",
+    "file_offset": "0x87f80d",
+    "comment": "",
+    "source": "Typing Captcha",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang đăng nhập",
+    "file_offset": "0x87f85f",
+    "comment": "",
+    "source": "Typing account info",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang dùng kĩ năng",
+    "file_offset": "0x87f8aa",
+    "comment": "",
+    "source": "Using Skill",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang sử dụng",
+    "file_offset": "0x87f8f3",
+    "comment": "",
+    "source": "Using Spell",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tinh Túc",
+    "file_offset": "0x87f932",
+    "comment": "",
+    "source": "Voodoo",
+    "context": "QObject"
+  },
+  {
+    "translation": "Đang chờ phản hồi",
+    "file_offset": "0x87f964",
+    "comment": "",
+    "source": "Waiting Response",
+    "context": "QObject"
+  },
+  {
+    "translation": "Bạn phải tắt cửa sổ đang chạy của chương trình này đi trước!",
+    "file_offset": "0x87f9b2",
+    "comment": "",
+    "source": "You must close another instance of this app before!",
+    "context": "QObject"
+  },
+  {
+    "translation": "Bản thân",
+    "file_offset": "0x87fa79",
+    "comment": "",
+    "source": "Yourself",
+    "context": "QObject"
+  },
+  {
+    "translation": "Tự chạy Phó bản / Nhiệm vụ",
+    "file_offset": "0x87faad",
+    "comment": "",
+    "source": "Auto Quest / Event",
+    "context": "QuestSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x87fb15",
+    "comment": "",
+    "source": "Form",
+    "context": "QuestSettings"
+  },
+  {
+    "translation": "Âm cảnh báo",
+    "file_offset": "0x87fb3b",
+    "comment": "",
+    "source": "Alert Sound",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Cài đặt Auto",
+    "file_offset": "0x87fb82",
+    "comment": "",
+    "source": "Auto Settings",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Click vào nút phía dưới để bật hoặc tắt Phím Tắt",
+    "file_offset": "0x87fbcd",
+    "comment": "",
+    "source": "Click Buttons bellow to enable or disable Shortcut keys",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Xác nhận trước khi đóng cửa sổ",
+    "file_offset": "0x87fc8a",
+    "comment": "",
+    "source": "Confirm alert before closing",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Tối",
+    "file_offset": "0x87fd08",
+    "comment": "",
+    "source": "Dark",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Nội dung",
+    "file_offset": "0x87fd38",
+    "comment": "",
+    "source": "Description",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Vô hiệu hóa",
+    "file_offset": "0x87fd79",
+    "comment": "",
+    "source": "Disable",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Bật",
+    "file_offset": "0x87fdbc",
+    "comment": "",
+    "source": "Enable",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "English",
+    "file_offset": "0x87fdee",
+    "comment": "",
+    "source": "English",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Hướng dẫn: Quay lại cửa sổ chính của Auto, sau đó chọn một game và nhấn tổ hợp phím tắt để thực thi",
+    "file_offset": "0x87fe29",
+    "comment": "",
+    "source": "Explain: Return to Main Window of Auto then choose a game instance then press shortcut key to do action",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Đường dẫn Game.exe",
+    "file_offset": "0x87ff7c",
+    "comment": "",
+    "source": "Game.exe Path",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Chung",
+    "file_offset": "0x87ffd3",
+    "comment": "",
+    "source": "General",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Ngôn ngữ",
+    "file_offset": "0x88000a",
+    "comment": "",
+    "source": "Language",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Sáng",
+    "file_offset": "0x880048",
+    "comment": "",
+    "source": "Light",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Ẩn xuống System Tray",
+    "file_offset": "0x88007b",
+    "comment": "",
+    "source": "Minimize to System Tray",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Lưu lại",
+    "file_offset": "0x8800e0",
+    "comment": "",
+    "source": "Save",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Cài đường dẫn Game.exe",
+    "file_offset": "0x880118",
+    "comment": "",
+    "source": "Set Game.exe Path",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Phím tắt",
+    "file_offset": "0x88017b",
+    "comment": "",
+    "source": "Shortcut Key",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Phím Tắt",
+    "file_offset": "0x8801bd",
+    "comment": "",
+    "source": "Shotcut Keys",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Giao diện",
+    "file_offset": "0x8801ff",
+    "comment": "",
+    "source": "Style",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Tiếng Việt",
+    "file_offset": "0x88023c",
+    "comment": "",
+    "source": "Tiếng Việt",
+    "context": "SettingAutoDialog"
+  },
+  {
+    "translation": "Click đúp vào tên để thêm người chơi vào danh sách",
+    "file_offset": "0x880284",
+    "comment": "",
+    "source": "Double click to name to add player",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Click đúp vào tên để xóa",
+    "file_offset": "0x88033e",
+    "comment": "",
+    "source": "Double click to name to remove",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Danh sách người chơi đứng gần",
+    "file_offset": "0x8803c0",
+    "comment": "",
+    "source": "Near Player List",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Làm mới",
+    "file_offset": "0x88043e",
+    "comment": "",
+    "source": "Refresh",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Lưu lại",
+    "file_offset": "0x880487",
+    "comment": "",
+    "source": "Save",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Cài đặt danh sách người chơi nhận Buff HP Nga My",
+    "file_offset": "0x8804cd",
+    "comment": "",
+    "source": "Setting list player will get Buff HP by Lotus",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Danh sách sẽ nhận Buff",
+    "file_offset": "0x88058e",
+    "comment": "",
+    "source": "Will Buff HP List",
+    "context": "SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Tự dùng kỹ năng",
+    "file_offset": "0x8805ff",
+    "comment": "",
+    "source": "Auto Attack Skill(s)",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "Mặc định",
+    "file_offset": "0x880653",
+    "comment": "",
+    "source": "Default",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x88068c",
+    "comment": "",
+    "source": "Form",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "PK",
+    "file_offset": "0x8806b2",
+    "comment": "",
+    "source": "Personal Killing (PK)",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "Lưu lại",
+    "file_offset": "0x8806ed",
+    "comment": "",
+    "source": "Save",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "Luyện cấp",
+    "file_offset": "0x880721",
+    "comment": "",
+    "source": "Train",
+    "context": "SkillSettings"
+  },
+  {
+    "translation": "Các vật phẩm đang có trong tay nải (theo ID)",
+    "file_offset": "0x88075a",
+    "comment": "",
+    "source": "Current items in your inventory",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Các loại vật phẩm đang có trong tay nải",
+    "file_offset": "0x8807fa",
+    "comment": "",
+    "source": "Current items type in your inventory",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Click đúp vào tên để thêm vào danh sách vứt rác",
+    "file_offset": "0x880895",
+    "comment": "",
+    "source": "Double click to name to add",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Click đúp vào tên để xóa",
+    "file_offset": "0x880937",
+    "comment": "",
+    "source": "Double click to name to remove",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Làm mới",
+    "file_offset": "0x8809ae",
+    "comment": "",
+    "source": "Refresh",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Lưu lại",
+    "file_offset": "0x8809ec",
+    "comment": "",
+    "source": "Save",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Cài đặt tự động vứt rác",
+    "file_offset": "0x880a27",
+    "comment": "",
+    "source": "Setting auto throw trash",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Chú ý: Chức năng này sẽ vứt toàn bộ vật phẩm bạn cài đặt, trừ vật phẩm có (số sao >= 5) hoặc ((số sao >=4) và (cấp vật phẩm >= 50))",
+    "file_offset": "0x880a96",
+    "comment": "",
+    "source": "Warning: This feature will throw all item you set, but ignore item has (stars >= 5) or ((stars >= 4) and (needLevel >= 50))",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Danh sách rác sẽ tự động vứt",
+    "file_offset": "0x880c40",
+    "comment": "",
+    "source": "Will be auto removed items",
+    "context": "ThrowTrashItemDialog"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x880cbb",
+    "comment": "",
+    "source": "<=",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Tự tìm và sử dụng vật phẩm x2.5 kinh nghiệm khi thấy hết trạng thái</p></body></html>",
+    "file_offset": "0x880ce3",
+    "comment": "",
+    "source": "<html><head/><body><p>Auto will find x2.5 exp item and use when expired</p></body></html>",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Chỉ thăng cấp nhân vật tới tối đa giá trị này</p></body></html>",
+    "file_offset": "0x880e38",
+    "comment": "",
+    "source": "<html><head/><body><p>Only levelup character to level less than this value</p></body></html>",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "<html><head/><body><p>Cài đặt danh sách tự động vứt rác trong tay nải của nhân vật</p></body></html>",
+    "file_offset": "0x880f64",
+    "comment": "",
+    "source": "<html><head/><body><p>Setting auto throw list item in your inventory bag</p></body></html>",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự Đồng Ý chuyển map",
+    "file_offset": "0x8810ac",
+    "comment": "",
+    "source": "Auto Accept Scene Transfer",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự Đồng Ý tổ đội",
+    "file_offset": "0x881114",
+    "comment": "",
+    "source": "Auto Accept Team Request",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự thăng cấp",
+    "file_offset": "0x881172",
+    "comment": "",
+    "source": "Auto Levelup",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự nhặt đồ",
+    "file_offset": "0x8811bc",
+    "comment": "",
+    "source": "Auto Pickup Loot",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự xuất chiến",
+    "file_offset": "0x881206",
+    "comment": "",
+    "source": "Auto Summon",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự vứt rác",
+    "file_offset": "0x881251",
+    "comment": "",
+    "source": "Auto Throw Trash",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Nhân vật",
+    "file_offset": "0x88129b",
+    "comment": "",
+    "source": "Character",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "",
+    "file_offset": "0x8812da",
+    "comment": "",
+    "source": "Form",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Mật mã rương",
+    "file_offset": "0x881304",
+    "comment": "",
+    "source": "Inventory Bag Password",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Trân Thú",
+    "file_offset": "0x881358",
+    "comment": "",
+    "source": "Pet",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Tự Reset giờ chơi",
+    "file_offset": "0x881391",
+    "comment": "",
+    "source": "Reset Online Time",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Mở khóa",
+    "file_offset": "0x8813ea",
+    "comment": "",
+    "source": "Unlock",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Dùng x2.5 exp",
+    "file_offset": "0x881424",
+    "comment": "",
+    "source": "Use x2.5 exp",
+    "context": "UtilitiesSettings"
+  },
+  {
+    "translation": "Đang tải phiên bản mới [ver.%1]",
+    "file_offset": "0x881470",
+    "comment": "",
+    "source": "Auto is downloading new version [ver.%1]",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Không thể kết nối tới máy chủ hoặc giải nén phiên bản mới<br />Auto sẽ bị dừng, kiểm tra lại kết nối, hoặc click <a href=\"http://chickenauto.com/download\">vào đây</a> để tải phiên bản mới trực tiếp!",
+    "file_offset": "0x881503",
+    "comment": "",
+    "source": "Can not connect to update server or can not extract new version!<br />Auto will be stop, check connection or click <a href=\"http://chickenauto.com/download\">here</a> to download new version dirrectly!",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Lỗi cập nhật phiên bản mới",
+    "file_offset": "0x881784",
+    "comment": "",
+    "source": "Error update new version",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Đang xử lí...",
+    "file_offset": "0x8817fd",
+    "comment": "",
+    "source": "Initializing...",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Cập nhật hoàn tất",
+    "file_offset": "0x881853",
+    "comment": "",
+    "source": "Updated",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Auto đã được cập nhật phiên bản [ver.%1]\nChương trình sẽ tự khởi động lại sau %2 giây!",
+    "file_offset": "0x8818a9",
+    "comment": "",
+    "source": "We 've just updated to [ver.%1]\nAuto will restart after %2 seconds!",
+    "context": "WorkerDetectGameInstance"
+  },
+  {
+    "translation": "Trạng thái: %1",
+    "file_offset": "0x8819c5",
+    "comment": "",
+    "source": "Status: %1",
+    "context": "WorkerUpdateUi"
+  },
+  {
+    "translation": "Trạng Thái Auto: %1",
+    "file_offset": "0x881a0e",
+    "comment": "",
+    "source": "Auto Turned: %1",
+    "context": "game_controllers::ShortcutKeysManager"
+  },
+  {
+    "translation": "Tắt",
+    "file_offset": "0x881a7d",
+    "comment": "",
+    "source": "Off",
+    "context": "game_controllers::ShortcutKeysManager"
+  },
+  {
+    "translation": "Bật",
+    "file_offset": "0x881ac0",
+    "comment": "",
+    "source": "On",
+    "context": "game_controllers::ShortcutKeysManager"
+  },
+  {
+    "translation": "Danh sách quái bỏ qua đã được lưu lại!\nBạn có thể đóng cửa sổ này bây giờ.",
+    "file_offset": "0x881b02",
+    "comment": "",
+    "source": "Ignore Monster List was saved!\nYou can close this window now.",
+    "context": "others_ui::IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Đã lưu",
+    "file_offset": "0x881c0a",
+    "comment": "",
+    "source": "Saved",
+    "context": "others_ui::IgnoreMonsterListDialog"
+  },
+  {
+    "translation": "Bỏ theo đội",
+    "file_offset": "0x881c52",
+    "comment": "",
+    "source": "Abort Team Follow",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Chọn tệp tin Game.exe",
+    "file_offset": "0x881caa",
+    "comment": "",
+    "source": "Choose Game.exe File",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Thoát Game hiện tại",
+    "file_offset": "0x881d19",
+    "comment": "",
+    "source": "Close current Game",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Đã tắt",
+    "file_offset": "0x881d82",
+    "comment": "",
+    "source": "Disabled",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Đã bật",
+    "file_offset": "0x881dc7",
+    "comment": "",
+    "source": "Enabled",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Thoát nhân vật hiện tại",
+    "file_offset": "0x881e0b",
+    "comment": "",
+    "source": "Logout current Player",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Yêu cầu theo đội",
+    "file_offset": "0x881e7f",
+    "comment": "",
+    "source": "Request Team Follow",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Đã lưu",
+    "file_offset": "0x881ee3",
+    "comment": "",
+    "source": "Saved",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Phím tắt đã bị vô hiệu hóa!",
+    "file_offset": "0x881f25",
+    "comment": "",
+    "source": "Shortcut Keys was disabled!",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Phím tắt đã được Bật!",
+    "file_offset": "0x881fa7",
+    "comment": "",
+    "source": "Shortcut Keys was enabled!",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Hiện/Ẩn cửa sổ Game",
+    "file_offset": "0x88201c",
+    "comment": "",
+    "source": "Show/Hide Game 's window",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Bật/Tắt toàn bộ Auto",
+    "file_offset": "0x88208b",
+    "comment": "",
+    "source": "Stop/Start All Auto",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Bật/Tắt Auto",
+    "file_offset": "0x8820f7",
+    "comment": "",
+    "source": "Stop/Start Auto",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Cài đặt của bạn đã được lưu lại!",
+    "file_offset": "0x88214f",
+    "comment": "",
+    "source": "Your settings has been saved!",
+    "context": "others_ui::SettingAutoDialog"
+  },
+  {
+    "translation": "Đã lưu danh sách người chơi!\nBạn có thể đóng cửa sổ này lại ngay bây giờ.",
+    "file_offset": "0x8821dd",
+    "comment": "",
+    "source": "Player List was saved!\nYou can close this window now.",
+    "context": "others_ui::SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Đã lưu",
+    "file_offset": "0x8822e3",
+    "comment": "",
+    "source": "Saved",
+    "context": "others_ui::SettingListPlayerGetLotusBuffHp"
+  },
+  {
+    "translation": "Đã lưu",
+    "file_offset": "0x882333",
+    "comment": "",
+    "source": "Saved",
+    "context": "others_ui::ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Đã lưu danh sách tự động vứt rác!\nBạn có thể đóng cửa sổ này lại ngay bây giờ.",
+    "file_offset": "0x882378",
+    "comment": "",
+    "source": "Throw List was saved!\nYou can close this window now.",
+    "context": "others_ui::ThrowTrashItemDialog"
+  },
+  {
+    "translation": "Đánh quanh vị trí [%1,%2] - map [%3]: %4",
+    "file_offset": "0x88247c",
+    "comment": "",
+    "source": "Attack radius [%1,%2] - map [%3]: %4",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Tự động đánh: %1",
+    "file_offset": "0x882520",
+    "comment": "",
+    "source": "Auto Attack: %1",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Không tìm thấy người chơi",
+    "file_offset": "0x88257f",
+    "comment": "",
+    "source": "Not found player",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Tắt",
+    "file_offset": "0x8825f1",
+    "comment": "",
+    "source": "OFF",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Bật",
+    "file_offset": "0x88262a",
+    "comment": "",
+    "source": "ON",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Toang!",
+    "file_offset": "0x882662",
+    "comment": "",
+    "source": "Oops!",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Quanh [%1,%2]",
+    "file_offset": "0x8826a3",
+    "comment": "",
+    "source": "Radius [%1,%2]",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Chú ý",
+    "file_offset": "0x8826fb",
+    "comment": "",
+    "source": "Warning",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Chúng tôi không hỗ trợ chức năng [Tự đánh cùng key] cho game này.\nChỉ chức năng [Tự theo sau key] sẽ được bật.",
+    "file_offset": "0x88273c",
+    "comment": "",
+    "source": "We do not support [Auto Attack With Leader] feature for this game.\nOnly [Auto Follow Leader] feature will be active.",
+    "context": "setting_tabs::BasicSettings"
+  },
+  {
+    "translation": "Toang!!!",
+    "file_offset": "0x8828bc",
+    "comment": "",
+    "source": "Oops!!!",
+    "context": "setting_tabs::UtilitiesSettings"
+  },
+  {
+    "translation": "Bạn phải nhập mật khẩu trước khi mở khóa!",
+    "file_offset": "0x882907",
+    "comment": "",
+    "source": "You must input password before unlock!",
+    "context": "setting_tabs::UtilitiesSettings"
+  }
+]

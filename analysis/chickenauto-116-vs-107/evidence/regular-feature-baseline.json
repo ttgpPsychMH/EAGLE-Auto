@@ -1,0 +1,762 @@
+{
+  "application_baseline_commit": "9c59d1774ac1aa18dd9e080684f732577fece999",
+  "stable_payload_sha256": "34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea",
+  "stable_native_x86": true,
+  "source_file_sha256": {
+    "src/ChickenAutoEx/FrmMain.cs": "e7f5e827777bb495f91e359942b4ef9524fdb3495e75c2fbdcfc37c54954aca2",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/TLBB.cs": "adfdbc8ae6d7ba5b0b305c7dbe6b5f3c296f2a13ea82c496c64a15b93578617c"
+  },
+  "fresh_native_evidence_matches_historical": true,
+  "native_evidence_sha256": {
+    "inventory.json": "d0aeecfe2fe857a078829577d9400d711ef13945a8c6e8844b680231c942e868",
+    "qt-metaobjects-116.json": "c8ca020c79ca4251c4972c1f8bf5ae981d788add5f3482b847a2096706ee1a9d",
+    "ui-translations-116.json": "91c59e14558a32409e7b3f8d718ebf558389a4800f9107b6ddd35152750d107c",
+    "selected-literals-116.json": "15d90dcaa8432911bbddb97744dc4c2c088fe8215dc15701477d42caa146dc71",
+    "ilspy-116.txt": "2e3e1a82f8d2fc8374465e4f8da948e7a43ac0f014361e9a0885929bfa51b92c",
+    "quest-metacall-116.txt": "a8ba74908f2b22b5e09599fa1497190641e7adfdb7900cf77479b97f9d336dd2"
+  },
+  "anchors": {
+    "form.Auto": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1161,
+        "method_text_sha256_lf": "8401988bac58b8f32e15bb1cc35779221f744f97827e4a60c503486dbcb32da9"
+      }
+    ],
+    "form.InitializeComponent": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 4577,
+        "method_text_sha256_lf": "8d324df433facc151258e1f10ee9390038f12c2124c765e2f01096dc84dd6b3a"
+      }
+    ],
+    "form.ListViewNhanVat_ItemChecked": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 4095,
+        "method_text_sha256_lf": "2d94d9c15a5c397a7916424dba1690b56c63a27449353defe1ac2c3e35030b14"
+      }
+    ],
+    "form.LoadSetting": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1013,
+        "method_text_sha256_lf": "19289794fd5d95d5c98611baf828c44f88983b7c18ab35b01b21f35829905ba5"
+      }
+    ],
+    "form.SaveSetting": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1007,
+        "method_text_sha256_lf": "f8a3302cbd98df10f97be5e781bcdc4510775e03c674333798b21802b35e1575"
+      }
+    ],
+    "form.SetHotKey": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 2156,
+        "method_text_sha256_lf": "75cf571f821f565c391c4a024b0c664cd9ed5853a2dca38219d5412b87899c2a"
+      }
+    ],
+    "form.SetInfo": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1261,
+        "method_text_sha256_lf": "39c1a7fb846c191e8772104aae8209e5a2bd064c522d122b54d693a8b94e3ab0"
+      }
+    ],
+    "form.TryGetDungeonContext": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 4122,
+        "method_text_sha256_lf": "9dba8aa79f3d740137542043e349aa329db4bc829218348704042a4da2179d82"
+      }
+    ],
+    "form.UpdateDungeonMenu": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 4150,
+        "method_text_sha256_lf": "ae0e6312019ce6eb65ccfe6729b1400a606d4e1f9aa32b495f5a0bd038407bbf"
+      }
+    ],
+    "form.checkisNM_CheckedChanged": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1969,
+        "method_text_sha256_lf": "64d39e31b4fc1b7494475ebf3a6ca8554c85b0bf0ba9dc1106e7bf675d738adb"
+      }
+    ],
+    "form.checkregenhp_CheckedChanged": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1917,
+        "method_text_sha256_lf": "0d21ea5e3aa4fc84bbd04d36c619a73cef2d59248ea380973fb7fa9eb9086fc4"
+      }
+    ],
+    "form.checkrengenmp_CheckedChanged": [
+      {
+        "path": "src/ChickenAutoEx/FrmMain.cs",
+        "line": 1929,
+        "method_text_sha256_lf": "4dd614039955ee392ae244ce6183801021f6957c121700ae89dd23ce13901df4"
+      }
+    ],
+    "game.Accept": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9141,
+        "method_text_sha256_lf": "65903b0ca9d59722efabf17096a3718918402c747ab75d76f7c1b21820c7dca9"
+      }
+    ],
+    "game.AcceptAll": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9151,
+        "method_text_sha256_lf": "90934f3decf748ef986cfb4adf30ba92d1068a4e92857523abae6298133e3ddb"
+      }
+    ],
+    "game.Attack": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 6811,
+        "method_text_sha256_lf": "78cf3f30789248ea41a77accb9e5c28394d71afcfbffd0f72ca8fe4231c6c722"
+      }
+    ],
+    "game.Auto": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 5517,
+        "method_text_sha256_lf": "55b83ab3f9ead4bd84712d8ebbe056ed1ee222eef52a6176f3a372153bd0a486"
+      }
+    ],
+    "game.AutoX2": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 3395,
+        "method_text_sha256_lf": "5c1e967fb2e3cf5ead63e9b678fa8aa1b9a60943f689f07c888b173222e9067a"
+      }
+    ],
+    "game.Buff": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 7903,
+        "method_text_sha256_lf": "6d7d3be2cbbdc3f387a0564fe559fda5bb5c9a498a0e1db2ba73b33ec98070e4"
+      }
+    ],
+    "game.BuffPet": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 7888,
+        "method_text_sha256_lf": "199e595ea2a7836f2eec69ee30003c75e2bd7fb390f2b2b9212ce7fb63d3f2f8"
+      }
+    ],
+    "game.DatDoiAcBa": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4463,
+        "method_text_sha256_lf": "810b4dd885f022c31ce187a12c23573b5835be44f184679def21da545de5ddd9"
+      }
+    ],
+    "game.DatDoiAcTac": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4109,
+        "method_text_sha256_lf": "1c4e131ab32148112b5dc57406d5ef080b99bd409687f6316428a2c416553106"
+      }
+    ],
+    "game.DatDoiKyCuoc": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4715,
+        "method_text_sha256_lf": "79efea6e28fe589bc867570c5bc4dc5b6d69f0f64c7afb7914fd3fab73c5f9da"
+      }
+    ],
+    "game.DatDoiLauLanTamBao": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4782,
+        "method_text_sha256_lf": "fce500226e92d9ce2163da38e39f235c2213fd72602a6154a3802493306af54a"
+      }
+    ],
+    "game.DatDoiThuyLao": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4664,
+        "method_text_sha256_lf": "3dee47b19f1713e0ba6fac00ea8108537a636beac386758bfaf8b062535d7aea"
+      }
+    ],
+    "game.DoSkill": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 7729,
+        "method_text_sha256_lf": "5105b1068503f87b56a17176a19f8a48a1e9e89322426aaf57b271d5137a8d9b"
+      }
+    ],
+    "game.DropItem": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9726,
+        "method_text_sha256_lf": "dc839ab63ce6f7619557b5338b469c50d1dfcae3e0a8c0cac204b18df244ad5c"
+      },
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9952,
+        "method_text_sha256_lf": "83837eab250dd43cc8a685a9f17eee15119c8b97a45f42a1f87d0e634ddd1886"
+      }
+    ],
+    "game.FollowKey": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 10101,
+        "method_text_sha256_lf": "fd99d8c99f4eba962a2824767ca15f38bdaa0ba25d3c6fdc78bee529a234807a"
+      }
+    ],
+    "game.ForcePickItem": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 6533,
+        "method_text_sha256_lf": "0d4ef62f17506a19bbb2b230437610b0626579aba675807905ab77314a27b331"
+      }
+    ],
+    "game.GetBestTarget": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 7564,
+        "method_text_sha256_lf": "eaafe96f8666a3cf389552ed93fe0afdb083f12b0b4e91a7e3f24ff411350394"
+      }
+    ],
+    "game.IsCanDelete": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9834,
+        "method_text_sha256_lf": "ff29c295300653f385dad4d5c3822272b1f41fec92d41d77e464f0352a102276"
+      }
+    ],
+    "game.IsDrop": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9957,
+        "method_text_sha256_lf": "7f546294016432722a2f74399c829225454a3c0826f57b7b36cd8d74e2688fd5"
+      },
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 11592,
+        "method_text_sha256_lf": "aa1e745fb5aa69f793c7d15cf16fa63c05482b7934f730becfe9109f4dc997b3"
+      }
+    ],
+    "game.IsDropEx": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 9713,
+        "method_text_sha256_lf": "d49d378ececeacfe8ce748829af3407f51aa5e2a7ca03f6d57eac622cb9121f0"
+      }
+    ],
+    "game.LoadSetting": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 10174,
+        "method_text_sha256_lf": "5ca12273deb1ae191df15920f243dedee107cbbf80364464092452ae65830070"
+      }
+    ],
+    "game.PickItem": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 6580,
+        "method_text_sha256_lf": "ee5e1eeea410632c089d5b72a6b2e67293a041bc31b5dd4242a3c8768b0613d9"
+      },
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 6604,
+        "method_text_sha256_lf": "869cc09e9322784c3f52c3b07c506cc4e13bb1c32e6409e69ec738d39e2de868"
+      }
+    ],
+    "game.SaveSetting": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 10279,
+        "method_text_sha256_lf": "592d4eb380fcfa5fd948539706d34504e40f25d2bd2e99c76bbe2410ffbad9c5"
+      }
+    ],
+    "game.SaveSkill": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 4052,
+        "method_text_sha256_lf": "b2b2ccfe26c39bee8b3540cdf60c775f630d47f52dd0a3b34500fa32988d61d1"
+      }
+    ],
+    "game.SkillDo": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 7702,
+        "method_text_sha256_lf": "79a7808c287614adc8f7cddc32681d2e2fd343f6fa20aab59f0b2814bf2c9984"
+      }
+    ],
+    "game.TKC": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 10394,
+        "method_text_sha256_lf": "8da0646c54f001914b43a79308ad51df920fdca64a4819fd0ef287da24dbc705"
+      }
+    ],
+    "game.TrungAc": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 2641,
+        "method_text_sha256_lf": "9ae2fe42ee9743db00f8beba03283d064b9fd1e8754c1fa9e88856d89157297a"
+      }
+    ],
+    "game.UpLvl": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 8313,
+        "method_text_sha256_lf": "c0e0f0f4c936a865abf19c2521f44b05d4b4cd29bd8157dc3fe5126c9ccba316"
+      }
+    ],
+    "game.XuatPet": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs",
+        "line": 6165,
+        "method_text_sha256_lf": "e425751cb734bf1a2b2de11773c54ab179db89a19e14d0f0f8cbc4d5f0615691"
+      }
+    ],
+    "tlbb.Read": [
+      {
+        "path": "analysis/chickenautoex-107/recovered/TinhKiemAuto/TLBB.cs",
+        "line": 1025,
+        "method_text_sha256_lf": "1d0cbef794258de8f8ff0a499701a778cb1f247f76f93d9bbf1ea1d32224573a"
+      }
+    ]
+  },
+  "features": [
+    {
+      "id": "F01",
+      "name": "Nhận diện/trạng thái",
+      "source_107": [
+        "form.SetInfo",
+        "tlbb.Read"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {},
+        "qt_classes": [
+          "WorkerDetectGameInstance",
+          "WorkerUpdateUi"
+        ]
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F02",
+      "name": "Hồi HP",
+      "source_107": [
+        "game.Buff",
+        "form.checkregenhp_CheckedChanged"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "autoRecoverHp": [
+            "0x824100"
+          ],
+          "autoRecoverHpPercent": [
+            "0x824110"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F03",
+      "name": "Hồi MP",
+      "source_107": [
+        "game.Buff",
+        "form.checkrengenmp_CheckedChanged"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "autoRecoverMp": [
+            "0x824128"
+          ],
+          "autoRecoverMpPercent": [
+            "0x824138"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F04",
+      "name": "Hồi HP/Hoan Hỉ pet",
+      "source_107": [
+        "form.Auto",
+        "game.Auto",
+        "game.BuffPet"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "autoRecoverPetHp": [
+            "0x824150"
+          ],
+          "autoRecoverPetHpPercent": [
+            "0x824164"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F05",
+      "name": "Cộng Sinh/Huyết Tế",
+      "source_107": [
+        "game.Buff"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "autoUsePetRecoverHpSkill": [
+            "0x82417c"
+          ],
+          "autoUsePetRecoverMpSkill": [
+            "0x8241b8"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F06",
+      "name": "Xuất/thu pet",
+      "source_107": [
+        "game.XuatPet",
+        "game.Auto"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoSummonPet": [
+            "0x8243e8"
+          ],
+          "autoSummonPetId": [
+            "0x8243fc"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F07",
+      "name": "Đánh cơ bản/F1",
+      "source_107": [
+        "game.Attack"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoAttack": [
+            "0x824038"
+          ],
+          "enableUseF1": [
+            "0x82405c"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F08",
+      "name": "Danh sách skill",
+      "source_107": [
+        "game.SkillDo",
+        "game.DoSkill",
+        "game.SaveSkill"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoUseSkill": [
+            "0x8242f0"
+          ],
+          "autoSkillList": [
+            "0x824304"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F09",
+      "name": "Đánh quanh/gom/lọc quái",
+      "source_107": [
+        "game.GetBestTarget",
+        "game.Attack"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAttackRadius": [
+            "0x824098"
+          ],
+          "ignoreMonsterList": [
+            "0x824068"
+          ],
+          "enableAutoKs": [
+            "0x82404c"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F10",
+      "name": "Theo key",
+      "source_107": [
+        "game.FollowKey"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAttackFollowLeader": [
+            "0x82407c"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F11",
+      "name": "Buff Nga My",
+      "source_107": [
+        "game.Auto",
+        "form.checkisNM_CheckedChanged"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoLotusBuffHp": [
+            "0x8241f4"
+          ],
+          "autoLotusBuffPlayerList": [
+            "0x824224"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F12",
+      "name": "Nhặt đồ",
+      "source_107": [
+        "game.PickItem",
+        "game.ForcePickItem"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoPickupLootPackage": [
+            "0x824398"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F13",
+      "name": "Vứt rác/bảo vệ đồ",
+      "source_107": [
+        "game.DropItem",
+        "game.IsDropEx",
+        "game.IsDrop",
+        "game.IsCanDelete"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoThrowTrashItem": [
+            "0x8243b4"
+          ],
+          "autoThrowTrashItemList": [
+            "0x8243d0"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F14",
+      "name": "Sau tử vong/cảnh báo",
+      "source_107": [
+        "game.Auto"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoActionWhenDead": [
+            "0x82423c"
+          ],
+          "autoLogoutGameAfterDeadSeconds": [
+            "0x824268"
+          ],
+          "enableAutoAlertHp": [
+            "0x824288"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F15",
+      "name": "Đồng ý tổ đội/chuyển cảnh",
+      "source_107": [
+        "game.Accept",
+        "game.AcceptAll",
+        "game.Auto"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoAcceptTeamRequest": [
+            "0x82437c"
+          ],
+          "enableAutoAcceptSceneTransfer": [
+            "0x82435c"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F16",
+      "name": "Cấu hình",
+      "source_107": [
+        "form.LoadSetting",
+        "form.SaveSetting",
+        "game.LoadSetting",
+        "game.SaveSetting"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "AutoSettings.json": [
+            "0x823fdc"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F17",
+      "name": "Phím tắt/tray/nhiều game",
+      "source_107": [
+        "form.SetHotKey",
+        "form.SetInfo",
+        "form.ListViewNhanVat_ItemChecked"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "AutoSettings::enableShortcutKeys": [
+            "0x828f08"
+          ],
+          "AutoSettings::enableMinimizeToSystemTray": [
+            "0x828ea4"
+          ]
+        },
+        "qt_classes": [
+          "game_controllers::ShortcutKeysManager"
+        ]
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F18",
+      "name": "Tiện ích level/exp",
+      "source_107": [
+        "game.UpLvl",
+        "game.AutoX2"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {
+          "enableAutoLevelup": [
+            "0x8242b0"
+          ],
+          "autoLevelupTo": [
+            "0x8242c4"
+          ],
+          "enableAutoUseX2dot5ExpItem": [
+            "0x8242d4"
+          ]
+        },
+        "qt_classes": []
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F19",
+      "name": "Ngôn ngữ",
+      "source_107": [
+        "form.InitializeComponent"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {},
+        "qt_classes": [
+          "others_ui::SettingAutoDialog"
+        ]
+      },
+      "runtime_comparison": "NOT_RUN"
+    },
+    {
+      "id": "F20",
+      "name": "Hiệu năng/khả năng chẩn đoán",
+      "source_107": [
+        "form.Auto",
+        "game.Auto"
+      ],
+      "ui_evidence_116": {
+        "config_literals": {},
+        "qt_classes": [
+          "WorkerDetectGameInstance",
+          "WorkerUpdateUi"
+        ]
+      },
+      "runtime_comparison": "NOT_RUN"
+    }
+  ],
+  "static_findings": {
+    "pet_called_outside_game_auto_gate": true,
+    "buff_pet_has_no_auto_or_paused_gate": true,
+    "pet_thresholds_hardcoded_not_buff_pet_percent": true,
+    "nm_notice_uses_blood_sacrifice_checkbox": true,
+    "mp_binding_fix_present": true,
+    "native_language_ui": [
+      {
+        "translation": "Ngôn ngữ",
+        "file_offset": "0x88000a",
+        "comment": "",
+        "source": "Language",
+        "context": "SettingAutoDialog"
+      }
+    ]
+  },
+  "application_and_original_paths_unchanged": [
+    "src",
+    "tests",
+    "tools",
+    ".github",
+    "global.json",
+    "ChickenAutoEx.sln",
+    "analysis/chickenautoex-107/recovered",
+    "ChickenAuto-new.exe",
+    "ChickenAuto-new.zip",
+    "ChickenAuto-new.7z",
+    "ChickenAutoEx-new.exe",
+    "ChickenAutoEx-new.zip",
+    "ChickenAutoEx-new.7z"
+  ],
+  "execution": {
+    "target_executables_or_dlls_run": false,
+    "game_run": false,
+    "new_build_required": false,
+    "windows_runtime_comparison_run": false
+  },
+  "limits": "Method hashes and Qt labels/config/slots establish evidence availability; native algorithms, runtime parity and bug impact remain unverified."
+}

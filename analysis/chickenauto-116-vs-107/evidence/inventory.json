@@ -1,0 +1,531 @@
+{
+  "original_files_sha256": {
+    "ChickenAuto-new.7z": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49",
+    "ChickenAuto-new.exe": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "ChickenAuto-new.zip": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08",
+    "ChickenAutoEx-new.7z": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02",
+    "ChickenAutoEx-new.exe": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "ChickenAutoEx-new.zip": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+  },
+  "all_stable_payloads_identical": true,
+  "stable_wrapper_overlay_offset": 400896,
+  "stable_wrapper": {
+    "file": "ChickenAuto-new.exe",
+    "size": 6974980,
+    "sha256": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "machine": "0x8664",
+    "subsystem": 2,
+    "managed": false,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "OLEAUT32.dll",
+      "ole32.dll",
+      "USER32.dll",
+      "SHELL32.dll",
+      "KERNEL32.dll"
+    ],
+    "exports": []
+  },
+  "stable_116": {
+    "file": "ChickenAuto-116.exe",
+    "size": 13757952,
+    "sha256": "34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea",
+    "machine": "0x14c",
+    "subsystem": 2,
+    "managed": false,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "PSAPI.DLL",
+      "WINMM.dll",
+      "ole32.dll",
+      "IMM32.dll",
+      "OLEAUT32.dll",
+      "SHELL32.dll",
+      "GDI32.dll",
+      "IPHLPAPI.DLL",
+      "WS2_32.dll",
+      "ADVAPI32.dll",
+      "USER32.dll",
+      "CRYPT32.dll",
+      "KERNEL32.dll"
+    ],
+    "exports": []
+  },
+  "ex_107": {
+    "file": "ChickenAutoEx-zip.exe",
+    "size": 2913280,
+    "sha256": "11c98b8eff545fbafa5fd6e9d3d281af62aa7fac4234eb546fcc2a4d671df573",
+    "machine": "0x14c",
+    "subsystem": 2,
+    "managed": true,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "mscoree.dll"
+    ],
+    "clr_metadata_version": "v2.0.50727",
+    "clr_flags": "0x3",
+    "entrypoint_token": "0x6000eb6",
+    "type_definitions": 446,
+    "method_definitions": 4580,
+    "module_mvid": "47af2eb6-e4fd-4067-9165-831dd37513ed",
+    "namespaces": {
+      "": 121,
+      "ComponentAce.Compression.Libs.zlib": 14,
+      "System.Runtime.CompilerServices": 1,
+      "ProtoBuf": 34,
+      "ProtoBuf.Serializers": 47,
+      "ProtoBuf.Meta": 13,
+      "ClientTools.Log": 1,
+      "TinhKiemAuto": 168,
+      "TinhKiemAuto.Properties": 2,
+      "TinhKiemAuto.Models": 29,
+      "TinhKiemAuto.CostumeControlner": 1,
+      "TinhKiemAuto.Controllers": 4,
+      "TinhKiemAuto.AutoControl": 11
+    },
+    "assemblies": [
+      {
+        "name": "ChickenAutoEx",
+        "version": "1.0.0.0"
+      }
+    ],
+    "references": [
+      {
+        "name": "mscorlib",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Windows.Forms",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Core",
+        "version": "3.5.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Drawing",
+        "version": "2.0.0.0",
+        "public_key_token": "b03f5f7f11d50a3a"
+      },
+      {
+        "name": "System.Xml",
+        "version": "2.0.0.0",
+        "public_key_token": "b77a5c561934e089"
+      },
+      {
+        "name": "System.Management",
+        "version": "2.0.0.0",
+        "public_key_token": "b03f5f7f11d50a3a"
+      },
+      {
+        "name": "Zen.Barcode.Core",
+        "version": "3.1.0.0",
+        "public_key_token": "b5ae55aa76d2d9de"
+      },
+      {
+        "name": "Newtonsoft.Json",
+        "version": "12.0.0.0",
+        "public_key_token": "30ad4fe6b2a6aeed"
+      }
+    ],
+    "resources": [
+      {
+        "name": "TinhKiemAuto.AutoEatItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.BoQua.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.Buff.resources",
+        "size": 34501,
+        "sha256": "af453a17b099051ed47ac0ff276bd28ef58c2eb8ac1176b67ea1e787bd714803"
+      },
+      {
+        "name": "TinhKiemAuto.CanhBao.resources",
+        "size": 10271,
+        "sha256": "07336d7c4f751fe63b908f3bf48cc6486f95cf3a2a14fd42b9d2ab0b53d6d871"
+      },
+      {
+        "name": "TinhKiemAuto.ChangeLogs.resources",
+        "size": 33246,
+        "sha256": "3e2e581a13219fb7e9e24de92cb6325543fc138d73d039d81f143916198a04ad"
+      },
+      {
+        "name": "TinhKiemAuto.Chat.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.CostumeControlner.AlarmVaoPhai.resources",
+        "size": 180,
+        "sha256": "a3237a994521c1904b0367691fdafc8b4b309371b845157bd149f27b53849d76"
+      },
+      {
+        "name": "TinhKiemAuto.Debug.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.DropItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.FrmMain.resources",
+        "size": 65399,
+        "sha256": "1c7edc8b42a7ab06c5791e5b29bf9e4db800ab61f4fed0a443ca2a5740ab2eed"
+      },
+      {
+        "name": "TinhKiemAuto.Games.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.HotKey.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ImageResource.resources",
+        "size": 46744,
+        "sha256": "4e04351380919307f1bf8e19b2cfff84504beaa7ebde298bd63fc52b6bf93bf9"
+      },
+      {
+        "name": "TinhKiemAuto.Properties.Resources.resources",
+        "size": 6624,
+        "sha256": "2568261352ec372c2b39e1d4d439739dc289fb2d3ac10523505b9521b08f9b51"
+      },
+      {
+        "name": "TinhKiemAuto.SellItem.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ShutDown.resources",
+        "size": 180,
+        "sha256": "a3237a994521c1904b0367691fdafc8b4b309371b845157bd149f27b53849d76"
+      },
+      {
+        "name": "TinhKiemAuto.ThietLapAuto.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.ThongQR.resources",
+        "size": 32604,
+        "sha256": "dce1d86561fc8eec78659e9e06acd54adef46929d65bf397d7588d653b1944fc"
+      },
+      {
+        "name": "TinhKiemAuto.MapPath.dat",
+        "size": 4609,
+        "sha256": "361c681f110be51cfb9c71f84526cf3c0153584e84a43e7461faf9fd6bf26250"
+      },
+      {
+        "name": "TinhKiemAuto.skillList.json",
+        "size": 564872,
+        "sha256": "423d00d017d3435f49c07bbc2c6b1705cfb65ad50dc272613799442e4e4fe418"
+      },
+      {
+        "name": "TinhKiemAuto.sdbai.json",
+        "size": 21805,
+        "sha256": "4c4db374f227d63717fe21f2ff6999ffc9e16827ff82817fe5b78c6163868145"
+      },
+      {
+        "name": "TinhKiemAuto.Newtonsoft.Json.dll",
+        "size": 494592,
+        "sha256": "c2386d0f4992c6bc97e93882ff57875e7ad3d1597d2fb68e05bad060b9f76894"
+      },
+      {
+        "name": "TinhKiemAuto.EasyHook.dll",
+        "size": 202240,
+        "sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79"
+      },
+      {
+        "name": "TinhKiemAuto.allmap.txt",
+        "size": 521,
+        "sha256": "9b8d9ee139dada1bf065cb92a614ffed12613a8e82cdaf25000bd1de59d39198"
+      },
+      {
+        "name": "TinhKiemAuto.PathList.txt",
+        "size": 23822,
+        "sha256": "76e2e28371aa4b6dddc4fb37d66cdaa94c0992225229481191248bb6d3a138c2"
+      },
+      {
+        "name": "TinhKiemAuto.Screen.txt",
+        "size": 1807,
+        "sha256": "68ef304f5c7784126921d066e543f51b4702ba49492beabc06942354e8e07268"
+      },
+      {
+        "name": "TinhKiemAuto.Scripts.xml",
+        "size": 55389,
+        "sha256": "0bc74cb06d820e4cb9331ef05f2bb833d164e1f16f0e2390172084174e786208"
+      }
+    ]
+  },
+  "com_descriptor": {
+    "rva": 0,
+    "size": 0
+  },
+  "sections_116": [
+    {
+      "name": ".text",
+      "file_offset": "0x400",
+      "rva": "0x1000",
+      "raw_size": 8529920
+    },
+    {
+      "name": ".rdata",
+      "file_offset": "0x822c00",
+      "rva": "0x824000",
+      "raw_size": 4742144
+    },
+    {
+      "name": ".data",
+      "file_offset": "0xca8800",
+      "rva": "0xcaa000",
+      "raw_size": 153600
+    },
+    {
+      "name": ".qtmetad",
+      "file_offset": "0xcce000",
+      "rva": "0xcdf000",
+      "raw_size": 512
+    },
+    {
+      "name": "_RDATA",
+      "file_offset": "0xcce200",
+      "rva": "0xce0000",
+      "raw_size": 512
+    },
+    {
+      "name": ".rsrc",
+      "file_offset": "0xcce400",
+      "rva": "0xce1000",
+      "raw_size": 34304
+    },
+    {
+      "name": ".reloc",
+      "file_offset": "0xcd6a00",
+      "rva": "0xcea000",
+      "raw_size": 295936
+    }
+  ],
+  "qt_version_string": {
+    "value": "5.7.1",
+    "file_offset": "0x99d768",
+    "matched": true
+  },
+  "qt_resources_116": [
+    {
+      "path": ":/res/languages/AutoTLBB_vi.qm",
+      "flags": 0,
+      "stored_size": 31755,
+      "decoded_size": 31755,
+      "sha256": "c2d05d4df0b0108e5a08e32878ba84e8e977b7cf22b6c23bc5929d4153371c06",
+      "file_offset": "0x87ada8",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/languages/AutoTLBB_en.qm",
+      "flags": 0,
+      "stored_size": 23,
+      "decoded_size": 23,
+      "sha256": "307cef95dd5b36ff215055d427e1885b7fc3650c9224cf76d63056545996ff60",
+      "file_offset": "0x87ad8d",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/logo.png",
+      "flags": 0,
+      "stored_size": 4058,
+      "decoded_size": 4058,
+      "sha256": "cd7067d483a7ee819bcde1ee754c274c64610b365269dea458a699f226267ebf",
+      "file_offset": "0x878614",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/location.png",
+      "flags": 0,
+      "stored_size": 1898,
+      "decoded_size": 1898,
+      "sha256": "8e956eafcbdaed68b811e191538aad047dcf257d96f6e4088091be029cb82daf",
+      "file_offset": "0x87a017",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/vietnam.png",
+      "flags": 0,
+      "stored_size": 335,
+      "decoded_size": 335,
+      "sha256": "61eb349d61968ec3f16bf320e816ddecc7a189b2207004b22beafd7b2d884eaf",
+      "file_offset": "0x879ec4",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/funnel.png",
+      "flags": 0,
+      "stored_size": 986,
+      "decoded_size": 986,
+      "sha256": "06a092b0e8ff9f9ea727d0251eeb9cbc351dd4c24aa15953148db3fd8db5c9d4",
+      "file_offset": "0x87a785",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/icons8-popup-window-48.png",
+      "flags": 0,
+      "stored_size": 771,
+      "decoded_size": 771,
+      "sha256": "15e1c489ae089a784ae06e4597bea3960656c7e120b1479c92bf52f7e908facb",
+      "file_offset": "0x8795f2",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/team-member.png",
+      "flags": 0,
+      "stored_size": 467,
+      "decoded_size": 467,
+      "sha256": "eb77038273c64af5154ecc451583d185cdf4dc19b076a9f6358a4d28bc8a8d8a",
+      "file_offset": "0x879b34",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/team-leader.png",
+      "flags": 0,
+      "stored_size": 567,
+      "decoded_size": 567,
+      "sha256": "ae32292feaf22b30e2f8d637dfc9aa96773892ffe547effef9dc05ddef312586",
+      "file_offset": "0x8798f9",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/united-states.png",
+      "flags": 0,
+      "stored_size": 550,
+      "decoded_size": 550,
+      "sha256": "ea894a9ba0d1ae1de6e7f38d0f9389149630c3b2d8db9ef87c03fd09f4078e13",
+      "file_offset": "0x87ab63",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/res/Resources/images/arrow-pointing-to-right.png",
+      "flags": 0,
+      "stored_size": 437,
+      "decoded_size": 437,
+      "sha256": "7b3459bc05902796a0f542d56a2fbb3d779b3ef1ced4f44170b6f517258dcb9d",
+      "file_offset": "0x879d0b",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/Resources/pk.wav",
+      "flags": 0,
+      "stored_size": 435722,
+      "decoded_size": 435722,
+      "sha256": "9360a991ef495893282b1cf8b18d5f93f67a3a9db6e5ffd336b85a3ec8bb1a49",
+      "file_offset": "0x8829b7",
+      "country": 0,
+      "language": 1
+    },
+    {
+      "path": ":/Resources/EasyHook.dll",
+      "flags": 0,
+      "stored_size": 583168,
+      "decoded_size": 583168,
+      "sha256": "f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef",
+      "file_offset": "0x8ecfc5",
+      "country": 0,
+      "language": 1
+    }
+  ],
+  "hook_116": {
+    "file": "EasyHook-116.dll",
+    "size": 583168,
+    "sha256": "f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef",
+    "machine": "0x14c",
+    "subsystem": 2,
+    "managed": false,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "KERNEL32.DLL",
+      "USER32.dll",
+      "WS2_32.dll"
+    ],
+    "exports": [
+      "GetMSG",
+      "SetHook",
+      "UnHook"
+    ]
+  },
+  "hook_107": {
+    "file": "EasyHook.dll",
+    "size": 202240,
+    "sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+    "machine": "0x14c",
+    "subsystem": 2,
+    "managed": false,
+    "authenticode_directory_size": 0,
+    "imports": [
+      "KERNEL32.DLL",
+      "USER32.dll",
+      "WS2_32.dll"
+    ],
+    "exports": [
+      "GetMSG",
+      "SetHook",
+      "UnHook"
+    ]
+  },
+  "hook_bytes_identical": false,
+  "qt_translation_count": 256,
+  "qt_translation_contexts": [
+    "BasicSettings",
+    "DebugMessageTextarea",
+    "GameInstanceListWidget",
+    "GameInstanceView",
+    "IgnoreMonsterListDialog",
+    "MainWindow",
+    "QAction",
+    "QObject",
+    "QuestSettings",
+    "SettingAutoDialog",
+    "SettingListPlayerGetLotusBuffHp",
+    "SkillSettings",
+    "ThrowTrashItemDialog",
+    "UtilitiesSettings",
+    "WorkerDetectGameInstance",
+    "WorkerUpdateUi",
+    "game_controllers::ShortcutKeysManager",
+    "others_ui::IgnoreMonsterListDialog",
+    "others_ui::SettingAutoDialog",
+    "others_ui::SettingListPlayerGetLotusBuffHp",
+    "others_ui::ThrowTrashItemDialog",
+    "setting_tabs::BasicSettings",
+    "setting_tabs::UtilitiesSettings"
+  ],
+  "ilspy_116_exit_code": 70,
+  "ilspy_116_expected_error": "PE file does not contain any managed metadata.",
+  "target_binaries_executed": false,
+  "windows_or_game_tests_run_by_analysis": false
+}
