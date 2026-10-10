@@ -274,7 +274,7 @@ namespace ChickenAutoEx.Startup.Tests
             public bool IsNguyenVong,IsLPMH,IsNhanh,IsDauCo,DaNhanHoaHong,DaNhanHoaChung,IsKhoang,IsDuoc,IsTrongTrot,IsThuHoach;
             public bool IsVanMay,IsLyHoa,IsNguHanhPhap,OkNhanDa,IsTueHong,IsChucPhuc,IsNhatHop,BachHoaDuyenCompleted,IsCauOThuoc,IsDead,IsCheDo,IsNotClear;
             public bool IsNhanQuaBuiHoaHong,IsNhanHoaHongLo,NhanQuaHoaHongCompleted,IsNhatHopall,IsChayVong,IsNhatHopQDua,IsQDua,QDuaCompleted,IsMoBang;
-            public void LuaDoOneLineString(string code){Commands.Add("Lua:"+code);} 
+            public void LuaDoOneLineString(string code){Commands.Add("Lua:"+code);}
             """;
     }
 }
