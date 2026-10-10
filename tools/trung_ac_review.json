@@ -1,0 +1,92 @@
+{
+  "scope": "Apply after v0.3 Thuy Lao/Ky Cuoc deltas; exact Trừng Ác engine/lifecycle/UI/login changes only. Runtime-sensitive tokens and paths remain legacy; no auth edits.",
+  "edits": [
+    {
+      "name": "trung_ac_lifecycle_property",
+      "original": "\t\tpublic bool IsTrungAc;",
+      "reviewed": "\t\tpublic bool IsTrungAc\n\t\t{\n\t\t\tget { return trungAcEnabled; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tlock (trungAcLock)\n\t\t\t\t{\n\t\t\t\t\tif (trungAcEnabled == value) return;\n\t\t\t\t\tif (!value)\n\t\t\t\t\t{\n\t\t\t\t\t\ttrungAcLoginOwner = trungAcOwner ?? (TLBB == null ? null : TLBB.Id);\n\t\t\t\t\t\ttrungAcLoginSuppressed = true;\n\t\t\t\t\t}\n\t\t\t\t\ttrungAcEnabled = value;\n\t\t\t\t\tResetTrungAcSession();\n\t\t\t\t}\n\t\t\t}\n\t\t}",
+      "count": 1
+    },
+    {
+      "name": "replace_trung_ac_engine",
+      "original": "\t\tpublic void TrungAc()\n\t\t{\n\t\t\tif (Global.Paused || TickCount % 12 != 0 || !IsTrungAc || TLBB.MapId == MAP.GiamNguc || ForcePickItem() || TLBB.PlayerState != 0)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State != STATE.Done && State != STATE.TalkToCompleteMission && State != STATE.MissionContinute && State != STATE.MissionComplete)\n\t\t\t{\n\t\t\t\tforeach (Task item in Task.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (item.Name.Contains(\"#{CXDT_090304_01}\") && item.Completed)\n\t\t\t\t\t{\n\t\t\t\t\t\tState = STATE.Done;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.HuyQ)\n\t\t\t{\n\t\t\t\tMessageboxSelfOkClicked();\n\t\t\t\tState = STATE.Null;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.Null || State == STATE.None)\n\t\t\t{\n\t\t\t\tforeach (PacketItem item2 in PacketItem.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (TINHKIEM.VietLien(item2.Name).Contains(\"trungaclenh\"))\n\t\t\t\t\t{\n\t\t\t\t\t\tPlayerPackageUseItem(item2.Index);\n\t\t\t\t\t\tState = STATE.GetInfo;\n\t\t\t\t\t\tIsHong = false;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.Null || State == STATE.Done)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != 1)\n\t\t\t\t{\n\t\t\t\t\tTimDuong(224f, 226f, 1);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (TINHKIEM.GetDistance(CharX, CharY, 224f, 226f) > 3f)\n\t\t\t\t{\n\t\t\t\t\tMove(224f, 226f);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t\tforeach (GameObject item3 in Objects.AllNpc)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (TINHKIEM.VietLien(item3.Name).Contains(\"ngogioi\"))\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tTalk(item3.Id);\n\t\t\t\t\t\t\tif (State == STATE.Null)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tState = STATE.TalkToAcceptMission;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tState = STATE.TalkToCompleteMission;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.None || State == STATE.CheckComplete)\n\t\t\t{\n\t\t\t\tforeach (PacketItem item4 in PacketItem.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (TINHKIEM.VietLien(item4.Name).Contains(\"trungaclenh\"))\n\t\t\t\t\t{\n\t\t\t\t\t\tPlayerPackageUseItem(item4.Index);\n\t\t\t\t\t\tState = STATE.GetInfo;\n\t\t\t\t\t\tIsHong = false;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif (State == STATE.CheckComplete && QuestFrame.All(this).Contains(\"#{CXDY_090423_01}\") && QuestFrame.All(this).Contains(\"#{CXDY_090423_02}\"))\n\t\t\t\t{\n\t\t\t\t\tIsXongTrungAc = true;\n\t\t\t\t\tIsTrungAc = false;\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (State == STATE.None)\n\t\t\t\t{\n\t\t\t\t\tIsHong = true;\n\t\t\t\t}\n\t\t\t\tif (TLBB.IsTogleMission)\n\t\t\t\t{\n\t\t\t\t\tTogleMission();\n\t\t\t\t\tPostMessage(30, 105);\n\t\t\t\t\tState = STATE.GetMissionInfo;\n\t\t\t\t\tLuaToString();\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tTogleMission();\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.TalkToAcceptMission)\n\t\t\t{\n\t\t\t\tforeach (QuestFrame item5 in QuestFrame.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (item5.Name == \"#{CXDT_090304_01}\")\n\t\t\t\t\t{\n\t\t\t\t\t\tQuestFrameOptionClicked(item5);\n\t\t\t\t\t\tState = STATE.CheckComplete;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.TalkToCompleteMission)\n\t\t\t{\n\t\t\t\tforeach (QuestFrame item6 in QuestFrame.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (item6.Name == \"#{CXDT_090304_01}\")\n\t\t\t\t\t{\n\t\t\t\t\t\tQuestFrameOptionClicked(item6);\n\t\t\t\t\t\tState = STATE.MissionContinute;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.MissionContinute)\n\t\t\t{\n\t\t\t\tPostMessage(14, 105);\n\t\t\t\tState = STATE.MissionComplete;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.MissionComplete)\n\t\t\t{\n\t\t\t\tQuestFrameMissionComplete();\n\t\t\t\tState = STATE.Null;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.GetInfo)\n\t\t\t{\n\t\t\t\tTrungAcInfo = QuestFrame.All(this);\n\t\t\t\tMissionMap = TINHKIEM.GetMapId(TrungAcInfo);\n\t\t\t\tint num = TrungAcInfo.IndexOf(\"[\");\n\t\t\t\tint length = TrungAcInfo.IndexOf(\"]\") - num;\n\t\t\t\tstring text = TrungAcInfo.Substring(num, length).Replace(\"[\", \"\");\n\t\t\t\tif (MissionMap != -1 && text.Split(',').Length != 0)\n\t\t\t\t{\n\t\t\t\t\tMissionX = TINHKIEM.ParseInt(text.Split(',')[0]);\n\t\t\t\t\tMissionY = TINHKIEM.ParseInt(text.Split(',')[1]);\n\t\t\t\t\tState = STATE.Do;\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.GetMissionInfo)\n\t\t\t{\n\t\t\t\tstring text2 = LuaString();\n\t\t\t\tif (text2 == \"Xong\")\n\t\t\t\t{\n\t\t\t\t\tState = STATE.Done;\n\t\t\t\t\tIsHong = false;\n\t\t\t\t\tIsXongTrungAc = false;\n\t\t\t\t}\n\t\t\t\telse if (text2 == \"Chua\")\n\t\t\t\t{\n\t\t\t\t\tState = STATE.Null;\n\t\t\t\t\tIsHong = false;\n\t\t\t\t\tIsXongTrungAc = false;\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tState = STATE.None;\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.Do)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != MissionMap)\n\t\t\t\t{\n\t\t\t\t\tTimDuong(MissionX, MissionY, MissionMap);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (TINHKIEM.GetDistance(CharX, CharY, MissionX, MissionY) > 3f)\n\t\t\t\t{\n\t\t\t\t\tMove(MissionX, MissionY);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (DaDenNoi(MissionX, MissionY, MissionMap))\n\t\t\t\t{\n\t\t\t\t\tState = STATE.Come;\n\t\t\t\t}\n\t\t\t\tcomeTime = Stopwatch.StartNew();\n\t\t\t\tdoneTime = null;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.TalkToXaPhu)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId == LACDUONG.Id)\n\t\t\t\t{\n\t\t\t\t\tExtra1 = 400956;\n\t\t\t\t}\n\t\t\t\telse if (TLBB.MapId == 1)\n\t\t\t\t{\n\t\t\t\t\tExtra1 = 400957;\n\t\t\t\t}\n\t\t\t\telse if (TLBB.MapId == 2)\n\t\t\t\t{\n\t\t\t\t\tExtra1 = 400958;\n\t\t\t\t}\n\t\t\t\telse if (TLBB.MapId == 246)\n\t\t\t\t{\n\t\t\t\t\tExtra1 = 400959;\n\t\t\t\t}\n\t\t\t\tQuestFrameOptionClicked(Extra1, TINHKIEM.GetTruyen(TrungAcInfo));\n\t\t\t\tState = STATE.DongY;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (State == STATE.DongY)\n\t\t\t{\n\t\t\t\tforeach (QuestFrame item7 in QuestFrame.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (TINHKIEM.VietLien(item7.Name).Contains(\"dongy\"))\n\t\t\t\t\t{\n\t\t\t\t\t\tQuestFrameOptionClicked(item7);\n\t\t\t\t\t\tState = STATE.Do;\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tif (State == STATE.Come)\n\t\t\t{\n\t\t\t\tif (!TrongPhamVi(MissionX, MissionY, MissionMap))\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tforeach (PacketItem item8 in PacketItem.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (TINHKIEM.VietLien(item8.Name).Contains(\"trungaclenh\"))\n\t\t\t\t\t{\n\t\t\t\t\t\tPlayerPackageUseItem(item8.Index);\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif (TLBB.MapId == MAP.ThaoNguyen)\n\t\t\t\t{\n\t\t\t\t\tForcePickItem();\n\t\t\t\t\t{\n\t\t\t\t\t\tforeach (GameObject item9 in Objects.Near20m)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tif (!(item9.Title != \"\") || item9.Menpai != 28)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tif (item9.HP > 0f)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tif (IsRide)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\tDownRide();\n\t\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tSelectTarget(item9.Id);\n\t\t\t\t\t\t\t\tSendKey(Global.BaseSkill);\n\t\t\t\t\t\t\t\tdoneTime = null;\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tif (doneTime == null)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tdoneTime = Stopwatch.StartNew();\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tif (TLBB.MapId <= 2 || doneTime.Elapsed.TotalSeconds > 10.0)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tcomeTime = null;\n\t\t\t\t\t\t\t\tState = STATE.Done;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tForcePickItem();\n\t\t\t\t{\n\t\t\t\t\tforeach (GameObject item10 in Objects.Near20m)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (item10.Menpai != 28 || TINHKIEM.NumDiff(item10.Lvl, TLBB.Lvl) > 5)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (item10.HP > 0f)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tif (IsRide)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tDownRide();\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tSelectTarget(item10.Id);\n\t\t\t\t\t\t\tSendKey(Global.BaseSkill);\n\t\t\t\t\t\t\tdoneTime = null;\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tif (doneTime == null)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tdoneTime = Stopwatch.StartNew();\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\tif (TLBB.MapId <= 2 || doneTime.Elapsed.TotalSeconds > 10.0)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tState = STATE.Done;\n\t\t\t\t\t\t\t\tcomeTime = null;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t\tState = STATE.Null;\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tprivate void QuestFrameMissionContinue()"
+    },
+    {
+      "name": "remove_ui_quest_abandon_side_effect",
+      "original": "\t\t\tif (comeTime != null && comeTime.Elapsed.TotalSeconds > 150.0)\n\t\t\t{\n\t\t\t\tIsHong = true;\n\t\t\t}\n\t\t\tif (IsHong && HongTrungAcTime == null)\n\t\t\t{\n\t\t\t\tHongTrungAcTime = Stopwatch.StartNew();\n\t\t\t}\n\t\t\tif (!IsHong)\n\t\t\t{\n\t\t\t\tHongTrungAcTime = null;\n\t\t\t}\n\t\t\tif (IsHong && HongTrungAcTime.Elapsed.TotalSeconds > 300.0)\n\t\t\t{\n\t\t\t\tLuaDoUnicodeString(\"local cnt = 0; while true do local name, content = DataPool:GetPlayerMission_Memo(cnt); if string.find(name, '#{CXDT_090304_01}') then DataPool:Mission_Abnegate_Popup(cnt,DataPool:GetPlayerMission_Memo(cnt)); end cnt = cnt + 1; if cnt == 20 then return end end\");\n\t\t\t\tState = STATE.HuyQ;\n\t\t\t\tHongTrungAcTime = null;\n\t\t\t\tIsHong = false;\n\t\t\t\tcomeTime = null;\n\t\t\t\treturn;\n\t\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\tif (TLBB.Disconnected)"
+    },
+    {
+      "name": "remove_unreachable_legacy_reset",
+      "original": "\t\t\tif (IsTrungAc)\n\t\t\t{\n\t\t\t\tState = STATE.Null;\n\t\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\t\t\tIsDauCo = false;"
+    },
+    {
+      "name": "cancel_trung_ac_on_clear_mission",
+      "original": "\t\tpublic void ClearMission()\n\t\t{\n",
+      "reviewed": "\t\tpublic void ClearMission()\n\t\t{\n\t\t\tIsTrungAc = false;\n",
+      "count": 1
+    },
+    {
+      "name": "cancel_trung_ac_on_auto_off",
+      "original": "\t\t\t\tIsKyCuoc = false;\n\t\t\t\treturn;",
+      "reviewed": "\t\t\t\tIsKyCuoc = false;\n\t\t\t\tIsTrungAc = false;\n\t\t\t\treturn;",
+      "count": 1
+    },
+    {
+      "name": "validate_trung_ac_before_dispatch",
+      "original": "\t\t\tCheckKyCuocSession();\n\t\t\tif (ON_SCENE_TRANSING",
+      "reviewed": "\t\t\tCheckTrungAcSession();\n\t\t\tCheckKyCuocSession();\n\t\t\tif (ON_SCENE_TRANSING",
+      "count": 1
+    },
+    {
+      "name": "calendar_waits_for_trung_ac",
+      "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc;",
+      "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc;",
+      "count": 1
+    }
+  ],
+  "form_edits": [
+    {
+      "name": "login_observes_reconnection",
+      "original": "if (item.IsTrungAc && game.TLBB.OnlineTimeSec < 60)",
+      "reviewed": "if (item.IsTrungAc)",
+      "count": 1
+    },
+    {
+      "name": "login_initializes_task_once",
+      "original": "\t\t\t\t\tgame.IsTrungAc = true;\n\t\t\t\t\tgame.IsBTDByLogin = true;",
+      "reviewed": "\t\t\t\t\tgame.StartTrungAcFromLogin();",
+      "count": 1
+    },
+    {
+      "name": "individual_trung_ac_menu_availability",
+      "original": "\t\t\tItemTrungAc.Enabled = available;",
+      "reviewed": "\t\t\tItemTrungAc.Enabled = selectedGame != null && selectedGame == CurGame && selectedGame.TLBB != null;",
+      "count": 1
+    },
+    {
+      "name": "individual_trung_ac_menu_checkmark",
+      "original": "\t\t\tItemTrungAc.Checked = available && leader.IsTrungAc;",
+      "reviewed": "\t\t\tItemTrungAc.Checked = selectedGame != null && selectedGame == CurGame && selectedGame.TLBB != null && selectedGame.IsTrungAc;",
+      "count": 1
+    },
+    {
+      "name": "individual_trung_ac_menu_handler",
+      "original": "\t\tprivate void ItemTrungAc_Click(object sender, EventArgs e)\n\t\t{\n\t\t\tif (!RequireDungeonContext(\"Lỗi Trừng Ác\", out Game selectedGame, out Game leader))\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tleader.IsTrungAc = !leader.IsTrungAc;\n\t\t\tUpdateDungeonMenu(selectedGame, leader);\n\t\t\tnotifyIcon1.ShowBalloonTip(2000, \"Thông Báo\", \"[\" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + \"]\" + (leader.IsTrungAc ? \" Bật \" : \" Tắt \") + \"Auto Trừng Ác\", ToolTipIcon.Info);\n\t\t}\n",
+      "reviewed": "\t\tprivate void ItemTrungAc_Click(object sender, EventArgs e)\n\t\t{\n\t\t\tGame selectedGame = CurGame;\n\t\t\tif (selectedGame == null || selectedGame.TLBB == null)\n\t\t\t{\n\t\t\t\tUpdateDungeonMenu(selectedGame, null);\n\t\t\t\tCanhBao.Msg(\"Lỗi Trừng Ác\", \"Cần chọn nhân vật có dữ liệu game\", CanhBao.Kieu.Eror);\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tselectedGame.IsTrungAc = !selectedGame.IsTrungAc;\n\t\t\tItemTrungAc.Checked = selectedGame.IsTrungAc;\n\t\t\tItemTrungAc.Enabled = true;\n\t\t\tnotifyIcon1.ShowBalloonTip(2000, \"Thông Báo\", \"[\" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + \"]\" + (selectedGame.IsTrungAc ? \" Bật \" : \" Tắt \") + \"Auto Trừng Ác\", ToolTipIcon.Info);\n\t\t}\n",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/TrungAc/Game.TrungAc.cs": "c61e86f3efdf8467e66865dfebd04c7b5f4efacbcf21466e28efde3b87998aff",
+    "src/ChickenAutoEx/TrungAc/Game.TrungAcParser.cs": "6e0b2eefbbf7b0441a016ca65ec05467a2b584d8b9dc35e0d42dc4423ad455a6"
+  }
+}

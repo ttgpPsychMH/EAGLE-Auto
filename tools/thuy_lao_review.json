@@ -70,6 +70,12 @@
       "original": "\t\tpublic bool IsThuyLao { get; set; }\n",
       "reviewed": "\t\tpublic bool IsThuyLao\n\t\t{\n\t\t\tget { return thuyLaoEnabled; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tif (thuyLaoEnabled != value) ResetThuyLaoProgress();\n\t\t\t\tthuyLaoEnabled = value;\n\t\t\t}\n\t\t}\n",
       "count": 1
+    },
+    {
+      "name": "reaudit_cancel_dispatch_without_generic_fallthrough",
+      "original": "\t\tpublic bool TrieuTap()\n\t\t{\n\t\t\tbool flag = false;\n\t\t\tforeach (Game item in Party)\n\t\t\t{\n",
+      "reviewed": "\t\tpublic bool TrieuTap()\n\t\t{\n\t\t\tbool flag = false;\n\t\t\tbool thuyLaoDispatch = IsThuyLao;\n\t\t\tforeach (Game item in Party.ToArray())\n\t\t\t{\n\t\t\t\tif (thuyLaoDispatch && !CanActThuyLao()) return flag;\n",
+      "count": 1
     }
   ],
   "additional_source_hashes_lf": {

@@ -1,6 +1,7 @@
 """Apply/reverse only reviewed Ky Cuoc and shared pet AOE deltas, after Thuy Lao."""
 import hashlib
 import json
+from dungeon_reaudit_review import baseline_partial
 from pathlib import Path
 
 
@@ -14,7 +15,7 @@ def apply_review(repo, text, reverse=False):
         assert text.count(before) == edit["count"], edit["name"]
         text = text.replace(before, after, edit["count"])
     for path, expected in review["additional_source_hashes_lf"].items():
-        assert hashlib.sha256((repo / path).read_text(encoding="utf-8").encode()).hexdigest() == expected, path
+        assert hashlib.sha256(baseline_partial(repo, path).encode()).hexdigest() == expected, path
     return text
 
 

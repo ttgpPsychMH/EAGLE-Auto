@@ -1,7 +1,7 @@
 {
   "base_commit": "2fc437a01aaa9ba3cebf58b90e03459b213c6967",
   "scope": "Reviewed presentation and versioned build naming. Keep legacy protocol version (107), CLR assembly version, mutex, native resources, recovered snapshot and entitlement/automation implementation. Assembly simple name and filename follow product version.",
-  "branding_constants_sha256_lf": "dc885597a19ff2c98032e6874925829a9a11d4470c936a22c21693252afa22c5",
+  "branding_constants_sha256_lf": "fa13fc0aa8444ffba0711d94f7bcda262f0e022879e40424162b7d07f8948a06",
   "source_edits": [
     {
       "path": "src/ChickenAutoEx/FrmMain.cs",

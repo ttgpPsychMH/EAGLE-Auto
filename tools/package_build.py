@@ -35,6 +35,8 @@ def main():
         archive.write(repo / "analysis/thuy-lao/REPORT.vi.md", "THUY-LAO-REVIEW.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-THUY-LAO-SIMULATION.vi.md", "THUY-LAO-SIMULATION.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-KY-CUOC-SIMULATION.vi.md", "KY-CUOC-SIMULATION.vi.md")
+        archive.write(repo / "docs/EAGLE-Auto-TRUNG-AC-SIMULATION.vi.md", "TRUNG-AC-SIMULATION.vi.md")
+        archive.write(repo / "docs/EAGLE-Auto-DUNGEON-REAUDIT.vi.md", "DUNGEON-REAUDIT.vi.md")
         archive.writestr("BUILD-INFO.json", json.dumps(verified, indent=2) + "\n")
         # Preserve available third-party package notices; do not claim licenses were relicensed.
         archive.write(repo / "docs/ChickenAutoEx-DEPENDENCIES.md", "DEPENDENCIES.md")

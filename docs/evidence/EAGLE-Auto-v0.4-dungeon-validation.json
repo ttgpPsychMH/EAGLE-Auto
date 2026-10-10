@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-10",
+  "timezone": "Asia/Bangkok",
+  "branch": "repair/eagle-auto-trung-ac",
+  "application_baseline_commit": "91a93f2",
+  "analysis_baseline_commit": "c9ca4eb",
+  "product_version": "0.4",
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "tests": {
+    "passed": 309,
+    "failed": 0,
+    "skipped": 0,
+    "classes": {
+      "DungeonMenuRegressionTests": 41,
+      "KyCuocSimulationTests": 78,
+      "ThuyLaoSimulationTests": 49,
+      "UpdateServiceTests": 37,
+      "TrungAcSimulationTests": 85,
+      "UiSettingsRegressionTests": 19
+    }
+  },
+  "controlled_baselines": {
+    "thuy-lao": {
+      "legacy_tests_executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+    },
+    "ky-cuoc": {
+      "legacy_tests_executed": 6,
+      "expected_behavioral_failures": 6,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "trung-ac": {
+      "legacy_tests_executed": 11,
+      "expected_behavioral_failures": 11,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "dungeon-reaudit": {
+      "legacy_tests_executed": 9,
+      "expected_behavioral_failures": 9,
+      "harness_errors": 0,
+      "scope": "Restored, hash-checked v0.3 partial methods with fake dependencies; original EXE/native DLL never loaded"
+    }
+  },
+  "verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_and_pet_aoe": true,
+    "reviewed_trung_ac_fixes": true,
+    "reviewed_three_dungeon_reaudit": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.4",
+    "product_version": {
+      "version": "0.4",
+      "display_version": "v0.4",
+      "file_version": "0.4.0.0",
+      "executable": "EAGLE-Auto-v0.4.exe",
+      "config": "EAGLE-Auto-v0.4.exe.config",
+      "zip_name": "EAGLE-Auto-v0.4-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.4-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.4.exe": "00d1aa871df7617ff866d72dd36c5dcbf422cfb156f7cb1ea046c58f5ed46351",
+      "EAGLE-Auto-v0.4.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "source_sha256_lf": {
+    "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": "1ff61a45fee1f37a727cb6aab1ee3467bd805d029a0ce6cc6a7062bf4e777c40",
+    "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": "1f9e889735b55aa689f1b0546bd396c61dfd30b787a894b4731c53eeb4eaf3be",
+    "src/ChickenAutoEx/TrungAc/Game.TrungAc.cs": "c61e86f3efdf8467e66865dfebd04c7b5f4efacbcf21466e28efde3b87998aff",
+    "src/ChickenAutoEx/TrungAc/Game.TrungAcParser.cs": "6e0b2eefbbf7b0441a016ca65ec05467a2b584d8b9dc35e0d42dc4423ad455a6",
+    "tools/dungeon_reaudit_review.json": "65ee07a3fd69ca1019b524d05640af851b4a7b32f714a626fce56065942d3aac",
+    "tools/trung_ac_review.json": "62d7ae31dfc6655de2af57543802dcf8b5875fd32429ebdb5a7987cf82838dd8"
+  }
+}

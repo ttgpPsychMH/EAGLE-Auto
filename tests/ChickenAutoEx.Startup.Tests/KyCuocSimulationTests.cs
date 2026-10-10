@@ -341,6 +341,23 @@ namespace ChickenAutoEx.Startup.Tests
         {
             g.TLBB.MapId=61;g.SetBoss(1);g.Step();g.SetBoss(0);g.Step();g.Commands.Clear();
         }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void GlobalPausePreventsKyCuocCommands()
+        { dynamic g=KyCuocHarness.Create();g.Pause(true);g.Step();Assert.Empty((List<string>)g.Commands); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void KyCuocDoesNotCommandMemberDoingTrungAc()
+        { dynamic g=KyCuocHarness.Create(),m=KyCuocHarness.Create();m.TLBB.IsLeader=false;m.IsTrungAc=true;g.Party.Add(m);g.Step();Assert.Empty((List<string>)m.Commands); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void DeadNineCancelsKyCuocBeforeCommands()
+        { dynamic g=KyCuocHarness.Create();g.TLBB.PlayerState=9;g.Step();Assert.False((bool)g.IsKyCuoc);Assert.Empty((List<string>)g.Commands); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void ChangedMemberIdentityCancelsKyCuoc()
+        { dynamic g=KyCuocHarness.Create(),m=KyCuocHarness.Create();m.TLBB.IsLeader=false;g.Party.Add(m);g.Step();m.TLBB.Id="different-character";g.Commands.Clear();m.Commands.Clear();g.Step();Assert.False((bool)g.IsKyCuoc);Assert.Empty((List<string>)m.Commands); }
+        [Fact] public void PausingKyCuocPreservesRemainingEntryTimeout()
+        { dynamic g=KyCuocHarness.Create();g.AtNpc=false;g.Step();g.Advance(10000);g.Pause(true);g.Step();g.Advance(200000);g.Step();g.Pause(false);g.Step();Assert.True((bool)g.IsKyCuoc);g.Advance(170001);g.Step();Assert.False((bool)g.IsKyCuoc); }
+        [Fact] public void InvalidBossHpDoesNotEstablishObservedLiveBoss()
+        { dynamic g=KyCuocHarness.Create();g.TLBB.MapId=61;g.SetBoss(float.PositiveInfinity);g.Step();g.SetBoss(0);g.Step();g.Advance(31000);g.Step();Assert.Equal("Patrol",(string)g.Phase);Assert.False((bool)g.Completed); }
+
     }
 
     internal static class KyCuocHarness
@@ -369,7 +386,7 @@ namespace ChickenAutoEx.Startup.Tests
                 +Fixture+"public partial class Game {"+Fields+methods+controls+"public void FinishTick(){"+completion+"} } }";
             var trees=new List<SyntaxTree>{CSharpSyntaxTree.ParseText(source)};
             if(!baseline)
-                foreach(string name in new[]{"Game.KyCuoc.cs","Game.PetAoe.cs"})
+                foreach(string name in new[]{(Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"KyCuoc-v03.cs":"Game.KyCuoc.cs"),"Game.PetAoe.cs"})
                     trees.Add(CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",name))
                         .Replace("using System.Diagnostics;","using Stopwatch= TinhKiemAuto.FakeStopwatch;")));
             var references=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Select(p=>MetadataReference.CreateFromFile(p));
@@ -403,7 +420,7 @@ namespace ChickenAutoEx.Startup.Tests
             }
             public class QuestFrame { public int StrOptionExtra1,StrOptionExtra2;
                 public static List<QuestFrame> Enum(Game g) { if(g.ThrowRead) throw new InvalidOperationException("SECRET-DO-NOT-LOG"); return g.Dialog; } }
-            public static class Global { public static bool UseSkillPet=true; }
+            public static class Global { public static bool UseSkillPet=true,Paused; }
             public static class TINHKIEM { public static float GetDistance(float x,float y,float a,float b)=>(float)Math.Sqrt((x-a)*(x-a)+(y-b)*(y-b)); }
             public static class CanhBao { public enum Kieu { Eror } public static List<string> Messages=new List<string>();
                 public static void Msg(string title,string message,Kieu kind){ Messages.Add(message); } }
@@ -418,7 +435,7 @@ namespace ChickenAutoEx.Startup.Tests
             public int PetSkill=674; public bool CancelOnGoto;
             public int MapAcTac,MapTKC,MoveIndex=-1; public float CharX,CharY,RoundX,RoundY;
             private bool IsXongKyCuoc; private Stopwatch ClearTime=Stopwatch.StartNew(); public Stopwatch BossDieTime=Stopwatch.StartNew(),tranTime=Stopwatch.StartNew();
-            public Game(){ TickCount=18; Global.UseSkillPet=true; FakeStopwatch.Now+=3000; IsKyCuoc=true; }
+            public Game(){ TickCount=18; Global.UseSkillPet=true; Global.Paused=false; FakeStopwatch.Now+=3000; IsKyCuoc=true; }
             public bool Completed { get=>IsXongKyCuoc; set=>IsXongKyCuoc=value; }
             public List<string> Notices=>CanhBao.Messages;
             public void Step()=>DatDoiKyCuoc(); public void Advance(long ms){FakeStopwatch.Now+=ms;} public void SetTick(int tick){TickCount=tick;}
@@ -445,6 +462,7 @@ namespace ChickenAutoEx.Startup.Tests
             public void CloseQuest(){Commands.Add("CloseQuest");} public void PushDebugMessage(string m){Commands.Add("Debug:"+m);}
             public int SkillPetId(string type)=>PetSkill;
             public GameObject MakeObject(float x,float y,float hp)=>new GameObject{X=x,Y=y,HP=hp};
+            public void Pause(bool pause){Global.Paused=pause;}
             public void DisablePet(){Global.UseSkillPet=false;}
             public void UseSkillPet(int id,float x,float y){Commands.Add($"Pet:{id}:{x}:{y}");}
             """;

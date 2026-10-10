@@ -12,6 +12,16 @@ namespace TinhKiemAuto
         private KyCuocState kyCuocLeader;
         private readonly Dictionary<Game, KyCuocState> kyCuocMembers = new Dictionary<Game, KyCuocState>();
         private string kyCuocTeam;
+        private long kyCuocPausedAt = -1, kyCuocPauseOffset;
+        private long KyCuocNow { get { return kyCuocClock.ElapsedMilliseconds - kyCuocPauseOffset; } }
+        private void ObserveKyCuocPause()
+        {
+            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || (TLBB != null && TLBB.PlayerState == 7);
+            long raw = kyCuocClock.ElapsedMilliseconds;
+            if (pause && kyCuocPausedAt < 0) kyCuocPausedAt = raw;
+            if (!pause && kyCuocPausedAt >= 0)
+            { kyCuocPauseOffset += raw - kyCuocPausedAt; kyCuocPausedAt = -1; }
+        }
         private KyCuocPhase kyCuocPhase;
         private long kyCuocBossDeadAt = -1;
         private const long KyCuocDialogTimeout = 60000, KyCuocTravelTimeout = 180000;
@@ -21,6 +31,7 @@ namespace TinhKiemAuto
         private sealed class KyCuocState
         {
             internal int Map = -1, RouteIndex;
+            internal string CharacterId;
             internal bool Selected, TalkSent, Exited, Reanchor = true;
             internal readonly bool[] Visited = new bool[6];
             internal readonly HashSet<int> LiveBossIds = new HashSet<int>();
@@ -33,6 +44,8 @@ namespace TinhKiemAuto
             kyCuocLeader = null;
             kyCuocMembers.Clear();
             kyCuocTeam = null;
+            kyCuocPausedAt = -1;
+            kyCuocPauseOffset = 0;
             kyCuocBossDeadAt = -1;
             kyCuocPhase = KyCuocPhase.Entry;
             IsXongKyCuoc = false;
@@ -41,7 +54,7 @@ namespace TinhKiemAuto
         private void InitializeKyCuocSession()
         {
             if (kyCuocLeader != null) return;
-            long now = kyCuocClock.ElapsedMilliseconds;
+            long now = KyCuocNow;
             kyCuocLeader = new KyCuocState { Started = now, ClearAt = now, ProgressAt = now };
             kyCuocTeam = TLBB == null ? null : TLBB.KeyId;
         }
@@ -56,10 +69,11 @@ namespace TinhKiemAuto
         private bool CanControlKyCuoc(Game participant)
         {
             if (!IsKyCuoc || !IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader
-                || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || TLBB.PlayerState == 7
+                || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || TLBB.PlayerState == 7 || TLBB.PlayerState == 9 || Global.Paused
                 || ON_SCENE_TRANSING || IsChangeMap) return false;
             if (participant == null || !participant.IsAuto || !participant.IsInit || participant.TLBB == null || !participant.TLBB.Online
-                || participant.TLBB.PlayerState == 2 || participant.TLBB.PlayerState == 7
+                || participant.TLBB.PlayerState == 2 || participant.TLBB.PlayerState == 7 || participant.TLBB.PlayerState == 9
+                || participant.IsTrungAc || participant.IsThuyLao
                 || participant.ON_SCENE_TRANSING || participant.IsChangeMap) return false;
             if (participant != this && participant.tranTime.Elapsed.TotalSeconds < 2.0) return false;
             return participant == this || (!participant.TLBB.IsLeader && participant.TLBB.KeyId == TLBB.Id);
@@ -74,8 +88,9 @@ namespace TinhKiemAuto
                 try
                 {
                     InitializeKyCuocSession();
+                    ObserveKyCuocPause();
                     if (!IsAuto || TLBB == null || !TLBB.Online || !TLBB.IsLeader
-                        || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || !IsInit)
+                        || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || TLBB.PlayerState == 9 || !IsInit)
                     { StopKyCuoc(null); return; }
                     if (IsThuyLao || IsAcBa || IsLauLanTamBao || IsTrungAc || MapAcTac != 0 || MapTKC != 0
                         || IsQ123LauLan || IsQ123ToChau || IsYenTuO || IsPhungHoangLangMo || IsPMP || IsTuBaoBon)
@@ -93,22 +108,25 @@ namespace TinhKiemAuto
                 || participant.TLBB.MapId != MAP.TranLongKyCuoc) return;
             foreach (GameObject obj in participant.Objects.All)
             {
-                if (obj == null || obj.IsNPC || obj.CleanName != "viencokyhon") continue;
+                if (obj == null || obj.IsNPC || obj.CleanName != "viencokyhon" || float.IsInfinity(obj.HP) || float.IsNaN(obj.HP)) continue;
                 if (obj.HP > 0f) state.LiveBossIds.Add(obj.Id);
                 else if (obj.HP == 0f && state.LiveBossIds.Contains(obj.Id))
-                { kyCuocBossDeadAt = kyCuocClock.ElapsedMilliseconds; break; }
+                { kyCuocBossDeadAt = KyCuocNow; break; }
             }
         }
 
         private bool KyCuocTimeout(KyCuocState state, long milliseconds, string step)
         {
-            if (kyCuocClock.ElapsedMilliseconds - state.Started < milliseconds) return false;
+            if (KyCuocNow - state.Started < milliseconds) return false;
             StopKyCuoc("hết thời gian chờ " + step + ".");
             return true;
         }
 
         private bool ObserveKyCuocMap(Game participant, KyCuocState state)
         {
+            if (state.CharacterId == null) state.CharacterId = participant.TLBB.Id;
+            if (state.CharacterId != participant.TLBB.Id)
+            { StopKyCuoc("nhân vật trong đội đã thay đổi."); return false; }
             int map = participant.TLBB.MapId;
             if (state.Map == map) return true;
             if (kyCuocPhase == KyCuocPhase.Exit && state.Selected && map != MAP.TranLongKyCuoc)
@@ -122,7 +140,7 @@ namespace TinhKiemAuto
             if (map == MAP.TranLongKyCuoc && kyCuocPhase == KyCuocPhase.Entry)
             {
                 state.Selected = state.TalkSent = false;
-                state.Started = state.ClearAt = state.ProgressAt = kyCuocClock.ElapsedMilliseconds;
+                state.Started = state.ClearAt = state.ProgressAt = KyCuocNow;
                 state.Reanchor = true;
             }
             else if (!state.Selected) state.TalkSent = false;
@@ -153,7 +171,7 @@ namespace TinhKiemAuto
                     if (!CanControlKyCuoc(participant)) return false;
                     participant.QuestFrameOptionClicked(option, extra);
                     state.Selected = true;
-                    state.Started = kyCuocClock.ElapsedMilliseconds;
+                    state.Started = KyCuocNow;
                     if (CanControlKyCuoc(participant)) participant.CloseQuest();
                     return true;
                 }
@@ -177,7 +195,7 @@ namespace TinhKiemAuto
         private void PatrolKyCuoc()
         {
             KyCuocState state = kyCuocLeader;
-            long now = kyCuocClock.ElapsedMilliseconds;
+            long now = KyCuocNow;
             if (now - state.ClearAt < KyCuocClearWait) return;
             if (state.Reanchor)
             {
@@ -231,7 +249,7 @@ namespace TinhKiemAuto
                         if (!kyCuocMembers.ContainsKey(member))
                         {
                             if (kyCuocPhase == KyCuocPhase.Exit) { StopKyCuoc("đội thay đổi trong bước ra cửa."); return; }
-                            long now = kyCuocClock.ElapsedMilliseconds;
+                            long now = KyCuocNow;
                             kyCuocMembers.Add(member, new KyCuocState { Started = now, ClearAt = now, ProgressAt = now });
                         }
                     }
@@ -253,7 +271,7 @@ namespace TinhKiemAuto
                         if (!CanControlKyCuoc(participant))
                         {
                             ready = false;
-                            long now = kyCuocClock.ElapsedMilliseconds;
+                            long now = KyCuocNow;
                             if (state.UnavailableAt < 0) state.UnavailableAt = now;
                             if (now - state.UnavailableAt >= KyCuocTravelTimeout)
                             { StopKyCuoc("hết thời gian chờ thành viên sẵn sàng."); return; }
@@ -275,11 +293,11 @@ namespace TinhKiemAuto
                     if (!ready || !IsKyCuoc) return;
                     if (combat)
                     {
-                        kyCuocLeader.ClearAt = kyCuocLeader.ProgressAt = kyCuocClock.ElapsedMilliseconds;
+                        kyCuocLeader.ClearAt = kyCuocLeader.ProgressAt = KyCuocNow;
                         kyCuocLeader.Reanchor = true;
                         return;
                     }
-                    if (loot) { kyCuocLeader.ProgressAt = kyCuocClock.ElapsedMilliseconds; return; }
+                    if (loot) { kyCuocLeader.ProgressAt = KyCuocNow; return; }
                     if (kyCuocPhase == KyCuocPhase.Entry)
                     {
                         bool allInside = true, atDoor = true;
@@ -308,15 +326,15 @@ namespace TinhKiemAuto
                         kyCuocPhase = KyCuocPhase.WaitingExit;
                     if (kyCuocPhase == KyCuocPhase.WaitingExit)
                     {
-                        if (kyCuocClock.ElapsedMilliseconds - kyCuocLeader.ClearAt < KyCuocClearWait) return;
-                        long elapsed = kyCuocClock.ElapsedMilliseconds - kyCuocBossDeadAt;
+                        if (KyCuocNow - kyCuocLeader.ClearAt < KyCuocClearWait) return;
+                        long elapsed = KyCuocNow - kyCuocBossDeadAt;
                         if (elapsed < KyCuocExitWait)
                         { PushDebugMessage("Di chuyển sau " + Math.Max(0, (KyCuocExitWait - elapsed + 999) / 1000) + "s"); return; }
                         kyCuocPhase = KyCuocPhase.Exit;
                         foreach (Game participant in participants)
                         {
                             KyCuocState state = participant == this ? kyCuocLeader : kyCuocMembers[participant];
-                            state.Started = kyCuocClock.ElapsedMilliseconds;
+                            state.Started = KyCuocNow;
                             state.Selected = state.TalkSent = false;
                         }
                     }

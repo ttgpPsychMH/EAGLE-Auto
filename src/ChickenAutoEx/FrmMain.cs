@@ -2880,10 +2880,9 @@ namespace TinhKiemAuto
 						game.IsNhanMam = true;
 					}
 				}
-				if (item.IsTrungAc && game.TLBB.OnlineTimeSec < 60)
+				if (item.IsTrungAc)
 				{
-					game.IsTrungAc = true;
-					game.IsBTDByLogin = true;
+					game.StartTrungAcFromLogin();
 				}
 				if (item.IsCaptcha && !game.TLBB.IsLogon)
 				{
@@ -4155,13 +4154,13 @@ namespace TinhKiemAuto
 			ItemLauLan.Enabled = available;
 			itemTranLongKyCuoc.Enabled = available;
 			ItemThuyLao.Enabled = available;
-			ItemTrungAc.Enabled = available;
+			ItemTrungAc.Enabled = selectedGame != null && selectedGame == CurGame && selectedGame.TLBB != null;
 			menuactac.Checked = false;
 			ItemAcBa.Checked = available && leader.IsAcBa;
 			ItemLauLan.Checked = available && leader.IsLauLanTamBao;
 			itemTranLongKyCuoc.Checked = available && leader.IsKyCuoc;
 			ItemThuyLao.Checked = available && leader.IsThuyLao;
-			ItemTrungAc.Checked = available && leader.IsTrungAc;
+			ItemTrungAc.Checked = selectedGame != null && selectedGame == CurGame && selectedGame.TLBB != null && selectedGame.IsTrungAc;
 			UnCheckAllAcTac();
 			if (available)
 			{
@@ -4305,13 +4304,17 @@ namespace TinhKiemAuto
 
 		private void ItemTrungAc_Click(object sender, EventArgs e)
 		{
-			if (!RequireDungeonContext("Lỗi Trừng Ác", out Game selectedGame, out Game leader))
+			Game selectedGame = CurGame;
+			if (selectedGame == null || selectedGame.TLBB == null)
 			{
+				UpdateDungeonMenu(selectedGame, null);
+				CanhBao.Msg("Lỗi Trừng Ác", "Cần chọn nhân vật có dữ liệu game", CanhBao.Kieu.Eror);
 				return;
 			}
-			leader.IsTrungAc = !leader.IsTrungAc;
-			UpdateDungeonMenu(selectedGame, leader);
-			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (leader.IsTrungAc ? " Bật " : " Tắt ") + "Auto Trừng Ác", ToolTipIcon.Info);
+			selectedGame.IsTrungAc = !selectedGame.IsTrungAc;
+			ItemTrungAc.Checked = selectedGame.IsTrungAc;
+			ItemTrungAc.Enabled = true;
+			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (selectedGame.IsTrungAc ? " Bật " : " Tắt ") + "Auto Trừng Ác", ToolTipIcon.Info);
 		}
 
 		private void chươngTrìnhToolStripMenuItem_Click(object sender, EventArgs e)

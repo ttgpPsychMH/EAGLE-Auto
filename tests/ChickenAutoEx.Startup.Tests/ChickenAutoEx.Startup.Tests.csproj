@@ -6,6 +6,11 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="../../.build/dungeon-reaudit/*-v03.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/trung-ac/ReviewedGame.cs" Link="RegressionSources/TrungAcReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/STATE.cs" Link="RegressionSources/STATE.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/FrmMain.cs" Link="RegressionSources/LegacyFrmMain.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/TrungAc/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs" Link="RegressionSources/LegacyGame.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/thuy-lao/ReviewedGame.cs" Link="RegressionSources/ReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../.build/thuy-lao/ReviewedGame.cs')" />
     <None Include="../../src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs" Link="RegressionSources/Game.ThuyLao.cs" CopyToOutputDirectory="PreserveNewest" Condition="Exists('../../src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs')" />

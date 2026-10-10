@@ -72,7 +72,7 @@ namespace ChickenAutoEx.Startup.Tests
                 case "leaderchanged": g.TLBB.IsLeader=false; break;
                 case "nullmetadata": g.TLBB=null; break;
             }
-            g.DatDoiThuyLao(); Assert.False((bool)g.IsThuyLao); Assert.Empty((List<string>)g.Commands);
+            g.DatDoiThuyLao(); Assert.Equal(condition=="transition"||condition=="mapchange",(bool)g.IsThuyLao); Assert.Empty((List<string>)g.Commands);
         }
 
         [Fact] public void DisabledModuleDoesNotAffectOtherQuestFlags()
@@ -239,6 +239,28 @@ namespace ChickenAutoEx.Startup.Tests
             Assert.True(summoned); Assert.Equal(new[]{"GotoMap:4"},(List<string>)member.Commands);
         }
 
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void GlobalPausePreventsThuyLaoCommands()
+        { dynamic g=ThuyLaoHarness.Create();g.Pause(true);g.ReceiveQuest();Assert.Empty((List<string>)g.Commands); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void UninitializedThuyLaoPreventsCommands()
+        { dynamic g=ThuyLaoHarness.Create();g.IsInit=false;g.ReceiveQuest();Assert.Empty((List<string>)g.Commands); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void DisableDuringNpcGotoPreventsThuyLaoSelection()
+        { dynamic g=ThuyLaoHarness.Create();PrepareReceive(g);g.CancelOnGoto=true;g.ReceiveQuest();Assert.DoesNotContain((List<string>)g.Commands,c=>c.StartsWith("Select:")); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void ParentDisabledDuringMemberGotoPreventsSelection()
+        { dynamic g=ThuyLaoHarness.Create(),m=ThuyLaoHarness.Create();m.TLBB.IsLeader=false;PrepareReceive(m);m.CancelController=g;g.Party.Add(m);g.DatDoiThuyLao();Assert.DoesNotContain((List<string>)m.Commands,c=>c.StartsWith("Select:")); }
+        [Fact, Trait("DungeonReauditBaseline", "yes")]
+        public void ThuyLaoDoesNotCommandMemberDoingTrungAc()
+        { dynamic g=ThuyLaoHarness.Create(),m=ThuyLaoHarness.Create();m.TLBB.IsLeader=false;m.IsTrungAc=true;g.Party.Add(m);g.DatDoiThuyLao();Assert.Empty((List<string>)m.Commands); }
+        [Fact] public void DelegatedMemberDoesNotNeedOwnModuleToggle()
+        { dynamic g=ThuyLaoHarness.Create(),m=ThuyLaoHarness.Create();m.TLBB.IsLeader=false;m.IsThuyLao=false;g.Party.Add(m);g.DatDoiThuyLao();Assert.Contains("Post:18:105",(List<string>)m.Commands); }
+        [Fact] public void PausingThuyLaoPreservesRemainingStepTimeout()
+        { dynamic g=ThuyLaoHarness.Create();g.ReceiveQuest();g.AdvanceClock(10000);g.Pause(true);g.DatDoiThuyLao();g.AdvanceClock(200000);g.DatDoiThuyLao();g.Pause(false);g.DatDoiThuyLao();Assert.True((bool)g.IsThuyLao);g.AdvanceClock(50001);g.DatDoiThuyLao();Assert.False((bool)g.IsThuyLao); }
+        [Fact] public void DisabledThuyLaoMemberDispatcherDoesNotFallThroughToGenericSummon()
+        { dynamic g=ThuyLaoHarness.Create(),m=ThuyLaoHarness.Create(),n=ThuyLaoHarness.Create();m.TLBB.IsLeader=n.TLBB.IsLeader=false;PrepareReceive(m);m.CancelController=g;g.Party.Add(m);g.Party.Add(n);g.TrieuTap();Assert.Empty((List<string>)n.Commands); }
+
         private static void PrepareReceive(dynamic g)
         {
             g.ReceiveQuest(); g.TLBB.IsTogleMission=true; g.ReceiveQuest(); g.ReceiveQuest();
@@ -269,7 +291,7 @@ namespace ChickenAutoEx.Startup.Tests
             var trees = new List<SyntaxTree> { CSharpSyntaxTree.ParseText(source) };
             if (!baseline)
             {
-                string repair = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", "Game.ThuyLao.cs"));
+                string repair = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", (Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"ThuyLao-v03.cs":"Game.ThuyLao.cs")));
                 trees.Add(CSharpSyntaxTree.ParseText(repair.Replace("using System.Diagnostics;", "using Stopwatch = TinhKiemAuto.FakeStopwatch;")));
             }
             var references = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator)
@@ -281,6 +303,7 @@ namespace ChickenAutoEx.Startup.Tests
             return System.Reflection.Assembly.Load(output.ToArray());
         }
         private const string Fixture = """
+            public static class Global { public static bool Paused; }
             public class FakeStopwatch {
                 public static long Now; private long start=Now;
                 public static FakeStopwatch StartNew() => new FakeStopwatch();
@@ -323,15 +346,15 @@ namespace ChickenAutoEx.Startup.Tests
             public static int TickCount=18;
             public TLBB TLBB=new TLBB(); public ObjectsFixture Objects=new ObjectsFixture(); public List<Game> Party=new List<Game>();
             public List<Task> Tasks=new List<Task>(); public List<QuestFrame> Dialog=new List<QuestFrame>();
-            public List<string> Commands=new List<string>(); public bool ThrowRead,AtNpc=true,Loot;
-            public bool IsAuto=true,IsRide,ON_SCENE_TRANSING,IsChangeMap,IsKyCuoc,IsTrieuTap,IsTheoQ;
+            public List<string> Commands=new List<string>(); public bool ThrowRead,AtNpc=true,Loot,CancelOnGoto; public Game CancelController;
+            public bool IsAuto=true,IsInit=true,IsTrungAc,IsRide,ON_SCENE_TRANSING,IsChangeMap,IsKyCuoc,IsTrieuTap,IsTheoQ;
             public bool IsQ123ToChau,IsYenTuO,IsBossDie,IsNhamBinhSinhDie,IsMapAcBa,IsQ123LauLan,IsP,TraQ,NhanQ,IsClick,IsContinute;
             public bool IsTuBaoBon,IsLuyenKim,IsHuyetChien,IsPMP,IsLauLanTamBao,IsPhungHoangLangMo,IsAcBa;
             public int MapTKC,MapAcTac,MoveIndex=-1; public float CharX,CharY,RoundX,RoundY;
             private bool DaNhanThuyLao,IsXongThuyLao; private string TrangThaiThuyLao="";
             private Stopwatch ClearTime=Stopwatch.StartNew();
             public FakeStopwatch tranTime=FakeStopwatch.StartNew();
-            public Game() { FakeStopwatch.Now+=3000; IsThuyLao=true; }
+            public Game() { Global.Paused=false; FakeStopwatch.Now+=3000; IsThuyLao=true; }
             public bool Receive { get=>DaNhanThuyLao; set=>DaNhanThuyLao=value; }
             public int TaskReads;
             public List<string> Notices=>CanhBao.Messages;
@@ -341,10 +364,11 @@ namespace ChickenAutoEx.Startup.Tests
             public bool Completed=>IsXongThuyLao;
             public string ReceiveStage=>TrangThaiThuyLao;
             public void Enter()=>DiThuyLao(); public void ReceiveQuest()=>NhanThuyLao();
+            public void Pause(bool pause) {Global.Paused=pause;}
             public void AdvanceClock(long ms) { FakeStopwatch.Now+=ms; }
             public void MoveNext() { MoveNext(new int[,] {{71,41},{107,40},{41,50}}); }
             public void TimDuong(float x,float y,int map) { Commands.Add($"Route:{map}:{x}:{y}"); }
-            public bool GoTo(NPC n) { Commands.Add($"GotoNpc:{n.Map}:{n.Id}"); return AtNpc; }
+            public bool GoTo(NPC n) { Commands.Add($"GotoNpc:{n.Map}:{n.Id}"); if(CancelOnGoto)IsThuyLao=false; if(CancelController!=null)CancelController.IsThuyLao=false; return AtNpc; }
             public bool GoTo(float x,float y) { Commands.Add("GotoPosition"); return true; }
             public bool GoTo(float x,float y,int map) { Commands.Add("GotoMap:"+map); return true; }
             public void Move(float x,float y) { Commands.Add("Move"); }

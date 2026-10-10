@@ -1,6 +1,6 @@
 <Project>
   <!-- Change this one value for the next product release. Do not change Global.Version (107). -->
   <PropertyGroup>
-    <EagleAutoVersion Condition="'$(EagleAutoVersion)' == ''">0.3</EagleAutoVersion>
+    <EagleAutoVersion Condition="'$(EagleAutoVersion)' == ''">0.4</EagleAutoVersion>
   </PropertyGroup>
 </Project>

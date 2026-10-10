@@ -146,6 +146,8 @@ def main():
                 review = apply_review(repo, review)
                 from ky_cuoc_review import apply_review as ky_cuoc
                 review = ky_cuoc(repo, review)
+                from trung_ac_review import apply_review as trung_ac
+                review = trung_ac(repo, review)
             path = hydrated / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(review)
@@ -171,6 +173,13 @@ def main():
     write_regression_source(repo)
     from ky_cuoc_review import write_regression_source as write_ky_cuoc
     write_ky_cuoc(repo)
+    from trung_ac_review import write_regression_source as write_trung_ac
+    write_trung_ac(repo)
+    from dungeon_reaudit_review import baseline_partial
+    for module in ("ThuyLao", "KyCuoc"):
+        (repo / (".build/dungeon-reaudit/" + module + "-v03.cs")).parent.mkdir(parents=True, exist_ok=True)
+        (repo / (".build/dungeon-reaudit/" + module + "-v03.cs")).write_text(
+            baseline_partial(repo, "src/ChickenAutoEx/" + module + "/Game." + module + ".cs"), encoding="utf-8")
     print("Prepared 27 embedded resources, icon and four hydrated source files; originals unchanged.")
     print("Generated key material is confined to ignored .build; no release executable was run.")
 

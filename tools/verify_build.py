@@ -58,6 +58,9 @@ def verify_branding(repo):
         for edit in entry["edits"]:
             assert text.count(edit["reviewed"]) == edit["count"], entry["path"]
             text = text.replace(edit["reviewed"], edit["original"])
+        if entry["path"] == "src/ChickenAutoEx/FrmMain.cs":
+            from trung_ac_review import apply_review as trung_ac
+            text = trung_ac(repo, text, reverse=True, form=True)
         assert hashlib.sha256(text.encode()).hexdigest() == entry["original_sha256_lf"], entry["path"]
         restored[entry["path"]] = text
     constants = (repo / "src/ChickenAutoEx/AppBranding.cs").read_text(encoding="utf-8")
@@ -104,6 +107,7 @@ def main():
     branding_restored = verify_branding(repo)
     original_form = (baseline / "TinhKiemAuto/FrmMain.cs").read_text()
     current_form = branding_restored["src/ChickenAutoEx/FrmMain.cs"]
+    from trung_ac_review import apply_review as trung_ac
     # Reverse exactly the two reviewed UI/config fixes before comparing the legacy tail.
     # Keep every other handler, automation branch and entitlement condition protected.
     mp_fix = "CurGame.IsMP = checkrengenmp.Checked;"
@@ -156,6 +160,7 @@ def main():
         if relative.endswith("/Game.cs"):
             from thuy_lao_review import apply_review
             from ky_cuoc_review import apply_review as ky_cuoc
+            redacted = trung_ac(repo, redacted, reverse=True)
             redacted = ky_cuoc(repo, redacted, reverse=True)
             redacted = apply_review(repo, redacted, reverse=True)
         assert count == expected and redacted == (baseline / relative).read_text(), relative
@@ -164,7 +169,9 @@ def main():
         "framework": "net48", "architecture": "x86", "embedded_resources": len(resources),
         "unchanged_original_resources": 26, "json_assembly_version": 13,
         "original_release_files_unchanged": True, "entitlement_source_preserved": True,
-        "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_and_pet_aoe": True,
+        "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_and_pet_aoe": True,
+        "reviewed_trung_ac_fixes": True,
+        "reviewed_three_dungeon_reaudit": True,
         "reviewed_ky_cuoc_fixes": True, "reviewed_pet_aoe_fix": True,
         "reviewed_thuy_lao_fixes": True,
         "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
@@ -177,7 +184,7 @@ def main():
                       (product["executable"], product["config"], "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
     }
     (repo / ".build/chickenautoex/verified.json").write_text(json.dumps(result, indent=2) + "\n")
-    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/pet AOE deltas.")
+    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/Trung Ac/pet AOE deltas.")
     print("This is static build verification, not a Windows runtime test.")
 
 

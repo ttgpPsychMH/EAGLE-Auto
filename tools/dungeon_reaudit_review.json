@@ -1,0 +1,205 @@
+{
+  "scope": "Narrow v0.4 re-audit deltas against v0.3 partials; legacy route/NPC/option constants unchanged.",
+  "partials": {
+    "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": {
+      "baseline_sha256_lf": "f659a71c53edb36222faa6855acb4f4870191870effbf3ce7b92cc2050035e0a",
+      "reviewed_sha256_lf": "1f9e889735b55aa689f1b0546bd396c61dfd30b787a894b4731c53eeb4eaf3be",
+      "edits": [
+        {
+          "name": "session_control_and_pause_clock",
+          "original": "        private bool CanActThuyLao()\n        {\n            return !thuyLaoBlocked && IsAuto && TLBB != null && TLBB.Online\n                && TLBB.PlayerState != 2 && TLBB.PlayerState != 7 && !ON_SCENE_TRANSING && !IsChangeMap;\n        }",
+          "reviewed": "        private Game thuyLaoController;\n        private string thuyLaoOwner;\n        private long thuyLaoPausedAt = -1, thuyLaoPauseOffset;\n        private long ThuyLaoNow { get { return thuyLaoClock.ElapsedMilliseconds - thuyLaoPauseOffset; } }\n\n        private void ObserveThuyLaoPause()\n        {\n            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || (TLBB != null && TLBB.PlayerState == 7);\n            long raw = thuyLaoClock.ElapsedMilliseconds;\n            if (pause && thuyLaoPausedAt < 0) thuyLaoPausedAt = raw;\n            if (!pause && thuyLaoPausedAt >= 0)\n            { thuyLaoPauseOffset += raw - thuyLaoPausedAt; thuyLaoPausedAt = -1; }\n        }\n\n        private bool CanActThuyLao()\n        {\n            ObserveThuyLaoPause();\n            if (thuyLaoBlocked || !IsAuto || !IsInit || TLBB == null || !TLBB.Online\n                || TLBB.PlayerState != 0 || Global.Paused || ON_SCENE_TRANSING || IsChangeMap\n                || IsTrungAc || IsKyCuoc || (thuyLaoOwner != null && thuyLaoOwner != TLBB.Id)) return false;\n            if (thuyLaoController != null)\n                return thuyLaoController != this && thuyLaoController.CanActThuyLao()\n                    && thuyLaoController.TLBB.IsLeader && !TLBB.IsLeader && TLBB.KeyId == thuyLaoController.TLBB.Id;\n            return IsThuyLao;\n        }"
+        },
+        {
+          "name": "reset_control_clock",
+          "original": "            thuyLaoContextMap = -1;",
+          "reviewed": "            thuyLaoContextMap = -1;\n            thuyLaoOwner = null;\n            thuyLaoPausedAt = -1;\n            thuyLaoPauseOffset = 0;"
+        },
+        {
+          "name": "bind_character",
+          "original": "            thuyLaoContextMap = TLBB.MapId;",
+          "reviewed": "            thuyLaoOwner = TLBB.Id;\n            thuyLaoContextMap = TLBB.MapId;"
+        },
+        {
+          "name": "dialog_checks_between_commands",
+          "original": "            if (!GoTo(npc) || !HasThuyLaoNpc(npc)) return false;",
+          "reviewed": "            if (!CanActThuyLao() || !GoTo(npc) || !CanActThuyLao() || !HasThuyLaoNpc(npc)) return false;"
+        },
+        {
+          "name": "dialog_snapshot_guard",
+          "original": "            if (!HasThuyLaoOption(option)) return false;",
+          "reviewed": "            if (!HasThuyLaoOption(option) || !CanActThuyLao()) return false;"
+        },
+        {
+          "name": "accept_close_guard",
+          "original": "            QuestFrameAccept();\n            CloseQuest();",
+          "reviewed": "            if (!CanActThuyLao()) return false;\n            QuestFrameAccept();\n            if (!CanActThuyLao()) return false;\n            CloseQuest();"
+        },
+        {
+          "name": "scoped_member_controller",
+          "original": "        private void RunThuyLaoMember(Game member)\n        {\n            if (!CanActThuyLao() || !TLBB.IsLeader || member == null || member == this) return;\n            if (!member.CanActThuyLao() || member.TLBB.IsLeader || member.TLBB.KeyId != TLBB.Id) return;\n            if (member.tranTime.Elapsed.TotalSeconds < 2.0) return;\n            member.ObserveThuyLaoContext();\n            if (member.TLBB.MapId == MAP.ThuyLao)\n            {\n                if (TLBB.MapId != MAP.ThuyLao || member.PickItem()) return;\n                if (member.Objects.NearMonter20m.Count > 0)\n                {\n                    if (member.TLBB.PlayerState == 0)\n                    {\n                        if (member.TLBB.IsFollow) member.StopFollow();\n                        if (member.TLBB.IsRide) member.DownRide();\n                    }\n                    return;\n                }\n                if (!member.IsRide && member.TLBB.HaveRide) member.UpRide();\n                else if (TINHKIEM.GetDistance(member.RoundX, member.RoundY, RoundX, RoundY) > 4f)\n                    member.GoTo(RoundX, RoundY);\n                return;\n            }\n            if (!member.DaNhanThuyLao) member.NhanThuyLao();\n            else member.DiThuyLao();\n        }\n",
+          "reviewed": "        private void RunThuyLaoMember(Game member)\n        {\n            if (!CanActThuyLao() || !TLBB.IsLeader || member == null || member == this) return;\n            Game previousController = member.thuyLaoController;\n            member.thuyLaoController = this;\n            try\n            {\n            if (!member.CanActThuyLao() || member.TLBB.IsLeader || member.TLBB.KeyId != TLBB.Id) return;\n            if (member.tranTime.Elapsed.TotalSeconds < 2.0) return;\n            member.ObserveThuyLaoContext();\n            if (member.TLBB.MapId == MAP.ThuyLao)\n            {\n                if (TLBB.MapId != MAP.ThuyLao || member.PickItem()) return;\n                if (member.Objects.NearMonter20m.Count > 0)\n                {\n                    if (member.TLBB.PlayerState == 0)\n                    {\n                        if (member.TLBB.IsFollow) member.StopFollow();\n                        if (member.CanActThuyLao() && member.TLBB.IsRide) member.DownRide();\n                    }\n                    return;\n                }\n                if (!member.CanActThuyLao()) return;\n                if (!member.IsRide && member.TLBB.HaveRide) member.UpRide();\n                else if (TINHKIEM.GetDistance(member.RoundX, member.RoundY, RoundX, RoundY) > 4f)\n                    member.GoTo(RoundX, RoundY);\n                return;\n            }\n            if (!member.DaNhanThuyLao) member.NhanThuyLao();\n            else member.DiThuyLao();\n            }\n            finally { member.thuyLaoController = previousController; }\n        }\n"
+        },
+        {
+          "name": "temporary_pause_does_not_cancel",
+          "original": "                if (!CanActThuyLao() || !TLBB.IsLeader) { StopThuyLao(null); return; }",
+          "reviewed": "                if (!IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader\n                    || TLBB.PlayerState == 2 || TLBB.PlayerState == 9\n                    || (thuyLaoOwner != null && thuyLaoOwner != TLBB.Id)\n                    || IsTrungAc || IsKyCuoc) { StopThuyLao(null); return; }\n                if (!CanActThuyLao()) return;"
+        },
+        {
+          "name": "scoped_party_dispatch",
+          "original": "                TrieuTap();\n                if (!IsThuyLao) return;",
+          "reviewed": "                foreach (Game member in Party.ToArray())\n                {\n                    if (!CanActThuyLao()) return;\n                    RunThuyLaoMember(member);\n                }\n                if (!CanActThuyLao()) return;"
+        },
+        {
+          "name": "leader_recheck_after_follow",
+          "original": "                        if (TLBB.IsRide) DownRide();",
+          "reviewed": "                        if (CanActThuyLao() && TLBB.IsRide) DownRide();"
+        },
+        {
+          "name": "effective_clock_10",
+          "original": "            thuyLaoStepStarted = thuyLaoClearAt = thuyLaoClock.ElapsedMilliseconds;",
+          "reviewed": "            thuyLaoStepStarted = thuyLaoClearAt = ThuyLaoNow;",
+          "count": 1
+        },
+        {
+          "name": "effective_clock_11",
+          "original": "                thuyLaoClearAt = thuyLaoClock.ElapsedMilliseconds;",
+          "reviewed": "                thuyLaoClearAt = ThuyLaoNow;",
+          "count": 2
+        },
+        {
+          "name": "effective_clock_12",
+          "original": "                thuyLaoStepStarted = thuyLaoClock.ElapsedMilliseconds;",
+          "reviewed": "                thuyLaoStepStarted = ThuyLaoNow;",
+          "count": 1
+        },
+        {
+          "name": "effective_clock_13",
+          "original": "            if (thuyLaoClock.ElapsedMilliseconds - thuyLaoStepStarted < ThuyLaoTimeoutMilliseconds)",
+          "reviewed": "            if (ThuyLaoNow - thuyLaoStepStarted < ThuyLaoTimeoutMilliseconds)",
+          "count": 1
+        },
+        {
+          "name": "effective_clock_14",
+          "original": "                if (!WaitThuyLaoStep(\"Patrol\") || thuyLaoClock.ElapsedMilliseconds - thuyLaoClearAt <= 2000) return;",
+          "reviewed": "                if (!WaitThuyLaoStep(\"Patrol\") || ThuyLaoNow - thuyLaoClearAt <= 2000) return;",
+          "count": 1
+        },
+        {
+          "name": "effective_clock_15",
+          "original": "                    if (MoveIndex != thuyLaoRouteIndex) thuyLaoStepStarted = thuyLaoClock.ElapsedMilliseconds;",
+          "reviewed": "                    if (MoveIndex != thuyLaoRouteIndex) thuyLaoStepStarted = ThuyLaoNow;",
+          "count": 1
+        },
+        {
+          "name": "indent_scoped_member_body",
+          "original": "            if (!member.CanActThuyLao() || member.TLBB.IsLeader || member.TLBB.KeyId != TLBB.Id) return;\n            if (member.tranTime.Elapsed.TotalSeconds < 2.0) return;\n            member.ObserveThuyLaoContext();\n            if (member.TLBB.MapId == MAP.ThuyLao)\n            {\n                if (TLBB.MapId != MAP.ThuyLao || member.PickItem()) return;\n                if (member.Objects.NearMonter20m.Count > 0)\n                {\n                    if (member.TLBB.PlayerState == 0)\n                    {\n                        if (member.TLBB.IsFollow) member.StopFollow();\n                        if (member.CanActThuyLao() && member.TLBB.IsRide) member.DownRide();\n                    }\n                    return;\n                }\n                if (!member.CanActThuyLao()) return;\n                if (!member.IsRide && member.TLBB.HaveRide) member.UpRide();\n                else if (TINHKIEM.GetDistance(member.RoundX, member.RoundY, RoundX, RoundY) > 4f)\n                    member.GoTo(RoundX, RoundY);\n                return;\n            }\n            if (!member.DaNhanThuyLao) member.NhanThuyLao();\n            else member.DiThuyLao();\n",
+          "reviewed": "                if (!member.CanActThuyLao() || member.TLBB.IsLeader || member.TLBB.KeyId != TLBB.Id) return;\n                if (member.tranTime.Elapsed.TotalSeconds < 2.0) return;\n                member.ObserveThuyLaoContext();\n                if (member.TLBB.MapId == MAP.ThuyLao)\n                {\n                    if (TLBB.MapId != MAP.ThuyLao || member.PickItem()) return;\n                    if (member.Objects.NearMonter20m.Count > 0)\n                    {\n                        if (member.TLBB.PlayerState == 0)\n                        {\n                            if (member.TLBB.IsFollow) member.StopFollow();\n                            if (member.CanActThuyLao() && member.TLBB.IsRide) member.DownRide();\n                        }\n                        return;\n                    }\n                    if (!member.CanActThuyLao()) return;\n                    if (!member.IsRide && member.TLBB.HaveRide) member.UpRide();\n                    else if (TINHKIEM.GetDistance(member.RoundX, member.RoundY, RoundX, RoundY) > 4f)\n                        member.GoTo(RoundX, RoundY);\n                    return;\n                }\n                if (!member.DaNhanThuyLao) member.NhanThuyLao();\n                else member.DiThuyLao();\n"
+        },
+        {
+          "name": "recheck_before_npc_talk",
+          "original": "if (!thuyLaoTalkSent) { Talk(npc); thuyLaoTalkSent = true; }",
+          "reviewed": "if (!thuyLaoTalkSent && CanActThuyLao()) { Talk(npc); thuyLaoTalkSent = true; }"
+        }
+      ]
+    },
+    "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": {
+      "baseline_sha256_lf": "d9f2276ea00c962d95d2885868dc93ed567f5890e6896609700828d1d644b8c7",
+      "reviewed_sha256_lf": "1ff61a45fee1f37a727cb6aab1ee3467bd805d029a0ce6cc6a7062bf4e777c40",
+      "edits": [
+        {
+          "name": "pause_clock_and_member_identity",
+          "original": "        private string kyCuocTeam;",
+          "reviewed": "        private string kyCuocTeam;\n        private long kyCuocPausedAt = -1, kyCuocPauseOffset;\n        private long KyCuocNow { get { return kyCuocClock.ElapsedMilliseconds - kyCuocPauseOffset; } }\n        private void ObserveKyCuocPause()\n        {\n            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || (TLBB != null && TLBB.PlayerState == 7);\n            long raw = kyCuocClock.ElapsedMilliseconds;\n            if (pause && kyCuocPausedAt < 0) kyCuocPausedAt = raw;\n            if (!pause && kyCuocPausedAt >= 0)\n            { kyCuocPauseOffset += raw - kyCuocPausedAt; kyCuocPausedAt = -1; }\n        }"
+        },
+        {
+          "name": "participant_id_field",
+          "original": "            internal int Map = -1, RouteIndex;",
+          "reviewed": "            internal int Map = -1, RouteIndex;\n            internal string CharacterId;"
+        },
+        {
+          "name": "reset_pause_clock",
+          "original": "            kyCuocTeam = null;",
+          "reviewed": "            kyCuocTeam = null;\n            kyCuocPausedAt = -1;\n            kyCuocPauseOffset = 0;"
+        },
+        {
+          "name": "controller_pause_and_dead9",
+          "original": "TLBB.PlayerState == 2 || TLBB.PlayerState == 7\n                || ON_SCENE_TRANSING",
+          "reviewed": "TLBB.PlayerState == 2 || TLBB.PlayerState == 7 || TLBB.PlayerState == 9 || Global.Paused\n                || ON_SCENE_TRANSING"
+        },
+        {
+          "name": "member_dead9_and_conflicts",
+          "original": "participant.TLBB.PlayerState == 2 || participant.TLBB.PlayerState == 7\n                || participant.ON_SCENE_TRANSING",
+          "reviewed": "participant.TLBB.PlayerState == 2 || participant.TLBB.PlayerState == 7 || participant.TLBB.PlayerState == 9\n                || participant.IsTrungAc || participant.IsThuyLao\n                || participant.ON_SCENE_TRANSING"
+        },
+        {
+          "name": "observe_pause_before_dispatch",
+          "original": "                    InitializeKyCuocSession();",
+          "reviewed": "                    InitializeKyCuocSession();\n                    ObserveKyCuocPause();"
+        },
+        {
+          "name": "dead9_cancels_session",
+          "original": "TLBB.PlayerState == 2 || !IsInit)",
+          "reviewed": "TLBB.PlayerState == 2 || TLBB.PlayerState == 9 || !IsInit)"
+        },
+        {
+          "name": "finite_boss_hp",
+          "original": "obj.IsNPC || obj.CleanName != \"viencokyhon\")",
+          "reviewed": "obj.IsNPC || obj.CleanName != \"viencokyhon\" || float.IsInfinity(obj.HP) || float.IsNaN(obj.HP))"
+        },
+        {
+          "name": "bind_participant_identity",
+          "original": "            int map = participant.TLBB.MapId;",
+          "reviewed": "            if (state.CharacterId == null) state.CharacterId = participant.TLBB.Id;\n            if (state.CharacterId != participant.TLBB.Id)\n            { StopKyCuoc(\"nhân vật trong đội đã thay đổi.\"); return false; }\n            int map = participant.TLBB.MapId;"
+        },
+        {
+          "name": "effective_clock_9",
+          "original": "            long now = kyCuocClock.ElapsedMilliseconds;",
+          "reviewed": "            long now = KyCuocNow;",
+          "count": 4
+        },
+        {
+          "name": "effective_clock_10",
+          "original": "                { kyCuocBossDeadAt = kyCuocClock.ElapsedMilliseconds; break; }",
+          "reviewed": "                { kyCuocBossDeadAt = KyCuocNow; break; }"
+        },
+        {
+          "name": "effective_clock_11",
+          "original": "            if (kyCuocClock.ElapsedMilliseconds - state.Started < milliseconds) return false;",
+          "reviewed": "            if (KyCuocNow - state.Started < milliseconds) return false;"
+        },
+        {
+          "name": "effective_clock_12",
+          "original": "                state.Started = state.ClearAt = state.ProgressAt = kyCuocClock.ElapsedMilliseconds;",
+          "reviewed": "                state.Started = state.ClearAt = state.ProgressAt = KyCuocNow;"
+        },
+        {
+          "name": "effective_clock_13",
+          "original": "                    state.Started = kyCuocClock.ElapsedMilliseconds;",
+          "reviewed": "                    state.Started = KyCuocNow;",
+          "count": 2
+        },
+        {
+          "name": "effective_clock_14",
+          "original": "                        kyCuocLeader.ClearAt = kyCuocLeader.ProgressAt = kyCuocClock.ElapsedMilliseconds;",
+          "reviewed": "                        kyCuocLeader.ClearAt = kyCuocLeader.ProgressAt = KyCuocNow;"
+        },
+        {
+          "name": "effective_clock_15",
+          "original": "                    if (loot) { kyCuocLeader.ProgressAt = kyCuocClock.ElapsedMilliseconds; return; }",
+          "reviewed": "                    if (loot) { kyCuocLeader.ProgressAt = KyCuocNow; return; }"
+        },
+        {
+          "name": "effective_clock_16",
+          "original": "                        if (kyCuocClock.ElapsedMilliseconds - kyCuocLeader.ClearAt < KyCuocClearWait) return;",
+          "reviewed": "                        if (KyCuocNow - kyCuocLeader.ClearAt < KyCuocClearWait) return;"
+        },
+        {
+          "name": "effective_clock_17",
+          "original": "                        long elapsed = kyCuocClock.ElapsedMilliseconds - kyCuocBossDeadAt;",
+          "reviewed": "                        long elapsed = KyCuocNow - kyCuocBossDeadAt;"
+        }
+      ]
+    }
+  }
+}

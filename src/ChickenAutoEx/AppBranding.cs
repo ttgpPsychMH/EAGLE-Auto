@@ -18,6 +18,8 @@ namespace TinhKiemAuto
             + "• Sửa menu nhiệm vụ/phó bản khi thiếu nhân vật hoặc đội trưởng.\n"
             + "• Sửa xử lý tổ đội và trạng thái nhiệm vụ Thủy Lao; tính năng chưa được bật.\n"
             + "• Sửa trạng thái Kỳ Cuộc, nối lại tuyến sau combat và skill pet khi vắng quái.\n"
+            + "• Sửa parser, dialog, target và vòng đời Trừng Ác; bảo vệ thao tác dừng.\n"
+            + "• Rà soát lại ba nhiệm vụ: tạm dừng, khởi tạo, đổi nhân vật và điều khiển member.\n"
             + "• Đổi tên hiển thị, file chạy và thông tin giới thiệu sang " + WindowTitle + ".\n\n"
             + "Khả năng hoạt động trong game đang được kiểm thử.";
     }
