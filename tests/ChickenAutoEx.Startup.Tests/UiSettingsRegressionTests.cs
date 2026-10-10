@@ -174,7 +174,7 @@ namespace ChickenAutoEx.Startup.Tests
             return Activator.CreateInstance(Assembly.Load(Image.Value).GetType("FixtureMain", true));
         }
 
-        private static ClassDeclarationSyntax SourceClass(string file, string name)
+        internal static ClassDeclarationSyntax SourceClass(string file, string name)
         {
             var source = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", file));
             return CSharpSyntaxTree.ParseText(source).GetRoot().DescendantNodes()
@@ -214,12 +214,23 @@ namespace ChickenAutoEx.Startup.Tests
             var form = SourceClass("FrmMain.cs", "FrmMain");
             string methods = Methods(form, "Bool2Int", "SaveSetting", "LoadSetting",
                 "checkregenhp_CheckedChanged", "checkrengenmp_CheckedChanged");
+            methods += Methods(form, "ItemTrungAc_Click", "ItemAcBa_Click", "ItemThuyLao_Click",
+                "itemTranLongKyCuoc_Click", "thoátToolStripMenuItem1_Click", "chươngTrìnhToolStripMenuItem_Click",
+                "menuactac_Click", "UnCheckAllAcTac", "CallALLAction", "dUwngfToolStripMenuItem_Click",
+                "tựĐộngToolStripMenuItem_Click", "vôLượngSơnToolStripMenuItem_Click", "kínhHồToolStripMenuItem_Click",
+                "kiếmCácToolStripMenuItem_Click", "tháiHồToolStripMenuItem_Click", "tungSơnToolStripMenuItem_Click",
+                "đônHoàngToolStripMenuItem_Click");
+            // Optional for running the same behavioral tests against the pre-fix source.
+            string[] menuHelpers = { "TryGetDungeonContext", "RequireDungeonContext", "UpdateDungeonMenu",
+                "ResetDungeonActions", "SelectAcTacMap" };
+            methods += string.Join("\n", form.Members.OfType<MethodDeclarationSyntax>()
+                .Where(m => menuHelpers.Contains(m.Identifier.Text)).Select(m => m.ToFullString()));
             string settings = Methods(SourceClass("Setting.cs", "Setting"), "String2Arr", "String2Int");
             var keyboard = SourceClass("TINHKIEM.cs", "TINHKIEM");
             string keys = Methods(keyboard, "Int2Key", "Key2Int");
             string menpai = keyboard.Members.OfType<EnumDeclarationSyntax>().Single(e => e.Identifier.Text == "Menpai").ToFullString();
-            var source = "using System;\n" + Fixture
-                + "\npublic class FixtureMain {\n" + Controls + methods + "\n}\n"
+            var source = "using System; using System.Collections.Generic;\n" + Fixture
+                + "\npublic class FixtureMain {\n" + Controls + DungeonControls + methods + "\n}\n"
                 + ScalarDependencies("Global.cs", "Global", methods)
                 + ScalarDependencies("Option.cs", "Option", methods)
                 + "public static class TINHKIEM {" + menpai + keys + "public static int Bool2Int(bool value) => value ? 1 : 0;}"
@@ -239,13 +250,60 @@ namespace ChickenAutoEx.Startup.Tests
         private const string Fixture = """
             public enum Keys { D0=48, D1, D2, D3, D4, D5, D6, D7, D8, D9, F1=112, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13 }
             public enum ToolTipIcon { Info }
-            public class FakeControl { public bool Checked; public decimal Value; }
+            public class FakeControl { public bool Checked, Enabled=true; public decimal Value; public string Text; public object ForeColor; }
             public class FakeNotify {
                 public int Calls; public string LastText;
                 public void ShowBalloonTip(int ms, string title, string text, ToolTipIcon icon) { Calls++; LastText=text; }
             }
             public class FakePlayer { public string Name = "TestCharacter"; }
-            public class Game { public bool IsHP=true, IsMP=true; public FakePlayer TLBB=new FakePlayer(); public static int TrongHoaX; public static bool IsHoldPK; }
+            public static class Color { public static string Green = "green"; }
+            public static class SystemColors { public static string ControlText = "normal"; }
+            public static class MAP { public const int VoLuongSon=1, KinhHo=2, KiemCac=3, ThaiHo=4, TungSon=5, DonHoang=6; }
+            public static class CanhBao {
+                public enum Kieu { Eror, OK }
+                public static int Calls; public static string LastTitle, LastText;
+                public static void Msg(string title, string text, Kieu type) { Calls++; LastTitle=title; LastText=text; }
+            }
+            public class Game {
+                public bool IsHP=true, IsMP=true, IsAcBa, IsTrungAc, IsLauLanTamBao, IsKyCuoc, IsThuyLao, IsTrieuTap=true;
+                public int MapAcTac;
+                public FakePlayer TLBB=new FakePlayer(); public static int TrongHoaX; public static bool IsHoldPK;
+                public Game LeaderValue; public Action OnLeaderRead;
+                public Game Leader { get { var value=LeaderValue; OnLeaderRead?.Invoke(); return value; } set { LeaderValue=value; } }
+            }
+            """;
+
+        private const string DungeonControls = """
+            public Dictionary<int, Game> dicGame = new Dictionary<int, Game>();
+            public Game Leader => CurGame?.Leader;
+            public FakeControl menuactac=new FakeControl(), ItemAcBa=new FakeControl(), ItemLauLan=new FakeControl(),
+                itemTranLongKyCuoc=new FakeControl(), ItemThuyLao=new FakeControl(), ItemTrungAc=new FakeControl(), itemchuacodoi=new FakeControl(),
+                tựĐộngToolStripMenuItem=new FakeControl(), vôLượngSơnToolStripMenuItem=new FakeControl(), kínhHồToolStripMenuItem=new FakeControl(),
+                kiếmCácToolStripMenuItem=new FakeControl(), tháiHồToolStripMenuItem=new FakeControl(), tungSơnToolStripMenuItem=new FakeControl(), đônHoàngToolStripMenuItem=new FakeControl();
+            public void OpenDungeonMenu() => chươngTrìnhToolStripMenuItem_Click(null, EventArgs.Empty);
+            public void ClickDungeon(string name) {
+                // WinForms applies CheckOnClick before raising the Click event.
+                string menuName = name == "thoátToolStripMenuItem1_Click" ? "ItemLauLan" : name.Substring(0, name.Length - 6);
+                var field = GetType().GetField(menuName);
+                if (field != null && menuName != "menuactac") {
+                    var menu = (FakeControl)field.GetValue(this); menu.Checked = !menu.Checked;
+                }
+                try { GetType().GetMethod(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                    .Invoke(this, new object[] { null, EventArgs.Empty }); }
+                catch (System.Reflection.TargetInvocationException ex) {
+                    System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
+                }
+            }
+            public Game SelectWithLeader() {
+                CurGame = new Game();
+                var leader = new Game(); leader.TLBB.Name="Leader"; CurGame.Leader=leader;
+                dicGame.Add(dicGame.Count, CurGame); dicGame.Add(dicGame.Count, leader);
+                return leader;
+            }
+            public int WarningCount => CanhBao.Calls;
+            public string WarningTitle => CanhBao.LastTitle;
+            public string WarningText => CanhBao.LastText;
+            public FakeControl Menu(string name) => (FakeControl)GetType().GetField(name).GetValue(this);
             """;
 
         private const string Controls = """

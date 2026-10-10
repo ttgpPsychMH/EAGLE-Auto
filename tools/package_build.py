@@ -25,6 +25,7 @@ def main():
         archive.write(repo / "LICENSE", "LICENSE")
         archive.write(repo / "docs/ChickenAutoEx-WINDOWS11.vi.md", "WINDOWS11.vi.md")
         archive.write(repo / "docs/ChickenAutoEx-UI-SETTINGS.vi.md", "ChickenAutoEx-UI-SETTINGS.vi.md")
+        archive.write(repo / "docs/ChickenAutoEx-DUNGEON-MENU.vi.md", "ChickenAutoEx-DUNGEON-MENU.vi.md")
         # Preserve available third-party package notices; do not claim licenses were relicensed.
         archive.write(repo / "docs/ChickenAutoEx-DEPENDENCIES.md", "DEPENDENCIES.md")
     checksum = hashlib.sha256(path.read_bytes()).hexdigest()

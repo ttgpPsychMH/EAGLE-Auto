@@ -1,0 +1,88 @@
+{
+  "base_commit": "e4161daf7852ecf9a3631332f23cf167739999c3",
+  "branch": "repair/chickenautoex-107-dungeon-menu",
+  "environment": {
+    "os": "Linux",
+    "dotnet_sdk": "8.0.425",
+    "application_target": "net48/x86"
+  },
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 50
+  },
+  "menu_tests_against_base": {
+    "total": 38,
+    "passed": 6,
+    "failed": 32,
+    "skipped": 0
+  },
+  "tests_after_fix": {
+    "total": 94,
+    "passed": 94,
+    "failed": 0,
+    "skipped": 0,
+    "groups": {
+      "dungeon_menu": 38,
+      "ui_settings": 19,
+      "updater_schema": 37
+    }
+  },
+  "test_method": "Production UI method bodies compiled with Roslyn against inert fake dependencies; CheckOnClick simulated before handler. Updater tests use loopback HTTP/TLS services.",
+  "source_preservation": {
+    "unchanged_since_base": [
+      "analysis/chickenautoex-107/recovered",
+      "src/ChickenAutoEx/Game.cs",
+      "src/ChickenAutoEx/Global.cs",
+      "src/ChickenAutoEx/Program.cs",
+      "src/ChickenAutoEx/Startup",
+      "src/ChickenAutoEx/App.config",
+      "src/ChickenAutoEx/packages.lock.json",
+      "tests/ChickenAutoEx.Startup.Tests/packages.lock.json"
+    ],
+    "original_release_files_verified": [
+      "ChickenAuto-new.7z",
+      "ChickenAuto-new.exe",
+      "ChickenAuto-new.zip",
+      "ChickenAutoEx-new.7z",
+      "ChickenAutoEx-new.exe",
+      "ChickenAutoEx-new.zip"
+    ],
+    "review_manifest": "tools/dungeon_menu_review.json"
+  },
+  "static_verification": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "automation_and_entitlement_source_preserved": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "ChickenAutoEx.exe": "7acc6638cd710b2474621543f4837b276bb9a6810fc4adb5f0210d5298352925",
+      "ChickenAutoEx.exe.config": "8afc68e4708625c26e4abc277ccb57b7d1ce0a1fdf025489be93c2d163b360a4",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "local_package": {
+    "path": ".build/artifacts/ChickenAutoEx-107-startup-net48.zip",
+    "sha256": "7e623aadd4a28d8e1ada8f7f5d704910163b9c5a4a59924591fa70bbe2dcf87a",
+    "zip_integrity_passed": true,
+    "documentation_matches_current_source": true
+  },
+  "limitations": {
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "game_tested": false,
+    "native_hook_tested": false,
+    "real_config_tested": false,
+    "ci_package_hash_may_differ": true
+  }
+}

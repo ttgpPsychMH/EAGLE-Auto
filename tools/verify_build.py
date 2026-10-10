@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import struct
 
 import dnfile
@@ -19,6 +20,33 @@ def embedded_resources(pe):
         size = struct.unpack("<I", pe.get_data(rva, 4))[0]
         resources[str(row.Name)] = pe.get_data(rva + 4, size)
     return resources
+
+
+def reviewed_method(text, name):
+    pattern = (r'^\t\t(?:private|public)(?: static)? [^\n]+ ' + re.escape(name)
+               + r'\([^\n]*\)\n\t\t\{\n.*?^\t\t\}\n')
+    matches = list(re.finditer(pattern, text, re.MULTILINE | re.DOTALL))
+    assert len(matches) == 1, "Expected exactly one UI method: " + name
+    return matches[0].group()
+
+
+def restore_reviewed_dungeon_ui(repo, original, current):
+    review = json.loads((repo / "tools/dungeon_menu_review.json").read_text())
+    for entry in review["changed_methods"]:
+        before = reviewed_method(original, entry["name"])
+        after = reviewed_method(current, entry["name"])
+        assert hashlib.sha256(before.encode()).hexdigest() == entry["original_sha256"], entry["name"]
+        assert hashlib.sha256(after.encode()).hexdigest() == entry["reviewed_sha256"], entry["name"]
+        current = current.replace(after, before, 1)
+    for entry in review["added_helpers"]:
+        added = reviewed_method(current, entry["name"])
+        assert hashlib.sha256(added.encode()).hexdigest() == entry["reviewed_sha256"], entry["name"]
+        assert current.count(added + "\n") == 1, entry["name"]
+        current = current.replace(added + "\n", "", 1)
+    for entry in review["designer_edits"]:
+        assert current.count(entry["reviewed"]) == 1, "Unexpected designer edit"
+        current = current.replace(entry["reviewed"], entry["original"], 1)
+    return current
 
 
 def main():
@@ -65,6 +93,7 @@ def main():
     assert preserved_form.count(map_fix) == 1, "Expected independent optional map guards"
     preserved_form = preserved_form.replace(map_fix,
         "Option.MapBanDoIndex = array[61];\n\t\t\t\t\t\tOption.MaptriLieuIndex = array[62];", 1)
+    preserved_form = restore_reviewed_dungeon_ui(repo, original_form, preserved_form)
     marker = '\t\t\ttxtlogs.AppendText("Bật auto :"'
     assert original_form[original_form.index(marker):] == preserved_form[preserved_form.index(marker):]
     code = current_form[current_form.index("private async void FrmMain_Load"):current_form.index("private void InitializeStartup")]
@@ -73,7 +102,6 @@ def main():
 
     # Reverse only documented redactions; verify all other Game/auth/debug code stayed identical.
     # The exact preservation checks below avoid executing or interpreting this code.
-    import re
     for relative, (pattern, expected) in {
         "TinhKiemAuto/Debug.cs": (r'(dictionary\.Add\("key", )("(?:\\.|[^"\\])*")', 1),
         "TinhKiemAuto/Game.cs": (r'(TINHKIEM\.Hasher\.Decrypt\()((?:"(?:\\.|[^"\\])*"), (?:"(?:\\.|[^"\\])*"))', 1),
@@ -92,6 +120,7 @@ def main():
         "unchanged_original_resources": 26, "json_assembly_version": 13,
         "original_release_files_unchanged": True, "automation_and_entitlement_source_preserved": True,
         "reviewed_ui_settings_fixes": ["mp_checkbox_binding", "independent_optional_map_indexes"],
+        "reviewed_dungeon_menu_fixes": True,
         "target_executable_executed": False, "windows_runtime_tested": False,
         "artifacts": {name: digest(output / name) for name in
                       ("ChickenAutoEx.exe", "ChickenAutoEx.exe.config", "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},

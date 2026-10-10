@@ -1,6 +1,6 @@
 # Kiểm thử ChickenAutoEx trên Windows 11
 
-Bản UI/settings mới chưa được chạy trên Windows. Người dùng đã xác nhận bản startup trước mở được, chưa kiểm thử trong game. Chỉ chạy bản mới sau khi review source và nguồn binary/resource đã khôi phục. Không chạy executable gốc hoặc bộ tự giải nén để kiểm thử bản sửa. Đợt này cần thêm [kiểm tra HP/MP và cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md), có trong gói tải về.
+Bản sửa menu mới chưa được chạy trên Windows. Người dùng xác nhận bản trước mở được và báo lỗi NullReferenceException khi chọn Trừng Ác trước khi thử game. Chỉ chạy bản mới sau khi review source và nguồn binary/resource đã khôi phục. Không chạy executable gốc hoặc bộ tự giải nén để kiểm thử bản sửa. Đợt này cần thêm [kiểm tra menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md) và [HP/MP, cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md), có trong gói tải về.
 
 ## Chuẩn bị
 

@@ -1,0 +1,117 @@
+{
+  "scope": "Reviewed UI methods only; LF-normalized method text hashes. Remaining legacy FrmMain tail must match original exactly after restoring these and the two prior settings fixes.",
+  "changed_methods": [
+    {
+      "name": "thoátToolStripMenuItem1_Click",
+      "original_sha256": "7c745f9e351103631afb71bc793a0e942d4476275eb2c1f4e84030067bfa0316",
+      "reviewed_sha256": "4d7774e42f631b701cea8ba96f7af03541683c0e031a65cb273898f9d8228a76"
+    },
+    {
+      "name": "tựĐộngToolStripMenuItem_Click",
+      "original_sha256": "ec62c89907d233c98db9522925924643512044acab5f6af34f6378846628cbbe",
+      "reviewed_sha256": "d000cf7ebde0ece1db7517942d9cf7a72d93bdb88ca47b0b592fa2fc1aec4bce"
+    },
+    {
+      "name": "vôLượngSơnToolStripMenuItem_Click",
+      "original_sha256": "0991fb6e355030bb0b3de0865f2d90626bb48016c478a92f2377c2b69a2211a6",
+      "reviewed_sha256": "ecbfd617e3f7191b7aa634f0a7ebc40bd28a4d148c16437f506d20ab21eaf1b7"
+    },
+    {
+      "name": "kínhHồToolStripMenuItem_Click",
+      "original_sha256": "9d271197636321b0d6da60d01025b537e3ba4b132427b99c94fd7e6cc6378e0f",
+      "reviewed_sha256": "e9f9cc88e024cbc3d719f42ac43febe09a65dd74613ee35eb55757da201595ea"
+    },
+    {
+      "name": "kiếmCácToolStripMenuItem_Click",
+      "original_sha256": "ff8b2697ff923d6da9ca3a4124b3e09f98d71b2396ad2d366638031515794364",
+      "reviewed_sha256": "5ac3bb0c24db36bf21cf176c3066217a9e66e53ddb48f8955b36c815813d9459"
+    },
+    {
+      "name": "tháiHồToolStripMenuItem_Click",
+      "original_sha256": "151da0ad5de9bd72f1a7022357c94932c4eefb645d34a0da15c809ff6f2c1eae",
+      "reviewed_sha256": "4162adfff92edbb11a8b962d9e7bbf019e13dfe1cea3c37256bb3c2d7da4b027"
+    },
+    {
+      "name": "tungSơnToolStripMenuItem_Click",
+      "original_sha256": "118b6f2ca0a9a4929c33f556ae9ab9d577536d3e0114ee4cb1048364b9ec51ab",
+      "reviewed_sha256": "fb8bab9201c8a9ad0fb8bc29729066f52b193bc4b699c2088ff125a4acf1cb52"
+    },
+    {
+      "name": "đônHoàngToolStripMenuItem_Click",
+      "original_sha256": "82902240a161b5a391291458dae3056f3f071a3e53decf0621cf92263cdeee66",
+      "reviewed_sha256": "6f8137da8f6b174cf609745fa692a2c124946142ba555d52445585dc392dd7b8"
+    },
+    {
+      "name": "CallALLAction",
+      "original_sha256": "aea67ab9c63300a1823c4f88744a1eb80bce9dbbed580cdde4ff5585699d30bd",
+      "reviewed_sha256": "fd4f48f18b7b09dd8cd73449664d0cec5033b632b47c9c15bacc7ae84782e54f"
+    },
+    {
+      "name": "ItemAcBa_Click",
+      "original_sha256": "5823c478d98f480606300e357cd695355cc0149f7a25bcca4d20d041173aa07a",
+      "reviewed_sha256": "1f56ac338e11f63d0ce086add24b5fb8854ed0a1b5ca43977f45053b631f262d"
+    },
+    {
+      "name": "itemTranLongKyCuoc_Click",
+      "original_sha256": "9b23c9c74cfff9a6cfb7b9b3b82086d9b60b8f5821aade4bced244079b83638e",
+      "reviewed_sha256": "e9cd864d41b0f4cfe2ad470b8d3ae3897b22ace86fc87ca9c9b9a0be5614da4c"
+    },
+    {
+      "name": "ItemThuyLao_Click",
+      "original_sha256": "7eda9fb2a889f2da375f0038064caed00b982df94b12adde20919738f6fef64c",
+      "reviewed_sha256": "b68d263ef6379e79cfca63db8f8956d03e22d7f9e33ddf060e44ad457136c734"
+    },
+    {
+      "name": "ItemTrungAc_Click",
+      "original_sha256": "55049a180159bdea989706383aa3bb6c82c9ecdd9fc46ab613ede5a3e1183ec1",
+      "reviewed_sha256": "a0c8bea90895a8470b084d2a2c75df603382319d123fc2c51f6c704668bb6cf3"
+    },
+    {
+      "name": "chươngTrìnhToolStripMenuItem_Click",
+      "original_sha256": "e95fd12377d27b9d772066bdbf8f8c11e057d4df111819c1bb9dd6c916484178",
+      "reviewed_sha256": "4562dfc5aab5913af383ffc29fcf1bc5d3127815569835000c3cfbb40cc87afe"
+    },
+    {
+      "name": "menuactac_Click",
+      "original_sha256": "b6815186330c63a5989b7f08fff240b20f9c13e5cdd63e6097d8d3d4eb615fa9",
+      "reviewed_sha256": "287cb4749791af41a657eba885a11277ee05f09c2d32035e827de0dfbcd8d857"
+    },
+    {
+      "name": "dUwngfToolStripMenuItem_Click",
+      "original_sha256": "037d7eba30e5e5ba3274a10a6f6fcfc22faee7036088de8ab6068022da165f4c",
+      "reviewed_sha256": "5b897af4217fd21f811cdf6e97eb3516be765fb2be61ca032285dbb787b4a865"
+    }
+  ],
+  "added_helpers": [
+    {
+      "name": "TryGetDungeonContext",
+      "reviewed_sha256": "9dba8aa79f3d740137542043e349aa329db4bc829218348704042a4da2179d82"
+    },
+    {
+      "name": "RequireDungeonContext",
+      "reviewed_sha256": "ebfc215ed00106cbf6392105a4a527b2c423153dbd84ca1f36df3c0a597bf133"
+    },
+    {
+      "name": "UpdateDungeonMenu",
+      "reviewed_sha256": "ae0e6312019ce6eb65ccfe6729b1400a606d4e1f9aa32b495f5a0bd038407bbf"
+    },
+    {
+      "name": "ResetDungeonActions",
+      "reviewed_sha256": "e37662736f648c8ac3a64e7fb4e593f8386dff56a5542fc3fc54e96a6124e9df"
+    },
+    {
+      "name": "SelectAcTacMap",
+      "reviewed_sha256": "63b217ba126ec3e7c955faff7ab5ffe5d3d8c879962ad3bb37b82931dc3d0c8e"
+    }
+  ],
+  "designer_edits": [
+    {
+      "original": "this.chươngTrìnhToolStripMenuItem.Click += new System.EventHandler(chươngTrìnhToolStripMenuItem_Click);",
+      "reviewed": "this.chươngTrìnhToolStripMenuItem.DropDownOpening += new System.EventHandler(chươngTrìnhToolStripMenuItem_Click);"
+    },
+    {
+      "original": "this.ItemTrungAc.CheckOnClick = true;",
+      "reviewed": "this.ItemTrungAc.CheckOnClick = true;\n\t\t\tthis.ItemTrungAc.Enabled = false;"
+    }
+  ]
+}

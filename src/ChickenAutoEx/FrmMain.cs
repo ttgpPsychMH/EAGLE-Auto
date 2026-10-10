@@ -3440,15 +3440,13 @@ namespace TinhKiemAuto
 
 		private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			if (Leader != null)
+			if (!RequireDungeonContext("Lỗi Lâu Lan", out Game selectedGame, out Game leader))
 			{
-				Leader.IsLauLanTamBao = !Leader.IsLauLanTamBao;
-				notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + CurGame.TLBB.Name.ToUpper() + "]" + (Leader.IsLauLanTamBao ? " Bật " : " Tắt ") + "Auto Lâu Lan Tầm Bảo", ToolTipIcon.Info);
+				return;
 			}
-			else
-			{
-				CanhBao.Msg("Lỗi Lâu Lan", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			leader.IsLauLanTamBao = !leader.IsLauLanTamBao;
+			UpdateDungeonMenu(selectedGame, leader);
+			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (leader.IsLauLanTamBao ? " Bật " : " Tắt ") + "Auto Lâu Lan Tầm Bảo", ToolTipIcon.Info);
 		}
 
 		private void càiĐườngDẫnGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4121,267 +4119,205 @@ namespace TinhKiemAuto
 			}
 		}
 
-		private void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)
+		private bool TryGetDungeonContext(out Game selectedGame, out Game leader)
 		{
+			selectedGame = CurGame;
+			leader = null;
+			if (selectedGame == null || selectedGame.TLBB == null)
+			{
+				return false;
+			}
+			leader = selectedGame.Leader;
+			if (!ReferenceEquals(CurGame, selectedGame) || leader == null || leader.TLBB == null)
+			{
+				leader = null;
+				return false;
+			}
+			return true;
+		}
+
+		private bool RequireDungeonContext(string title, out Game selectedGame, out Game leader)
+		{
+			if (TryGetDungeonContext(out selectedGame, out leader))
+			{
+				return true;
+			}
+			UpdateDungeonMenu(selectedGame, null);
+			CanhBao.Msg(title, "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
+			return false;
+		}
+
+		private void UpdateDungeonMenu(Game selectedGame, Game leader)
+		{
+			bool available = selectedGame != null && selectedGame.TLBB != null && leader != null && leader.TLBB != null;
+			menuactac.Enabled = available;
+			ItemAcBa.Enabled = available;
+			ItemLauLan.Enabled = available;
+			itemTranLongKyCuoc.Enabled = available;
+			ItemThuyLao.Enabled = available;
+			ItemTrungAc.Enabled = available;
+			menuactac.Checked = false;
+			ItemAcBa.Checked = available && leader.IsAcBa;
+			ItemLauLan.Checked = available && leader.IsLauLanTamBao;
+			itemTranLongKyCuoc.Checked = available && leader.IsKyCuoc;
+			ItemThuyLao.Checked = available && leader.IsThuyLao;
+			ItemTrungAc.Checked = available && leader.IsTrungAc;
+			UnCheckAllAcTac();
+			if (available)
+			{
+				itemchuacodoi.Text = "Đội Trưởng [ " + (leader.TLBB.Name ?? string.Empty) + "]";
+				itemchuacodoi.ForeColor = Color.Green;
+				vôLượngSơnToolStripMenuItem.Checked = leader.MapAcTac == MAP.VoLuongSon;
+				kínhHồToolStripMenuItem.Checked = leader.MapAcTac == MAP.KinhHo;
+				kiếmCácToolStripMenuItem.Checked = leader.MapAcTac == MAP.KiemCac;
+				tháiHồToolStripMenuItem.Checked = leader.MapAcTac == MAP.ThaiHo;
+				tungSơnToolStripMenuItem.Checked = leader.MapAcTac == MAP.TungSon;
+				đônHoàngToolStripMenuItem.Checked = leader.MapAcTac == MAP.DonHoang;
+			}
+			else
+			{
+				itemchuacodoi.Text = selectedGame == null ? "Vui lòng chọn nhân vật" : "Chưa nhận diện đội trưởng";
+				itemchuacodoi.ForeColor = SystemColors.ControlText;
+			}
+		}
+
+		private static void ResetDungeonActions(Game leader)
+		{
+			leader.IsAcBa = false;
+			leader.IsTrungAc = false;
+			leader.IsLauLanTamBao = false;
+			leader.IsKyCuoc = false;
+			leader.IsThuyLao = false;
+			leader.MapAcTac = 0;
+		}
+
+		private void SelectAcTacMap(int map)
+		{
+			if (!RequireDungeonContext("Lỗi Ác Tặc", out Game selectedGame, out Game leader))
+			{
+				return;
+			}
 			foreach (KeyValuePair<int, Game> item in dicGame)
 			{
 				item.Value.IsTrieuTap = false;
 			}
-			if (Leader != null)
+			leader.MapAcTac = map;
+			UpdateDungeonMenu(selectedGame, leader);
+		}
+
+		private void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!RequireDungeonContext("Lỗi Ác Tặc", out Game selectedGame, out Game leader))
 			{
-				int[] array = new int[6]
-				{
-					MAP.VoLuongSon,
-					MAP.KinhHo,
-					MAP.KiemCac,
-					MAP.ThaiHo,
-					MAP.TungSon,
-					MAP.DonHoang
-				};
-				int num = new Random().Next(0, array.Length);
-				Leader.MapAcTac = array[num];
-				menuactac_Click(null, null);
+				return;
 			}
-			else
+			foreach (KeyValuePair<int, Game> item in dicGame)
 			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
+				item.Value.IsTrieuTap = false;
 			}
+			int[] array = new int[6]
+			{
+				MAP.VoLuongSon,
+				MAP.KinhHo,
+				MAP.KiemCac,
+				MAP.ThaiHo,
+				MAP.TungSon,
+				MAP.DonHoang
+			};
+			int num = new Random().Next(0, array.Length);
+			leader.MapAcTac = array[num];
+			UpdateDungeonMenu(selectedGame, leader);
 		}
 
 		private void vôLượngSơnToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.VoLuongSon;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.VoLuongSon);
 		}
 
 		private void kínhHồToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.KinhHo;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.KinhHo);
 		}
 
 		private void kiếmCácToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.KiemCac;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.KiemCac);
 		}
 
 		private void tháiHồToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.ThaiHo;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.ThaiHo);
 		}
 
 		private void tungSơnToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.TungSon;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.TungSon);
 		}
 
 		private void đônHoàngToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			foreach (KeyValuePair<int, Game> item in dicGame)
-			{
-				item.Value.IsTrieuTap = false;
-			}
-			if (Leader != null)
-			{
-				Leader.MapAcTac = MAP.DonHoang;
-			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Tặc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			SelectAcTacMap(MAP.DonHoang);
 		}
 
 		public void CallALLAction()
 		{
-			if (Leader != null)
+			if (TryGetDungeonContext(out Game selectedGame, out Game leader))
 			{
-				Leader.IsAcBa = false;
-				Leader.IsTrungAc = false;
-				Leader.IsLauLanTamBao = false;
-				Leader.IsKyCuoc = false;
-				Leader.IsThuyLao = false;
-				Leader.MapAcTac = 0;
+				ResetDungeonActions(leader);
 			}
+			UpdateDungeonMenu(selectedGame, leader);
 		}
 
 		private void ItemAcBa_Click(object sender, EventArgs e)
 		{
-			if (Leader != null)
+			if (!RequireDungeonContext("Lỗi Ác Bá", out Game selectedGame, out Game leader))
 			{
-				CallALLAction();
-				Leader.IsAcBa = !Leader.IsAcBa;
-				notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + CurGame.TLBB.Name.ToUpper() + "]" + (Leader.IsAcBa ? " Bật " : " Tắt ") + "ÁC BÁ", ToolTipIcon.Info);
+				return;
 			}
-			else
-			{
-				CanhBao.Msg("Lỗi Ác Bá", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			bool enableAcBa = !leader.IsAcBa;
+			ResetDungeonActions(leader);
+			leader.IsAcBa = enableAcBa;
+			UpdateDungeonMenu(selectedGame, leader);
+			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (leader.IsAcBa ? " Bật " : " Tắt ") + "ÁC BÁ", ToolTipIcon.Info);
 		}
 
 		private void itemTranLongKyCuoc_Click(object sender, EventArgs e)
 		{
-			if (Leader != null)
+			if (!RequireDungeonContext("Lỗi Kỳ Cuộc", out Game selectedGame, out Game leader))
 			{
-				Leader.IsKyCuoc = !Leader.IsKyCuoc;
-				notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + CurGame.TLBB.Name.ToUpper() + "]" + (Leader.IsLauLanTamBao ? " Bật " : " Tắt ") + "Auto Trân Long Kỳ Cuộc", ToolTipIcon.Info);
+				return;
 			}
-			else
-			{
-				CanhBao.Msg("Lỗi Kỳ Cuộc", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			leader.IsKyCuoc = !leader.IsKyCuoc;
+			UpdateDungeonMenu(selectedGame, leader);
+			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (leader.IsKyCuoc ? " Bật " : " Tắt ") + "Auto Trân Long Kỳ Cuộc", ToolTipIcon.Info);
 		}
 
 		private void ItemThuyLao_Click(object sender, EventArgs e)
 		{
-			if (Leader != null)
+			if (!RequireDungeonContext("Lỗi Thủy Lao", out Game selectedGame, out Game leader))
 			{
-				Leader.IsThuyLao = false;
-				CanhBao.Msg("Lỗi Thủy Lao", "Not work", CanhBao.Kieu.Eror);
+				return;
 			}
-			else
-			{
-				CanhBao.Msg("Lỗi Thủy Lao", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			leader.IsThuyLao = false;
+			UpdateDungeonMenu(selectedGame, leader);
+			CanhBao.Msg("Lỗi Thủy Lao", "Not work", CanhBao.Kieu.Eror);
 		}
 
 		private void ItemTrungAc_Click(object sender, EventArgs e)
 		{
-			if (Leader != null)
+			if (!RequireDungeonContext("Lỗi Trừng Ác", out Game selectedGame, out Game leader))
 			{
-				Leader.IsTrungAc = !Leader.IsTrungAc;
-				notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + CurGame.TLBB.Name.ToUpper() + "]" + (Leader.IsLauLanTamBao ? " Bật " : " Tắt ") + "Auto Trừng Ác", ToolTipIcon.Info);
+				return;
 			}
-			else
-			{
-				Leader.IsTrungAc = false;
-				CanhBao.Msg("Lỗi Thủy Lao", "Cần chọn nhân vật đã có tổ đội", CanhBao.Kieu.Eror);
-			}
+			leader.IsTrungAc = !leader.IsTrungAc;
+			UpdateDungeonMenu(selectedGame, leader);
+			notifyIcon1.ShowBalloonTip(2000, "Thông Báo", "[" + (selectedGame.TLBB.Name ?? string.Empty).ToUpper() + "]" + (leader.IsTrungAc ? " Bật " : " Tắt ") + "Auto Trừng Ác", ToolTipIcon.Info);
 		}
 
 		private void chươngTrìnhToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (CurGame != null)
-			{
-				if (Leader == null)
-				{
-					itemchuacodoi.Text = "Chưa có đội";
-					menuactac.Enabled = false;
-					ItemAcBa.Enabled = false;
-					ItemLauLan.Enabled = false;
-					itemTranLongKyCuoc.Enabled = false;
-					ItemThuyLao.Enabled = false;
-					return;
-				}
-				itemchuacodoi.Text = "Đội Trưởng [ " + CurGame.Leader.TLBB.Name + "]";
-				itemchuacodoi.ForeColor = Color.Green;
-				menuactac.Enabled = true;
-				ItemAcBa.Enabled = true;
-				ItemLauLan.Enabled = true;
-				itemTranLongKyCuoc.Enabled = true;
-				ItemThuyLao.Enabled = true;
-				if (Leader.IsAcBa)
-				{
-					ItemAcBa.Checked = true;
-				}
-				else
-				{
-					ItemAcBa.Checked = false;
-				}
-				if (Leader.IsLauLanTamBao)
-				{
-					ItemLauLan.Checked = true;
-				}
-				else
-				{
-					ItemLauLan.Checked = false;
-				}
-				if (Leader.IsKyCuoc)
-				{
-					itemTranLongKyCuoc.Checked = true;
-				}
-				else
-				{
-					itemTranLongKyCuoc.Checked = false;
-				}
-				if (Leader.IsThuyLao)
-				{
-					ItemThuyLao.Checked = true;
-				}
-				else
-				{
-					ItemThuyLao.Checked = false;
-				}
-				if (Leader.IsTrungAc)
-				{
-					ItemTrungAc.Checked = true;
-				}
-				else
-				{
-					ItemTrungAc.Checked = false;
-				}
-			}
-			else
-			{
-				itemchuacodoi.Text = "Vui lòng đăng nhập";
-				menuactac.Enabled = false;
-				ItemAcBa.Enabled = false;
-				ItemLauLan.Enabled = false;
-				itemTranLongKyCuoc.Enabled = false;
-				ItemThuyLao.Enabled = false;
-			}
+			TryGetDungeonContext(out Game selectedGame, out Game leader);
+			UpdateDungeonMenu(selectedGame, leader);
 		}
 
 		private void phímTắtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4391,47 +4327,8 @@ namespace TinhKiemAuto
 
 		private void menuactac_Click(object sender, EventArgs e)
 		{
-			if (CurGame == null)
-			{
-				return;
-			}
-			if (Leader.MapAcTac != 0)
-			{
-				if (Leader.MapAcTac == MAP.VoLuongSon)
-				{
-					UnCheckAllAcTac();
-					vôLượngSơnToolStripMenuItem.Checked = true;
-				}
-				if (Leader.MapAcTac == MAP.KinhHo)
-				{
-					UnCheckAllAcTac();
-					kínhHồToolStripMenuItem.Checked = true;
-				}
-				if (Leader.MapAcTac == MAP.KiemCac)
-				{
-					UnCheckAllAcTac();
-					kiếmCácToolStripMenuItem.Checked = true;
-				}
-				if (Leader.MapAcTac == MAP.ThaiHo)
-				{
-					UnCheckAllAcTac();
-					tháiHồToolStripMenuItem.Checked = true;
-				}
-				if (Leader.MapAcTac == MAP.TungSon)
-				{
-					UnCheckAllAcTac();
-					tungSơnToolStripMenuItem.Checked = true;
-				}
-				if (Leader.MapAcTac == MAP.DonHoang)
-				{
-					UnCheckAllAcTac();
-					đônHoàngToolStripMenuItem.Checked = true;
-				}
-			}
-			else
-			{
-				UnCheckAllAcTac();
-			}
+			TryGetDungeonContext(out Game selectedGame, out Game leader);
+			UpdateDungeonMenu(selectedGame, leader);
 		}
 
 		public void UnCheckAllAcTac()
@@ -4447,11 +4344,13 @@ namespace TinhKiemAuto
 
 		private void dUwngfToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (CurGame != null)
+			if (!RequireDungeonContext("Lỗi Ác Tặc", out Game selectedGame, out Game leader))
 			{
-				Leader.MapAcTac = 0;
-				CanhBao.Msg("Hủy Ác Tặc", "Hủy Ác Tặc Thành Công", CanhBao.Kieu.OK);
+				return;
 			}
+			leader.MapAcTac = 0;
+			UpdateDungeonMenu(selectedGame, leader);
+			CanhBao.Msg("Hủy Ác Tặc", "Hủy Ác Tặc Thành Công", CanhBao.Kieu.OK);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -5243,7 +5142,7 @@ namespace TinhKiemAuto
 			this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
 			this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
 			this.chươngTrìnhToolStripMenuItem.Text = "Nhiệm Vụ - Phụ Bản";
-			this.chươngTrìnhToolStripMenuItem.Click += new System.EventHandler(chươngTrìnhToolStripMenuItem_Click);
+			this.chươngTrìnhToolStripMenuItem.DropDownOpening += new System.EventHandler(chươngTrìnhToolStripMenuItem_Click);
 			this.menuactac.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[8] { this.tựĐộngToolStripMenuItem, this.vôLượngSơnToolStripMenuItem, this.kínhHồToolStripMenuItem, this.kiếmCácToolStripMenuItem, this.tháiHồToolStripMenuItem, this.tungSơnToolStripMenuItem, this.đônHoàngToolStripMenuItem, this.dUwngfToolStripMenuItem });
 			this.menuactac.Name = "menuactac";
 			this.menuactac.Size = new System.Drawing.Size(172, 22);
@@ -5310,6 +5209,7 @@ namespace TinhKiemAuto
 			this.ItemThuyLao.Text = "Thủy Lao";
 			this.ItemThuyLao.Click += new System.EventHandler(ItemThuyLao_Click);
 			this.ItemTrungAc.CheckOnClick = true;
+			this.ItemTrungAc.Enabled = false;
 			this.ItemTrungAc.Name = "ItemTrungAc";
 			this.ItemTrungAc.Size = new System.Drawing.Size(172, 22);
 			this.ItemTrungAc.Text = "Trừng Ác";
