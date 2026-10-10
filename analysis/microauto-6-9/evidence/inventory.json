@@ -1,0 +1,214 @@
+{
+  "archive_sha256": "a56c478aff98e36ae544fecec62e85f4f93eb411bab6c29c6dbf5403e2bea107",
+  "members": [
+    {
+      "path": "microauto-6.9 src.zip",
+      "size": 78400,
+      "status": "not_read_encrypted_nested_archive"
+    },
+    {
+      "path": "microauto-6.9-main/app.manifest",
+      "size": 479,
+      "sha256": "f60b78d1d3ca2a3eada7fbafe3aa0f12803821b4828cdc7cfe88c24bb78a67bf",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class0.cs",
+      "size": 2246,
+      "sha256": "ce599dd81dfeb4ffca5b12de83f197c2852852bb1cb5dbaf0d41f3dfd124601b",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class1.cs",
+      "size": 351,
+      "sha256": "5f7a196f7246062c8ce8a326c99c74869e29b78167bae366b703ab39491a5aae",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class10.cs",
+      "size": 3030,
+      "sha256": "25c5f7e50444229868fde6d5d68697db137e11074307e1d89d164d4d55125834",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class2.cs",
+      "size": 18344,
+      "sha256": "ae1d4cc5470dd542987b5e62ea32b9dbb403798dcf1a29d3edfa94d8df989525",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class3.cs",
+      "size": 588,
+      "sha256": "ddf1ad6776b400ec28b887d33b49c5d990c40933f3230bb2814c3a0d480f1c44",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class3.Designer.cs",
+      "size": 211,
+      "sha256": "ca26231429c394f155815914003528d9ef2f801a547a3c0a0afa2d920ae2c734",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class3.settings",
+      "size": 251,
+      "sha256": "6a3e07212b22b4410251e3cc49d135a84b14a16efa03e54e327138179f784f41",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class4.cs",
+      "size": 6977,
+      "sha256": "2e2edea4512cae3dd038262d910d8c46344168920d687ed918c3f859591157af",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class5.cs",
+      "size": 3087,
+      "sha256": "2e9597be79b41f1237d74ea85f22df6dfab1915a66bfbadb66c96db68a3bdcc9",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class6.cs",
+      "size": 4496,
+      "sha256": "36b33965fb4870b99f4e5c83b97d9b039200baabc1b1b80004a7bff104b05861",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class7.cs",
+      "size": 2719,
+      "sha256": "95381106eb947cb6149e7e9a6fb5725aba2145482c2adfe032e5205448557ba3",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class8.cs",
+      "size": 2282,
+      "sha256": "6d2e815106257721c7bf9ab8a3f3f3840880150eecc643a34b15794febb988e2",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Class9.cs",
+      "size": 1285,
+      "sha256": "a420e99560fa271dd1d31a5e441832a730fe190a71934217fb339c6452fe5cc1",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormAlarm.cs",
+      "size": 2439,
+      "sha256": "c3292b612aba6ea3f39633c652ea1e1e6cc45856f87dda82e77ce4801b683b22",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormAlarm.Designer.cs",
+      "size": 3586,
+      "sha256": "7986f43fbf31a3a2c40e4cfae06c6ae872cf3c2ef0ee5d53a0ccfd5ca621f03a",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormAlarm.resources",
+      "size": 180,
+      "sha256": "a3237a994521c1904b0367691fdafc8b4b309371b845157bd149f27b53849d76",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormMain.cs",
+      "size": 39959,
+      "sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormMain.Designer.cs",
+      "size": 74850,
+      "sha256": "ebcbf54166e1f397518e3adffff1b14182e671bf90daa7b62f4d848a638401eb",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/FormMain.resources",
+      "size": 3207,
+      "sha256": "0ee5e57f2e32c766ed2f76a2f243e3890516608f57478fe29381e3165788457f",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GClass0.cs",
+      "size": 48288,
+      "sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GClass1.cs",
+      "size": 1277,
+      "sha256": "fbdd6673d9cd0f8a316b1bd7cd5ea3f1c3602c6ccb7bcc0be8972a05b2489393",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GClass2.cs",
+      "size": 1005,
+      "sha256": "592c0543ed537ebecdca2a2eae846a717e81658f2094379ce2107a35b6ed2498",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GClass3.cs",
+      "size": 986,
+      "sha256": "381b9a484fc4e63e29786831d5ec7cf8c59e6a6989c821bb5b8a9af3252b222c",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GClass4.cs",
+      "size": 1307,
+      "sha256": "deb89e55974e409296ee238102db85566c1d032f84499784fd216fb0e8f8dae3",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GDelegate0.cs",
+      "size": 118,
+      "sha256": "cfcc04ff139ef39bbd2e0d0b9b82f540ead8e47bcce3bc452e8ed88f9b039421",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GDelegate1.cs",
+      "size": 129,
+      "sha256": "02229819d4baed67860010c76d5eff512442a84d8f1aefccab1b0c564fbe5f65",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/GDelegate2.cs",
+      "size": 130,
+      "sha256": "41c65c34b9375765c04bbd282d0f8f64a0ba87e884260b3091707c38e0c81b02",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/MicroAuto 6.0.csproj",
+      "size": 4673,
+      "sha256": "8d4124ff41504798aca69e18446fbbd51b6eb243491ccd16094025b4fd6c2942",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/MicroAuto 6.0.ico",
+      "size": 22486,
+      "sha256": "66216e39c89ece1a1240b267bc7f73d0d94720a94c7a707009d38ca51989beab",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Properties/AssemblyInfo.cs",
+      "size": 579,
+      "sha256": "598c01e8e6b5728e1b016388eb003d76adf9206fb2ec24b2c1221640685f29a8",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/README.md",
+      "size": 36,
+      "sha256": "6675a0171a43345f4f3cc9c02434c80c1382c9ee079185c0b8a6b566cf84bfd3",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Resources.cs",
+      "size": 2211,
+      "sha256": "616d959310b689c836f405dc1c7cce372f885504f7a847f420ab34f662e80178",
+      "status": "extracted_as_data"
+    },
+    {
+      "path": "microauto-6.9-main/Resources.resources",
+      "size": 45822,
+      "sha256": "0d6a0cc7e7c341f346f231cb734110adcf936b733d2695dbd75d44630e5ce46f",
+      "status": "extracted_as_data"
+    }
+  ]
+}

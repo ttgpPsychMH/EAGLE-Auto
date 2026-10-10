@@ -1,0 +1,28 @@
+Microsoft (R) Visual C# Compiler version 4.11.0-3.25569.22 (3fb752d4)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+microauto-6.9-main/FormAlarm.cs(67,25): warning CS0114: 'FormAlarm.Dispose(bool)' hides inherited member 'Form.Dispose(bool)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+microauto-6.9-main/FormMain.cs(16,25): warning CS0114: 'FormMain.Dispose(bool)' hides inherited member 'Form.Dispose(bool)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+microauto-6.9-main/FormMain.cs(77,5): warning CS0162: Unreachable code detected
+microauto-6.9-main/GClass0.cs(1506,4): warning CS0162: Unreachable code detected
+microauto-6.9-main/Class10.cs(59,25): warning CS0169: The field 'Class10.struct3_1' is never used
+microauto-6.9-main/Class10.cs(53,25): warning CS0169: The field 'Class10.struct3_0' is never used
+microauto-6.9-main/Class10.cs(32,25): warning CS0169: The field 'Class10.struct2_7' is never used
+microauto-6.9-main/Class10.cs(68,42): warning CS0649: Field 'Class10.dictionary_0' is never assigned to, and will always have its default value null
+microauto-6.9-main/Class10.cs(47,25): warning CS0169: The field 'Class10.struct2_12' is never used
+microauto-6.9-main/Class10.cs(62,25): warning CS0169: The field 'Class10.struct5_0' is never used
+microauto-6.9-main/Class10.cs(20,25): warning CS0169: The field 'Class10.struct2_3' is never used
+microauto-6.9-main/Class10.cs(41,25): warning CS0169: The field 'Class10.struct2_10' is never used
+microauto-6.9-main/Class10.cs(35,25): warning CS0169: The field 'Class10.struct2_8' is never used
+microauto-6.9-main/Class10.cs(23,25): warning CS0169: The field 'Class10.struct2_4' is never used
+microauto-6.9-main/Class10.cs(56,25): warning CS0169: The field 'Class10.struct4_0' is never used
+microauto-6.9-main/Class10.cs(71,25): warning CS0169: The field 'Class10.struct6_0' is never used
+microauto-6.9-main/Class10.cs(44,25): warning CS0169: The field 'Class10.struct2_11' is never used
+microauto-6.9-main/Class10.cs(29,25): warning CS0169: The field 'Class10.struct2_6' is never used
+microauto-6.9-main/Class10.cs(65,25): warning CS0169: The field 'Class10.struct3_2' is never used
+microauto-6.9-main/Class10.cs(38,25): warning CS0169: The field 'Class10.struct2_9' is never used
+microauto-6.9-main/Class10.cs(17,25): warning CS0169: The field 'Class10.struct2_2' is never used
+microauto-6.9-main/Class10.cs(14,25): warning CS0169: The field 'Class10.struct2_1' is never used
+microauto-6.9-main/Class10.cs(26,25): warning CS0169: The field 'Class10.struct2_5' is never used
+microauto-6.9-main/Class10.cs(50,25): warning CS0169: The field 'Class10.struct2_13' is never used
+microauto-6.9-main/Class10.cs(11,25): warning CS0169: The field 'Class10.struct2_0' is never used

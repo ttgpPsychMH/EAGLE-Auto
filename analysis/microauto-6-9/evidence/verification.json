@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-10",
+  "uploaded_archive_sha256_unchanged": true,
+  "extracted_files_sha256_unchanged": 34,
+  "original_chickenauto_release_files_sha256_unchanged": 6,
+  "tracked_paths_changed_outside_report_directory": [],
+  "relative_document_links_resolve": true,
+  "compiler_log_errors": 0,
+  "compiler_log_warnings": 25,
+  "untrusted_binary_or_script_executed": false,
+  "uploaded_source_in_git_checkout": false
+}

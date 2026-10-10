@@ -1,0 +1,202 @@
+{
+  "source_roles": {
+    "Class0.cs": "game_process_registry_and_20_second_discovery_timer",
+    "Class1.cs": "winforms_entrypoint",
+    "Class2.cs": "named_per_character_ini_settings",
+    "Class4.cs": "window_and_text_helpers",
+    "Class5.cs": "game_window_geometry_and_activation",
+    "Class6.cs": "low_level_keyboard_hook",
+    "Class7.cs": "process_memory_read_write",
+    "Class8.cs": "named_general_ini_settings",
+    "GClass0.cs": "per_process_state_timers_basic_targeting_and_input",
+    "GClass1.cs": "win32_ini_adapter",
+    "GClass3.cs": "vietnamese_accent_normalization_for_character_settings_identifier",
+    "GClass4.cs": "audio_alert_playback",
+    "FormMain.cs": "ui_bindings_and_instance_selection",
+    "FormAlarm.cs": "alert_ui"
+  },
+  "finding_anchors": [
+    {
+      "finding": "hp_ui_binding",
+      "file": "FormMain.cs",
+      "lines": [
+        773
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    },
+    {
+      "finding": "mp_ui_binding",
+      "file": "FormMain.cs",
+      "lines": [
+        784
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    },
+    {
+      "finding": "hp_percent_binding",
+      "file": "FormMain.cs",
+      "lines": [
+        793
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    },
+    {
+      "finding": "mp_percent_binding",
+      "file": "FormMain.cs",
+      "lines": [
+        762
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    },
+    {
+      "finding": "target_hp_range",
+      "file": "GClass0.cs",
+      "lines": [
+        846
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "hp_repeat_guard",
+      "file": "GClass0.cs",
+      "lines": [
+        754
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "mp_repeat_guard",
+      "file": "GClass0.cs",
+      "lines": [
+        766
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "timer_cleanup",
+      "file": "GClass0.cs",
+      "lines": [
+        1278
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "ini_save",
+      "file": "GClass0.cs",
+      "lines": [
+        1549
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "ini_load",
+      "file": "GClass0.cs",
+      "lines": [
+        1598
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "memory_read",
+      "file": "Class7.cs",
+      "lines": [
+        18,
+        48
+      ],
+      "source_sha256": "95381106eb947cb6149e7e9a6fb5725aba2145482c2adfe032e5205448557ba3"
+    },
+    {
+      "finding": "unvalidated_radius_parse",
+      "file": "Class2.cs",
+      "lines": [
+        259
+      ],
+      "source_sha256": "ae1d4cc5470dd542987b5e62ea32b9dbb403798dcf1a29d3edfa94d8df989525"
+    },
+    {
+      "finding": "timer_component_seconds",
+      "file": "GClass0.cs",
+      "lines": [
+        795
+      ],
+      "source_sha256": "be0d4c4759e9fe8d40d42ac396c929036bda7546ffae0f0896e3e9bfc377cab2"
+    },
+    {
+      "finding": "wrong_combobox_lookup",
+      "file": "FormMain.cs",
+      "lines": [
+        146
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    },
+    {
+      "finding": "dispose_hides_base",
+      "file": "FormMain.cs",
+      "lines": [
+        16
+      ],
+      "source_sha256": "d83698b826955ff10919b94b8fd737abb3d868486e86b32f532bf89f15cbe2b5"
+    }
+  ],
+  "per_character_ini_key_names": [
+    "BaseSkill",
+    "BuffHPEnable",
+    "BuffHPKey",
+    "BuffHPPercent",
+    "BuffMPEnable",
+    "BuffMPKey",
+    "BuffMPPercent",
+    "BuffPetEnable",
+    "BuffPetKey",
+    "BuffPetPercent",
+    "ExitWhenHPLowPercent",
+    "F10Delay",
+    "F10Enable",
+    "F11Delay",
+    "F11Enable",
+    "F12Delay",
+    "F12Enable",
+    "F1Delay",
+    "F1Enable",
+    "F2Delay",
+    "F2Enable",
+    "F3Delay",
+    "F3Enable",
+    "F4Delay",
+    "F4Enable",
+    "F5Delay",
+    "F5Enable",
+    "F6Delay",
+    "F6Enable",
+    "F7Delay",
+    "F7Enable",
+    "F8Delay",
+    "F8Enable",
+    "F9Delay",
+    "F9Enable",
+    "IsLure",
+    "IsOnlyAttackFixHP",
+    "IsSkill",
+    "IsUseTarget",
+    "OnlyAttackFixHPMaxPercent",
+    "OnlyAttackFixHPMinPercent",
+    "RadiusEnable",
+    "RadiusValue",
+    "TargetKey"
+  ],
+  "pinvoke_libraries": [
+    "kernel32",
+    "kernel32.dll",
+    "user32.dll",
+    "winmm.dll"
+  ],
+  "scheduling": {
+    "per_game_winforms_timer_fields": 20,
+    "discovery_timer_milliseconds": 20000,
+    "hp_mp_repeat_guard_ms": 400
+  },
+  "search_only_not_absence_proof": {
+    "dungeon_search_hits": [],
+    "network_client_search_hits": []
+  }
+}

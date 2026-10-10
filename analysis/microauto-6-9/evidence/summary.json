@@ -1,0 +1,42 @@
+{
+  "csharp_files": 26,
+  "csharp_lines": 6795,
+  "declared_target_framework": "v2.0",
+  "declared_startup_object": "Class1",
+  "compile_items": 26,
+  "references": [
+    "Microsoft.VisualBasic",
+    "System",
+    "System.Drawing",
+    "System.Windows.Forms"
+  ],
+  "missing_project_items": [],
+  "license_file_present": false,
+  "dll_import_libraries": [
+    "kernel32",
+    "kernel32.dll",
+    "user32.dll",
+    "winmm.dll"
+  ],
+  "token_comment_count": 684,
+  "compile_probe": {
+    "sdk": "8.0.425",
+    "language": "7.3",
+    "target": "library",
+    "architecture": "x86",
+    "reference_package": "Microsoft.NETFramework.ReferenceAssemblies.net35 1.0.3",
+    "original_project_executed": false,
+    "resources_embedded": false,
+    "exit_code": 0,
+    "errors": 0,
+    "warnings": 25,
+    "warning_codes": {
+      "CS0114": 2,
+      "CS0162": 2,
+      "CS0169": 20,
+      "CS0649": 1
+    },
+    "output_sha256": "db846e3b79455b82fc946ac1c98f5d08d89ad6dd94e75e11fd546f21d0676b9e",
+    "output_executed": false
+  }
+}
