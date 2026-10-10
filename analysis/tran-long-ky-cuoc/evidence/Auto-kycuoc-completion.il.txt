@@ -1,0 +1,52 @@
+		IL_076b: ldarg.0
+		IL_076c: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_0771: callvirt instance int32 TinhKiemAuto.TLBB::get_MapId()
+		IL_0776: ldsfld int32 TinhKiemAuto.MAP::TranLongKyCuoc
+		IL_077b: bne.un IL_0801
+
+		IL_0780: ldarg.0
+		IL_0781: call instance bool TinhKiemAuto.Game::get_IsBossDie()
+		IL_0786: brfalse.s IL_0801
+
+		IL_0788: ldarg.0
+		IL_0789: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::BossDieTime
+		IL_078e: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_0793: stloc.s 4
+		IL_0795: ldloca.s 4
+		IL_0797: call instance float64 [mscorlib]System.TimeSpan::get_TotalSeconds()
+		IL_079c: ldc.r8 30
+		IL_07a5: ble.un.s IL_07c3
+
+		IL_07a7: ldarg.0
+		IL_07a8: ldsfld class TinhKiemAuto.NPC TinhKiemAuto.TRANLONGKYCUOC::TeThanh
+		IL_07ad: call instance bool TinhKiemAuto.Game::GoTo(class TinhKiemAuto.NPC)
+		IL_07b2: pop
+		IL_07b3: ldarg.0
+		IL_07b4: ldc.i4.1
+		IL_07b5: call instance void TinhKiemAuto.Game::set_IsP(bool)
+		IL_07ba: ldarg.0
+		IL_07bb: ldc.i4.1
+		IL_07bc: call instance void TinhKiemAuto.Game::set_IsXongKyCuoc(bool)
+		IL_07c1: br.s IL_0801
+
+		IL_07c3: call int32 TinhKiemAuto.Game::get_TickCount()
+		IL_07c8: ldc.i4.6
+		IL_07c9: rem
+		IL_07ca: brtrue.s IL_0801
+
+		IL_07cc: ldarg.0
+		IL_07cd: ldstr "Di chuyển sau "
+		IL_07d2: ldc.i4.s 20
+		IL_07d4: ldarg.0
+		IL_07d5: ldfld class [System]System.Diagnostics.Stopwatch TinhKiemAuto.Game::BossDieTime
+		IL_07da: callvirt instance valuetype [mscorlib]System.TimeSpan [System]System.Diagnostics.Stopwatch::get_Elapsed()
+		IL_07df: stloc.s 4
+		IL_07e1: ldloca.s 4
+		IL_07e3: call instance int32 [mscorlib]System.TimeSpan::get_Seconds()
+		IL_07e8: sub
+		IL_07e9: stloc.s 9
+		IL_07eb: ldloca.s 9
+		IL_07ed: call instance string [mscorlib]System.Int32::ToString()
+		IL_07f2: ldstr "s"
+		IL_07f7: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_07fc: call instance void TinhKiemAuto.Game::PushDebugMessage(string)

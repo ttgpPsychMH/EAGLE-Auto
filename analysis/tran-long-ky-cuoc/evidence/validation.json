@@ -1,0 +1,38 @@
+{
+  "baseline_commit": "6d83466",
+  "review_kind": "static Ky Cuoc source/data/IL analysis",
+  "static_source_pattern_checks": "PASS",
+  "original_il_cross_check": "PASS",
+  "existing_v0_2_build_static_verification": "PASS",
+  "menu_tests": {
+    "suite": "DungeonMenuRegressionTests",
+    "configuration": "Release",
+    "counters": {
+      "total": "38",
+      "executed": "38",
+      "passed": "38",
+      "failed": "0",
+      "error": "0",
+      "timeout": "0",
+      "aborted": "0",
+      "inconclusive": "0",
+      "passedButRunAborted": "0",
+      "notRunnable": "0",
+      "notExecuted": "0",
+      "disconnected": "0",
+      "warning": "0",
+      "completed": "0",
+      "inProgress": "0",
+      "pending": "0"
+    },
+    "engine_coverage": false
+  },
+  "ky_cuoc_engine_simulation_run": false,
+  "windows_runtime_test_run": false,
+  "game_test_run": false,
+  "automation_binary_executed": false,
+  "native_dll_executed": false,
+  "app_source_changed": false,
+  "original_binary_files_changed": false,
+  "product_version_changed": false
+}

@@ -1,0 +1,58 @@
+	.method public hidebysig
+		instance void AOE () cil managed
+	{
+		// Method begins at RVA 0x37f20
+		// Header size: 12
+		// Code size: 130 (0x82)
+		.maxstack 5
+
+		IL_0000: call int32 TinhKiemAuto.Game::get_TickCount()
+		IL_0005: ldc.i4 150
+		IL_000a: rem
+		IL_000b: brtrue.s IL_0014
+
+		IL_000d: ldsfld bool TinhKiemAuto.Global::UseSkillPet
+		IL_0012: brtrue.s IL_0015
+
+		IL_0014: ret
+
+		IL_0015: ldarg.0
+		IL_0016: ldfld class TinhKiemAuto.GameObjects TinhKiemAuto.Game::Objects
+		IL_001b: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject> TinhKiemAuto.GameObjects::get_NearMonter20m()
+		IL_0020: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject>::get_Count()
+		IL_0025: ldc.i4.0
+		IL_0026: bge.s IL_0029
+
+		IL_0028: ret
+
+		IL_0029: ldarg.0
+		IL_002a: ldarg.0
+		IL_002b: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_0030: ldfld string TinhKiemAuto.TLBB::SkillPetType
+		IL_0035: call instance int32 TinhKiemAuto.Game::SkillPetId(string)
+		IL_003a: ldc.i4.m1
+		IL_003b: beq.s IL_0081
+
+		IL_003d: ldarg.0
+		IL_003e: ldarg.0
+		IL_003f: ldarg.0
+		IL_0040: ldfld class TinhKiemAuto.TLBB TinhKiemAuto.Game::TLBB
+		IL_0045: ldfld string TinhKiemAuto.TLBB::SkillPetType
+		IL_004a: call instance int32 TinhKiemAuto.Game::SkillPetId(string)
+		IL_004f: ldarg.0
+		IL_0050: ldfld class TinhKiemAuto.GameObjects TinhKiemAuto.Game::Objects
+		IL_0055: ldfld class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject> TinhKiemAuto.GameObjects::Monter
+		IL_005a: ldc.i4.0
+		IL_005b: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject>::get_Item(int32)
+		IL_0060: callvirt instance float32 TinhKiemAuto.GameObject::get_X()
+		IL_0065: ldarg.0
+		IL_0066: ldfld class TinhKiemAuto.GameObjects TinhKiemAuto.Game::Objects
+		IL_006b: ldfld class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject> TinhKiemAuto.GameObjects::Monter
+		IL_0070: ldc.i4.0
+		IL_0071: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class TinhKiemAuto.GameObject>::get_Item(int32)
+		IL_0076: callvirt instance float32 TinhKiemAuto.GameObject::get_Y()
+		IL_007b: call instance void TinhKiemAuto.Game::UseSkillPet(int32, float32, float32)
+		IL_0080: ret
+
+		IL_0081: ret
+	} // end of method Game::AOE
