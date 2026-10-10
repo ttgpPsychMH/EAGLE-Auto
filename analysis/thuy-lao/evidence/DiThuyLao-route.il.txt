@@ -12,4 +12,3 @@ No target executable was run.
 		IL_004d: ldsfld int32 TinhKiemAuto.MAP::ToChau
 		IL_0052: call instance void TinhKiemAuto.Game::TimDuong(float32, float32, int32)
 		IL_0057: ret
-
