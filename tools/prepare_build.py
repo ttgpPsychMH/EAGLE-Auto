@@ -141,6 +141,9 @@ def main():
                 raise ValueError("Review snapshot changed: " + relative)
             for match, original in reversed(list(zip(matches, originals))):
                 review = review[:match.start()] + original + review[match.end():]
+            if relative.endswith("/Game.cs"):
+                from thuy_lao_review import apply_review
+                review = apply_review(repo, review)
             path = hydrated / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(review)
@@ -162,6 +165,8 @@ def main():
         (final / "prepared.json").write_text(json.dumps(manifest, indent=2) + "\n")
     if original_hashes != {p.name: digest(p.read_bytes()) for p in repo.glob("ChickenAuto*") if p.is_file()}:
         raise ValueError("Original file preservation failed")
+    from thuy_lao_review import write_regression_source
+    write_regression_source(repo)
     print("Prepared 27 embedded resources, icon and four hydrated source files; originals unchanged.")
     print("Generated key material is confined to ignored .build; no release executable was run.")
 

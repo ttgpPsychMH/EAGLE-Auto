@@ -2,7 +2,7 @@
 
 Ngày cập nhật: 10-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.1**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
 
-Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v0.1.exe**. Giữ file **EAGLE-Auto-v0.1.exe.config** bên cạnh EXE và các DLL trong gói. Không dùng EXE/config cũ còn sót từ bản tải trước. Đọc `BUILD-INFO.json` để biết version và checksum của đúng gói đã tải.
+Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.2 dùng `EAGLE-Auto-v0.2.exe` và `EAGLE-Auto-v0.2.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.
 
 Với gói v0.1, giao diện hiển thị `EAGLE Auto v0.1`; menu `Về EAGLE Auto` ghi:
 
@@ -23,6 +23,6 @@ MSBuild sinh hằng version trong thư mục `obj` và tự đồng bộ:
 
 Không tăng version mỗi lần build: build lại cùng source vẫn là cùng version sản phẩm. File build cũ có thể còn trong `bin`; script package chỉ lấy file đúng version đã xác minh, không đóng gói EXE/config cũ.
 
-`Global.Version = "107"` là version giao thức cũ, tiếp tục giữ để bảo toàn updater/licensing; CLR AssemblyVersion vẫn `1.0.0.0`. Chỉ assembly simple name đổi theo tên file. Icon, namespace/resource gốc, mutex, bản stable 116 và code automation/VIP giữ nguyên. Copyright gốc được giữ, không tuyên bố đổi giấy phép của code/dependency.
+`Global.Version = "107"` là version giao thức cũ, tiếp tục giữ để bảo toàn updater/licensing; CLR AssemblyVersion vẫn `1.0.0.0`. Chỉ assembly simple name đổi theo tên file. Icon, namespace/resource gốc, mutex, stable 116 và licensing/VIP giữ nguyên. Từ v0.2, có [các sửa hẹp Thủy Lao đã kiểm thử bằng mô phỏng](EAGLE-Auto-THUY-LAO-SIMULATION.vi.md); menu Thủy Lao vẫn chưa khả dụng. Copyright gốc được giữ, không tuyên bố đổi giấy phép của code/dependency.
 
 Kiểm tra Windows 11: tên file/config đi cùng nhau; mở app; tiêu đề/About đúng version; Properties → Details có FileVersion/ProductVersion đúng; đóng/mở lại và thử mở bản thứ hai để kiểm tra mutex. Sau đó theo [checklist Windows](ChickenAutoEx-WINDOWS11.vi.md). Build Linux và test giả lập chưa xác nhận bản vừa đổi tên chạy đúng trên Windows hay trong game.

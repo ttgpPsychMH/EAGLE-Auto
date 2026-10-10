@@ -1,0 +1,78 @@
+{
+  "base_commit": "c17c67303e6ce8a80d360a7cd56f186a50775ab8",
+  "scope": "Exact Thuy Lao changes only; restore all other recovered Game/auth/automation code byte for byte after redaction.",
+  "edits": [
+    {
+      "name": "partial_class",
+      "original": "\tpublic class Game\n",
+      "reviewed": "\tpublic partial class Game\n",
+      "count": 1
+    },
+    {
+      "name": "replace_DiThuyLao",
+      "original": "\t\tprivate void DiThuyLao()\n\t\t{\n\t\t\tif (TLBB.MapId != MAP.ThaiHo && TLBB.MapId != MAP.ToChau && TLBB.MapId != MAP.ThuyLao)\n\t\t\t{\n\t\t\t\tTimDuong(THAIHO.HoDienKhanh.X, THAIHO.HoDienKhanh.Y, MAP.ToChau);\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tif (!GoTo(THAIHO.HoDienKhanh))\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (TLBB.IsQuestOpen)\n\t\t\t\t{\n\t\t\t\t\tif (!IsClick)\n\t\t\t\t\t{\n\t\t\t\t\t\tQuestFrameOptionClicked(232002, -1);\n\t\t\t\t\t\tIsClick = true;\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tQuestFrameAccept();\n\t\t\t\t\t\tIsClick = false;\n\t\t\t\t\t\tCloseQuest();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tTalk(THAIHO.HoDienKhanh);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tprivate void NhanThuyLao()\n\t\t{"
+    },
+    {
+      "name": "replace_NhanThuyLao",
+      "original": "\t\tprivate void NhanThuyLao()\n\t\t{\n\t\t\tif (DaNhanThuyLao)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (TrangThaiThuyLao == \"\")\n\t\t\t{\n\t\t\t\tif (!TLBB.IsTogleMission && !TLBB.IsTogleMission)\n\t\t\t\t{\n\t\t\t\t\tPostMessage(18, 105);\n\t\t\t\t}\n\t\t\t\tTrangThaiThuyLao = \"OpenMission\";\n\t\t\t}\n\t\t\telse if (TrangThaiThuyLao == \"OpenMission\")\n\t\t\t{\n\t\t\t\tPostMessage(18, 105);\n\t\t\t\tTrangThaiThuyLao = \"CloseMission\";\n\t\t\t}\n\t\t\telse if (TrangThaiThuyLao == \"CloseMission\")\n\t\t\t{\n\t\t\t\tforeach (Task item in Task.Enum(this))\n\t\t\t\t{\n\t\t\t\t\tif (item.ClearName.Contains(\"binhdinhthuylao\"))\n\t\t\t\t\t{\n\t\t\t\t\t\tDaNhanThuyLao = true;\n\t\t\t\t\t\tTrangThaiThuyLao = \"\";\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tTrangThaiThuyLao = \"NhanThuyLao\";\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tif (!(TrangThaiThuyLao == \"NhanThuyLao\"))\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (TLBB.MapId != MAP.ThaiHo && TLBB.MapId != MAP.ToChau && TLBB.MapId != MAP.ThuyLao)\n\t\t\t\t{\n\t\t\t\t\tTimDuong(TOCHAU.HoDienBao.X, TOCHAU.HoDienBao.Y, MAP.ToChau);\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tif (!GoTo(TOCHAU.HoDienBao))\n\t\t\t\t\t{\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t\tif (TLBB.IsQuestOpen)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!IsClick)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tQuestFrameOptionClicked(232000, -1);\n\t\t\t\t\t\t\tIsClick = true;\n\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tQuestFrameAccept();\n\t\t\t\t\t\tIsClick = false;\n\t\t\t\t\t\tCloseQuest();\n\t\t\t\t\t\tTrangThaiThuyLao = \"\";\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tTalk(TOCHAU.HoDienBao);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic void DatDoiThuyLao()\n\t\t{"
+    },
+    {
+      "name": "replace_DatDoiThuyLao",
+      "original": "\t\tpublic void DatDoiThuyLao()\n\t\t{\n\t\t\tif (!IsThuyLao || TickCount % 18 != 0 || PickItem())\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tTrieuTap();\n\t\t\tif (TLBB.MapId == MAP.ThuyLao)\n\t\t\t{\n\t\t\t\tif (IsXongThuyLao)\n\t\t\t\t{\n\t\t\t\t\tGoTo(94f, 94f);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (Objects.NearMonter15m.Count > 0)\n\t\t\t\t{\n\t\t\t\t\tif (TLBB.PlayerState == 0)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (TLBB.IsFollow)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tStopFollow();\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (TLBB.IsRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tDownRide();\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tClearTime = Stopwatch.StartNew();\n\t\t\t\t}\n\t\t\t\tif (ClearTime.Elapsed.TotalSeconds > 2.0)\n\t\t\t\t{\n\t\t\t\t\tif (!IsRide && TLBB.HaveRide)\n\t\t\t\t\t{\n\t\t\t\t\t\tUpRide();\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tMoveNext();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse if (!DaNhanThuyLao)\n\t\t\t{\n\t\t\t\tNhanThuyLao();\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tDiThuyLao();\n\t\t\t}\n\t\t}\n",
+      "reviewed": "",
+      "count": 1,
+      "anchor": "\n\t\tpublic void DatDoiKyCuoc()\n\t\t{"
+    },
+    {
+      "name": "thuy_lao_members_only",
+      "original": "\t\t\t\tif (item.TLBB.IsLeader || !(item.tranTime.Elapsed.TotalSeconds >= 2.0))\n\t\t\t\t{\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\tif (IsThuyLao)\n\t\t\t\t{\n\t\t\t\t\tif (item.TLBB.MapId != MAP.ThuyLao || TLBB.MapId != MAP.ThuyLao)\n\t\t\t\t\t{\n\t\t\t\t\t\tif (!item.DaNhanThuyLao)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\titem.NhanThuyLao();\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\titem.DiThuyLao();\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tif (item.PickItem())\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (item.Objects.NearMonter20m.Count > 0)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tif (item.TLBB.PlayerState == 0)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tif (item.TLBB.IsFollow)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\titem.StopFollow();\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tif (item.TLBB.IsRide)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\titem.DownRide();\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (!item.IsRide && item.TLBB.HaveRide)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\titem.UpRide();\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (TINHKIEM.GetDistance(item.RoundX, item.RoundY, RoundX, RoundY) > 4f)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\titem.GoTo(RoundX, RoundY);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n",
+      "reviewed": "\t\t\t\tif (IsThuyLao)\n\t\t\t\t{\n\t\t\t\t\ttry { RunThuyLaoMember(item); }\n\t\t\t\t\tcatch (Exception error)\n\t\t\t\t\t{\n\t\t\t\t\t\tStopThuyLao(\"lỗi đọc/xử lý \" + error.GetType().Name + \".\");\n\t\t\t\t\t\treturn false;\n\t\t\t\t\t}\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\tif (item.TLBB.IsLeader || !(item.tranTime.Elapsed.TotalSeconds >= 2.0))\n\t\t\t\t{\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n",
+      "count": 1
+    },
+    {
+      "name": "clear_session",
+      "original": "\t\tpublic void ClearMission()\n\t\t{\n",
+      "reviewed": "\t\tpublic void ClearMission()\n\t\t{\n\t\t\tIsThuyLao = false;\n\t\t\tResetThuyLaoProgress();\n",
+      "count": 1
+    },
+    {
+      "name": "auto_off_reset",
+      "original": "\t\t\tif (!IsAuto)\n\t\t\t{\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (!IsInit)",
+      "reviewed": "\t\t\tif (!IsAuto)\n\t\t\t{\n\t\t\t\tIsThuyLao = false;\n\t\t\t\tResetThuyLaoProgress();\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (!IsInit)",
+      "count": 1
+    },
+    {
+      "name": "scene_reset",
+      "original": "\t\t\t\tIsXongThuyLao = false;\n\t\t\t\tcome = false;\n",
+      "reviewed": "\t\t\t\tResetThuyLaoProgress();\n\t\t\t\tcome = false;\n",
+      "count": 1
+    },
+    {
+      "name": "route_end_is_not_completion",
+      "original": "IsXongThuyLao = true;",
+      "reviewed": "ThuyLaoRouteFinished = true;",
+      "count": 2
+    },
+    {
+      "name": "prevent_calendar_conflict",
+      "original": "private bool IsBusy => IsMapPhuBan();",
+      "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao;",
+      "count": 1
+    },
+    {
+      "name": "module_toggle_resets_own_session",
+      "original": "\t\tpublic bool IsThuyLao { get; set; }\n",
+      "reviewed": "\t\tpublic bool IsThuyLao\n\t\t{\n\t\t\tget { return thuyLaoEnabled; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tif (thuyLaoEnabled != value) ResetThuyLaoProgress();\n\t\t\t\tthuyLaoEnabled = value;\n\t\t\t}\n\t\t}\n",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": "f659a71c53edb36222faa6855acb4f4870191870effbf3ce7b92cc2050035e0a"
+  }
+}

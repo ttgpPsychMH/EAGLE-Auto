@@ -16,6 +16,7 @@ namespace TinhKiemAuto
             + "• Khôi phục project .NET Framework 4.8 và xử lý lỗi khởi động/cập nhật.\n"
             + "• Sửa lựa chọn hồi MP và đọc cấu hình map tùy chọn.\n"
             + "• Sửa menu nhiệm vụ/phó bản khi thiếu nhân vật hoặc đội trưởng.\n"
+            + "• Sửa xử lý tổ đội và trạng thái nhiệm vụ Thủy Lao; tính năng chưa được bật.\n"
             + "• Đổi tên hiển thị, file chạy và thông tin giới thiệu sang " + WindowTitle + ".\n\n"
             + "Khả năng hoạt động trong game đang được kiểm thử.";
     }
