@@ -1,0 +1,9 @@
+target_clients,phase,observed_processes,observed_windows,logged_in_clients,launch_method,status,warning_text,csv_file,notes
+2,idle,,,,,pending,,,
+2,in_game,,,,,pending,,,
+3,idle,,,,,pending,,,
+3,in_game,,,,,pending,,,
+4,idle,,,,,pending,,,
+4,in_game,,,,,pending,,,
+6,idle,,,,,pending,,,
+6,in_game,,,,,pending,,,

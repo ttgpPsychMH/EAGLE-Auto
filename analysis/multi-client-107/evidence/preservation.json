@@ -1,0 +1,29 @@
+{
+  "base_commit": "56b4d899f4eca6ee2c46a9b2fe4ec1e9d13ec30a",
+  "existing_tracked_files_unchanged": true,
+  "licensing_vip_and_automation_unchanged": true,
+  "application_version": "0.10",
+  "original_release_files_unchanged": true,
+  "original_release_hashes": {
+    "ChickenAuto-new.7z": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49",
+    "ChickenAuto-new.exe": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "ChickenAuto-new.zip": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08",
+    "ChickenAutoEx-new.7z": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02",
+    "ChickenAutoEx-new.exe": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "ChickenAutoEx-new.zip": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+  },
+  "selected_source_sha256": {
+    "src/ChickenAutoEx/FrmMain.cs": "5362feb1dd92b0f4aa4e1df376eb0e044af7375c50cca511bcb7690ba445c7ee",
+    "src/ChickenAutoEx/Global.cs": "21cc6cb3391eebad9148f6084a49bae849413c925e518527f94a6423816bd9f9",
+    "src/ChickenAutoEx/Program.cs": "0fa088a0dd8d09cf8ee15e8d2b7e6fb16ec7f02887297e13d6a1816e4c97caac",
+    "EagleAuto.Version.props": "4de8a725846b80b07a74446e0c9d147a43882d489ad7c14dd2a41a902ec2a21c",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Game.cs": "508d9b5bc6f927099887bb1f85333213034b11392f610c7e45e574968525090e",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Memory.cs": "33a9aa0cd2f28f26fc72c1c3a46b92c0e5560b03df0f0a611b10110eb1111c83",
+    "analysis/chickenautoex-107/recovered/TinhKiemAuto/Address.cs": "1e4ea72cfe26a6d2650b8927f98c6327b884228920e02cd78ef50cdfe27efd09"
+  },
+  "production_launch_limit_changed": false,
+  "runtime_model_integrated": false,
+  "original_game_or_automation_executed": false,
+  "windows_sampler_built_only": true,
+  "windows_game_tested": false
+}

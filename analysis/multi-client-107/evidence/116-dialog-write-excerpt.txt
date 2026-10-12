@@ -1,0 +1,98 @@
+Static objdump excerpt; original auto EXE not executed.
+
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+
+Selected auto VAs are not game-client offsets.
+
+IAT 0xc24408 = WriteProcessMemory; 0xc26a68 = "#32770".
+
+Interpretation: dialog branch constructs two four-byte NOP vectors and calls a WriteProcessMemory helper. Client compatibility and patched game instructions remain unverified.
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00414e12 <.text+0x13e12>:
+  414e12:	6a 06                	push   0x6
+  414e14:	68 68 6a c2 00       	push   0xc26a68
+  414e19:	e8 f2 db 64 00       	call   0xa62a10
+
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00414f23 <.text+0x13f23>:
+  414f23:	33 f6                	xor    esi,esi
+  414f25:	b8 90 90 90 90       	mov    eax,0x90909090
+  414f2a:	8b ce                	mov    ecx,esi
+  414f2c:	d3 e8                	shr    eax,cl
+  414f2e:	88 45 53             	mov    BYTE PTR [ebp+0x53],al
+
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00414f5d <.text+0x13f5d>:
+  414f5d:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  414f60:	8d 45 34             	lea    eax,[ebp+0x34]
+  414f63:	50                   	push   eax
+  414f64:	68 6a f2 42 00       	push   0x42f26a
+  414f69:	e8 f2 b2 00 00       	call   0x420260
+
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00414fd3 <.text+0x13fd3>:
+  414fd3:	33 f6                	xor    esi,esi
+  414fd5:	ba 90 90 90 90       	mov    edx,0x90909090
+  414fda:	8b ce                	mov    ecx,esi
+  414fdc:	d3 ea                	shr    edx,cl
+  414fde:	88 55 53             	mov    BYTE PTR [ebp+0x53],dl
+
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0041500d <.text+0x1400d>:
+  41500d:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  415010:	8d 45 28             	lea    eax,[ebp+0x28]
+  415013:	50                   	push   eax
+  415014:	68 6e f2 42 00       	push   0x42f26e
+  415019:	e8 42 b2 00 00       	call   0x420260
+
+
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00420260 <.text+0x1f260>:
+  420260:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  420264:	6a 00                	push   0x0
+  420266:	8b 10                	mov    edx,DWORD PTR [eax]
+  420268:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+  42026b:	2b c2                	sub    eax,edx
+  42026d:	50                   	push   eax
+  42026e:	52                   	push   edx
+  42026f:	ff 74 24 10          	push   DWORD PTR [esp+0x10]
+  420273:	ff 31                	push   DWORD PTR [ecx]
+  420275:	ff 15 08 44 c2 00    	call   DWORD PTR ds:0xc24408
+  42027b:	85 c0                	test   eax,eax
+  42027d:	0f 95 c0             	setne  al
+  420280:	c2 08 00             	ret    0x8

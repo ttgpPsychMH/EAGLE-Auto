@@ -1,0 +1,294 @@
+{
+  "generated_utc": "2026-10-12T15:56:06.5942596+00:00",
+  "scope": "Selected legacy C# branches against owned fake APIs; proposed offline launch model; no game executable/DLL loaded.",
+  "passed": 46,
+  "failed": 0,
+  "unsafe_legacy_behaviors_reproduced": 9,
+  "capacities": [
+    2,
+    3,
+    4,
+    6
+  ],
+  "concurrency_stress_rounds": 200,
+  "runtime_integration": false,
+  "windows_game_tested": false,
+  "checks": [
+    {
+      "Name": "legacy_monitor_patches_any_game_dialog_without_text_check",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_monitor_closes_after_failed_writes",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_init_closes_after_failed_writes",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_retries_patch_on_repeated_dialog_observation",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_post_failure_not_reported",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_partial_write_1_failure_still_closes_dialog",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_partial_write_2_failure_still_closes_dialog",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_no_dialog_no_write",
+      "Kind": "legacy_control",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_guard_allows_launch_when_three_already_exist",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "legacy_same_stale_count_accepts_multiple_requests",
+      "Kind": "unsafe_legacy_reproduced",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_2_includes_starting_and_running",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_2_concurrent_reservations",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_2_existing_clients_use_slots",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_3_includes_starting_and_running",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_3_concurrent_reservations",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_3_existing_clients_use_slots",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_4_includes_starting_and_running",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_4_concurrent_reservations",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_4_existing_clients_use_slots",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_6_includes_starting_and_running",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_6_concurrent_reservations",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "capacity_6_existing_clients_use_slots",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "six_slots_concurrency_stress_200_rounds",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "duplicate_request_uses_one_slot",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "external_permission_denied_even_with_free_capacity",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "resource_pressure_denies_launch",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "slow_start_holds_slot_until_ack",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "timeout_is_not_proof_of_absence",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "confirmed_failed_launch_releases_slot",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "unconfirmed_timeout_can_be_reconciled_absent",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "discovery_before_ack_merges_same_identity",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "double_ack_does_not_change_count",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "two_tickets_cannot_own_same_process",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "exit_frees_ready_process_slot",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "pid_reuse_old_exit_does_not_remove_new_process",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "preexisting_over_capacity_still_observed_no_more_launches",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "unknown_ready_event_cannot_create_client",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "late_ack_after_confirmed_absence_is_rejected",
+      "Kind": "proposed_model",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "screenshot_warning_matches_only_owned_game",
+      "Kind": "dialog_candidate",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "warning_accepts_comma_width_and_line_breaks",
+      "Kind": "dialog_candidate",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "other_game_error_dialog_is_rejected",
+      "Kind": "dialog_candidate",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "different_title_is_rejected",
+      "Kind": "dialog_candidate",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "prefix_suffix_or_missing_warning_words_rejected",
+      "Kind": "dialog_candidate",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "cpu_percent_machine_normalized",
+      "Kind": "measurement_math",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "cpu_invalid_intervals_rejected",
+      "Kind": "measurement_math",
+      "Passed": true,
+      "Failure": null
+    },
+    {
+      "Name": "csv_quoting_and_numbers_are_culture_invariant",
+      "Kind": "measurement_math",
+      "Passed": true,
+      "Failure": null
+    }
+  ]
+}

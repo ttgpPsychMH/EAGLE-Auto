@@ -1,0 +1,63 @@
+name: Multi-client analysis and diagnostics
+
+on:
+  push:
+    branches: [master, 'analysis/multi-client-investigation']
+    paths:
+      - 'analysis/multi-client-107/**'
+      - '.github/workflows/multi-client-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: '8.0.425'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Verify application, licensing and original releases unchanged
+        run: python analysis/multi-client-107/tools/verify_preservation.py
+      - name: Restore isolated projects with locked packages
+        run: |
+          dotnet restore analysis/multi-client-107/simulation/MultiClientSimulation.csproj --locked-mode
+          dotnet restore analysis/multi-client-107/windows/EagleMultiClientMonitor.csproj --locked-mode
+      - name: Run owned model and selected legacy branches with fake APIs
+        run: dotnet run --project analysis/multi-client-107/simulation/MultiClientSimulation.csproj -c Release --no-restore -- "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/.build/multi-client-107/summary.json"
+      - name: Compile read-only net48 Windows sampler without executing it
+        run: dotnet build analysis/multi-client-107/windows/EagleMultiClientMonitor.csproj -c Release --no-restore
+      - name: Package diagnostics and evidence
+        run: python analysis/multi-client-107/tools/package_review.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: EAGLE-MultiClient-Diagnostics
+          path: |
+            .build/multi-client-107/EAGLE-MultiClient-Diagnostics.zip
+            .build/multi-client-107/EAGLE-MultiClient-Diagnostics.zip.sha256
+            .build/multi-client-107/summary.json
+            .build/multi-client-107/preservation.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Explain scope
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
+          Download **EAGLE-MultiClient-Diagnostics** from Artifacts.
+          This contains a source-owned read-only .NET Framework 4.8 monitor and Vietnamese test instructions.
+          It is not a new EAGLE Auto release and does not change the client limit, licensing, hook or dungeon engines.
+          Selected legacy branches ran with fake APIs; the launch manager is an offline candidate only.
+          No game executable, automation executable or native game DLL was executed.
+          Actual Windows 11 and 2/3/4/6-client tests remain pending.
+          SUMMARY
