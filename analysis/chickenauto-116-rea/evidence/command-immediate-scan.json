@@ -1,0 +1,11 @@
+{
+  "scope_va": [
+    "0x401000",
+    "0x443000"
+  ],
+  "method": "GNU objdump sequential static disassembly",
+  "minus_5_minus_10_immediates": [
+    "421e11:\t6a fb                \tpush   0xfffffffb"
+  ],
+  "limitation": "Subset and immediate syntax only; cannot prove absence in all code or computed commands."
+}

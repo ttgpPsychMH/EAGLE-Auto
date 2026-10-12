@@ -1,0 +1,23 @@
+Independent GNU objdump; target SHA256 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+
+.build/chickenauto-116-rea/ChickenAuto-116.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00425a00 <.text+0x24a00>:
+  425a00:	51                   	push   ecx
+  425a01:	6a 00                	push   0x0
+  425a03:	6a 04                	push   0x4
+  425a05:	8d 44 24 08          	lea    eax,[esp+0x8]
+  425a09:	50                   	push   eax
+  425a0a:	8b 41 0c             	mov    eax,DWORD PTR [ecx+0xc]
+  425a0d:	05 b4 02 00 00       	add    eax,0x2b4
+  425a12:	50                   	push   eax
+  425a13:	8b 41 08             	mov    eax,DWORD PTR [ecx+0x8]
+  425a16:	ff 30                	push   DWORD PTR [eax]
+  425a18:	ff 15 cc 41 c2 00    	call   DWORD PTR ds:0xc241cc
+  425a1e:	83 3c 24 01          	cmp    DWORD PTR [esp],0x1
+  425a22:	0f 94 c0             	sete   al
+  425a25:	59                   	pop    ecx
+  425a26:	c3                   	ret

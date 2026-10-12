@@ -1,0 +1,12 @@
+Source Evidence: ev_46715cbe621d7d11429540fd706cbba30f905b04bb8bd2b5eb0bde8db339548e
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+void FUN_00426bb0(WPARAM param_1,LPARAM param_2)
+
+{
+  undefined4 *in_ECX;
+
+  PostMessageA((HWND)*in_ECX,DAT_010d0d54,param_1,param_2);
+  return;
+}

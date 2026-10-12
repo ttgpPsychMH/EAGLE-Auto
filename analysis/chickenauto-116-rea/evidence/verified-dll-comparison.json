@@ -1,0 +1,72 @@
+{
+  "107_packed_sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+  "107_derived_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0",
+  "116_sha256": "f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef",
+  "equal_size": 583168,
+  "differences": [
+    {
+      "file_offset": "0x165",
+      "107_byte": 4,
+      "116_byte": 16
+    }
+  ],
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x1000",
+      "raw_size": 454656,
+      "sha256": "b45dc077d952bb189fd2e6a92a1bf8e7c1f851b2cf4a04e1bcd124d3008f3144",
+      "identical": true
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x70000",
+      "raw_size": 97280,
+      "sha256": "882580522ccdb444406d45b71bc6a5538c2fe124f8662448420297aadfaa2dfa",
+      "identical": true
+    },
+    {
+      "name": ".data",
+      "rva": "0x88000",
+      "raw_size": 6656,
+      "sha256": "a0e957942b1455d594eb6d48084a6544d2a5046db62d0d86771380f4d8dda1bd",
+      "identical": true
+    },
+    {
+      "name": ".gfids",
+      "rva": "0xa4000",
+      "raw_size": 2048,
+      "sha256": "c6e694b1f0c09aa72bf919a48cf79a0d248702a74b688ddd8e622315bf5464d7",
+      "identical": true
+    },
+    {
+      "name": ".tls",
+      "rva": "0xa5000",
+      "raw_size": 512,
+      "sha256": "4c6474903705cb450bb6434c29e8854f17d8324efca1fdb9ee9008599060883a",
+      "identical": true
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0xa6000",
+      "raw_size": 512,
+      "sha256": "718e76c507cf2f197c863da85145f5644a99ce8eb801007ad08b9b56aa12d245",
+      "identical": true
+    },
+    {
+      "name": ".reloc",
+      "rva": "0xa7000",
+      "raw_size": 20480,
+      "sha256": "89c796b9af003d2c263ade51a892662cbf4c1858d6d50496ae993ee13aa38463",
+      "identical": true
+    }
+  ],
+  "size_of_headers": {
+    "field_file_offset": "0x164",
+    "107": 1024,
+    "116": 4096
+  },
+  "complete_files_equal_after_in_memory_header_normalization": true,
+  "targets_executed": false,
+  "runtime_loader_equivalence_proven": false
+}

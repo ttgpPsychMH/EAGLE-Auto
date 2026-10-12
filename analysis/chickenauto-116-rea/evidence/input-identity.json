@@ -1,0 +1,23 @@
+{
+  "original_files_sha256": {
+    "ChickenAuto-new.7z": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49",
+    "ChickenAuto-new.exe": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "ChickenAuto-new.zip": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08",
+    "ChickenAutoEx-new.7z": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02",
+    "ChickenAutoEx-new.exe": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "ChickenAutoEx-new.zip": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+  },
+  "qt_hook_resource": {
+    "path": ":/Resources/EasyHook.dll",
+    "flags": 0,
+    "stored_size": 583168,
+    "decoded_size": 583168,
+    "sha256": "f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef",
+    "file_offset": "0x8ecfc5",
+    "country": 0,
+    "language": 1
+  },
+  "executable_sha256": "34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea",
+  "dll_sha256": "f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef",
+  "target_binaries_executed": false
+}

@@ -1,0 +1,31 @@
+{
+  "ChickenAuto-116.exe": {
+    "file_version": {
+      "FileDescription": "Auto for TLBB",
+      "FileVersion": "1.0.0.0",
+      "OriginalFilename": "ChickenAuto.exe",
+      "ProductName": "ChickenAuto",
+      "ProductVersion": "1.0.0.0"
+    },
+    "linker": [
+      14,
+      30
+    ],
+    "timestamp": 1647280904,
+    "debug_entries": [
+      {
+        "type": 13,
+        "size": 960
+      }
+    ]
+  },
+  "EasyHook-116.dll": {
+    "file_version": {},
+    "linker": [
+      14,
+      0
+    ],
+    "timestamp": 1492298068,
+    "debug_entries": []
+  }
+}

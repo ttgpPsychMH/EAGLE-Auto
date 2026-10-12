@@ -1,0 +1,33 @@
+{
+  "app_procedure_count": 37207,
+  "app_inventory_evidence_id": "ev_8ff261d16897c7e18817e1166ad78d301e0220bdc5a8e176bf6b8161796ed3c1",
+  "full_exported_bundle_sha256": "3149b479b6e1de84c62687db2e67a696c57e5162726a5ef2cd2915846b1f9e2d",
+  "hook_procedure_count": 4140,
+  "scope": "Provider-recognized functions including Qt/CRT; not feature counts or full correct decompilation.",
+  "attempts": {
+    "focused_queries": "22 bounded operations successful, complete inventory exported without truncation",
+    "startup_deadline_330_seconds": "provider_timeout at 330000 ms",
+    "startup_deadline_900_seconds": "resource_constraint; analysis completed; 10 MiB MCP receive budget"
+  },
+  "cleanup": [
+    {
+      "session": "hook",
+      "close_file_sha256": "1b21ab395fcc16c41b97de6a13c366092dd4694fe91d411b919456c95d87d83c",
+      "is_error": false,
+      "snapshot_exists": true
+    },
+    {
+      "session": "app-focused",
+      "close_file_sha256": "c651a8761d1123f1ad409d5a83e98ffa5d6c34f68e6e62df879a87044d2289c6",
+      "is_error": false,
+      "snapshot_exists": true
+    },
+    {
+      "session": "batch-probe",
+      "close_file_sha256": "d507a0db51f7d5588d5c1ab720cdd77f2fce17f4fe70524178ea3de1b28e6763",
+      "is_error": false,
+      "snapshot_exists": true
+    }
+  ],
+  "cli_recv_wrapper_evidence_id": "ev_a6a20bf6a74823916d2ce12df4bbdb5cc0d4b66a46c5af2be9a6ab00ea79f47c"
+}

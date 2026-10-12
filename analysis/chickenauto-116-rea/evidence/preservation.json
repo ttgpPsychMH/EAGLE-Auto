@@ -1,0 +1,11 @@
+{
+  "base_commit": "19c6720f82a60e59e595229c99111434ed5fd8df",
+  "report_only_scope_verified": true,
+  "original_release_files_unchanged": 6,
+  "recovered_snapshot_unchanged": true,
+  "application_source_tests_version_ci_unchanged": true,
+  "licensing_vip_unchanged": true,
+  "stable_116_original_and_extracted_copies_unchanged": true,
+  "target_executables_or_dlls_run": false,
+  "windows_or_game_runtime_tested": false
+}

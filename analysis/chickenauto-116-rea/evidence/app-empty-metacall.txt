@@ -1,0 +1,11 @@
+Source Evidence: ev_5b39f6ecb299a5e6d5a978038f79306a44f14c4d52a0ad9bc0e736fb6db8c454
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+/* guard_check_icall */
+
+void __cdecl guard_check_icall(void)
+
+{
+  return;
+}

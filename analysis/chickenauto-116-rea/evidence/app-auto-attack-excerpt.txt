@@ -1,0 +1,22 @@
+Source Evidence: ev_42bdd5a864af9a7467eec50b8c0b29bc982ba629ceefa1912abf2a156315dab6
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+
+void FUN_004053f0(void)
+
+{
+  char cVar1;
+  int iVar2;
+
+  cVar1 = FUN_00425b10();
+  if (cVar1 == '\0') {
+    iVar2 = FUN_00425320();
+    if (0 < iVar2) {
+      cVar1 = FUN_00425a00();
+      if (cVar1 == '\0') {
+        FUN_00403c70();
+        return;
+      }
+    }
+  }
+  return;
+}

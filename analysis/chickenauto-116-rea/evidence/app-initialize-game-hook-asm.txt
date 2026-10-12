@@ -1,0 +1,52 @@
+Source Evidence: ev_3119bc0ce0a8c76dcf556ec594016dc622df66d5f552a04c02e283dbe236eaae
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+0x426ae0: PUSH EBP
+0x426ae1: MOV EBP, ESP
+0x426ae3: PUSH -0x1
+0x426ae5: PUSH 0xc09e77
+0x426aea: MOV EAX, FS:[0x0]
+0x426af0: PUSH EAX
+0x426af1: PUSH ECX
+0x426af2: PUSH ESI
+0x426af3: MOV EAX, [0x010c0794]
+0x426af8: XOR EAX, EBP
+0x426afa: PUSH EAX
+0x426afb: LEA EAX, [EBP + -0xc]
+0x426afe: MOV FS:[0x0], EAX
+0x426b04: MOV ESI, ECX
+0x426b06: MOV ECX, dword ptr [ESI + 0xc]
+0x426b09: CALL 0x00420170
+0x426b0e: TEST EAX, EAX
+0x426b10: JZ 0x00426b62
+0x426b12: MOV EAX, [0x010d0d58]
+0x426b17: TEST EAX, EAX
+0x426b19: JZ 0x00426b22
+0x426b1b: PUSH dword ptr [ESI]
+0x426b1d: CALL EAX
+0x426b1f: ADD ESP, 0x4
+0x426b22: PUSH 0x94
+0x426b27: CALL 0x00bd430d
+0x426b2c: ADD ESP, 0x4
+0x426b2f: MOV dword ptr [EBP + -0x10], EAX
+0x426b32: PUSH ESI
+0x426b33: MOV ECX, EAX
+0x426b35: MOV dword ptr [EBP + -0x4], 0x0
+0x426b3c: CALL 0x00420600
+0x426b41: MOV ECX, EAX
+0x426b43: MOV dword ptr [EBP + -0x4], 0xffffffff
+0x426b4a: MOV dword ptr [ESI + 0x10], EAX
+0x426b4d: CALL 0x00421da0
+0x426b52: PUSH dword ptr [ESI]
+0x426b54: CALL dword ptr [0x00c24688]
+0x426b5a: TEST EAX, EAX
+0x426b5c: SETNZ AL
+0x426b5f: MOV byte ptr [ESI + 0x1c], AL
+0x426b62: MOV ECX, dword ptr [EBP + -0xc]
+0x426b65: MOV dword ptr FS:[0x0], ECX
+0x426b6c: POP ECX
+0x426b6d: POP ESI
+0x426b6e: MOV ESP, EBP
+0x426b70: POP EBP
+0x426b71: RET

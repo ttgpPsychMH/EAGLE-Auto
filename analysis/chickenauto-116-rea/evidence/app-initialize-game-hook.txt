@@ -1,0 +1,36 @@
+Source Evidence: ev_f64fbf28840dc77f3e63b4d66a14132a246941be93ab59bd102f3a99df012bec
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+void FUN_00426ae0(void)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  BOOL BVar3;
+  undefined4 *in_ECX;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_00c09e77;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  iVar1 = FUN_00420170(DAT_010c0794 ^ (uint)&stack0xfffffffc);
+  if (iVar1 != 0) {
+    if (DAT_010d0d58 != (code *)0x0) {
+      (*DAT_010d0d58)(*in_ECX);
+    }
+    FUN_00bd430d(0x94);
+    local_8 = 0;
+    uVar2 = FUN_00420600(in_ECX);
+    local_8 = 0xffffffff;
+    in_ECX[4] = uVar2;
+    FUN_00421da0();
+    BVar3 = IsWindowVisible((HWND)*in_ECX);
+    *(bool *)(in_ECX + 7) = BVar3 != 0;
+  }
+  ExceptionList = local_10;
+  return;
+}

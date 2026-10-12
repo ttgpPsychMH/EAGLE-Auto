@@ -1,0 +1,38 @@
+Source Evidence: ev_b5c223d2ce515c7d776733b1c6001ead628b5d25b4bb2f9886f1015fa28f9ffc
+Target SHA256: f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+void __cdecl FUN_10002810(int *param_1)
+
+{
+  undefined4 *puVar1;
+  int *piVar2;
+  undefined4 *puVar3;
+  HANDLE hProcess;
+  LPVOID lpBaseAddress;
+  undefined1 *lpBuffer;
+  SIZE_T nSize;
+  SIZE_T *lpNumberOfBytesWritten;
+  undefined1 local_c;
+  int local_b;
+
+  piVar2 = param_1;
+  VirtualProtect((LPVOID)param_1[1],5,4,(PDWORD)&param_1);
+  puVar3 = VirtualAlloc((LPVOID)0x0,10,0x1000,0x40);
+  puVar1 = (undefined4 *)piVar2[1];
+  piVar2[2] = (int)puVar3;
+  lpNumberOfBytesWritten = (SIZE_T *)0x0;
+  nSize = 5;
+  *puVar3 = *puVar1;
+  *(undefined1 *)(puVar3 + 1) = *(undefined1 *)(puVar1 + 1);
+  *(undefined1 *)(piVar2[2] + 5) = 0xe9;
+  *(int *)(piVar2[2] + 6) = (piVar2[1] - piVar2[2]) + -5;
+  lpBaseAddress = (LPVOID)piVar2[1];
+  local_c = 0xe9;
+  local_b = (*piVar2 - (int)lpBaseAddress) + -5;
+  lpBuffer = &local_c;
+  hProcess = GetCurrentProcess();
+  WriteProcessMemory(hProcess,lpBaseAddress,lpBuffer,nSize,lpNumberOfBytesWritten);
+  VirtualProtect((LPVOID)piVar2[1],5,(DWORD)param_1,(PDWORD)&param_1);
+  return;
+}

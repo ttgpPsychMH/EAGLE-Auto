@@ -1,0 +1,260 @@
+[
+  {
+    "class": "AutoAttack@game_auto_controllers@game_controllers",
+    "type_descriptor_va": "0x10ce920",
+    "vtables": [
+      {
+        "col_va": "0x10745fc",
+        "object_offset": 0,
+        "vtable_va": "0xc24a00",
+        "entries": [
+          "0x403950",
+          "0x4053f0"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "AutoControllerAbstract@game_auto_controllers@game_controllers",
+    "type_descriptor_va": "0x10ce960",
+    "vtables": [
+      {
+        "col_va": "0x107467c",
+        "object_offset": 0,
+        "vtable_va": "0xc24b58",
+        "entries": [
+          "0x405990",
+          "0xbd6857"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "AutoPickLootPackage@game_auto_controllers@game_controllers",
+    "type_descriptor_va": "0x10ce9b0",
+    "vtables": [
+      {
+        "col_va": "0x1074690",
+        "object_offset": 0,
+        "vtable_va": "0xc24b68",
+        "entries": [
+          "0x405d30",
+          "0x406000"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "MainWindow",
+    "type_descriptor_va": "0x10cebc4",
+    "vtables": [
+      {
+        "col_va": "0x1074a80",
+        "object_offset": 0,
+        "vtable_va": "0xc25dfc",
+        "entries": [
+          "0x43d050",
+          "0x43d1f0",
+          "0x43d070",
+          "0x40fe30",
+          "0x4f2af0",
+          "0x562f40",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x4adcd0",
+          "0x4af7e0",
+          "0x4a4fb0",
+          "0x4a2c90",
+          "0x4a2c10",
+          "0x4a5050",
+          "0x49e960",
+          "0x4a5020",
+          "0x49e960",
+          "0x49e960",
+          "0x4a44a0",
+          "0x49e960",
+          "0x4a1ea0",
+          "0x4a2010",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x410270",
+          "0x4f2630",
+          "0x49e960",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x411aa0",
+          "0x410150",
+          "0x49e960",
+          "0x4a3970",
+          "0x4a1ef0",
+          "0x4f2750"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      },
+      {
+        "col_va": "0x1074b60",
+        "object_offset": 8,
+        "vtable_va": "0xc25eb8",
+        "entries": [
+          "0x40fde4",
+          "0x456020",
+          "0x4a5ac0",
+          "0x4a4bf0",
+          "0x4a3820",
+          "0x4a6f90",
+          "0x4aeef0"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "WorkerDetectGameInstance",
+    "type_descriptor_va": "0x10cec9c",
+    "vtables": [
+      {
+        "col_va": "0x1074be8",
+        "object_offset": 0,
+        "vtable_va": "0xc26908",
+        "entries": [
+          "0x43d500",
+          "0x43d650",
+          "0x43d520",
+          "0x414900",
+          "0xab3680",
+          "0x562f40",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x415930"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "WorkerUpdateUi",
+    "type_descriptor_va": "0x10ced9c",
+    "vtables": [
+      {
+        "col_va": "0x1074d08",
+        "object_offset": 0,
+        "vtable_va": "0xc270d0",
+        "entries": [
+          "0x43d6b0",
+          "0x43d6e0",
+          "0x43d6d0",
+          "0x417710",
+          "0xab3680",
+          "0x562f40",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x417820"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  },
+  {
+    "class": "QuestSettings@setting_tabs",
+    "type_descriptor_va": "0x10cf604",
+    "vtables": [
+      {
+        "col_va": "0x10757f0",
+        "object_offset": 0,
+        "vtable_va": "0xc2cefc",
+        "entries": [
+          "0x43e520",
+          "0x43e550",
+          "0x43e540",
+          "0x439780",
+          "0x4a0d30",
+          "0x562f40",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x4adcd0",
+          "0x4af7e0",
+          "0x4a4fb0",
+          "0x4a2c90",
+          "0x4a2c10",
+          "0x4a5050",
+          "0x49e960",
+          "0x4a5020",
+          "0x49e960",
+          "0x49e960",
+          "0x4a44a0",
+          "0x49e960",
+          "0x4a1ea0",
+          "0x4a2010",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49e630",
+          "0x49e960",
+          "0x49e960",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x49d5a0",
+          "0x4a5450",
+          "0x49dcb0",
+          "0x49e960",
+          "0x4a3970",
+          "0x4a1ef0"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      },
+      {
+        "col_va": "0x1075888",
+        "object_offset": 8,
+        "vtable_va": "0xc2cfb4",
+        "entries": [
+          "0x439734",
+          "0x456020",
+          "0x4a5ac0",
+          "0x4a4bf0",
+          "0x4a3820",
+          "0x4a6f90",
+          "0x4aeef0"
+        ],
+        "examined_limit": 128,
+        "stopped_on_non_text_pointer": true
+      }
+    ]
+  }
+]

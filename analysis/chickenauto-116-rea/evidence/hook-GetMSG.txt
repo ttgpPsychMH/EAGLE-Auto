@@ -1,0 +1,10 @@
+Source Evidence: ev_d107d089c5a57a4fae382e71af268e1e1d5d2a2493b82c00888b555377481029
+Target SHA256: f22b7f349f20f94327c365d47a56484092c45dba3fa6b4fa76231f4f49336cef
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+undefined4 GetMSG(void)
+
+{
+                    /* 0x4110  1  GetMSG */
+  return DAT_100a2570;
+}

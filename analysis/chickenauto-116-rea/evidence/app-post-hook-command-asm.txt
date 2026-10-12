@@ -1,0 +1,10 @@
+Source Evidence: ev_dcfb2293641dfbb2812dc11f0901c1065ed8630ca326785839686e7dca6ea239
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+0x426bb0: PUSH dword ptr [ESP + 0x8]
+0x426bb4: PUSH dword ptr [ESP + 0x8]
+0x426bb8: PUSH dword ptr [0x010d0d54]
+0x426bbe: PUSH dword ptr [ECX]
+0x426bc0: CALL dword ptr [0x00c246a8]
+0x426bc6: RET 0x8

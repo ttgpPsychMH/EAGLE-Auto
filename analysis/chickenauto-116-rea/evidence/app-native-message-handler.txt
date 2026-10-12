@@ -1,0 +1,61 @@
+Source Evidence: ev_4ff00cbc60b007e8e91e87cf67e75e9eba16be65f69fe3feadab797318f71e54
+Target SHA256: 34e4440dcef979de67a69478fc4165a6818d4d41e4a1b23a83ea11d49ed4ffea
+Projection: normalized trailing whitespace; inferred pseudocode types are not original declarations.
+
+undefined4 FUN_0041f800(undefined4 param_1,int param_2)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  int in_ECX;
+  undefined4 local_24;
+  undefined4 local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_00c0963d;
+  local_10 = ExceptionList;
+  uVar3 = DAT_010c0794 ^ (uint)&stack0xfffffffc;
+  ExceptionList = &local_10;
+  if (*(int *)(param_2 + 4) == 0x312) {
+    iVar1 = *(int *)(param_2 + 8);
+    param_2 = iVar1;
+    iVar4 = FUN_0041e4d0(&local_24,&param_2);
+    if ((*(char *)(*(int *)(iVar4 + 8) + 0xd) == '\0') &&
+       (*(int *)(*(int *)(iVar4 + 8) + 0x10) <= iVar1)) {
+      FUN_0041e4d0(&local_24,&param_2);
+      if ((*(char *)(local_1c + 0xd) != '\0') || (iVar1 < *(int *)(local_1c + 0x10))) {
+        if (*(int *)(in_ECX + 0xc) == 0xaaaaaaa) {
+                    /* WARNING: Subroutine does not return */
+          FUN_00418730(uVar3);
+        }
+        uVar2 = *(undefined4 *)(in_ECX + 8);
+        local_8 = 0;
+        local_14 = 0;
+        local_18 = (undefined4 *)(in_ECX + 8);
+        puVar5 = (undefined4 *)FUN_00bd430d(0x18);
+        local_8 = 0xffffffff;
+        puVar5[4] = param_2;
+        puVar5[5] = 0;
+        *puVar5 = uVar2;
+        puVar5[1] = uVar2;
+        puVar5[2] = uVar2;
+        *(undefined2 *)(puVar5 + 3) = 0;
+        FUN_00418520(local_24,local_20,puVar5);
+      }
+      FUN_00527b40();
+      ExceptionList = local_10;
+      return 1;
+    }
+  }
+  ExceptionList = local_10;
+  return 0;
+}
