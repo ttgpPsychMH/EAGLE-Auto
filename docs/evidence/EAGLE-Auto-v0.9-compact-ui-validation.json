@@ -1,0 +1,187 @@
+{
+  "product": "EAGLE Auto v0.9",
+  "date": "2026-10-12",
+  "timezone": "Asia/Bangkok",
+  "baseline_commit": "e842b41cfba174093a99b86a3a808f17464719a5",
+  "design_client_size": [
+    560,
+    700
+  ],
+  "dotnet_tests": {
+    "passed": 616,
+    "failed": 0,
+    "skipped": 0,
+    "new_compact_ui_tests": 27
+  },
+  "html_mockup": {
+    "result": "passed",
+    "tests": 45,
+    "checks": [
+      "default selection is empty",
+      "empty metrics use em dash",
+      "empty task cannot start",
+      "basic tab is initial tab",
+      "shared controls collapsed initially",
+      "log initially visible",
+      "eight real tab buttons",
+      "client size 560 by 700",
+      "select row displays online metrics",
+      "selection does not turn Auto on",
+      "checkbox does not switch selected actor",
+      "select second row displays its metrics",
+      "clear selection removes all metrics",
+      "clear selection disables configuration",
+      "personal task does not need team leader",
+      "personal start creates running state",
+      "pause still permits stop",
+      "stop during pause clears selected task",
+      "offline clears metrics",
+      "offline still permits stop",
+      "stop while offline clears task",
+      "team task requires known leader",
+      "team task uses leader not selected member",
+      "team start controls only leader",
+      "conflicting task blocks start",
+      "blocked start preserves active task",
+      "team stop clears only leader task",
+      "Thuy Lao remains unavailable",
+      "Ac Ba school settings preserved",
+      "Ac Tac map settings preserved",
+      "tab basic opens its page",
+      "tab skills opens its page",
+      "tab items opens its page",
+      "tab pet opens its page",
+      "tab utilities opens its page",
+      "tab craft opens its page",
+      "tab login opens its page",
+      "tab tasks opens its page",
+      "log collapses",
+      "log expands",
+      "common controls expand",
+      "all Auto explicitly stops both fake actors",
+      "all Auto explicitly starts both fake actors",
+      "common controls collapse",
+      "final clear removes stale selected data"
+    ],
+    "browser": "151.0.7922.173",
+    "html_sha256": "42eb21333dd1ebdc2a52f01cd7b300be3f2acebc3b752a944e12a73fcb8ecf7a",
+    "screenshots": {
+      "selected": {
+        "file": "v0.9-selected.png",
+        "sha256": "debb69e2fedc8173d153d382f7e5fc35c13b9d2a18ed77d9c26e9ce7770934ee"
+      },
+      "empty": {
+        "file": "v0.9-empty.png",
+        "sha256": "c70188f5b1db3759ec3b0a547dd229d398e9fa4eb70ce7a71297ae0f63e7e744"
+      }
+    },
+    "scope": "Owned HTML mockup with synthetic data only; not a WinForms, native DLL or game test."
+  },
+  "native_model": {
+    "executed_untrusted_binaries": false,
+    "windows_hook_tested": false,
+    "passed": 26,
+    "failed": 0,
+    "tests": [
+      "recv_length_1",
+      "recv_length_15",
+      "recv_length_16",
+      "recv_length_20",
+      "recv_length_999",
+      "recv_length_1000",
+      "recv_length_4096",
+      "recv_length_65536",
+      "legacy_twenty_bytes_loses_four",
+      "legacy_receiver_missing",
+      "eof_and_socket_error_untouched",
+      "partial_recv_uses_result_not_buffer_capacity",
+      "invalid_result_dropped_without_changing_return",
+      "oversize_chunk_is_explicit_drop",
+      "installation_failure_has_no_data_delivery",
+      "repeated_start_does_not_reinstall",
+      "invalid_pid_does_not_install",
+      "frame_queue_limit_and_gap",
+      "queued_byte_budget_is_bounded",
+      "delivery_timeout_drops_once_without_reinstall",
+      "delivery_failure_does_not_change_game_result",
+      "producer_lock_is_released_during_delivery",
+      "concurrent_producers_own_buffers_and_respect_bound",
+      "cleanup_failure_blocks_reinstall_and_delivery",
+      "stop_flushes_queue_and_is_idempotent",
+      "fragmented_utf8_preserved_as_raw_chunks"
+    ],
+    "source_sha256": {
+      "main.cpp": "9d28d95094f461d3c4769e0d75ac9e1f74a32fd66f6dfe47f0e13ad6f3122332",
+      "reader_model.hpp": "892fec14215a0a9430198694eaba9105127c52782b6990fa62ff7caa56202c9c",
+      "EnvelopeDecoder.cs": "e203656751526cc7a8445d64c8b31a6829c4d844437c50bb44d5848935472142"
+    },
+    "fixture_count": 11,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-O2",
+      "/workspace/EAGLE-Auto/tools/native_reader_simulation/main.cpp",
+      "-o",
+      "/workspace/EAGLE-Auto/.build/native-reader-simulation/reader-simulation"
+    ],
+    "model_executable_sha256": "680becb7ad06204013e322f81cd71a9599f51053a41491d44b31a671c398f927",
+    "fixture_sha256": "86e2e3349fc16caf1901c6c7f16074b25b6246a901d160124b04d4304eef2beb"
+  },
+  "historical_controls": {
+    "expected_behavioral_failures": 51,
+    "harness_errors": 0
+  },
+  "build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "errors": 0,
+    "initial_full_compile_legacy_warnings": 49,
+    "final_incremental_build_warnings": 0
+  },
+  "source_preservation": {
+    "engines_and_hooks_v07": {
+      "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": "1f9e889735b55aa689f1b0546bd396c61dfd30b787a894b4731c53eeb4eaf3be",
+      "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": "1ff61a45fee1f37a727cb6aab1ee3467bd805d029a0ce6cc6a7062bf4e777c40",
+      "src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs": "d9046a1137a79a03d5a4f0476180d9e7a3fe9ba877f506c0ddc7827b2fe93cbf",
+      "src/ChickenAutoEx/TrungAc/Game.TrungAc.cs": "c61e86f3efdf8467e66865dfebd04c7b5f4efacbcf21466e28efde3b87998aff",
+      "src/ChickenAutoEx/TrungAc/Game.TrungAcParser.cs": "6e0b2eefbbf7b0441a016ca65ec05467a2b584d8b9dc35e0d42dc4423ad455a6",
+      "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549",
+      "src/ChickenAutoEx/AcBa/AcBaEvents.cs": "4874f4bff6cffe971052274c9977aabae68b7067be0c0c67b09298cd35ab1560",
+      "src/ChickenAutoEx/AcBa/Game.AcBa.cs": "ab47cf52a1a4cff177e4b01c5550460742af308b26bb633f1ab5dc0c5692c0d7",
+      "src/ChickenAutoEx/AcBa/Game.AcBaEvents.cs": "f5ef6f2ee3c0cbfb7eb16da2fbc99f8c8c4f38d6e698c7b615e211c3acdb1d72",
+      "src/ChickenAutoEx/Hooks/Game.HookDiagnostics.cs": "46138408d42a1eca671e480ebd5ddf23ff1d86ca8988298952278c25db564666",
+      "src/ChickenAutoEx/Hooks/HookDiagnostics.cs": "b6dfbed4c140d8861edc51e414897c6febf63c389b59d6a2a9e9cd4f96f4322e"
+    },
+    "task_adapter_v08": {
+      "src/ChickenAutoEx/Dashboard/DungeonDashboard.cs": "545dfa504aac647f7a1461cd6a29cd96f3a3d1e7f08c4d4dfde929a9f88dbc7c",
+      "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26"
+    },
+    "reviewed_ui": {
+      "src/ChickenAutoEx/FrmMain.Dashboard.cs": "b843a8292731f9a0b5da6b269aa779c42dcaee5dd90220e7b9afdeed80999ad8",
+      "src/ChickenAutoEx/Dashboard/DungeonDashboard.cs": "545dfa504aac647f7a1461cd6a29cd96f3a3d1e7f08c4d4dfde929a9f88dbc7c",
+      "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26",
+      "src/ChickenAutoEx/Dashboard/CharacterHeader.cs": "2f066758538c33e4f13184a212cb37224c247ff75f1a9a259509b8cfaf45e578"
+    }
+  },
+  "verification": {
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "native_hook_dll_unchanged": true,
+    "unchanged_original_resources": 26,
+    "legacy_protocol_version": "107"
+  },
+  "local_review_zip_sha256": "39e0323b96d7ec0c33315c3016a8a8111d6594e0ed18bd7f3373d351e6ed9e1c",
+  "automation_executable_or_original_dll_executed": false,
+  "windows_runtime_tested": false,
+  "game_tested": false,
+  "limitations": [
+    "HTML images are synthetic mockups, not actual WinForms screenshots.",
+    "WinForms layout/DPI/working-area clamp requires Windows validation.",
+    "Thuy Lao remains unavailable; no dungeon algorithms changed."
+  ]
+}

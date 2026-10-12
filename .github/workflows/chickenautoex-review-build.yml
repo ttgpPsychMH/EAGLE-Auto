@@ -109,8 +109,8 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          v0.8 adds a 116-style WinForms layout and guarded task dashboard over the preserved v0.7 engine.
-          The package includes UI-116.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
+          v0.9 adds a compact layout, safe empty-selection header and collapsible shared controls/log over the preserved v0.7 engine.
+          The package includes UI-COMPACT.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
           WinForms layout, DPI and game integration require Windows validation.
           The isolated updater, UI/settings, dungeon menu, five dungeon simulations tests ran; no game automation executable was executed.
           The Thuy Lao menu remains unavailable pending private-client validation; four Thuy Lao, six Ky Cuoc/pet AOE and eleven Trung Ac legacy regressions were reproduced, plus nine v0.3 re-audit controls and thirteen Ac Tac v0.4 controls.

@@ -1520,7 +1520,7 @@ namespace TinhKiemAuto
 				return;
 			}
 			txtmkkho.Text = CurGame.Pass2;
-			TablControl.TabPages[0].Text = CurGame.TLBB.Name;
+			TablControl.TabPages[0].Text = "Cơ bản";
 			chekcdanhquai.Checked = CurGame.IsAttack;
 			if (CurGame.IsLure)
 			{

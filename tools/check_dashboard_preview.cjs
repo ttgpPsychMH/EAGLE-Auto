@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');
 const repo = path.resolve(__dirname, '..');
 const work = path.join(repo, '.build', 'ui-preview');
-const htmlFile = path.join(repo, 'docs', 'ui', 'EAGLE-Auto-v0.8-preview.html');
+const htmlFile = path.join(repo, 'docs', 'ui', 'EAGLE-Auto-v0.9-preview.html');
 for (const name of ['', 'xdg-cache', 'xdg-config']) fs.mkdirSync(path.join(work, name), { recursive: true });
 (async () => {
   let browser;
@@ -15,22 +15,26 @@ for (const name of ['', 'xdg-cache', 'xdg-config']) fs.mkdirSync(path.join(work,
       args: ['--no-sandbox', '--disable-dev-shm-usage'],
       env: { ...process.env, XDG_CACHE_HOME: path.join(work, 'xdg-cache'), XDG_CONFIG_HOME: path.join(work, 'xdg-config') }
     });
-    const page = await browser.newPage({ viewport: { width: 1100, height: 1000 } });
+    const page = await browser.newPage({ viewport: { width: 620, height: 930 } });
     const html = fs.readFileSync(htmlFile, 'utf8');
-    // Render owned text in memory: no file navigation, external website or local server.
-    await page.evaluate(() => { location.hash = '#selftest'; });
+    // Owned text in memory; reject any accidental network request from this mockup.
+    await page.route('**/*', route => route.abort());
     await page.setContent(html, { timeout: 20000 });
-    const result = await page.evaluate(() => ({ result: document.body.dataset.previewResult, tests: Number(document.body.dataset.previewTests) }));
-    if (result.result !== 'passed' || result.tests !== 11) throw new Error('Mockup assertions did not complete.');
-    const preview = await browser.newPage({ viewport: { width: 1100, height: 1000 } });
-    await preview.setContent(html, { timeout: 20000 });
-    await preview.waitForFunction(() => document.getElementById('state').textContent.includes('Chưa bật'));
-    const screenshot = path.join(work, 'preview.png');
-    await preview.screenshot({ path: screenshot, fullPage: true });
-    fs.writeFileSync(path.join(work, 'summary.json'), JSON.stringify({ ...result,
-      browser: browser.version(), html_sha256: crypto.createHash('sha256').update(html).digest('hex'),
-      screenshot_sha256: crypto.createHash('sha256').update(fs.readFileSync(screenshot)).digest('hex'),
-      scope: 'Owned HTML mockup with synthetic data only; not a WinForms or game test.' }, null, 2) + '\n');
-    console.log('PASS: 11 HTML mockup checks; .build/ui-preview/preview.png. WinForms remains untested.');
+    const result = await page.evaluate(() => window.eaglePreview.runSelfTests());
+    if (result.result !== 'passed' || !Number.isInteger(result.tests) || result.tests < 15 ||
+        !Array.isArray(result.checks) || result.checks.length !== result.tests)
+      throw new Error('Mockup assertions did not complete or their reported count is inconsistent.');
+    const screenshots = {};
+    for (const mode of ['selected', 'empty']) {
+      await page.evaluate(value => window.eaglePreview.prepareScreenshot(value), mode);
+      const screenshot = path.join(work, `v0.9-${mode}.png`);
+      await page.locator('#window').screenshot({ path: screenshot });
+      screenshots[mode] = { file: path.basename(screenshot),
+        sha256: crypto.createHash('sha256').update(fs.readFileSync(screenshot)).digest('hex') };
+    }
+    fs.writeFileSync(path.join(work, 'v0.9-summary.json'), JSON.stringify({ ...result,
+      browser: browser.version(), html_sha256: crypto.createHash('sha256').update(html).digest('hex'), screenshots,
+      scope: 'Owned HTML mockup with synthetic data only; not a WinForms, native DLL or game test.' }, null, 2) + '\n');
+    console.log(`PASS: ${result.tests} HTML mockup checks; .build/ui-preview/v0.9-{selected,empty}.png. WinForms remains untested.`);
   } finally { if (browser) await browser.close(); }
 })().catch(error => { console.error(error.name + ': ' + error.message.slice(0, 500)); process.exitCode = 1; });

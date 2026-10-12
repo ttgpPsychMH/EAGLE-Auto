@@ -6,6 +6,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../../src/ChickenAutoEx/Dashboard/CharacterHeader.cs" Link="Dashboard/CharacterHeader.cs" />
     <Compile Include="../../src/ChickenAutoEx/Dashboard/DungeonDashboard.cs" Link="Dashboard/DungeonDashboard.cs" />
     <None Include="../../src/ChickenAutoEx/Dashboard/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../src/ChickenAutoEx/FrmMain.Dashboard.cs" Link="RegressionSources/FrmMain.Dashboard.cs" CopyToOutputDirectory="PreserveNewest" />

@@ -1,6 +1,6 @@
 {
   "baseline_commit": "19c6720",
-  "scope": "UI layout and guarded task adapter only; engine partials, auth, native DLL unchanged",
+  "scope": "Compact UI layout, read-only header, selection gating and guarded task adapter; engine, auth, native DLL unchanged",
   "form_edits": [
     {
       "name": "partial_form",
@@ -13,12 +13,19 @@
       "original": "\t\t\tInstance = this;\n\t\t}",
       "reviewed": "\t\t\tInstance = this;\n\t\t\tInitializeDungeonDashboard();\n\t\t}",
       "count": 1
+    },
+    {
+      "name": "stable_basic_caption",
+      "original": "TablControl.TabPages[0].Text = CurGame.TLBB.Name;",
+      "reviewed": "TablControl.TabPages[0].Text = \"C\u01a1 b\u1ea3n\";",
+      "count": 1
     }
   ],
   "additional_source_hashes_lf": {
-    "src/ChickenAutoEx/FrmMain.Dashboard.cs": "5b13fa6fc92407e0d91983d557c0b93142068861e4ee804a342fc3f5fa921c91",
+    "src/ChickenAutoEx/FrmMain.Dashboard.cs": "b843a8292731f9a0b5da6b269aa779c42dcaee5dd90220e7b9afdeed80999ad8",
     "src/ChickenAutoEx/Dashboard/DungeonDashboard.cs": "545dfa504aac647f7a1461cd6a29cd96f3a3d1e7f08c4d4dfde929a9f88dbc7c",
-    "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26"
+    "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26",
+    "src/ChickenAutoEx/Dashboard/CharacterHeader.cs": "2f066758538c33e4f13184a212cb37224c247ff75f1a9a259509b8cfaf45e578"
   },
   "legacy_form_sha256_lf": "1a24122a863e16dd283cfc2c1dab158ea497fc76d6ad34ed4bf1df4e4c6a1240",
   "preserved_v07_source_hashes_lf": {
@@ -33,5 +40,9 @@
     "src/ChickenAutoEx/AcBa/Game.AcBaEvents.cs": "f5ef6f2ee3c0cbfb7eb16da2fbc99f8c8c4f38d6e698c7b615e211c3acdb1d72",
     "src/ChickenAutoEx/Hooks/Game.HookDiagnostics.cs": "46138408d42a1eca671e480ebd5ddf23ff1d86ca8988298952278c25db564666",
     "src/ChickenAutoEx/Hooks/HookDiagnostics.cs": "b6dfbed4c140d8861edc51e414897c6febf63c389b59d6a2a9e9cd4f96f4322e"
+  },
+  "preserved_v08_source_hashes_lf": {
+    "src/ChickenAutoEx/Dashboard/DungeonDashboard.cs": "545dfa504aac647f7a1461cd6a29cd96f3a3d1e7f08c4d4dfde929a9f88dbc7c",
+    "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26"
   }
 }
