@@ -1,0 +1,13 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_6706226fb9e13a264b953c5475f82b0b8fb196ae34a33e5171d6db29fb821473
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+
+undefined4 GetMSG(void)
+
+{
+                    /* 0x4110  1  GetMSG */
+  return DAT_100a2570;
+}
+
+

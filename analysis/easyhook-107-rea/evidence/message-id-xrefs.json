@@ -1,0 +1,32 @@
+{
+  "projection_notice": "Selected projections from original canonical REA evidence; excerpts are NOT canonical Evidence objects",
+  "source_evidence": {
+    "source_file": "message-id-xrefs.json",
+    "private_raw_response_sha256": "1214d35c7b5da6467e3ea955f07335ca330cf069cd4d83d710b820e6960fe235",
+    "rea_evidence_id": "ev_bfa86d3a3f5eb8dd078c84c56d40460bb1116ad073ada46c7564e37be0d8a853",
+    "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0",
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "operation": "xrefs",
+    "parameters": {
+      "address": "0x100a2570"
+    },
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "The direct address list projects exact Ghidra references to one address but does not expose their kinds; procedure_references and analyze_function preserve available kind metadata.",
+      "Synthetic Ghidra entry-point references without actionable memory sources are omitted."
+    ],
+    "projection_file": "message-id-xrefs.json"
+  },
+  "observation": [
+    "0x1000102b",
+    "0x10004110",
+    "0x10004145"
+  ]
+}

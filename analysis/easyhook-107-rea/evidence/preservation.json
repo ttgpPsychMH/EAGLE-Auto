@@ -1,0 +1,32 @@
+{
+  "base_commit": "1ff6bd54d28037a8101eee43fa14b5cfe2ec90fe",
+  "protected_source_paths": [
+    "src",
+    "tests",
+    "tools",
+    ".github",
+    ".config",
+    "EagleAuto.Version.props",
+    "ChickenAutoEx.sln",
+    "global.json",
+    "analysis/chickenautoex-107",
+    "analysis/chickenauto-116-vs-107",
+    "analysis/ac-ba"
+  ],
+  "protected_sources_unchanged": true,
+  "original_release_hashes": {
+    "ChickenAuto-new.7z": "a1b2cc8022cbcdeccf37a0bc4c61e3a5edfe715eb8c6baf951ffe332a0ab3b49",
+    "ChickenAuto-new.exe": "f5528267359621de63408c43868a72680a2d7ec04ad5fa3e59e4849470a45ba9",
+    "ChickenAuto-new.zip": "8de541c4e853fa4e4df8736e91c7e52c5d47d6c49524db3e0bea30d7edd14e08",
+    "ChickenAutoEx-new.7z": "f966db7933e7b64dafa63ef85d8dc9c6220e3e6f4e6fe5e7cfb0f68ac9787a02",
+    "ChickenAutoEx-new.exe": "68eefa4fa4f172308431c5903a832d00968c22d288ec1d582f0d5a4444fd9d44",
+    "ChickenAutoEx-new.zip": "a47292454434a00ed0d065effa7e6f5b145a269013414e214c55a2dc3b67641a"
+  },
+  "original_release_files_unchanged": true,
+  "licensing_vip_source_unchanged": true,
+  "application_version_unchanged": "0.6",
+  "mcp_close_reported_error": false,
+  "target_dll_or_application_executed": false,
+  "windows_game_tested": false,
+  "execution_scope": "REA/Ghidra/UPX tool processes and pure synthetic byte-layout Python; target read as data only"
+}

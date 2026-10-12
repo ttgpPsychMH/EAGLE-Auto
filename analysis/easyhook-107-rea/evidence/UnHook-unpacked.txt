@@ -1,0 +1,22 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_05c1a371aace5b03730b505005633a10d1922f4c806cd52c00d6c71c03af4b96
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+
+void UnHook(HWND param_1)
+
+{
+  BOOL BVar1;
+  
+                    /* 0x5890  3  UnHook */
+  BVar1 = IsWindow(param_1);
+  if (BVar1 == 0) {
+    return;
+  }
+  UnhookWindowsHookEx(DAT_10089a04);
+  DAT_10089a00 = 0;
+  DAT_10089a04 = (HHOOK)0x0;
+  return;
+}
+
+

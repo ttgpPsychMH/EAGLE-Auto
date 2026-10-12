@@ -1,0 +1,44 @@
+{
+  "mode": "REA CLI with real Ghidra on separately decompressed input",
+  "successful_queries": 6,
+  "records": [
+    {
+      "query": "overview",
+      "rea_evidence_id": "ev_424043c1f11ea56ddaaf97337ea8a039da006f9910d062bf985e8af80c385b9a",
+      "private_response_sha256": "64ae29354bfd988951a875149bad6182afaad91f3004b68a015fc26a76cab063",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    },
+    {
+      "query": "GetMSG",
+      "rea_evidence_id": "ev_6706226fb9e13a264b953c5475f82b0b8fb196ae34a33e5171d6db29fb821473",
+      "private_response_sha256": "d2d2267133e54917747c33a12b9e773dac59456761672736391caa8ef53d2f4e",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    },
+    {
+      "query": "SetHook",
+      "rea_evidence_id": "ev_e0a5a2afc882161269469865a8549929745d0ff29e446a602a738d46bf5c5477",
+      "private_response_sha256": "6001a000e0fe484c510f6c45c9479df38d1e0ade0d5d67a8af176c436ac5d574",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    },
+    {
+      "query": "UnHook",
+      "rea_evidence_id": "ev_05c1a371aace5b03730b505005633a10d1922f4c806cd52c00d6c71c03af4b96",
+      "private_response_sha256": "a07bf84d3f76a396eb7735c6d9a033353afc1f14aeec6e857544c4ad82b5b461",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    },
+    {
+      "query": "recv-wrapper",
+      "rea_evidence_id": "ev_32f1aff330d45d99d75600d769cd7d9ca461f367ba417ea06ed0b003484e9ccd",
+      "private_response_sha256": "fa6c08ae685f62a2de9ea98c24248b32aca68d2887c4e1357095742a28b13176",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    },
+    {
+      "query": "recv-wrapper-asm",
+      "rea_evidence_id": "ev_765d32cdb4588bfeead42a471b74ce64a8d6696d25c1df5d18164db56e64281e",
+      "private_response_sha256": "58016c624b014b476c79f0117589081c24a7da8ea5e1f3fda9419c786bbab8bb",
+      "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0"
+    }
+  ],
+  "target_executed": false,
+  "raw_results_published": false
+}

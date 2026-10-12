@@ -1,0 +1,32 @@
+{
+  "projection_notice": "Selected projections from original canonical REA evidence; excerpts are NOT canonical Evidence objects",
+  "source_evidence": {
+    "source_file": "recv-install-callees.json",
+    "private_raw_response_sha256": "ecd9e1f0f65aacc8b42fd542af358b8d7f4054b3b0c8bd8f98f5d249f037ade1",
+    "rea_evidence_id": "ev_b137f51818d53552651b1e67b14c4e1ce7bd74abbab7bfbcfadc4b2fcb2eb214",
+    "artifact_sha256": "5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0",
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "operation": "procedure_callees",
+    "parameters": {
+      "procedure": "0x10002810"
+    },
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Only resolved Ghidra call references are returned; unresolved computed or indirect calls remain unknown, while function classifications distinguish thunks and externals."
+    ],
+    "projection_file": "recv-install-callees.json"
+  },
+  "observation": [
+    "EXTERNAL:0x2",
+    "EXTERNAL:0x3",
+    "EXTERNAL:0x4",
+    "EXTERNAL:0x5"
+  ]
+}

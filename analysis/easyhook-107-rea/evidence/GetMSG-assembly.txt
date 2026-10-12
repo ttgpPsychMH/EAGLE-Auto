@@ -1,0 +1,6 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_42cf0ad6960c3132a2aaff3c012a83e350b0b34fe254981eafe143eb2c116206
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+0x10004110: MOV EAX, [0x100a2570]
+0x10004115: RET

@@ -1,0 +1,77 @@
+{
+  "rea": {
+    "version": "6.4.0",
+    "resolved": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.4.0.tgz",
+    "integrity": "sha512-Vj1zWfSlna5bphGoaoI/TcVBuYvze9u+OyPC3Shz8YkBqaCTqB4COnnRoX7XDwMpwI24ZlFEel2yEj0k8LTWEQ=="
+  },
+  "ghidra": "12.1.4",
+  "upx": "5.2.1",
+  "node": "24.19.0",
+  "jdk": "Temurin 21.0.12.1+1",
+  "host": "Debian 13 / Linux x64",
+  "scoped_ghidra_healthy": true,
+  "full_environment_healthy": false,
+  "scope_checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "24.19.0"
+    },
+    {
+      "name": "ghidra",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/workspace/rea-tools/ghidra_12.1.4_PUBLIC"
+    },
+    {
+      "name": "ghidra-platform",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "linux"
+    },
+    {
+      "name": "ghidra-architecture",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "x64"
+    },
+    {
+      "name": "ghidra-installation",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/workspace/rea-tools/ghidra_12.1.4_PUBLIC/Ghidra/application.properties"
+    },
+    {
+      "name": "ghidra-version",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "12.1.4"
+    },
+    {
+      "name": "ghidra-headless",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/workspace/rea-tools/ghidra_12.1.4_PUBLIC/support/analyzeHeadless"
+    },
+    {
+      "name": "ghidra-native_decompiler",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/workspace/rea-tools/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/linux_x86_64/decompile reports elf x86_64, which matches linux/x64"
+    },
+    {
+      "name": "ghidra-java",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "21.0.12.1; 64-bit; JDK; /workspace/rea-tools/jdk-21.0.12.1+1; accepted a 64-bit full JDK 21 or newer"
+    }
+  ],
+  "full_host_advertised_support": false,
+  "mcp_mode": "Owned local stdio client; no persistent Codex registration was written",
+  "archives_sha256": {
+    "ghidra_12.1.4_PUBLIC_20260921.zip": "ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db",
+    "OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz": "ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94",
+    "upx-5.2.1-amd64_linux.tar.xz": "402162aad30af47e60dbd767fb2e64ca394ace9727ba1f40283641f1d1b91657"
+  }
+}

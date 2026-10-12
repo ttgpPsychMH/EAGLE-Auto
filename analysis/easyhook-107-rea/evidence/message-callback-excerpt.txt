@@ -1,0 +1,52 @@
+EXCERPT ONLY: canonical full response stays private; do not treat this as complete control flow.
+REA evidence: ev_d856d8b8a2638ce958c3dd87a71f0f35ace422c86a05424e72bf4d58d59dbc23
+Canonical response SHA256: a23853302cd142c27ebd3d5a1a805f674a06abed1b6c3eb23f7b7319b75b0718
+
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __fastcall
+FUN_10004120(undefined4 param_1,undefined4 param_2,int param_3,WPARAM param_4,int param_5)
+
+{
+  int extraout_ECX;
+  int extraout_ECX_00;
+  int extraout_ECX_01;
+  undefined4 extraout_EDX;
+  undefined4 extraout_EDX_00;
+  undefined4 extraout_EDX_01;
+  char *pcVar1;
+  char local_134 [100];
+  char local_d0 [200];
+  uint local_8;
+  
+  local_8 = DAT_10088144 ^ (uint)&stack0xfffffffc;
+  if ((-1 < param_3) && (*(int *)(param_5 + 4) == DAT_100a2570)) {
+    if (*(int *)(param_5 + 0xc) == -10) {
+      _DAT_10089b84 = *(undefined4 *)(param_5 + 8);
+      DAT_10089cc1 = (undefined1)((uint)_DAT_10089b84 >> 8);
+      DAT_10089cc0 = (undefined1)_DAT_10089b84;
+      DAT_10089cc2 = (undefined1)((uint)_DAT_10089b84 >> 0x10);
+      DAT_10089cc3 = (undefined1)((uint)_DAT_10089b84 >> 0x18);
+      _DAT_100899e4 = FUN_100052c0;
+      _DAT_100899e8 = Ordinal_16_exref;
+      FUN_10002810((int *)&DAT_100899e4);
+      param_3 = extraout_ECX;
+      param_2 = extraout_EDX;
+    }
+    if (*(int *)(param_5 + 0xc) == -6) {
+      _DAT_10089b84 = *(undefined4 *)(param_5 + 8);
+    }
+    if (*(int *)(param_5 + 0xc) == -5) {
+      DAT_100899fc = *(undefined4 *)(param_5 + 8);
+    }
+
+  /* ... unrelated dispatch branches omitted; this is an excerpt ... */
+    __security_check_cookie(local_8 ^ (uint)&stack0xfffffffc);
+    return;
+  }
+  CallNextHookEx(DAT_10089a04,param_3,param_4,param_5);
+  __security_check_cookie(local_8 ^ (uint)&stack0xfffffffc);
+  return;
+}
+

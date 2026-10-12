@@ -1,0 +1,12 @@
+Independent objdump static decoding; Ghidra did not define a function at this address.
+
+/workspace/EAGLE-Auto/.build/easyhook-107-rea/EasyHook-107-unpacked.dll:     file format pei-i386
+
+
+Disassembly of section .text:
+
+10001020 <.text+0x20>:
+10001020:	68 70 02 07 10       	push   $0x10070270
+10001025:	ff 15 88 01 07 10    	call   *0x10070188
+1000102b:	a3 70 25 0a 10       	mov    %eax,0x100a2570
+10001030:	c3                   	ret

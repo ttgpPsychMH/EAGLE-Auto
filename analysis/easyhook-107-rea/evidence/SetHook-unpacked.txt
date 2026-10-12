@@ -1,0 +1,25 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_e0a5a2afc882161269469865a8549929745d0ff29e446a602a738d46bf5c5477
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+
+undefined4 SetHook(HWND param_1)
+
+{
+  BOOL BVar1;
+  DWORD dwThreadId;
+  
+                    /* 0x5630  2  SetHook */
+  BVar1 = IsWindow(param_1);
+  if (BVar1 != 0) {
+    dwThreadId = GetWindowThreadProcessId(param_1,(LPDWORD)0x0);
+    DAT_10089a04 = SetWindowsHookExA(3,FUN_10004120,DAT_10089a08,dwThreadId);
+    if (DAT_10089a04 != (HHOOK)0x0) {
+      DAT_10089a00 = param_1;
+      return 1;
+    }
+  }
+  return 0;
+}
+
+

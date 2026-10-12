@@ -1,0 +1,18 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_550d791838a06cb0f7700315cd9329cee4e57c3f409ebaac7a9ed8875a0ed58c
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+0x10005890: PUSH EBP
+0x10005891: MOV EBP, ESP
+0x10005893: PUSH dword ptr [EBP + 0x8]
+0x10005896: CALL dword ptr [0x1007019c]
+0x1000589c: TEST EAX, EAX
+0x1000589e: JNZ 0x100058a4
+0x100058a0: POP EBP
+0x100058a1: RET 0x4
+0x100058a4: PUSH dword ptr [0x10089a04]
+0x100058aa: CALL dword ptr [0x10070190]
+0x100058b0: MOV dword ptr [0x10089a00], 0x0
+0x100058ba: MOV dword ptr [0x10089a04], 0x0
+0x100058c4: POP EBP
+0x100058c5: RET 0x4

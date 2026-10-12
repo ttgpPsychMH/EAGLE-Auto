@@ -1,0 +1,32 @@
+Selected static observation; not original source or runtime proof.
+REA evidence: ev_32f1aff330d45d99d75600d769cd7d9ca461f367ba417ea06ed0b003484e9ccd
+Artifact SHA256: 5d8542b7e4dda25d2d8a391d6e33d830f7e256cd18fbb5ef9cf199fdb17c48d0
+
+
+WPARAM FUN_100052c0(undefined4 param_1,int param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  WPARAM wParam;
+  int iVar1;
+  undefined4 local_10;
+  WPARAM local_c;
+  undefined *local_8;
+  
+  wParam = (*DAT_100899ec)(param_1,param_2,param_3,param_4);
+  if (((0xf < (int)wParam) && (DAT_100899fc != (HWND)0x0)) && ((int)wParam < 1000)) {
+    iVar1 = 4;
+    if (4 < (int)(wParam + 4)) {
+      do {
+        (&DAT_10089cc0)[iVar1] = *(undefined1 *)(param_2 + -4 + iVar1);
+        iVar1 = iVar1 + 1;
+      } while (iVar1 < (int)(wParam + 4));
+    }
+    local_10 = 0;
+    local_8 = &DAT_10089cc0;
+    local_c = wParam;
+    SendMessageA(DAT_100899fc,0x4a,wParam,(LPARAM)&local_10);
+  }
+  return wParam;
+}
+
+

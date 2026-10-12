@@ -1,0 +1,110 @@
+{
+  "checks_passed": 24,
+  "failed": 0,
+  "scope": "Pure synthetic byte-layout model bound to observed assembly anchors; NOT DLL/Windows/game execution",
+  "assembly_projection_sha256": "6aca4f7ce07790358434868a6e04bce0b5d874ad23722eafb5fdb465d54347a2",
+  "example": {
+    "received_ascii": "abcdefghijklmnopqrst",
+    "forwarded_ascii": "abcdefghijklmnop",
+    "omitted_ascii": "qrst"
+  },
+  "results": [
+    {
+      "name": "no notification for recv length 0",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 1",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 4",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 15",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 1000",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 1001",
+      "passed": true
+    },
+    {
+      "name": "no notification for recv length 4096",
+      "passed": true
+    },
+    {
+      "name": "cbData equals n=16",
+      "passed": true
+    },
+    {
+      "name": "PID prefix little endian n=16",
+      "passed": true
+    },
+    {
+      "name": "last four raw bytes absent n=16",
+      "passed": true
+    },
+    {
+      "name": "cbData equals n=20",
+      "passed": true
+    },
+    {
+      "name": "PID prefix little endian n=20",
+      "passed": true
+    },
+    {
+      "name": "last four raw bytes absent n=20",
+      "passed": true
+    },
+    {
+      "name": "cbData equals n=100",
+      "passed": true
+    },
+    {
+      "name": "PID prefix little endian n=100",
+      "passed": true
+    },
+    {
+      "name": "last four raw bytes absent n=100",
+      "passed": true
+    },
+    {
+      "name": "cbData equals n=999",
+      "passed": true
+    },
+    {
+      "name": "PID prefix little endian n=999",
+      "passed": true
+    },
+    {
+      "name": "last four raw bytes absent n=999",
+      "passed": true
+    },
+    {
+      "name": "missing destination suppresses message",
+      "passed": true
+    },
+    {
+      "name": "twenty-byte chunk becomes sixteen-byte payload",
+      "passed": true
+    },
+    {
+      "name": "split short chunks are both lost",
+      "passed": true
+    },
+    {
+      "name": "coalesced large chunk is lost",
+      "passed": true
+    },
+    {
+      "name": "UTF8 suffix can end in incomplete codepoint",
+      "passed": true
+    }
+  ],
+  "target_executed": false
+}
