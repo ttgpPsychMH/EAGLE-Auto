@@ -24,7 +24,7 @@ using TinhKiemAuto.Properties;
 
 namespace TinhKiemAuto
 {
-	public class FrmMain : Form
+	public partial class FrmMain : Form
 	{
 		public delegate void LogBack(string log);
 
@@ -704,6 +704,7 @@ namespace TinhKiemAuto
 			TxtLog = txtlogs;
 			ListView = ListViewNhanVat;
 			Instance = this;
+			InitializeDungeonDashboard();
 		}
 
 		public bool VuaBatXong()

@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   review-package:
-    name: Build and test updater, settings, menus, five dungeon simulations
+    name: Build and test dashboard, updater, hooks and dungeon simulations
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -77,7 +77,7 @@ jobs:
         run: python tools/check_ac_ba_baseline.py
       - name: Verify PE, preserved binaries and licensing source
         run: .build/build-venv/bin/python tools/verify_build.py
-      - name: Test updater, UI, dungeons, hook diagnostics and native envelope fixtures
+      - name: Test dashboard adapter, updater, dungeons, hooks and native envelope fixtures
         run: dotnet test tests/ChickenAutoEx.Startup.Tests/ChickenAutoEx.Startup.Tests.csproj -c Release --no-build --no-restore --logger "trx;LogFileName=startup-tests.trx" --results-directory .build/test-results
       - name: Package verified files for Windows testing
         run: .build/build-venv/bin/python tools/package_build.py
@@ -109,6 +109,9 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
+          v0.8 adds a 116-style WinForms layout and guarded task dashboard over the preserved v0.7 engine.
+          The package includes UI-116.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
+          WinForms layout, DPI and game integration require Windows validation.
           The isolated updater, UI/settings, dungeon menu, five dungeon simulations tests ran; no game automation executable was executed.
           The Thuy Lao menu remains unavailable pending private-client validation; four Thuy Lao, six Ky Cuoc/pet AOE and eleven Trung Ac legacy regressions were reproduced, plus nine v0.3 re-audit controls and thirteen Ac Tac v0.4 controls.
           Trung Ac controls the selected character; quest/NPC/token/reward semantics still need private-client validation.

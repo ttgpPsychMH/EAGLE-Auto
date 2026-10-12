@@ -1,6 +1,6 @@
 # ChickenAutoEx 107: bản build khôi phục và sửa startup
 
-**Bản hiện tại: [EAGLE Auto v0.7 — chẩn đoán hook và mô phỏng reader](EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md)** trên nhánh `repair/eagle-auto-hook-diagnostics`. Gói là `EAGLE-Auto-v0.7-net48.zip`, artifact **EAGLE-Auto-v0.7-net48-review**; chạy **EAGLE-Auto-v0.7.exe** cùng `EAGLE-Auto-v0.7.exe.config`. Sửa `EagleAuto.Version.props` để tự đồng bộ tên file, giao diện, metadata, ZIP và artifact khi nâng version. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
+**Bản hiện tại: [EAGLE Auto v0.8 — giao diện theo 116 và bảng phó bản](EAGLE-Auto-UI-116.vi.md)** trên nhánh `repair/eagle-auto-ui-116`. Gói là `EAGLE-Auto-v0.8-net48.zip`, artifact **EAGLE-Auto-v0.8-net48-review**; chạy **EAGLE-Auto-v0.8.exe** cùng `EAGLE-Auto-v0.8.exe.config`. Sửa `EagleAuto.Version.props` để tự đồng bộ tên file, giao diện, metadata, ZIP và artifact khi nâng version. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
 
 Project build nằm tại `src/ChickenAutoEx`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Phần sửa startup đã merge vào master; nhánh `repair/chickenautoex-107-dungeon-menu` kế thừa [hai lỗi UI/cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md) và sửa [menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md). Source điều tra được giữ nguyên. Không chạy binary gốc để khôi phục dữ liệu.
 
@@ -19,7 +19,7 @@ Các delta automation được khai báo và review theo từng đợt: Thủy L
 
 ### Tải gói kiểm thử từ GitHub
 
-Source hiện tại nằm trên nhánh [`repair/eagle-auto-hook-diagnostics`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/eagle-auto-hook-diagnostics). Mở [EAGLE Auto review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **EAGLE-Auto-v0.7-net48-review** (hoặc version mới hơn của nhánh đó) ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
+Source hiện tại nằm trên nhánh [`repair/eagle-auto-hook-diagnostics`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/repair/eagle-auto-hook-diagnostics). Mở [EAGLE Auto review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **EAGLE-Auto-v0.8-net48-review** (hoặc version mới hơn của nhánh đó) ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
 
 Workflow tự chạy khi `master` hoặc các nhánh `repair/**`, `branding/**` có thay đổi liên quan, bao gồm `EagleAuto.Version.props`; không cần sửa workflow cho từng nhánh/version mới. Artifact được giữ **7 ngày**; hết hạn thì người có quyền ghi repository mở lần chạy đã có và chọn **Re-run jobs** để tạo lại. Không cần merge để tải artifact từ lần chạy do push tạo ra. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
 
@@ -62,7 +62,7 @@ Lockfiles và tool manifest được commit. `PackageDownload` net35 chỉ cung 
 
 **`.build`, `bin`, `obj` chứa dữ liệu nhạy cảm kế thừa và binary chưa qua Windows test, phải giữ ngoài Git.** Việc khôi phục constant chỉ nhằm giữ hành vi baseline; không thử dùng key API bên thứ ba. Gói build vẫn kế thừa các constant ấy trong binary, nên chỉ phục vụ review/test cô lập, chưa phải bản phát hành công khai. Không commit thư mục generated hoặc file account/game config của người dùng.
 
-Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review hiện tại: `.build/artifacts/EAGLE-Auto-v0.7-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
+Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review hiện tại: `.build/artifacts/EAGLE-Auto-v0.8-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
 
 V0.4 bổ sung [Trừng Ác](EAGLE-Auto-TRUNG-AC-SIMULATION.vi.md) và [rà soát cả ba nhiệm vụ](EAGLE-Auto-DUNGEON-REAUDIT.vi.md), gồm guard pause/owner/member và callback AutoLogin. Verifier đảo ngược các delta Trừng Ác trong Game/FrmMain và delta partial rà soát, rồi kiểm tra phần còn lại với baseline, không bỏ qua cả method/file vì khác phiên bản.
 
@@ -72,9 +72,9 @@ V0.6 bổ sung [Ác Bá](EAGLE-Auto-AC-BA-SIMULATION.vi.md): nhận diện thôn
 
 ## Kết quả đã xác nhận
 
-Bản v0.7: **552 test .NET passed, 26 tình huống C++ passed, 51 đối chứng lịch sử**, 0 lỗi harness; chẩn đoán BOOL/trạng thái hook được thêm nhưng EasyHook.dll giữ nguyên. Xem [phạm vi và giới hạn reader](EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md).
+Bản v0.8: **552 test .NET passed, 26 tình huống C++ passed, 51 đối chứng lịch sử**, 0 lỗi harness; chẩn đoán BOOL/trạng thái hook được thêm nhưng EasyHook.dll giữ nguyên. Xem [phạm vi và giới hạn reader](EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md).
 
-Build v0.7 đầy đủ thành công trên Linux: **0 lỗi, 49 cảnh báo legacy**, có icon, manifest và đủ 27 embedded resource. Kiểm tra tĩnh xác nhận CLR 4/x86, identities phụ thuộc khớp, 26 resource gốc giữ nguyên từng byte; resource JSON được nâng cấp có chủ đích. Cả sáu binary stable/Ex trong repository và snapshot điều tra không đổi.
+Build v0.8 đầy đủ thành công trên Linux: **0 lỗi, 49 cảnh báo legacy**, có icon, manifest và đủ 27 embedded resource. Kiểm tra tĩnh xác nhận CLR 4/x86, identities phụ thuộc khớp, 26 resource gốc giữ nguyên từng byte; resource JSON được nâng cấp có chủ đích. Cả sáu binary stable/Ex trong repository và snapshot điều tra không đổi.
 
 Bản v0.6 chạy **488 test**, 0 failed/skipped: 109 ca Ác Bá, 45 menu, 78 Kỳ Cuộc, 49 Thủy Lao, 85 Trừng Ác, 66 Ác Tặc, 37 updater và 19 UI/settings. 8 đối chứng Ác Bá v0.5 thất bại đúng hành vi cũ; tổng sáu nhóm đối chứng là **51**, 0 lỗi harness.
 
@@ -83,3 +83,5 @@ Bản v0.5 trước đó chạy **375 test**, 0 failed/skipped, gồm 66 ca Ác 
 Kiểm tra này **không xác nhận giao diện, CLR 4/WinForms, WMI, AntiDump, native hook hay phụ bản chạy được trên Windows 11**. Thực hiện [hướng dẫn Windows](ChickenAutoEx-WINDOWS11.vi.md) trước khi coi là đã sửa thành công. Reference assemblies chỉ giúp cross-compile; không cung cấp runtime Windows trong cloud.
 
 Các log/hash không chứa key tại [evidence](evidence). Whitespace của source/resources gốc được giữ để đối chiếu, không format lại các module nhạy cảm.
+
+V0.8 bổ sung [giao diện/adapter](EAGLE-Auto-UI-116.vi.md). Verifier đảo đúng hai thay đổi nối partial/constructor rồi so toàn bộ FrmMain v0.7, kiểm tra hash các partial engine/hook v0.7 và tiếp tục toàn bộ kiểm tra bảo toàn cũ. Chromium/Playwright chỉ là kiểm tra tùy chọn cho mẫu HTML; không cần để build/test C# hoặc tạo gói.

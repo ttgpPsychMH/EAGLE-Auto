@@ -1,0 +1,125 @@
+{
+  "product": "EAGLE Auto v0.8",
+  "date": "2026-10-12",
+  "timezone": "Asia/Bangkok",
+  "baseline_commit": "19c6720",
+  "framework": "net48",
+  "architecture": "x86",
+  "dotnet_tests": {
+    "total": 589,
+    "passed": 589,
+    "failed": 0,
+    "skipped": 0,
+    "new_dashboard_tests": 37
+  },
+  "native_model": {
+    "executed_untrusted_binaries": false,
+    "windows_hook_tested": false,
+    "passed": 26,
+    "failed": 0,
+    "tests": [
+      "recv_length_1",
+      "recv_length_15",
+      "recv_length_16",
+      "recv_length_20",
+      "recv_length_999",
+      "recv_length_1000",
+      "recv_length_4096",
+      "recv_length_65536",
+      "legacy_twenty_bytes_loses_four",
+      "legacy_receiver_missing",
+      "eof_and_socket_error_untouched",
+      "partial_recv_uses_result_not_buffer_capacity",
+      "invalid_result_dropped_without_changing_return",
+      "oversize_chunk_is_explicit_drop",
+      "installation_failure_has_no_data_delivery",
+      "repeated_start_does_not_reinstall",
+      "invalid_pid_does_not_install",
+      "frame_queue_limit_and_gap",
+      "queued_byte_budget_is_bounded",
+      "delivery_timeout_drops_once_without_reinstall",
+      "delivery_failure_does_not_change_game_result",
+      "producer_lock_is_released_during_delivery",
+      "concurrent_producers_own_buffers_and_respect_bound",
+      "cleanup_failure_blocks_reinstall_and_delivery",
+      "stop_flushes_queue_and_is_idempotent",
+      "fragmented_utf8_preserved_as_raw_chunks"
+    ],
+    "source_sha256": {
+      "main.cpp": "9d28d95094f461d3c4769e0d75ac9e1f74a32fd66f6dfe47f0e13ad6f3122332",
+      "reader_model.hpp": "892fec14215a0a9430198694eaba9105127c52782b6990fa62ff7caa56202c9c",
+      "EnvelopeDecoder.cs": "e203656751526cc7a8445d64c8b31a6829c4d844437c50bb44d5848935472142"
+    },
+    "fixture_count": 11,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-O2",
+      "/workspace/EAGLE-Auto/tools/native_reader_simulation/main.cpp",
+      "-o",
+      "/workspace/EAGLE-Auto/.build/native-reader-simulation/reader-simulation"
+    ],
+    "model_executable_sha256": "680becb7ad06204013e322f81cd71a9599f51053a41491d44b31a671c398f927",
+    "fixture_sha256": "86e2e3349fc16caf1901c6c7f16074b25b6246a901d160124b04d4304eef2beb"
+  },
+  "historical_controls": {
+    "expected_behavioral_failures": 51,
+    "harness_errors": 0
+  },
+  "html_mockup": {
+    "result": "passed",
+    "tests": 11,
+    "browser": "151.0.7922.173",
+    "html_sha256": "3c57f9d11122949cb198d781f52daec064737da00a8d58555106fefbd714cd28",
+    "screenshot_sha256": "2ae49745a4be0a9cfc13f7d3d9e2574d0a4a4dce3240360f6215cc246f4ef4d7",
+    "scope": "Owned HTML mockup with synthetic data only; not a WinForms or game test."
+  },
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 49
+  },
+  "source_preservation": {
+    "original_form_v07_sha256_lf": "1a24122a863e16dd283cfc2c1dab158ea497fc76d6ad34ed4bf1df4e4c6a1240",
+    "engine_and_hook_partials_v07": {
+      "src/ChickenAutoEx/ThuyLao/Game.ThuyLao.cs": "1f9e889735b55aa689f1b0546bd396c61dfd30b787a894b4731c53eeb4eaf3be",
+      "src/ChickenAutoEx/KyCuoc/Game.KyCuoc.cs": "1ff61a45fee1f37a727cb6aab1ee3467bd805d029a0ce6cc6a7062bf4e777c40",
+      "src/ChickenAutoEx/KyCuoc/Game.PetAoe.cs": "d9046a1137a79a03d5a4f0476180d9e7a3fe9ba877f506c0ddc7827b2fe93cbf",
+      "src/ChickenAutoEx/TrungAc/Game.TrungAc.cs": "c61e86f3efdf8467e66865dfebd04c7b5f4efacbcf21466e28efde3b87998aff",
+      "src/ChickenAutoEx/TrungAc/Game.TrungAcParser.cs": "6e0b2eefbbf7b0441a016ca65ec05467a2b584d8b9dc35e0d42dc4423ad455a6",
+      "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549",
+      "src/ChickenAutoEx/AcBa/AcBaEvents.cs": "4874f4bff6cffe971052274c9977aabae68b7067be0c0c67b09298cd35ab1560",
+      "src/ChickenAutoEx/AcBa/Game.AcBa.cs": "ab47cf52a1a4cff177e4b01c5550460742af308b26bb633f1ab5dc0c5692c0d7",
+      "src/ChickenAutoEx/AcBa/Game.AcBaEvents.cs": "f5ef6f2ee3c0cbfb7eb16da2fbc99f8c8c4f38d6e698c7b615e211c3acdb1d72",
+      "src/ChickenAutoEx/Hooks/Game.HookDiagnostics.cs": "46138408d42a1eca671e480ebd5ddf23ff1d86ca8988298952278c25db564666",
+      "src/ChickenAutoEx/Hooks/HookDiagnostics.cs": "b6dfbed4c140d8861edc51e414897c6febf63c389b59d6a2a9e9cd4f96f4322e"
+    },
+    "new_ui_source": {
+      "src/ChickenAutoEx/FrmMain.Dashboard.cs": "5b13fa6fc92407e0d91983d557c0b93142068861e4ee804a342fc3f5fa921c91",
+      "src/ChickenAutoEx/Dashboard/DungeonDashboard.cs": "545dfa504aac647f7a1461cd6a29cd96f3a3d1e7f08c4d4dfde929a9f88dbc7c",
+      "src/ChickenAutoEx/Dashboard/Game.DungeonDashboard.cs": "20cee9e5c6511ff5b5d8f27cee80daa35496f1e947979dab78813af29a6c2e26"
+    }
+  },
+  "verification": {
+    "unchanged_original_resources": 26,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "native_hook_dll_unchanged": true,
+    "dungeon_engine_partials_unchanged_since_v07": true,
+    "legacy_protocol_version": "107"
+  },
+  "local_review_zip_sha256": "794f1eba2b92b4eaffda24e9d7bd718a0a51b2bfcab616ef9ba898c374a7795e",
+  "windows_runtime_tested": false,
+  "game_tested": false,
+  "automation_executable_or_original_dll_executed": false,
+  "limitations": [
+    "HTML screenshot is a mockup, not WinForms rendering.",
+    "Engine stop reasons are not persisted: use existing warnings/log.",
+    "Thuy Lao remains unavailable.",
+    "Windows DPI/layout and private-client integration remain untested."
+  ]
+}

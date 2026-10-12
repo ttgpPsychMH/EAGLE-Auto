@@ -56,6 +56,8 @@ def verify_branding(repo):
     for entry in review["source_edits"]:
         text = (repo / entry["path"]).read_text(encoding="utf-8")
         if entry["path"] == "src/ChickenAutoEx/FrmMain.cs":
+            from dashboard_review import apply_review as dashboard
+            text = dashboard(repo, text, reverse=True)
             from hook_diagnostics_review import apply_review as hooks
             text = hooks(repo, text, reverse=True, form=True)
         for edit in entry["edits"]:
@@ -188,6 +190,8 @@ def main():
         "reviewed_ac_tac_fixes": True,
         "reviewed_ac_ba_fixes": True,
         "reviewed_managed_hook_diagnostics": True,
+        "reviewed_dashboard_ui": True,
+        "dungeon_engine_partials_unchanged_since_v07": True,
         "native_hook_dll_unchanged": True,
         "unchanged_easyhook_sha256": hashlib.sha256(resources["TinhKiemAuto.EasyHook.dll"]).hexdigest(),
         "native_reader_simulation_not_linked_into_app": True,
