@@ -7,7 +7,7 @@ void UnHook(HWND param_1)
 
 {
   BOOL BVar1;
-  
+
                     /* 0x5890  3  UnHook */
   BVar1 = IsWindow(param_1);
   if (BVar1 == 0) {
@@ -18,5 +18,3 @@ void UnHook(HWND param_1)
   DAT_10089a04 = (HHOOK)0x0;
   return;
 }
-
-

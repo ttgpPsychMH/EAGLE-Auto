@@ -9,5 +9,3 @@ undefined4 GetMSG(void)
                     /* 0x4110  1  GetMSG */
   return DAT_100a2570;
 }
-
-

@@ -1,6 +1,7 @@
 {
   "projection_notice": "Selected projections from original canonical REA evidence; excerpts are NOT canonical Evidence objects",
   "source_evidence": {
+    "projection_formatting": "Trailing line whitespace and final blank lines removed; leading indentation preserved",
     "source_file": "recv-install-callees.json",
     "private_raw_response_sha256": "ecd9e1f0f65aacc8b42fd542af358b8d7f4054b3b0c8bd8f98f5d249f037ade1",
     "rea_evidence_id": "ev_b137f51818d53552651b1e67b14c4e1ce7bd74abbab7bfbcfadc4b2fcb2eb214",

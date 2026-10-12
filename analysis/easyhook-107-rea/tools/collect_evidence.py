@@ -34,7 +34,7 @@ for name in selected:
     source, value = evidence(name)
     assert value['subject']['digest']['sha256'] == index['derived_artifact']['sha256'], name
     filename = name + ('.txt' if isinstance(value['normalized_result'],str) else '.json')
-    header = {'source_file':source.name, 'private_raw_response_sha256':digest(source), 'rea_evidence_id':value['evidence_id'],
+    header = {'projection_formatting':'Trailing line whitespace and final blank lines removed; leading indentation preserved', 'source_file':source.name, 'private_raw_response_sha256':digest(source), 'rea_evidence_id':value['evidence_id'],
               'artifact_sha256':value['subject']['digest']['sha256'], 'provider':value['provider'], 'operation':value['operation'],
               'parameters':value['parameters'], 'limitations':value['limitations'], 'projection_file':filename}
     index['records'][name] = header
@@ -59,6 +59,7 @@ for name in ['message-callback','message-callback-assembly']:
                                +'REA evidence: '+value['evidence_id']+'\nCanonical response SHA256: '+digest(source)+'\n\n'+excerpt)
     index['records'][name]={'rea_evidence_id':value['evidence_id'],'private_raw_response_sha256':digest(source),
         'operation':value['operation'],'projection_file':filename,'extent':'Selected setup and return snippets; unrelated Lua/auth dispatch omitted',
+        'projection_formatting':'Trailing line whitespace and final blank lines removed; leading indentation preserved',
         'limitations':value['limitations']}
 for name in ['overview','unpacked-overview']:
     source, value=evidence(name)
@@ -84,4 +85,6 @@ toolchain={'rea':{k:lock[k] for k in ['version','resolved','integrity']},'ghidra
  'upx-5.2.1-amd64_linux.tar.xz':'402162aad30af47e60dbd767fb2e64ca394ace9727ba1f40283641f1d1b91657'}}
 assert toolchain['scoped_ghidra_healthy']
 (output/'toolchain.json').write_text(json.dumps(toolchain,indent=2)+'\n')
+for path in output.glob('*.txt'):
+    path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()).rstrip()+'\n')
 print('Projected selected REA evidence; no raw callbacks, binaries, credentials or source reconstruction bundle published.')

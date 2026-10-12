@@ -16,7 +16,7 @@ void __cdecl FUN_10002810(int *param_1)
   SIZE_T *lpNumberOfBytesWritten;
   undefined1 local_c;
   int local_b;
-  
+
   piVar2 = param_1;
   VirtualProtect((LPVOID)param_1[1],5,4,(PDWORD)&param_1);
   puVar3 = VirtualAlloc((LPVOID)0x0,10,0x1000,0x40);
@@ -37,5 +37,3 @@ void __cdecl FUN_10002810(int *param_1)
   VirtualProtect((LPVOID)piVar2[1],5,(DWORD)param_1,(PDWORD)&param_1);
   return;
 }
-
-

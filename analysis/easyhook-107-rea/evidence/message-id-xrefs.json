@@ -1,6 +1,7 @@
 {
   "projection_notice": "Selected projections from original canonical REA evidence; excerpts are NOT canonical Evidence objects",
   "source_evidence": {
+    "projection_formatting": "Trailing line whitespace and final blank lines removed; leading indentation preserved",
     "source_file": "message-id-xrefs.json",
     "private_raw_response_sha256": "1214d35c7b5da6467e3ea955f07335ca330cf069cd4d83d710b820e6960fe235",
     "rea_evidence_id": "ev_bfa86d3a3f5eb8dd078c84c56d40460bb1116ad073ada46c7564e37be0d8a853",
