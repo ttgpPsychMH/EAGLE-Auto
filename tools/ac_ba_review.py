@@ -32,6 +32,8 @@ def write_regression_source(repo):
     assert apply_review(repo, reviewed, reverse=True) == legacy
     (path / 'ReviewedGame.cs').write_text(reviewed)
     form = (repo / 'src/ChickenAutoEx/FrmMain.cs').read_text()
+    from appearance_review import restore_direct_source
+    form = restore_direct_source(repo, "src/ChickenAutoEx/FrmMain.cs", form)
     from dashboard_review import apply_review as dashboard
     form = dashboard(repo, form, reverse=True)
     from hook_diagnostics_review import apply_review as hooks

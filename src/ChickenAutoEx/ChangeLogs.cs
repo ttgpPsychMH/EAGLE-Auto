@@ -13,6 +13,7 @@ namespace TinhKiemAuto
 		public ChangeLogs()
 		{
 			InitializeComponent();
+			TinhKiemAuto.Appearance.AppAppearance.Apply(this);
 		}
 
 		protected override void Dispose(bool disposing)

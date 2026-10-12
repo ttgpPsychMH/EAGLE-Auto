@@ -6,6 +6,8 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../../src/ChickenAutoEx/Appearance/FontStylePolicy.cs" Link="Appearance/FontStylePolicy.cs" />
+    <None Include="../../src/ChickenAutoEx/Appearance/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../../src/ChickenAutoEx/Dashboard/CharacterHeader.cs" Link="Dashboard/CharacterHeader.cs" />
     <Compile Include="../../src/ChickenAutoEx/Dashboard/DungeonDashboard.cs" Link="Dashboard/DungeonDashboard.cs" />
     <None Include="../../src/ChickenAutoEx/Dashboard/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />

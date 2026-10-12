@@ -175,6 +175,8 @@ namespace TinhKiemAuto
             ApplyCharacterHeader(CharacterHeader.Empty(0));
             refresh.Start();
             ResumeLayout(true);
+            TinhKiemAuto.Appearance.AppAppearance.Apply(this);
+            notifyIcon1.Icon = TinhKiemAuto.Appearance.AppAppearance.Icon;
         }
 
         private float UiScale { get { return Math.Max(1f, Font.GetHeight() / 13f); } }

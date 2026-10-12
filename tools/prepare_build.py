@@ -118,6 +118,10 @@ def main():
                 data = new_json.read_bytes()
             (resource_path / name).write_bytes(data)
             resource_hashes[name] = digest(data)
+        for name, relative in {"EagleAuto.Branding.Icon": "assets/branding/eagle-auto.ico", "EagleAuto.Branding.Logo": "assets/branding/eagle-auto.png"}.items():
+            data = (repo / relative).read_bytes()
+            (resource_path / name).write_bytes(data)
+            resource_hashes[name] = digest(data)
         (work / "app.ico").write_bytes(extract_icon(pe))
         hydrated = work / "hydrated"
         hydrated.mkdir()
@@ -154,6 +158,9 @@ def main():
                 review = ac_ba(repo, review)
                 from hook_diagnostics_review import apply_review as hook_diagnostics
                 review = hook_diagnostics(repo, review)
+            if relative.endswith("/Debug.cs"):
+                from appearance_review import apply_ui_hook
+                review = apply_ui_hook(review, 1)
             path = hydrated / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(review)
@@ -166,6 +173,8 @@ def main():
                 raise ValueError("Refusing to overwrite an unknown build directory")
             shutil.rmtree(final)
         final.mkdir(mode=0o700)
+        from appearance_review import write_ui_sources
+        write_ui_sources(repo, final)
         shutil.move(str(hydrated), final / "hydrated")
         shutil.move(str(resource_path), final / "resources")
         shutil.move(str(work / "app.ico"), final / "app.ico")
@@ -192,7 +201,7 @@ def main():
         (repo / (".build/dungeon-reaudit/" + module + "-v03.cs")).parent.mkdir(parents=True, exist_ok=True)
         (repo / (".build/dungeon-reaudit/" + module + "-v03.cs")).write_text(
             baseline_partial(repo, "src/ChickenAutoEx/" + module + "/Game." + module + ".cs"), encoding="utf-8")
-    print("Prepared 27 embedded resources, icon and four hydrated source files; originals unchanged.")
+    print("Prepared 29 embedded resources, Eagle icon and UI-only appearance source hooks; originals unchanged.")
     print("Generated key material is confined to ignored .build; no release executable was run.")
 
 

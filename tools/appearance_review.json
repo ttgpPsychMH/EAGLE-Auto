@@ -1,0 +1,105 @@
+{
+  "baseline_commit": "4cfc80a576b6ef5eeed0955bb1591290acac5012",
+  "scope": "UI-only Aptos family and Eagle icon; no font redistribution; engine/auth/native preserved",
+  "recovered_ui_sources": {
+    "TinhKiemAuto/AutoEatItem.cs": {
+      "original_sha256_lf": "8c5c798f04881c71df2d371760aba4deb938d296eebe629b80678a8a8f0e6d80",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/BoQua.cs": {
+      "original_sha256_lf": "01062a6f51c9453d028fcdb3ca381cbd30b65881f65f0c00332578961d383a77",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/Buff.cs": {
+      "original_sha256_lf": "dcc65332c52bfb20c58691016f63bbf5c1d16c1a2ca329c56ea07f4ed8ef1ac3",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/CanhBao.cs": {
+      "original_sha256_lf": "03c2e44dde4ab18687ecd6fec0e9c3b0a77e00c568bf7c4bce4142c5632d4d30",
+      "hook_count": 2
+    },
+    "TinhKiemAuto/Chat.cs": {
+      "original_sha256_lf": "26bb3ea5f8815f0e8cf8201fe3bb5c366f99fbcf058cefc3587c64ce0673f287",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/DropItem.cs": {
+      "original_sha256_lf": "0f88ef777de776253ba60aa29a3dea1e5a6c1f21372feb81b77ee3b83580c56e",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/Games.cs": {
+      "original_sha256_lf": "459ab2c6ac05fd7b5da9f5a14d1891df9f792a14c6b26866135ff8993bcc732d",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/HotKey.cs": {
+      "original_sha256_lf": "30d4dac083ee8395ca0a9757bc91115b885cd01cb18fd9dd77b09e9ab67688ca",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/SellItem.cs": {
+      "original_sha256_lf": "c4c267268ae6129fa5d6de2e471773dccccd83595b4ae0e996bd9cdb9eac70ce",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ShutDown.cs": {
+      "original_sha256_lf": "9d896a068e837eb896751b0a007a5ad04043e19a8624bb7d7190e8a624d2baa8",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ThietLapAuto.cs": {
+      "original_sha256_lf": "bd0cd77ab93dbfb1e0cebaa0d877417802d49d06338758b96799ea2702339325",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ThongQR.cs": {
+      "original_sha256_lf": "03f6126207c54f376bafcb6410ecf86bf4d83ade6ec8e9d56c7c92ca534fa7ea",
+      "hook_count": 1
+    },
+    "TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs": {
+      "original_sha256_lf": "64d1dfed0cb6ffb21c95ca6afcf42c3135ef4bf2a7e646f2efbc523494ab9d8c",
+      "hook_count": 1
+    }
+  },
+  "debug_hook_count": 1,
+  "direct_source_edits": [
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "MessageBox.Show(this, AppBranding.AboutText, AppBranding.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);",
+      "after": "TinhKiemAuto.Appearance.AppAppearance.ShowAbout(this);",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/ChangeLogs.cs",
+      "before": "\t\t\tInitializeComponent();",
+      "after": "\t\t\tInitializeComponent();\n\t\t\tTinhKiemAuto.Appearance.AppAppearance.Apply(this);",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/ChickenAutoEx.csproj",
+      "before": "<ApplicationIcon>$(RecoveryOutput)/app.ico</ApplicationIcon>",
+      "after": "<ApplicationIcon>$(MSBuildProjectDirectory)/../../assets/branding/eagle-auto.ico</ApplicationIcon>",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/ChickenAutoEx.csproj",
+      "before": "      Exclude=\"$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs\"",
+      "after": "      Exclude=\"$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs;$(RecoveredSource)/TinhKiemAuto/AutoEatItem.cs;$(RecoveredSource)/TinhKiemAuto/BoQua.cs;$(RecoveredSource)/TinhKiemAuto/Buff.cs;$(RecoveredSource)/TinhKiemAuto/CanhBao.cs;$(RecoveredSource)/TinhKiemAuto/Chat.cs;$(RecoveredSource)/TinhKiemAuto/DropItem.cs;$(RecoveredSource)/TinhKiemAuto/Games.cs;$(RecoveredSource)/TinhKiemAuto/HotKey.cs;$(RecoveredSource)/TinhKiemAuto/SellItem.cs;$(RecoveredSource)/TinhKiemAuto/ShutDown.cs;$(RecoveredSource)/TinhKiemAuto/ThietLapAuto.cs;$(RecoveredSource)/TinhKiemAuto/ThongQR.cs;$(RecoveredSource)/TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/ChickenAutoEx.csproj",
+      "before": "    <EmbeddedResource Include=",
+      "after": "    <Compile Include=\"$(RecoveryOutput)/appearance/**/*.cs\" Link=\"AppearanceUi/%(RecursiveDir)%(Filename)%(Extension)\" />\n    <EmbeddedResource Include=",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\t\t\tnotifyIcon1.ContextMenu = new ContextMenu();\n\t\t\tnotifyIcon1.ContextMenu.MenuItems.Add(new MenuItem(\"Hi\u1ec7n Auto\", HienAuto));\n\t\t\tnotifyIcon1.ContextMenu.MenuItems.Add(new MenuItem(\"Tho\u00e1t Auto\", Thoat));",
+      "after": "\t\t\tnotifyIcon1.ContextMenuStrip = new ContextMenuStrip(components);\n\t\t\tnotifyIcon1.ContextMenuStrip.Items.Add(new ToolStripMenuItem(\"Hi\u1ec7n Auto\", null, HienAuto));\n\t\t\tnotifyIcon1.ContextMenuStrip.Items.Add(new ToolStripMenuItem(\"Tho\u00e1t Auto\", null, Thoat));\n\t\t\tTinhKiemAuto.Appearance.AppAppearance.Apply(notifyIcon1.ContextMenuStrip);",
+      "count": 1
+    }
+  ],
+  "assets_sha256": {
+    "assets/branding/eagle-auto.ico": "579923d2a496e5d151925f341da409319449483a16238a9c1bf2f5ab6368e11d",
+    "assets/branding/eagle-auto.png": "ed9dfe1cade5419f1e0060b1d9581826287fabcd73bd6551c82c85ed0efe7716"
+  },
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/Appearance/AppAppearance.cs": "9d0986b855cd60a4d55b56b7213594a3d441f469e9615ee55ce1d9907b052665",
+    "src/ChickenAutoEx/Appearance/FontStylePolicy.cs": "193ac96984825a62b5ed7c2e78aec999bfec4888bcd8a95d330329fcf327ebf9"
+  }
+}

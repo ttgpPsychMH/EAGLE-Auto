@@ -1,0 +1,339 @@
+{
+  "product": "EAGLE Auto v0.10",
+  "date": "2026-10-12",
+  "timezone": "Asia/Bangkok",
+  "baseline_commit": "4cfc80a576b6ef5eeed0955bb1591290acac5012",
+  "dotnet_tests": {
+    "total": 666,
+    "passed": 666,
+    "failed": 0,
+    "skipped": 0,
+    "new_appearance_and_tray_tests": 50
+  },
+  "browser_mockup": {
+    "result": "passed",
+    "tests": 67,
+    "ui": {
+      "result": "passed",
+      "tests": 45,
+      "checks": [
+        "default selection is empty",
+        "empty metrics use em dash",
+        "empty task cannot start",
+        "basic tab is initial tab",
+        "shared controls collapsed initially",
+        "log initially visible",
+        "eight real tab buttons",
+        "client size 560 by 700",
+        "select row displays online metrics",
+        "selection does not turn Auto on",
+        "checkbox does not switch selected actor",
+        "select second row displays its metrics",
+        "clear selection removes all metrics",
+        "clear selection disables configuration",
+        "personal task does not need team leader",
+        "personal start creates running state",
+        "pause still permits stop",
+        "stop during pause clears selected task",
+        "offline clears metrics",
+        "offline still permits stop",
+        "stop while offline clears task",
+        "team task requires known leader",
+        "team task uses leader not selected member",
+        "team start controls only leader",
+        "conflicting task blocks start",
+        "blocked start preserves active task",
+        "team stop clears only leader task",
+        "Thuy Lao remains unavailable",
+        "Ac Ba school settings preserved",
+        "Ac Tac map settings preserved",
+        "tab basic opens its page",
+        "tab skills opens its page",
+        "tab items opens its page",
+        "tab pet opens its page",
+        "tab utilities opens its page",
+        "tab craft opens its page",
+        "tab login opens its page",
+        "tab tasks opens its page",
+        "log collapses",
+        "log expands",
+        "common controls expand",
+        "all Auto explicitly stops both fake actors",
+        "all Auto explicitly starts both fake actors",
+        "common controls collapse",
+        "final clear removes stale selected data"
+      ]
+    },
+    "appearance": {
+      "result": "passed",
+      "tests": 22,
+      "checks": [
+        "loaded font face 12px Aptos",
+        "loaded font face bold 12px Aptos",
+        "loaded font face italic 12px Aptos",
+        "loaded font face italic bold 12px Aptos",
+        "body uses Aptos first",
+        "all form controls inherit Aptos",
+        "both new eagle images decode",
+        "title uses new eagle logo",
+        "application version is v0.10",
+        "no chicken title or old logo",
+        "About opens a modal dialog",
+        "About has the new eagle logo",
+        "About keeps requested attribution",
+        "About reports four loaded Aptos faces",
+        "About makes browser test scope explicit",
+        "About closes with its button",
+        "About closes with Escape",
+        "actual uploaded Aptos renders Vietnamese glyphs normal 400",
+        "actual uploaded Aptos renders Vietnamese glyphs normal 700",
+        "actual uploaded Aptos renders Vietnamese glyphs italic 400",
+        "actual uploaded Aptos renders Vietnamese glyphs italic 700",
+        "zero network requests from owned HTML"
+      ]
+    },
+    "renderedFonts": [
+      {
+        "style": "normal",
+        "weight": "400",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "normal",
+        "weight": "700",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-Bold",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "italic",
+        "weight": "400",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-Italic",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "italic",
+        "weight": "700",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-BoldItalic",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      }
+    ],
+    "glyphText": "Ác Bá – Trân Long Kỳ Cuộc – Trừng Ác – Thủy Lao – Được sửa lại",
+    "browser": "151.0.7922.173",
+    "html_sha256": "000396ce9e3635e9f3885af053000ac484600d6dd191117993d1ad80ffde5885",
+    "logo_sha256": "ed9dfe1cade5419f1e0060b1d9581826287fabcd73bd6551c82c85ed0efe7716",
+    "fontFiles": [
+      {
+        "file": "Aptos.ttf",
+        "style": "normal",
+        "weight": "400",
+        "sha256": "01bbd2d3bd483045e1dbf4f106935cb86478b937f8d334258ad12eea60554a05"
+      },
+      {
+        "file": "Aptos-Bold.ttf",
+        "style": "normal",
+        "weight": "700",
+        "sha256": "ae318584be8737164e24842e0b27ab180ee6761c1bedd799f5a29c93a8a4e65c"
+      },
+      {
+        "file": "Aptos-Italic.ttf",
+        "style": "italic",
+        "weight": "400",
+        "sha256": "b37b9d734abe6dd9924f914d4a3fbba6b9fdbccb30fedb4fbd6f27131307e6c2"
+      },
+      {
+        "file": "Aptos-Bold-Italic.ttf",
+        "style": "italic",
+        "weight": "700",
+        "sha256": "eccb43dc63b966f97f49abc7031f0337411f64064f8df8ba98aa22a135cac35a"
+      }
+    ],
+    "networkRequests": 0,
+    "screenshots": {
+      "selected": {
+        "file": "v0.10-selected.png",
+        "sha256": "45a55c216dbc10c649f033b6ad9f238cacd4c93f7c3e2331344e274bda684e20"
+      },
+      "empty": {
+        "file": "v0.10-empty.png",
+        "sha256": "37872f467e8639f16674383bb25181749d594f67f553c0c8208467c3c0817216"
+      },
+      "about": {
+        "file": "v0.10-about.png",
+        "sha256": "90ec56aab06c1a3f55702580e574b8352040f6da98f94a97878aeeffc2c626c4"
+      }
+    },
+    "scope": "Owned HTML mockup with fake data and privately uploaded Aptos faces. Actual Chromium glyph rendering only; WinForms, Windows DPI, native DLL and game remain untested.",
+    "fontDistribution": "Uploaded TTF bytes exist only in ignored local input files and browser memory. No font bytes are saved in HTML, screenshots metadata, package or Git."
+  },
+  "native_model": {
+    "executed_untrusted_binaries": false,
+    "windows_hook_tested": false,
+    "passed": 26,
+    "failed": 0,
+    "tests": [
+      "recv_length_1",
+      "recv_length_15",
+      "recv_length_16",
+      "recv_length_20",
+      "recv_length_999",
+      "recv_length_1000",
+      "recv_length_4096",
+      "recv_length_65536",
+      "legacy_twenty_bytes_loses_four",
+      "legacy_receiver_missing",
+      "eof_and_socket_error_untouched",
+      "partial_recv_uses_result_not_buffer_capacity",
+      "invalid_result_dropped_without_changing_return",
+      "oversize_chunk_is_explicit_drop",
+      "installation_failure_has_no_data_delivery",
+      "repeated_start_does_not_reinstall",
+      "invalid_pid_does_not_install",
+      "frame_queue_limit_and_gap",
+      "queued_byte_budget_is_bounded",
+      "delivery_timeout_drops_once_without_reinstall",
+      "delivery_failure_does_not_change_game_result",
+      "producer_lock_is_released_during_delivery",
+      "concurrent_producers_own_buffers_and_respect_bound",
+      "cleanup_failure_blocks_reinstall_and_delivery",
+      "stop_flushes_queue_and_is_idempotent",
+      "fragmented_utf8_preserved_as_raw_chunks"
+    ],
+    "source_sha256": {
+      "main.cpp": "9d28d95094f461d3c4769e0d75ac9e1f74a32fd66f6dfe47f0e13ad6f3122332",
+      "reader_model.hpp": "892fec14215a0a9430198694eaba9105127c52782b6990fa62ff7caa56202c9c",
+      "EnvelopeDecoder.cs": "e203656751526cc7a8445d64c8b31a6829c4d844437c50bb44d5848935472142"
+    },
+    "fixture_count": 11,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-O2",
+      "/workspace/EAGLE-Auto/tools/native_reader_simulation/main.cpp",
+      "-o",
+      "/workspace/EAGLE-Auto/.build/native-reader-simulation/reader-simulation"
+    ],
+    "model_executable_sha256": "680becb7ad06204013e322f81cd71a9599f51053a41491d44b31a671c398f927",
+    "fixture_sha256": "86e2e3349fc16caf1901c6c7f16074b25b6246a901d160124b04d4304eef2beb"
+  },
+  "historical_controls": {
+    "expected_behavioral_failures": 51,
+    "harness_errors": 0
+  },
+  "build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "errors": 0,
+    "initial_full_compile_legacy_warnings": 49
+  },
+  "assets": {
+    "assets/branding/eagle-auto.ico": "579923d2a496e5d151925f341da409319449483a16238a9c1bf2f5ab6368e11d",
+    "assets/branding/eagle-auto.png": "ed9dfe1cade5419f1e0060b1d9581826287fabcd73bd6551c82c85ed0efe7716"
+  },
+  "reviewed_appearance_source": {
+    "src/ChickenAutoEx/Appearance/AppAppearance.cs": "9d0986b855cd60a4d55b56b7213594a3d441f469e9615ee55ce1d9907b052665",
+    "src/ChickenAutoEx/Appearance/FontStylePolicy.cs": "193ac96984825a62b5ed7c2e78aec999bfec4888bcd8a95d330329fcf327ebf9"
+  },
+  "original_ui_overrides": {
+    "TinhKiemAuto/AutoEatItem.cs": {
+      "original_sha256_lf": "8c5c798f04881c71df2d371760aba4deb938d296eebe629b80678a8a8f0e6d80",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/BoQua.cs": {
+      "original_sha256_lf": "01062a6f51c9453d028fcdb3ca381cbd30b65881f65f0c00332578961d383a77",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/Buff.cs": {
+      "original_sha256_lf": "dcc65332c52bfb20c58691016f63bbf5c1d16c1a2ca329c56ea07f4ed8ef1ac3",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/CanhBao.cs": {
+      "original_sha256_lf": "03c2e44dde4ab18687ecd6fec0e9c3b0a77e00c568bf7c4bce4142c5632d4d30",
+      "hook_count": 2
+    },
+    "TinhKiemAuto/Chat.cs": {
+      "original_sha256_lf": "26bb3ea5f8815f0e8cf8201fe3bb5c366f99fbcf058cefc3587c64ce0673f287",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/DropItem.cs": {
+      "original_sha256_lf": "0f88ef777de776253ba60aa29a3dea1e5a6c1f21372feb81b77ee3b83580c56e",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/Games.cs": {
+      "original_sha256_lf": "459ab2c6ac05fd7b5da9f5a14d1891df9f792a14c6b26866135ff8993bcc732d",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/HotKey.cs": {
+      "original_sha256_lf": "30d4dac083ee8395ca0a9757bc91115b885cd01cb18fd9dd77b09e9ab67688ca",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/SellItem.cs": {
+      "original_sha256_lf": "c4c267268ae6129fa5d6de2e471773dccccd83595b4ae0e996bd9cdb9eac70ce",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ShutDown.cs": {
+      "original_sha256_lf": "9d896a068e837eb896751b0a007a5ad04043e19a8624bb7d7190e8a624d2baa8",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ThietLapAuto.cs": {
+      "original_sha256_lf": "bd0cd77ab93dbfb1e0cebaa0d877417802d49d06338758b96799ea2702339325",
+      "hook_count": 1
+    },
+    "TinhKiemAuto/ThongQR.cs": {
+      "original_sha256_lf": "03f6126207c54f376bafcb6410ecf86bf4d83ade6ec8e9d56c7c92ca534fa7ea",
+      "hook_count": 1
+    },
+    "TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs": {
+      "original_sha256_lf": "64d1dfed0cb6ffb21c95ca6afcf42c3135ef4bf2a7e646f2efbc523494ab9d8c",
+      "hook_count": 1
+    }
+  },
+  "verification": {
+    "embedded_resources": 29,
+    "unchanged_original_resources": 26,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "native_hook_dll_unchanged": true,
+    "reviewed_aptos_theme_and_eagle_icon": true,
+    "font_files_redistributed": false
+  },
+  "local_review_zip_sha256": "a2b134862487c72d4ba850569dd3b08d117b101af0616b1cf98169448de23962",
+  "automation_executable_or_native_game_dll_executed": false,
+  "windows_gdi_font_loading_tested": false,
+  "windows_runtime_tested": false,
+  "limitations": [
+    "HTML screenshots are synthetic mockups, not WinForms screenshots.",
+    "Font binaries remain local/user supplied; package includes setup instructions only.",
+    "Windows DPI, private font loading and native icon cache remain untested.",
+    "OS title/message/file/tooltip fonts stay controlled by Windows."
+  ]
+}

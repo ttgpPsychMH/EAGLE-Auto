@@ -1,10 +1,10 @@
 # EAGLE Auto — tên file và version
 
-Ngày cập nhật: 12-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.9**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
+Ngày cập nhật: 12-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.10**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
 
-Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.9 dùng `EAGLE-Auto-v0.9.exe` và `EAGLE-Auto-v0.9.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.
+Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.10 dùng `EAGLE-Auto-v0.10.exe` và `EAGLE-Auto-v0.10.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.
 
-Với gói v0.9, giao diện hiển thị `EAGLE Auto v0.9`; menu `Về EAGLE Auto` ghi:
+Với gói v0.10, giao diện hiển thị `EAGLE Auto v0.10`; menu `Về EAGLE Auto` ghi:
 
 > Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku.
 
@@ -14,12 +14,12 @@ Chỉ sửa giá trị `EagleAutoVersion` trong [EagleAuto.Version.props](../Eag
 
 MSBuild sinh hằng version trong thư mục `obj` và tự đồng bộ:
 
-| Thành phần | Khi version là `0.9` |
+| Thành phần | Khi version là `0.10` |
 |---|---|
-| File chạy / config | `EAGLE-Auto-v0.9.exe` / `EAGLE-Auto-v0.9.exe.config` |
-| Tiêu đề / giới thiệu | `EAGLE Auto v0.9` |
-| FileVersion / ProductVersion | `0.9.0.0` / `v0.9` |
-| ZIP / artifact GitHub Actions | `EAGLE-Auto-v0.9-net48.zip` / `EAGLE-Auto-v0.9-net48-review` |
+| File chạy / config | `EAGLE-Auto-v0.10.exe` / `EAGLE-Auto-v0.10.exe.config` |
+| Tiêu đề / giới thiệu | `EAGLE Auto v0.10` |
+| FileVersion / ProductVersion | `0.10.0.0` / `v0.10` |
+| ZIP / artifact GitHub Actions | `EAGLE-Auto-v0.10-net48.zip` / `EAGLE-Auto-v0.10-net48-review` |
 
 Không tăng version mỗi lần build: build lại cùng source vẫn là cùng version sản phẩm. File build cũ có thể còn trong `bin`; script package chỉ lấy file đúng version đã xác minh, không đóng gói EXE/config cũ.
 
@@ -34,3 +34,5 @@ V0.7 bổ sung **Tiện Ích → Chẩn đoán hook** và [mô hình native read
 V0.8 bổ sung [giao diện theo bố cục 116 và bảng Nhiệm Vụ – Phó Bản](EAGLE-Auto-UI-116.vi.md). Các engine phụ bản, chẩn đoán hook và DLL giữ nguyên v0.7. Bảng mới có lựa chọn task/map/môn phái, kiểm tra nhân vật/đội trưởng và trạng thái chỉ đọc; Thủy Lao vẫn chưa khả dụng.
 
 V0.9 bổ sung [bố cục compact](EAGLE-Auto-UI-COMPACT.vi.md): danh sách/chỉ số ở trên, các tab fullwidth, điều khiển chung/nhật ký gập được và không hiển thị dữ liệu mẫu khi chưa chọn nhân vật. Thuật toán và adapter nhiệm vụ v0.8 được giữ.
+
+V0.10 bổ sung [Aptos và logo đại bàng mới](EAGLE-Auto-APPEARANCE.vi.md). Nếu chưa có Aptos, [chép bốn file vào Fonts cạnh EXE](fonts/APTOS-LOCAL.vi.md). Gói GitHub không kèm TTF.

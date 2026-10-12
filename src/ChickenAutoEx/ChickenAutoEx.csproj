@@ -13,7 +13,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RecoveryOutput>$(MSBuildProjectDirectory)/../../.build/chickenautoex</RecoveryOutput>
     <RecoveredSource>$(MSBuildProjectDirectory)/../../analysis/chickenautoex-107/recovered</RecoveredSource>
-    <ApplicationIcon>$(RecoveryOutput)/app.ico</ApplicationIcon>
+    <ApplicationIcon>$(MSBuildProjectDirectory)/../../assets/branding/eagle-auto.ico</ApplicationIcon>
     <ApplicationManifest>$(RecoveredSource)/app.manifest</ApplicationManifest>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -31,9 +31,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(RecoveredSource)/**/*.cs"
-      Exclude="$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs"
+      Exclude="$(RecoveredSource)/TinhKiemAuto/FrmMain.cs;$(RecoveredSource)/TinhKiemAuto/Global.cs;$(RecoveredSource)/TinhKiemAuto/Program.cs;$(RecoveredSource)/TinhKiemAuto/Debug.cs;$(RecoveredSource)/TinhKiemAuto/Game.cs;$(RecoveredSource)/TinhKiemAuto.Models/LoadFile.cs;$(RecoveredSource)/TinhKiemAuto.Models/TienIch.cs;$(RecoveredSource)/Properties/AssemblyInfo.cs;$(RecoveredSource)/TinhKiemAuto/ChangeLogs.cs;$(RecoveredSource)/TinhKiemAuto/AutoEatItem.cs;$(RecoveredSource)/TinhKiemAuto/BoQua.cs;$(RecoveredSource)/TinhKiemAuto/Buff.cs;$(RecoveredSource)/TinhKiemAuto/CanhBao.cs;$(RecoveredSource)/TinhKiemAuto/Chat.cs;$(RecoveredSource)/TinhKiemAuto/DropItem.cs;$(RecoveredSource)/TinhKiemAuto/Games.cs;$(RecoveredSource)/TinhKiemAuto/HotKey.cs;$(RecoveredSource)/TinhKiemAuto/SellItem.cs;$(RecoveredSource)/TinhKiemAuto/ShutDown.cs;$(RecoveredSource)/TinhKiemAuto/ThietLapAuto.cs;$(RecoveredSource)/TinhKiemAuto/ThongQR.cs;$(RecoveredSource)/TinhKiemAuto.CostumeControlner/AlarmVaoPhai.cs"
       Link="Recovered/%(RecursiveDir)%(Filename)%(Extension)" />
     <Compile Include="$(RecoveryOutput)/hydrated/**/*.cs" Link="Hydrated/%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="$(RecoveryOutput)/appearance/**/*.cs" Link="AppearanceUi/%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="$(RecoveryOutput)/resources/*" LogicalName="%(Filename)%(Extension)" />
   </ItemGroup>
   <Target Name="RequireRecoveredAssets" BeforeTargets="PrepareForBuild">

@@ -29,10 +29,11 @@ def write_regression_source(repo):
     (path / "LegacyGame.cs").write_text(legacy, encoding="utf-8")
     (path / "ReviewedGame.cs").write_text(apply_review(repo, legacy), encoding="utf-8")
     from ac_ba_review import apply_review as ac_ba
+    from appearance_review import restore_direct_source
     from dashboard_review import apply_review as dashboard
     from hook_diagnostics_review import apply_review as hooks
     (path / "LegacyFrmMain.cs").write_text(apply_review(repo,
-        ac_ba(repo, hooks(repo, dashboard(repo, (repo / "src/ChickenAutoEx/FrmMain.cs").read_text(), reverse=True), reverse=True, form=True), reverse=True, form=True), reverse=True, form=True), encoding="utf-8")
+        ac_ba(repo, hooks(repo, dashboard(repo, restore_direct_source(repo, "src/ChickenAutoEx/FrmMain.cs", (repo / "src/ChickenAutoEx/FrmMain.cs").read_text()), reverse=True), reverse=True, form=True), reverse=True, form=True), reverse=True, form=True), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -55,6 +55,8 @@ def verify_branding(repo):
     restored = {}
     for entry in review["source_edits"]:
         text = (repo / entry["path"]).read_text(encoding="utf-8")
+        from appearance_review import restore_direct_source
+        text = restore_direct_source(repo, entry["path"], text)
         if entry["path"] == "src/ChickenAutoEx/FrmMain.cs":
             from dashboard_review import apply_review as dashboard
             text = dashboard(repo, text, reverse=True)
@@ -179,7 +181,18 @@ def main():
             redacted = trung_ac(repo, redacted, reverse=True)
             redacted = ky_cuoc(repo, redacted, reverse=True)
             redacted = apply_review(repo, redacted, reverse=True)
+        if relative.endswith("/Debug.cs"):
+            from appearance_review import apply_ui_hook
+            redacted = apply_ui_hook(redacted, 1, reverse=True)
         assert count == expected and redacted == (baseline / relative).read_text(), relative
+
+    from appearance_review import verify_ui_sources
+    ui_source_count = verify_ui_sources(repo)
+    from prepare_build import extract_icon
+    assert extract_icon(pe) == (repo / "assets/branding/eagle-auto.ico").read_bytes(), "Win32 icon must be the new Eagle asset"
+    assert resources["EagleAuto.Branding.Icon"] == (repo / "assets/branding/eagle-auto.ico").read_bytes()
+    assert resources["EagleAuto.Branding.Logo"] == (repo / "assets/branding/eagle-auto.png").read_bytes()
+    assert not any(name.lower().endswith((".ttf", ".otf", ".woff", ".woff2")) for name in resources), "Do not redistribute Aptos font files"
 
     result = {
         "framework": "net48", "architecture": "x86", "embedded_resources": len(resources),
@@ -191,6 +204,9 @@ def main():
         "reviewed_ac_ba_fixes": True,
         "reviewed_managed_hook_diagnostics": True,
         "reviewed_dashboard_ui": True,
+        "appearance_ui_override_sources": ui_source_count,
+        "reviewed_aptos_theme_and_eagle_icon": True,
+        "font_files_redistributed": False,
         "dungeon_engine_partials_unchanged_since_v07": True,
         "native_hook_dll_unchanged": True,
         "unchanged_easyhook_sha256": hashlib.sha256(resources["TinhKiemAuto.EasyHook.dll"]).hexdigest(),
@@ -208,7 +224,7 @@ def main():
                       (product["executable"], product["config"], "Newtonsoft.Json.dll", "Zen.Barcode.Core.dll")},
     }
     (repo / ".build/chickenautoex/verified.json").write_text(json.dumps(result, indent=2) + "\n")
-    print("PASS: x86/CLR4, 27 resources, matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/Trung Ac/Ac Tac/Ac Ba/pet AOE deltas.")
+    print("PASS: x86/CLR4, 29 resources (2 new Eagle assets), matching dependency identities, preserved originals/licensing, and automation outside reviewed Thuy Lao/Ky Cuoc/Trung Ac/Ac Tac/Ac Ba/pet AOE deltas.")
     print("This is static build verification, not a Windows runtime test.")
 
 

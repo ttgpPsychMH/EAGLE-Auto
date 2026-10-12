@@ -898,9 +898,10 @@ namespace TinhKiemAuto
 		{
 			txtlogs.AppendText("Bật auto :" + DateTime.Now.ToString() + "\n");
 			notifyIcon1.Text = AppBranding.WindowTitle;
-			notifyIcon1.ContextMenu = new ContextMenu();
-			notifyIcon1.ContextMenu.MenuItems.Add(new MenuItem("Hiện Auto", HienAuto));
-			notifyIcon1.ContextMenu.MenuItems.Add(new MenuItem("Thoát Auto", Thoat));
+			notifyIcon1.ContextMenuStrip = new ContextMenuStrip(components);
+			notifyIcon1.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Hiện Auto", null, HienAuto));
+			notifyIcon1.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Thoát Auto", null, Thoat));
+			TinhKiemAuto.Appearance.AppAppearance.Apply(notifyIcon1.ContextMenuStrip);
 			Text = AppBranding.WindowTitle;
 			if (!File.Exists(Global.DataPath + "\\20.dat"))
 			{
@@ -4515,7 +4516,7 @@ namespace TinhKiemAuto
 
 		private void thôngTinAUTOToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show(this, AppBranding.AboutText, AppBranding.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			TinhKiemAuto.Appearance.AppAppearance.ShowAbout(this);
 		}
 
 		private void HookDiagnostics_Click(object sender, EventArgs e)

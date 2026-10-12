@@ -43,7 +43,11 @@ def main():
         archive.write(repo / "docs/EAGLE-Auto-AC-BA-SIMULATION.vi.md", "AC-BA-SIMULATION.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md", "HOOK-DIAGNOSTICS.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-UI-116.vi.md", "UI-116.vi.md")
-        archive.write(repo / "docs/ui/EAGLE-Auto-v0.9-preview.html", "UI-PREVIEW-FAKE-DATA.html")
+        archive.writestr("UI-PREVIEW-FAKE-DATA.html", (repo / "docs/ui/EAGLE-Auto-v0.10-preview.html").read_text().replace("../../assets/branding/", "assets/branding/"))
+        archive.write(repo / "docs/EAGLE-Auto-APPEARANCE.vi.md", "APPEARANCE.vi.md")
+        archive.write(repo / "docs/fonts/APTOS-LOCAL.vi.md", "Fonts/README.vi.md")
+        archive.write(repo / "assets/branding/eagle-auto.png", "assets/branding/eagle-auto.png")
+        archive.write(repo / "assets/branding/eagle-auto.ico", "assets/branding/eagle-auto.ico")
         archive.write(repo / "docs/EAGLE-Auto-UI-COMPACT.vi.md", "UI-COMPACT.vi.md")
         archive.writestr("BUILD-INFO.json", json.dumps(verified, indent=2) + "\n")
         # Preserve available third-party package notices; do not claim licenses were relicensed.
