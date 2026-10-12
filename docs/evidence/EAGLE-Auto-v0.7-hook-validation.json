@@ -1,0 +1,174 @@
+{
+  "base_commit": "9b3cc68",
+  "product_version": "v0.7",
+  "managed_test_counters": {
+    "total": "552",
+    "executed": "552",
+    "passed": "552",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  },
+  "managed_test_results_sha256": "588ce446ceca78e3530ae52535d837e8950f712d4ed8dc2bfe9e40fb75964a44",
+  "new_managed_tests": {
+    "hook_diagnostics": 38,
+    "cross_language_envelope": 26
+  },
+  "native_simulation": {
+    "executed_untrusted_binaries": false,
+    "windows_hook_tested": false,
+    "passed": 26,
+    "failed": 0,
+    "tests": [
+      "recv_length_1",
+      "recv_length_15",
+      "recv_length_16",
+      "recv_length_20",
+      "recv_length_999",
+      "recv_length_1000",
+      "recv_length_4096",
+      "recv_length_65536",
+      "legacy_twenty_bytes_loses_four",
+      "legacy_receiver_missing",
+      "eof_and_socket_error_untouched",
+      "partial_recv_uses_result_not_buffer_capacity",
+      "invalid_result_dropped_without_changing_return",
+      "oversize_chunk_is_explicit_drop",
+      "installation_failure_has_no_data_delivery",
+      "repeated_start_does_not_reinstall",
+      "invalid_pid_does_not_install",
+      "frame_queue_limit_and_gap",
+      "queued_byte_budget_is_bounded",
+      "delivery_timeout_drops_once_without_reinstall",
+      "delivery_failure_does_not_change_game_result",
+      "producer_lock_is_released_during_delivery",
+      "concurrent_producers_own_buffers_and_respect_bound",
+      "cleanup_failure_blocks_reinstall_and_delivery",
+      "stop_flushes_queue_and_is_idempotent",
+      "fragmented_utf8_preserved_as_raw_chunks"
+    ],
+    "source_sha256": {
+      "main.cpp": "9d28d95094f461d3c4769e0d75ac9e1f74a32fd66f6dfe47f0e13ad6f3122332",
+      "reader_model.hpp": "892fec14215a0a9430198694eaba9105127c52782b6990fa62ff7caa56202c9c",
+      "EnvelopeDecoder.cs": "e203656751526cc7a8445d64c8b31a6829c4d844437c50bb44d5848935472142"
+    },
+    "fixture_count": 11,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-O2",
+      "/workspace/EAGLE-Auto/tools/native_reader_simulation/main.cpp",
+      "-o",
+      "/workspace/EAGLE-Auto/.build/native-reader-simulation/reader-simulation"
+    ],
+    "model_executable_sha256": "680becb7ad06204013e322f81cd71a9599f51053a41491d44b31a671c398f927",
+    "fixture_sha256": "86e2e3349fc16caf1901c6c7f16074b25b6246a901d160124b04d4304eef2beb"
+  },
+  "historical_controls": {
+    "thuy-lao-baseline-summary.json": {
+      "legacy_tests_executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+    },
+    "ac-tac-baseline-summary.json": {
+      "legacy_tests_executed": 13,
+      "expected_behavioral_failures": 13,
+      "harness_errors": 0,
+      "scope": "Selected v0.4 C# methods and UI with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "dungeon-reaudit-baseline-summary.json": {
+      "legacy_tests_executed": 9,
+      "expected_behavioral_failures": 9,
+      "harness_errors": 0,
+      "scope": "Restored, hash-checked v0.3 partial methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "trung-ac-baseline-summary.json": {
+      "legacy_tests_executed": 11,
+      "expected_behavioral_failures": 11,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-ba-baseline-summary.json": {
+      "legacy_tests_executed": 8,
+      "expected_behavioral_failures": 8,
+      "harness_errors": 0,
+      "scope": "Selected redacted v0.5 C# against fake dependencies; EXE/native DLL never loaded"
+    },
+    "ky-cuoc-baseline-summary.json": {
+      "legacy_tests_executed": 6,
+      "expected_behavioral_failures": 6,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    }
+  },
+  "verified_build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 27,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_ac_tac_ac_ba_and_pet_aoe": true,
+    "reviewed_trung_ac_fixes": true,
+    "reviewed_ac_tac_fixes": true,
+    "reviewed_ac_ba_fixes": true,
+    "reviewed_managed_hook_diagnostics": true,
+    "native_hook_dll_unchanged": true,
+    "unchanged_easyhook_sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+    "native_reader_simulation_not_linked_into_app": true,
+    "reviewed_three_dungeon_reaudit": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.7",
+    "product_version": {
+      "version": "0.7",
+      "display_version": "v0.7",
+      "file_version": "0.7.0.0",
+      "executable": "EAGLE-Auto-v0.7.exe",
+      "config": "EAGLE-Auto-v0.7.exe.config",
+      "zip_name": "EAGLE-Auto-v0.7-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.7-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.7.exe": "e511d82e842cb0cdc0636f02a9cceda97f85b8b1acccc86031fe239a9e4f09dd",
+      "EAGLE-Auto-v0.7.exe.config": "fff87832f2bd9eec56b060dd53df0a411066e2cd12a48253b16d5dd112b9b2e1",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "protected_dungeon_and_licensing_diff_empty": true,
+  "untrusted_executables_executed": false,
+  "windows_runtime_tested": false,
+  "actual_detour_tested": false,
+  "native_dll_modified": false,
+  "archive_integrity": true,
+  "zip_sha256": "e0db7f2d11a20cb9e663de8479b45dea61d567ff6f956e46a67392dd97b6a50d"
+}

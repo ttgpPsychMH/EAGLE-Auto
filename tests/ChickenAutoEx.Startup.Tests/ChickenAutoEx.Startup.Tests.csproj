@@ -6,6 +6,11 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../../src/ChickenAutoEx/Hooks/HookDiagnostics.cs" Link="Hooks/HookDiagnostics.cs" />
+    <Compile Include="../../tools/native_reader_simulation/EnvelopeDecoder.cs" Link="NativeSimulation/EnvelopeDecoder.cs" />
+    <None Include="../../src/ChickenAutoEx/Hooks/Game.HookDiagnostics.cs" Link="RegressionSources/Game.HookDiagnostics.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/hook-diagnostics/ReviewedGame.cs" Link="RegressionSources/HookReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../.build/native-reader-simulation/fixtures.json" Link="NativeReaderFixtures.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/ac-ba-repair/LegacyGame.cs" Link="RegressionSources/AcBaLegacyGame.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/ac-ba-repair/ReviewedGame.cs" Link="RegressionSources/AcBaReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../src/ChickenAutoEx/AcBa/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />

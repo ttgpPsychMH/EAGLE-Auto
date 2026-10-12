@@ -1,5 +1,7 @@
 # Kiểm thử ChickenAutoEx trên Windows 11
 
+V0.7 thêm **Tiện Ích → Chẩn đoán hook**; xem [phạm vi, mô phỏng và kế hoạch harness Windows](EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md). DLL gốc chưa sửa, không cần thử game ngay. Chẩn đoán không bật automation hoặc tự gắn reader; trạng thái queued/data observed không phải ACK hay xác nhận gói TLBB đầy đủ.
+
 Bản sửa menu mới chưa được chạy trên Windows. Người dùng xác nhận bản trước mở được và báo lỗi NullReferenceException khi chọn Trừng Ác trước khi thử game. Chỉ chạy bản mới sau khi review source và nguồn binary/resource đã khôi phục. Không chạy executable gốc hoặc bộ tự giải nén để kiểm thử bản sửa. Đợt này cần thêm [kiểm tra menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md) và [HP/MP, cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md), có trong gói tải về.
 
 ## Chuẩn bị

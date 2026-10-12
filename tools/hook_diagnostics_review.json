@@ -1,0 +1,78 @@
+{
+  "baseline_commit": "9b3cc68",
+  "scope": "Managed hook diagnostics only; original DLL, ABI, licensing and dungeon engines preserved",
+  "edits": [
+    {
+      "name": "window_hook_result",
+      "original": "\t\t\t\tSetHook(Handle);",
+      "reviewed": "\t\t\t\tInstallWindowHookWithDiagnostics();",
+      "count": 1
+    },
+    {
+      "name": "receiver_queue_result",
+      "original": "\t\t\tPostMessage((int)FrmMain.Instance.Handle, -5);",
+      "reviewed": "\t\t\tQueueHookReceiver((int)FrmMain.Instance.Handle);",
+      "count": 1
+    },
+    {
+      "name": "restore_write_result",
+      "original": "\t\tpublic void UnHookRecv()\n\t\t{\n\t\t\tif (IsHooked)\n\t\t\t{\n\t\t\t\tif (RecvAddress != 0)\n\t\t\t\t{\n\t\t\t\t\tMemory.WriteProcessMemory(Memory.Id, RecvAddress, bufferRecv, 10, 0);\n\t\t\t\t}\n\t\t\t\tIsHooked = false;\n\t\t\t}\n\t\t}\n",
+      "reviewed": "\t\tpublic void UnHookRecv()\n\t\t{\n\t\t\tRestoreReceiveHookWithDiagnostics();\n\t\t}\n",
+      "count": 1
+    },
+    {
+      "name": "reader_request_result",
+      "original": "\t\t\t\t\t\tRecvAddress = (int)GetRemoteProcAddress(Process.GetProcessById(ProcessId), \"ws2_32.dll\", \"recv\");\n\t\t\t\t\t\tint read;\n\t\t\t\t\t\tif (RecvAddress != 0 && Memory.ReadProcessMemory(Memory.Id, RecvAddress, bufferRecv, 10, out read) && read == 10)\n\t\t\t\t\t\t{ PostMessage(ProcessId, -10); IsHooked = true; }",
+      "reviewed": "\t\t\t\t\t\tTryQueueReceiveHook();",
+      "count": 1
+    }
+  ],
+  "form_edits": [
+    {
+      "name": "exit_restore_diagnostics",
+      "original": "\t\t\t\t\tMemory.WriteProcessMemory(item.Memory.Id, item.RecvAddress, item.bufferRecv, 10, 0);",
+      "reviewed": "\t\t\t\t\titem.UnHookRecv();",
+      "count": 1
+    },
+    {
+      "name": "observe_copydata_shape",
+      "original": "\t\t\t\tstring systemText;",
+      "reviewed": "\t\t\t\tif (game != null) game.ObserveHookCopyData(cOPYDATASTRUCT.dwData.ToInt64(), m.WParam.ToInt64(), array.Length);\n\t\t\t\tstring systemText;",
+      "count": 1
+    },
+    {
+      "name": "menu_field",
+      "original": "\t\tprivate ToolStripMenuItem thôngTinAUTOToolStripMenuItem;",
+      "reviewed": "\t\tprivate ToolStripMenuItem thôngTinAUTOToolStripMenuItem;\n\n\t\tprivate ToolStripMenuItem hookDiagnosticsToolStripMenuItem;",
+      "count": 1
+    },
+    {
+      "name": "menu_initialization",
+      "original": "\t\t\tthis.thôngTinAUTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();",
+      "reviewed": "\t\t\tthis.thôngTinAUTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();\n\t\t\tthis.hookDiagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();",
+      "count": 1
+    },
+    {
+      "name": "menu_append",
+      "original": "this.tùyChọnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[7] { this.phímTắtToolStripMenuItem, this.ẩnAutoToolStripMenuItem, this.càiĐườngDẫnGameToolStripMenuItem, this.mởThêmGameToolStripMenuItem, this.thiếtLậpAutoToolStripMenuItem, this.thôngTinCậpNhậtToolStripMenuItem, this.thôngTinAUTOToolStripMenuItem });",
+      "reviewed": "this.tùyChọnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[8] { this.phímTắtToolStripMenuItem, this.ẩnAutoToolStripMenuItem, this.càiĐườngDẫnGameToolStripMenuItem, this.mởThêmGameToolStripMenuItem, this.thiếtLậpAutoToolStripMenuItem, this.thôngTinCậpNhậtToolStripMenuItem, this.thôngTinAUTOToolStripMenuItem, this.hookDiagnosticsToolStripMenuItem });",
+      "count": 1
+    },
+    {
+      "name": "menu_binding",
+      "original": "\t\t\tthis.thôngTinAUTOToolStripMenuItem.Click += new System.EventHandler(thôngTinAUTOToolStripMenuItem_Click);",
+      "reviewed": "\t\t\tthis.thôngTinAUTOToolStripMenuItem.Click += new System.EventHandler(thôngTinAUTOToolStripMenuItem_Click);\n\t\t\tthis.hookDiagnosticsToolStripMenuItem.Name = \"hookDiagnosticsToolStripMenuItem\";\n\t\t\tthis.hookDiagnosticsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);\n\t\t\tthis.hookDiagnosticsToolStripMenuItem.Text = \"Chẩn đoán hook\";\n\t\t\tthis.hookDiagnosticsToolStripMenuItem.Click += new System.EventHandler(HookDiagnostics_Click);",
+      "count": 1
+    },
+    {
+      "name": "diagnostics_handler",
+      "original": "\t\tprivate void groupBox8_Enter(object sender, EventArgs e)",
+      "reviewed": "\t\tprivate void HookDiagnostics_Click(object sender, EventArgs e)\n\t\t{\n\t\t\tGame game = CurGame;\n\t\t\tstring report = game == null ? \"Chọn một cửa sổ game để xem chẩn đoán hook. Không cần bật automation.\" : game.HookDiagnosticReport;\n\t\t\tMessageBox.Show(this, report, \"Chẩn đoán hook — EAGLE Auto\", MessageBoxButtons.OK, MessageBoxIcon.Information);\n\t\t}\n\n\t\tprivate void groupBox8_Enter(object sender, EventArgs e)",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/Hooks/Game.HookDiagnostics.cs": "46138408d42a1eca671e480ebd5ddf23ff1d86ca8988298952278c25db564666",
+    "src/ChickenAutoEx/Hooks/HookDiagnostics.cs": "b6dfbed4c140d8861edc51e414897c6febf63c389b59d6a2a9e9cd4f96f4322e"
+  }
+}

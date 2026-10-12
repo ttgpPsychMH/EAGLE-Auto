@@ -55,6 +55,9 @@ def verify_branding(repo):
     restored = {}
     for entry in review["source_edits"]:
         text = (repo / entry["path"]).read_text(encoding="utf-8")
+        if entry["path"] == "src/ChickenAutoEx/FrmMain.cs":
+            from hook_diagnostics_review import apply_review as hooks
+            text = hooks(repo, text, reverse=True, form=True)
         for edit in entry["edits"]:
             assert text.count(edit["reviewed"]) == edit["count"], entry["path"]
             text = text.replace(edit["reviewed"], edit["original"])
@@ -88,6 +91,7 @@ def main():
     pe = dnfile.dnPE(str(output / product["executable"]))
     assert pe.FILE_HEADER.Machine == 0x14c and pe.net.struct.Flags & 3 == 3, "Build must remain x86 IL-only"
     assert pe.net.metadata.struct.Version.startswith(b"v4.0.30319"), "Expected CLR 4"
+    assert all(str(row.TypeNamespace) != "EagleAuto.NativeReaderSimulation" for row in pe.net.mdtables.TypeDef), "Test-only envelope decoder must not ship in the app"
     resources = embedded_resources(pe)
     assert set(resources) == set(manifest["resource_hashes"]), "Embedded resources incomplete"
     for name, data in resources.items():
@@ -166,6 +170,8 @@ def main():
             from ky_cuoc_review import apply_review as ky_cuoc
             from ac_tac_review import apply_review as ac_tac
             from ac_ba_review import apply_review as ac_ba
+            from hook_diagnostics_review import apply_review as hooks
+            redacted = hooks(repo, redacted, reverse=True)
             redacted = ac_ba(repo, redacted, reverse=True)
             redacted = ac_tac(repo, redacted, reverse=True)
             redacted = trung_ac(repo, redacted, reverse=True)
@@ -181,6 +187,10 @@ def main():
         "reviewed_trung_ac_fixes": True,
         "reviewed_ac_tac_fixes": True,
         "reviewed_ac_ba_fixes": True,
+        "reviewed_managed_hook_diagnostics": True,
+        "native_hook_dll_unchanged": True,
+        "unchanged_easyhook_sha256": hashlib.sha256(resources["TinhKiemAuto.EasyHook.dll"]).hexdigest(),
+        "native_reader_simulation_not_linked_into_app": True,
         "reviewed_three_dungeon_reaudit": True,
         "reviewed_ky_cuoc_fixes": True, "reviewed_pet_aoe_fix": True,
         "reviewed_thuy_lao_fixes": True,

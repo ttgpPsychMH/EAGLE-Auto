@@ -56,6 +56,8 @@ jobs:
           dotnet restore ChickenAutoEx.sln --locked-mode
       - name: Recover build assets as data
         run: .build/build-venv/bin/python tools/prepare_build.py
+      - name: Simulate native reader with portable C++ and synthetic data
+        run: python tools/run_native_reader_simulation.py
       - name: Read product version for artifact names
         id: product-version
         run: python tools/product_version.py --github-output "$GITHUB_OUTPUT"
@@ -75,7 +77,7 @@ jobs:
         run: python tools/check_ac_ba_baseline.py
       - name: Verify PE, preserved binaries and licensing source
         run: .build/build-venv/bin/python tools/verify_build.py
-      - name: Test updater, settings, menus, five dungeons with simulated dependencies
+      - name: Test updater, UI, dungeons, hook diagnostics and native envelope fixtures
         run: dotnet test tests/ChickenAutoEx.Startup.Tests/ChickenAutoEx.Startup.Tests.csproj -c Release --no-build --no-restore --logger "trx;LogFileName=startup-tests.trx" --results-directory .build/test-results
       - name: Package verified files for Windows testing
         run: .build/build-venv/bin/python tools/package_build.py
@@ -94,6 +96,7 @@ jobs:
             .build/test-results/dungeon-reaudit-baseline-summary.json
             .build/test-results/ac-tac-baseline-summary.json
             .build/test-results/ac-ba-baseline-summary.json
+            .build/native-reader-simulation/summary.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
@@ -113,6 +116,9 @@ jobs:
           Ac Tac keeps legacy map170/route14/option50013; it stops on missing boss/map confirmation, without guessing an exit or claiming rewards.
           Ac Ba adds explicit-codec system notice detection and manual school selection; client framing, NPC, entrance conditions and exit remain subject to private-client validation.
           Eight Ac Ba v0.5 controls reproduced the old failures.
+          Managed hook diagnostics distinguish queue acceptance from native ACK and data observation.
+          A portable C++ native-reader model and its C# envelope decoder were exercised with synthetic data only.
+          The original EasyHook.dll is unchanged; native ABI and Windows hook behavior remain untested.
           The package includes the Windows test guide and inherits the original application's embedded constants.
           Do not submit game credentials or use this build as a validated release.
           SUMMARY

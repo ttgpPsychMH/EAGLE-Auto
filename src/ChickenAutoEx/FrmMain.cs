@@ -593,6 +593,8 @@ namespace TinhKiemAuto
 
 		private ToolStripMenuItem thôngTinAUTOToolStripMenuItem;
 
+		private ToolStripMenuItem hookDiagnosticsToolStripMenuItem;
+
 		public SocketClient _SocketClient { get; set; }
 
 		public static string AllName
@@ -1025,7 +1027,7 @@ namespace TinhKiemAuto
 				if (item.IsHooked && item.RecvAddress != 0)
 				{
 					item.SaveSetting();
-					Memory.WriteProcessMemory(item.Memory.Id, item.RecvAddress, item.bufferRecv, 10, 0);
+					item.UnHookRecv();
 				}
 			}
 			IsExit = true;
@@ -3770,6 +3772,7 @@ namespace TinhKiemAuto
 						game = item.Value;
 					}
 				}
+				if (game != null) game.ObserveHookCopyData(cOPYDATASTRUCT.dwData.ToInt64(), m.WParam.ToInt64(), array.Length);
 				string systemText;
 				if (game != null && AcBaEvents.TryDecodeSystem(array, ConfigurationManager.AppSettings["AcBaSystemEncoding"] ?? "VISCII", out systemText))
 					game.ReceiveAcBaNotice(systemText);
@@ -4514,6 +4517,13 @@ namespace TinhKiemAuto
 			MessageBox.Show(this, AppBranding.AboutText, AppBranding.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
+		private void HookDiagnostics_Click(object sender, EventArgs e)
+		{
+			Game game = CurGame;
+			string report = game == null ? "Chọn một cửa sổ game để xem chẩn đoán hook. Không cần bật automation." : game.HookDiagnosticReport;
+			MessageBox.Show(this, report, "Chẩn đoán hook — EAGLE Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
 		private void groupBox8_Enter(object sender, EventArgs e)
 		{
 		}
@@ -4563,6 +4573,7 @@ namespace TinhKiemAuto
 			this.thiếtLậpAutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.thôngTinCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.thôngTinAUTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.hookDiagnosticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuactac = new System.Windows.Forms.ToolStripMenuItem();
 			this.tựĐộngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -5059,7 +5070,7 @@ namespace TinhKiemAuto
 			this.menuStrip1.TabIndex = 2;
 			this.menuStrip1.Text = "menuStrip1";
 			this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(menuStrip1_ItemClicked);
-			this.tùyChọnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[7] { this.phímTắtToolStripMenuItem, this.ẩnAutoToolStripMenuItem, this.càiĐườngDẫnGameToolStripMenuItem, this.mởThêmGameToolStripMenuItem, this.thiếtLậpAutoToolStripMenuItem, this.thôngTinCậpNhậtToolStripMenuItem, this.thôngTinAUTOToolStripMenuItem });
+			this.tùyChọnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[8] { this.phímTắtToolStripMenuItem, this.ẩnAutoToolStripMenuItem, this.càiĐườngDẫnGameToolStripMenuItem, this.mởThêmGameToolStripMenuItem, this.thiếtLậpAutoToolStripMenuItem, this.thôngTinCậpNhậtToolStripMenuItem, this.thôngTinAUTOToolStripMenuItem, this.hookDiagnosticsToolStripMenuItem });
 			this.tùyChọnToolStripMenuItem.Name = "tùyChọnToolStripMenuItem";
 			this.tùyChọnToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
 			this.tùyChọnToolStripMenuItem.Text = "Tiện Ích";
@@ -5091,6 +5102,10 @@ namespace TinhKiemAuto
 			this.thôngTinAUTOToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
 			this.thôngTinAUTOToolStripMenuItem.Text = AppBranding.AboutTitle;
 			this.thôngTinAUTOToolStripMenuItem.Click += new System.EventHandler(thôngTinAUTOToolStripMenuItem_Click);
+			this.hookDiagnosticsToolStripMenuItem.Name = "hookDiagnosticsToolStripMenuItem";
+			this.hookDiagnosticsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+			this.hookDiagnosticsToolStripMenuItem.Text = "Chẩn đoán hook";
+			this.hookDiagnosticsToolStripMenuItem.Click += new System.EventHandler(HookDiagnostics_Click);
 			this.chươngTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[7] { this.menuactac, this.ItemAcBa, this.ItemLauLan, this.itemTranLongKyCuoc, this.ItemThuyLao, this.ItemTrungAc, this.itemchuacodoi });
 			this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
 			this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(127, 20);

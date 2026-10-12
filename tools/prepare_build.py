@@ -152,6 +152,8 @@ def main():
                 review = ac_tac(repo, review)
                 from ac_ba_review import apply_review as ac_ba
                 review = ac_ba(repo, review)
+                from hook_diagnostics_review import apply_review as hook_diagnostics
+                review = hook_diagnostics(repo, review)
             path = hydrated / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(review)
@@ -183,6 +185,8 @@ def main():
     write_ac_tac(repo)
     from ac_ba_review import write_regression_source as write_ac_ba
     write_ac_ba(repo)
+    from hook_diagnostics_review import write_regression_source as write_hook_diagnostics
+    write_hook_diagnostics(repo)
     from dungeon_reaudit_review import baseline_partial
     for module in ("ThuyLao", "KyCuoc"):
         (repo / (".build/dungeon-reaudit/" + module + "-v03.cs")).parent.mkdir(parents=True, exist_ok=True)
