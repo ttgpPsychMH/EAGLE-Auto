@@ -12,5 +12,6 @@ namespace TinhKiemAuto
         }
         internal int[] DiagnosticPhases()
         { return new[] { (int)trungAcPhase, 0, (int)kyCuocPhase, (int)acTacPhase, (int)acBaPhase, (int)hookDiagnostics.Reader }; }
+        internal int[] DiagnosticAcTac() { return acTacDiagnostic; }
     }
 }

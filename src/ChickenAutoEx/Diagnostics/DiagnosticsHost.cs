@@ -15,6 +15,7 @@ namespace TinhKiemAuto.Diagnostics
         internal int Alias, Pid;
         internal bool[] Flags;
         internal int[] Phases;
+        internal int[] AcTac;
     }
     internal sealed class DiagnosticsHost : IDisposable
     {
@@ -33,11 +34,12 @@ namespace TinhKiemAuto.Diagnostics
         private readonly object sampleLock = new object();
         private readonly int ownPid;
         private long lastBeat, completedLag;
-        private long lastDropped;
+        private long lastDropped, lastQueueDropped, lastErrorDropped;
         private int sampling;
         private bool disposed;
         private volatile DiagnosticWindow[] windows = new DiagnosticWindow[0];
         private readonly Dictionary<int, string> previousStates = new Dictionary<int, string>();
+        private readonly Dictionary<int, string> previousAcTac = new Dictionary<int, string>();
         private readonly Dictionary<int, Tuple<long, double, double>> cpu = new Dictionary<int, Tuple<long, double, double>>();
         private ToolStripMenuItem status, enable, disable;
         internal DiagnosticsHost(Form owner, ToolStripMenuItem menu, Func<DiagnosticWindow[]> snapshot)
@@ -97,7 +99,8 @@ namespace TinhKiemAuto.Diagnostics
             Stop(); var r = consent.Recorder;
             if (r != null && r.Enabled)
             {
-                lock (sampleLock) { previousStates.Clear(); cpu.Clear(); windows = new DiagnosticWindow[0]; lastBeat = clock.ElapsedMilliseconds; lastDropped = 0; }
+                lock (sampleLock) { previousStates.Clear(); previousAcTac.Clear(); cpu.Clear(); windows = new DiagnosticWindow[0]; lastBeat = clock.ElapsedMilliseconds;
+                    lastDropped = lastQueueDropped = lastErrorDropped = 0; }
                 LocalDiagnostics.Attach(r, typeof(FrmMain).Assembly);
                 r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, DiagnosticEvent.SessionStarted, DiagnosticFeature.General));
                 heartbeat.Start(); sampler = new System.Threading.Timer(Sample, null, 1000, 5000);
@@ -138,11 +141,17 @@ namespace TinhKiemAuto.Diagnostics
                     long dropped = r.Dropped;
                     if (dropped != lastDropped) { lastDropped = dropped; r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version,
                         DiagnosticEvent.SamplesDropped, DiagnosticFeature.General, count: dropped)); }
+                    long queueDropped = r.QueueDropped, errorDropped = r.ErrorDropped;
+                    if (queueDropped != lastQueueDropped) { lastQueueDropped = queueDropped; r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version,
+                        DiagnosticEvent.QueueSamplesDropped, DiagnosticFeature.General, count: queueDropped)); }
+                    if (errorDropped != lastErrorDropped) { lastErrorDropped = errorDropped; r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version,
+                        DiagnosticEvent.ErrorSamplesDropped, DiagnosticFeature.General, count: errorDropped)); }
                     SampleProcess(r, 0, ownPid);
                     var alive = new HashSet<int>();
                     foreach (var window in current)
                     {
                         alive.Add(window.Alias); SampleProcess(r, window.Alias, window.Pid);
+                        SampleAcTac(r, window);
                         string state = string.Join("", window.Flags.Select(v => v ? "1" : "0")) + ":" + string.Join("/", window.Phases);
                         string previous;
                         if (previousStates.TryGetValue(window.Alias, out previous) && previous == state) continue;
@@ -155,11 +164,27 @@ namespace TinhKiemAuto.Diagnostics
                                 window: window.Alias, state: window.Flags[i], phase: i >= 7 ? window.Phases[i - 7] : (int?)null, count: i));
                 }
                 foreach (int alias in previousStates.Keys.Where(key => !alive.Contains(key)).ToArray()) previousStates.Remove(alias);
+                foreach (int alias in previousAcTac.Keys.Where(key => !alive.Contains(key)).ToArray()) previousAcTac.Remove(alias);
                 foreach (int alias in cpu.Keys.Where(key => key != 0 && !alive.Contains(key)).ToArray()) cpu.Remove(alias);
                 }
             }
             catch { /* Failure of diagnostics cannot control automation. */ }
             finally { Interlocked.Exchange(ref sampling, 0); }
+        }
+        private void SampleAcTac(DiagnosticRecorder r, DiagnosticWindow window)
+        {
+            int[] value = window.AcTac;
+            if (value == null || value.Length != 8) return;
+            string signature = string.Join("/", value), previous;
+            if (previousAcTac.TryGetValue(window.Alias, out previous) && signature == previous) return;
+            previousAcTac[window.Alias] = signature;
+            var reason = (DiagnosticReason)value[7];
+            r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, DiagnosticEvent.TaskState, DiagnosticFeature.AcTac,
+                window: window.Alias, state: value[1] != 0, phase: value[0], count: value[2], reason: reason));
+            DiagnosticEvent[] codes = { DiagnosticEvent.TaskReady, DiagnosticEvent.TaskInside, DiagnosticEvent.TaskCombatHold, DiagnosticEvent.TaskProgress };
+            for (int i = 0; i < codes.Length; i++)
+                r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, codes[i], DiagnosticFeature.AcTac,
+                    window: window.Alias, count: value[i + 3], reason: reason));
         }
         private void SampleProcess(DiagnosticRecorder r, int alias, int pid)
         {

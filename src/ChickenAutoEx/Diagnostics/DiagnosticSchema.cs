@@ -9,10 +9,15 @@ namespace TinhKiemAuto.Diagnostics
     public enum DiagnosticFeature { General, Startup, Interface, GameLoop, Combat, Skills, Crafting, Pet, Loot, Recovery,
         Travel, AutoLogin, TrungAc, ThuyLao, KyCuoc, AcTac, AcBa, Hook }
     public enum DiagnosticEvent { SessionStarted, FeatureState, Warning, ExceptionObserved, UnhandledException,
-        ProcessSample, InterfaceSample, HookCounter, SamplesDropped }
+        ProcessSample, InterfaceSample, HookCounter, SamplesDropped, QueueSamplesDropped, ErrorSamplesDropped,
+        TaskState, TaskReady, TaskInside, TaskCombatHold, TaskProgress }
     public enum DiagnosticErrorKind { None, NullReference, InvalidOperation, Argument, Index, IO, Access,
         Timeout, Win32, Format, Other }
-    public enum DiagnosticReason { None, OtherWarning, WaitingTimeout, MissingTarget, InvalidState, TeamChanged }
+    public enum DiagnosticReason { None, OtherWarning, WaitingTimeout, MissingTarget, InvalidState, TeamChanged,
+        AutoDisabled, SessionCleared, NotInitialized, NotOnline, MissingIdentity, LeaderUnconfirmed,
+        CharacterUnavailable, SceneTransition, OtherTask, ReadFailure, SnapshotUnavailable,
+        EntrancePending, CombatHold, LootHold, NoProgress, BossPending, ExitPending, CompletedMapReturn,
+        DialogPending, OptionMissing }
 
     public static class DiagnosticSchema
     {

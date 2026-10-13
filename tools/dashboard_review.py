@@ -14,6 +14,6 @@ def apply_review(repo, text, reverse=False):
     if reverse:
         assert hashlib.sha256(text.encode()).hexdigest() == review["legacy_form_sha256_lf"]
     for path, expected in {**review["additional_source_hashes_lf"], **review["preserved_v07_source_hashes_lf"],
-                           **review["preserved_v08_source_hashes_lf"]}.items():
+                           **review["preserved_v08_source_hashes_lf"], **review.get("reviewed_v014_source_hashes_lf", {})}.items():
         assert hashlib.sha256((repo / path).read_text().encode()).hexdigest() == expected, path
     return text

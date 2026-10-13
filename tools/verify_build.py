@@ -172,11 +172,13 @@ def main():
             return match.group(1) + ', '.join(['"[REDACTED]"'] * count) + " /* analysis redaction */"
         redacted, count = re.subn(pattern, redact, text)
         if relative.endswith("/Game.cs"):
+            from ac_tac_runtime_review import apply_review as ac_tac_runtime
             from thuy_lao_review import apply_review
             from ky_cuoc_review import apply_review as ky_cuoc
             from ac_tac_review import apply_review as ac_tac
             from ac_ba_review import apply_review as ac_ba
             from hook_diagnostics_review import apply_review as hooks
+            redacted = ac_tac_runtime(repo, redacted, reverse=True)
             redacted = hooks(repo, redacted, reverse=True)
             redacted = ac_ba(repo, redacted, reverse=True)
             redacted = ac_tac(repo, redacted, reverse=True)
@@ -222,7 +224,8 @@ def main():
         "tab_headers_and_shared_toggle_heading1": True,
         "diagnostic_logs_not_uploaded": True,
         "font_files_redistributed": False,
-        "dungeon_engine_partials_unchanged_since_v07": True,
+        "dungeon_engine_partials_preserved_except_reviewed_v014_ac_tac": True,
+        "reviewed_ac_tac_runtime_repair": True,
         "native_hook_dll_unchanged": True,
         "unchanged_easyhook_sha256": hashlib.sha256(resources["TinhKiemAuto.EasyHook.dll"]).hexdigest(),
         "native_reader_simulation_not_linked_into_app": True,

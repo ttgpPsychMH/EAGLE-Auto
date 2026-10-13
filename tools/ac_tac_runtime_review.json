@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "f948e01",
+  "scope": "v0.14 Ac Tac coordinator ownership, ordinary travel/follow exclusion and cached diagnostic lifecycle; auth/native unchanged",
+  "edits": [
+    {
+      "name": "selection_diagnostic",
+      "original": "\t\t\t\t\tmapAcTac = value;\n\t\t\t\t\tResetAcTacSession();",
+      "reviewed": "\t\t\t\t\tObserveAcTacSelection(value);\n\t\t\t\t\tmapAcTac = value;\n\t\t\t\t\tResetAcTacSession();\n\t\t\t\t\tif (value != 0) PublishAcTac(TinhKiemAuto.Diagnostics.DiagnosticReason.EntrancePending);"
+    },
+    {
+      "name": "owned_member_busy",
+      "variants": [
+        {
+          "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0;",
+          "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0 || AcTacControlsCurrentActor();"
+        },
+        {
+          "original": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0 || IsAcBa;",
+          "reviewed": "private bool IsBusy => IsMapPhuBan() || IsThuyLao || IsKyCuoc || IsTrungAc || MapAcTac != 0 || IsAcBa || AcTacControlsCurrentActor();"
+        }
+      ]
+    },
+    {
+      "name": "ordinary_travel_exclusion",
+      "original": "\t\t\tif (MapAcTac == 0)\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != MAP.PhungMinhVuongLang",
+      "reviewed": "\t\t\tif (MapAcTac == 0 && !AcTacControlsCurrentActor())\n\t\t\t{\n\t\t\t\tif (TLBB.MapId != MAP.PhungMinhVuongLang"
+    },
+    {
+      "name": "follow_key_exclusion",
+      "original": "\t\tprivate void FollowKey()\n\t\t{\n",
+      "reviewed": "\t\tprivate void FollowKey()\n\t\t{\n\t\t\tif (AcTacControlsCurrentActor()) return;\n"
+    },
+    {
+      "name": "auto_off_reason",
+      "original": "\t\t\t\tIsTrungAc = false;\n\t\t\t\tMapAcTac = 0;",
+      "reviewed": "\t\t\t\tIsTrungAc = false;\n\t\t\t\tStopAcTac(null, TinhKiemAuto.Diagnostics.DiagnosticReason.AutoDisabled);"
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "3dcdad3b42dcbf1af8f23af031df1ae42ce6ddc1be4a1741af3bf3f70605a661"
+  }
+}

@@ -63,3 +63,7 @@ Hàng đợi tối đa 256 dòng, giới hạn exception/cảnh báo quan sát 6
 7. Nếu thông báo lỗi/JIT xuất hiện, logger không được tự loại bỏ nó. Thao tác đóng/tiếp tục vẫn theo ứng dụng hiện có.
 
 Các kiểm thử trong cloud chạy core logger, file rotation, consent và các đoạn UI/cached projection với fake dependencies. **Không chạy EXE automation, DLL game hoặc WinForms trên Linux; Windows runtime chưa kiểm thử.** Dùng bản review trong thư mục riêng.
+
+## Bổ sung v0.14
+
+Ác Tặc thêm mã lý do chờ/dừng và số participant/sẵn sàng/đã vào/giữ bởi quái/thay đổi vị trí, chỉ từ snapshot cache, không ghi tọa độ hoặc ID. `TaskProgress` không phải ACK của DLL. `QueueSamplesDropped` và `ErrorSamplesDropped` tách hai nguyên nhân bỏ mẫu; mọi bộ đếm dropped đều lũy kế. Exception framework/context bị loại không lấy budget lỗi ứng dụng. Xem [hướng dẫn Ác Tặc v0.14](EAGLE-Auto-AC-TAC-RUNTIME.vi.md).

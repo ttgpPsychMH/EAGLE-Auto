@@ -15,13 +15,15 @@ namespace TinhKiemAuto.Diagnostics
         private readonly AutoResetEvent signal = new AutoResetEvent(false);
         private readonly Thread worker;
         private volatile bool enabled = true, failed;
-        private long dropped, exceptionWindow;
+        private long dropped, queueDropped, errorDropped, exceptionWindow;
         private int exceptionsThisWindow;
         private bool disposed;
         public string Version { get; private set; }
         public bool Enabled { get { return enabled; } }
         public bool Failed { get { return failed; } }
         public long Dropped { get { lock (queueLock) return dropped; } }
+        public long QueueDropped { get { lock (queueLock) return queueDropped; } }
+        public long ErrorDropped { get { lock (queueLock) return errorDropped; } }
         public DiagnosticRecorder(string version, IDiagnosticStore store, bool startWorker = true)
         {
             Version = DiagnosticSchema.Version(version); this.store = store ?? throw new ArgumentNullException("store");
@@ -35,7 +37,7 @@ namespace TinhKiemAuto.Diagnostics
             lock (queueLock)
             {
                 if (!enabled) return false;
-                if (queue.Count == QueueLimit) { dropped++; return false; }
+                if (queue.Count == QueueLimit) { dropped++; queueDropped++; return false; }
                 queue.Enqueue(row); signal.Set(); return true;
             }
         }
@@ -45,7 +47,7 @@ namespace TinhKiemAuto.Diagnostics
             {
                 if (!enabled) return false;
                 if (milliseconds - exceptionWindow >= 60000) { exceptionWindow = milliseconds; exceptionsThisWindow = 0; }
-                if (exceptionsThisWindow >= 60) { dropped++; return false; }
+                if (exceptionsThisWindow >= 60) { dropped++; errorDropped++; return false; }
                 exceptionsThisWindow++; return true;
             }
         }

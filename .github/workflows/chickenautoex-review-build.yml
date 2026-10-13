@@ -74,6 +74,8 @@ jobs:
         run: python tools/check_dungeon_reaudit_baseline.py
       - name: Reproduce thirteen Ac Tac regressions on reviewed v0.4 source
         run: python tools/check_ac_tac_baseline.py
+      - name: Reproduce eight Ac Tac coordination regressions on hash-checked v0.13 source
+        run: python tools/check_ac_tac_runtime_baseline.py
       - name: Reproduce eight Ac Ba regressions on reviewed v0.5 source
         run: python tools/check_ac_ba_baseline.py
       - name: Verify PE, preserved binaries and licensing source
@@ -96,6 +98,7 @@ jobs:
             .build/test-results/trung-ac-baseline-summary.json
             .build/test-results/dungeon-reaudit-baseline-summary.json
             .build/test-results/ac-tac-baseline-summary.json
+            .build/test-results/ac-tac-runtime-baseline-summary.json
             .build/test-results/ac-ba-baseline-summary.json
             .build/native-reader-simulation/summary.json
           include-hidden-files: true
@@ -110,6 +113,9 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
+          v0.14 repairs Ac Tac team coordination, entry starvation, transient reads and movement ownership.
+          AC-TAC-RUNTIME.vi.md explains supervised Windows checks and manual alternatives for private-client incompatibilities.
+          Ac Tac task reasons/counts are recorded as bounded anonymous CSV fields; nothing is uploaded.
           v0.13 sizes legacy settings rows/columns from captions and fonts; tabs/shared controls use 11pt bold Heading 1.
           About includes local Aptos folder selection; font binaries are not distributed.
           LAYOUT-APTOS.vi.md explains the Windows/DPI checks and font EULA.
@@ -119,7 +125,7 @@ jobs:
           v0.11 opt-in local diagnostics remain included: consent, bounded CSV logs and sanitized errors/states.
           The module uploads nothing; Windows runtime/consent interaction still needs validation.
           LOCAL-DIAGNOSTICS.vi.md explains how to use it without commands.
-          Eagle/Aptos appearance and dungeon/native/licensing behavior are preserved.
+          Eagle/Aptos appearance, unrelated dungeon modules, native DLL and licensing behavior are preserved.
           The package includes APPEARANCE.vi.md, Fonts/README.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
           Font binaries are not redistributed; supply local Aptos files or use installed Aptos.
           WinForms layout, DPI and game integration require Windows validation.

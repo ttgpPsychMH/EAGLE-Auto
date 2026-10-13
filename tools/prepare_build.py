@@ -158,6 +158,8 @@ def main():
                 review = ac_ba(repo, review)
                 from hook_diagnostics_review import apply_review as hook_diagnostics
                 review = hook_diagnostics(repo, review)
+                from ac_tac_runtime_review import apply_review as ac_tac_runtime
+                review = ac_tac_runtime(repo, review)
             if relative.endswith("/Debug.cs"):
                 from appearance_review import apply_ui_hook
                 review = apply_ui_hook(review, 1)

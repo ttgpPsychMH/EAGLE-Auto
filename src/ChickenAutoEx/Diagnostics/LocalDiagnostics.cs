@@ -33,11 +33,11 @@ namespace TinhKiemAuto.Diagnostics
             observing = true;
             try
             {
-                // Keep reflection overhead bounded even when legacy catch loops repeatedly throw.
-                if (!unhandled && !r.TakeExceptionBudget(clock.ElapsedMilliseconds)) return;
                 DiagnosticFeature feature; bool belongs;
                 Classify(error, ownedAssembly, out feature, out belongs);
                 if (!unhandled && !belongs) return;
+                // Excluded/framework errors must not consume the budget for actual application errors.
+                if (!unhandled && !r.TakeExceptionBudget(clock.ElapsedMilliseconds)) return;
                 string row = DiagnosticSchema.Row(DateTime.UtcNow, r.Version,
                     unhandled ? DiagnosticEvent.UnhandledException : DiagnosticEvent.ExceptionObserved,
                     feature, DiagnosticSchema.ErrorKind(error), error.HResult);

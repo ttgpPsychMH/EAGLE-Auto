@@ -1,0 +1,39 @@
+{
+  "product_version": "0.14",
+  "baseline_commit": "f948e01",
+  "branch": "repair/ac-tac-team-flow-v014",
+  "test_counts": {
+    "passed": 811,
+    "failed": 0,
+    "skipped": 0,
+    "ac_tac": 101,
+    "local_diagnostics": 54,
+    "v013_behavioral_controls": 8,
+    "historical_behavioral_controls": 51,
+    "native_model_scenarios": 26
+  },
+  "build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "errors": 0,
+    "legacy_warnings": 49,
+    "embedded_resources": 29
+  },
+  "preservation": {
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "native_hook_dll_unchanged": true,
+    "unchanged_easyhook_sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+    "diagnostic_logs_not_uploaded": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false
+  },
+  "source_hashes_lf": {
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "3dcdad3b42dcbf1af8f23af031df1ae42ce6ddc1be4a1741af3bf3f70605a661",
+    "tools/ac_tac_runtime_review.json": "2210acfbf0d4b4ee7b6b47a7832a18d44316eb92b75da8d007ab0ae2f2f71588",
+    "analysis/ac-tac/baselines/v0.13-Game.AcTac.cs.txt": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549"
+  },
+  "client_specific_changes": false,
+  "client_alternatives": "docs/EAGLE-Auto-AC-TAC-RUNTIME.vi.md",
+  "raw_user_csv_committed": false
+}

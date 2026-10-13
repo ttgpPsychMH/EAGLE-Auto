@@ -138,6 +138,29 @@ namespace ChickenAutoEx.Startup.Tests
             try { DiagnosticSchema.Version(Secret); throw new Exception(); } catch (ArgumentException error) { ex = error; }
             LocalDiagnostics.Classify(ex, GetType().Assembly, out _, out belongs); Assert.False(belongs);
         }
+        [Fact] public void FrameworkErrorStormDoesNotHideTheNextOwnedException()
+        {
+            var store = new MemoryStore(); using var recorder = new DiagnosticRecorder("0.14", store, false);
+            LocalDiagnostics.Attach(recorder, GetType().Assembly);
+            try
+            {
+                for(int i=0;i<200;i++)
+                {
+                    try { int.Parse("not-an-int"); } catch(FormatException error) { LocalDiagnostics.ObserveException(error); }
+                }
+                try { TinhKiemAuto.DiagnosticFixtures.Actions.UseSkillFailure(Secret); }
+                catch(InvalidOperationException error) { LocalDiagnostics.ObserveException(error); }
+                recorder.Drain(); Assert.Contains("Skills",Assert.Single(store.Rows));Assert.Equal(0,recorder.Dropped);
+            }
+            finally { LocalDiagnostics.Detach(); }
+        }
+        [Fact] public void QueueDropsAndErrorBudgetDropsAreReportedSeparately()
+        {
+            var store = new MemoryStore(); using var recorder = new DiagnosticRecorder("0.14",store,false);
+            for(int i=0;i<DiagnosticRecorder.QueueLimit+3;i++) recorder.Record(DiagnosticSchema.Row(DateTime.UtcNow,"0.14",DiagnosticEvent.TaskState,DiagnosticFeature.AcTac));
+            for(int i=0;i<62;i++) recorder.TakeExceptionBudget(1);
+            Assert.Equal(3,recorder.QueueDropped);Assert.Equal(2,recorder.ErrorDropped);Assert.Equal(5,recorder.Dropped);
+        }
         [Theory]
         [InlineData("password=SUPER_SECRET")] [InlineData("0.11\nsecret")] [InlineData("=CMD()")] [InlineData("0,11")]
         public void UntrustedVersionCannotEnterCsv(string version) { Assert.Throws<ArgumentException>(() => DiagnosticSchema.Version(version)); }
