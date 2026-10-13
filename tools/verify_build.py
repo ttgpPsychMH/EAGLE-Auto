@@ -96,6 +96,7 @@ def main():
     assert pe.FILE_HEADER.Machine == 0x14c and pe.net.struct.Flags & 3 == 3, "Build must remain x86 IL-only"
     assert pe.net.metadata.struct.Version.startswith(b"v4.0.30319"), "Expected CLR 4"
     assert all(str(row.TypeNamespace) != "EagleAuto.NativeReaderSimulation" for row in pe.net.mdtables.TypeDef), "Test-only envelope decoder must not ship in the app"
+    typography_types = {str(row.TypeName) for row in pe.net.mdtables.TypeDef if str(row.TypeNamespace) == "TinhKiemAuto.Appearance"}
     diagnostic_types = {str(row.TypeName) for row in pe.net.mdtables.TypeDef if str(row.TypeNamespace) == "TinhKiemAuto.Diagnostics"}
     resources = embedded_resources(pe)
     assert set(resources) == set(manifest["resource_hashes"]), "Embedded resources incomplete"
@@ -187,6 +188,7 @@ def main():
             redacted = apply_ui_hook(redacted, 1, reverse=True)
         assert count == expected and redacted == (baseline / relative).read_text(), relative
 
+    assert {"UiTypography", "UiCopyPolicy", "UiCopyCatalog"} <= typography_types, "Missing typography integration"
     from appearance_review import verify_ui_sources
     ui_source_count = verify_ui_sources(repo)
     from local_diagnostics_review import verify_sources
@@ -213,6 +215,8 @@ def main():
         "appearance_ui_override_sources": ui_source_count,
         "reviewed_aptos_theme_and_eagle_icon": True,
         "reviewed_opt_in_local_diagnostics": True,
+        "reviewed_vietnamese_typography": True,
+        "ui_font_minimum_pt": 10,
         "diagnostic_logs_not_uploaded": True,
         "font_files_redistributed": False,
         "dungeon_engine_partials_unchanged_since_v07": True,

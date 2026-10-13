@@ -131,6 +131,7 @@ namespace TinhKiemAuto.Appearance
             }
 
             ApplyControlFont(control, state);
+            UiTypography.Apply(control);
             var form = control as Form;
             if (form != null) form.Icon = Icon; // Preserve ShowIcon/ShowInTaskbar decisions.
 
@@ -169,6 +170,7 @@ namespace TinhKiemAuto.Appearance
             Font existing = item.Font;
             Font replacement = GetFont(existing.SizeInPoints, existing.Style);
             if (!ReferenceEquals(existing, replacement)) item.Font = replacement;
+            UiTypography.Apply(item);
             var dropDown = item as ToolStripDropDownItem;
             if (dropDown == null) return;
             if (!state.Hooked)
@@ -199,7 +201,7 @@ namespace TinhKiemAuto.Appearance
             if (item != null) ApplyItem(item); // Reapply an explicit item font before showing its menu.
         }
 
-        private static Font GetFont(float sizeInPoints, FontStyle style)
+        internal static Font GetFont(float sizeInPoints, FontStyle style)
         {
             EnsureInitialized();
             float size = FontStylePolicy.PreservePointSize(sizeInPoints);

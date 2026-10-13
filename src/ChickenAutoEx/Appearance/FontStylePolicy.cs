@@ -8,7 +8,7 @@ namespace TinhKiemAuto.Appearance
     {
         internal const string PreferredFamily = "Aptos";
         internal const string FallbackFamily = "Segoe UI";
-        internal const float DefaultPointSize = 9f;
+        internal const float DefaultPointSize = 10f;
 
         internal static string ResolveFamilyName(bool privateAptosAvailable, bool installedAptosAvailable)
         {
@@ -25,7 +25,7 @@ namespace TinhKiemAuto.Appearance
         internal static float PreservePointSize(float pointSize)
         {
             return float.IsNaN(pointSize) || float.IsInfinity(pointSize) || pointSize <= 0f
-                ? DefaultPointSize : pointSize;
+                ? DefaultPointSize : Math.Max(DefaultPointSize, pointSize);
         }
 
         internal static int PreserveStyleBits(int style)

@@ -2092,12 +2092,12 @@ namespace TinhKiemAuto
 				}
 				else
 				{
-					MessageBox.Show("Kiểm tra lại tọa độ");
+					MessageBox.Show("Kiểm tra lại tọa độ.");
 				}
 			}
 			else
 			{
-				MessageBox.Show("Chức năng này cần phải có nhân vật đang auto");
+				MessageBox.Show("Chọn nhân vật để sử dụng tính năng này.");
 			}
 		}
 
@@ -2238,7 +2238,7 @@ namespace TinhKiemAuto
 		{
 			try
 			{
-				if (MessageBox.Show("Bạn có chắn chắn muốn thoát?", "Thoát Auto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (MessageBox.Show("Bạn có chắc chắn muốn thoát Auto không?", "Thoát Auto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					menuExit_Click(null, null);
 					string text = DateTime.Now.ToString("ddMMyy_HHmm");
@@ -2635,7 +2635,7 @@ namespace TinhKiemAuto
 		{
 			if (txttk.Text.Length == 0 || txtmk.Text.Length == 0)
 			{
-				MessageBox.Show("Kiểm tra dữ liệu nhập vào", "Thêm tài khoản lỗi", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+				MessageBox.Show("Kiểm tra dữ liệu nhập vào", "Lỗi Thêm Tài Khoản", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 			}
 			else if (!CheckExit(txttk.Text.Trim(), ComMayChu.SelectedItem.ToString()))
 			{
@@ -2648,13 +2648,13 @@ namespace TinhKiemAuto
 			}
 			else
 			{
-				MessageBox.Show("Tài khoản đã được thêm rồi", "Thêm tài khoản lỗi", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+				MessageBox.Show("Tài khoản này đã có trong danh sách.", "Lỗi Thêm Tài Khoản", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 			}
 		}
 
 		public void SettingPath()
 		{
-			MessageBox.Show(this, "Bạn cần phải chọn đường dẫn tới Game.exe\r\nFile Game.exe nằm trong thư mục Bin của TLBB", AppBranding.Name, MessageBoxButtons.OK);
+			MessageBox.Show(this, "Bạn cần chọn file Game.exe.\r\nFile này nằm trong thư mục Bin của TLBB.", AppBranding.Name, MessageBoxButtons.OK);
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Game.exe |Game.exe| GameOLD.exe |GameOLD.exe| All files (*.*)|*.*";
 			if (openFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -2721,7 +2721,7 @@ namespace TinhKiemAuto
 
 		private void menuDelete_Click(object sender, EventArgs e)
 		{
-			if (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, "Bạn có muốn xóa thông tin những acc đã chọn", AppBranding.Name, MessageBoxButtons.YesNo) != DialogResult.Yes)
+			if (ListViewLogin.SelectedItems.Count == 0 || MessageBox.Show(this, "Bạn có muốn xóa thông tin các tài khoản đã chọn không?", AppBranding.Name, MessageBoxButtons.YesNo) != DialogResult.Yes)
 			{
 				return;
 			}
@@ -4524,7 +4524,7 @@ namespace TinhKiemAuto
 		{
 			Game game = CurGame;
 			string report = game == null ? "Chọn một cửa sổ game để xem chẩn đoán hook. Không cần bật automation." : game.HookDiagnosticReport;
-			MessageBox.Show(this, report, "Chẩn đoán hook — EAGLE Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(this, report, "Chẩn Đoán Hook — EAGLE Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void groupBox8_Enter(object sender, EventArgs e)

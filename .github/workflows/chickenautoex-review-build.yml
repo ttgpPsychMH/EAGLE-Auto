@@ -110,7 +110,10 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          v0.11 adds opt-in local diagnostics: consent, bounded CSV logs, resource samples and sanitized multi-feature errors/states.
+          v0.12 standardizes fixed Vietnamese UI copy by heading/body role and increases the font floor to 10pt.
+          Game names, inputs, configuration values and automation engines are preserved.
+          TYPOGRAPHY.vi.md describes Windows 11/DPI checks; browser preview uses fake data only.
+          v0.11 opt-in local diagnostics remain included: consent, bounded CSV logs and sanitized errors/states.
           The module uploads nothing; Windows runtime/consent interaction still needs validation.
           LOCAL-DIAGNOSTICS.vi.md explains how to use it without commands.
           Eagle/Aptos appearance and dungeon/native/licensing behavior are preserved.

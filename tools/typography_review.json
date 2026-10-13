@@ -1,0 +1,59 @@
+{
+  "baseline_commit": "3ce1f02",
+  "scope": "Fixed Vietnamese UI captions and readable font floor only; no game data, engines, authentication or native changes",
+  "direct_source_edits": [
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Bạn có chắn chắn muốn thoát?\"",
+      "after": "\"Bạn có chắc chắn muốn thoát Auto không?\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Kiểm tra lại tọa độ\"",
+      "after": "\"Kiểm tra lại tọa độ.\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Chức năng này cần phải có nhân vật đang auto\"",
+      "after": "\"Chọn nhân vật để sử dụng tính năng này.\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Thêm tài khoản lỗi\"",
+      "after": "\"Lỗi Thêm Tài Khoản\"",
+      "count": 2
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Tài khoản đã được thêm rồi\"",
+      "after": "\"Tài khoản này đã có trong danh sách.\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Bạn cần phải chọn đường dẫn tới Game.exe\\r\\nFile Game.exe nằm trong thư mục Bin của TLBB\"",
+      "after": "\"Bạn cần chọn file Game.exe.\\r\\nFile này nằm trong thư mục Bin của TLBB.\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Bạn có muốn xóa thông tin những acc đã chọn\"",
+      "after": "\"Bạn có muốn xóa thông tin các tài khoản đã chọn không?\"",
+      "count": 1
+    },
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\"Chẩn đoán hook — EAGLE Auto\"",
+      "after": "\"Chẩn Đoán Hook — EAGLE Auto\"",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/Appearance/UiCopyCatalog.cs": "3b14ddf42f4aaef83b7c238107dbd0fd1bbefee89fd6b3cce797b0f6c855544c",
+    "src/ChickenAutoEx/Appearance/UiCopyPolicy.cs": "3782b61b0a59643084610fdcf425893580d5c1eddd417b7ebf305b5e89ca8249",
+    "src/ChickenAutoEx/Appearance/UiTypography.cs": "fe6b66cabafd63fbef25e9ba9f0e4d3988f4870a938b88ffe31c87a49e8a1417"
+  }
+}

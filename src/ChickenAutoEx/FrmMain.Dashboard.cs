@@ -36,6 +36,13 @@ namespace TinhKiemAuto
                 Padding = new Padding(8, 0, 8, 0), UseMnemonic = false };
         }
 
+        private static void FormatPetChoice(object sender, ListControlConvertEventArgs args)
+        {
+            var choice = args.ListItem as ComboboxItem;
+            if (choice != null && choice.Value is int && (int)choice.Value == 0 && choice.Text == "Không Xuất")
+                args.Value = "Không xuất"; // Display only; Text/Value/ToString remain unchanged.
+        }
+
         private Game DashboardSelectedGame()
         {
             // Unlike legacy SelectedGames, no selection never means all characters.
@@ -49,19 +56,22 @@ namespace TinhKiemAuto
             SuspendLayout();
             MaximumSize = Size.Empty;
             MinimumSize = new Size(440, 520);
-            ClientSize = new Size(560, 700);
+            ClientSize = new Size(600, 720);
             BackColor = Color.FromArgb(245, 247, 250);
 
             // Keep the seven legacy tabs in their original order (crafting/login use indexes).
             string[] titles = { "Cơ bản", "Kỹ năng", "Vật phẩm", "Pet", "Tiện ích", "Chế đồ", "Đăng nhập" };
             TablControl.Multiline = true;
-            TablControl.ItemSize = new Size(54, 24);
+            TablControl.ItemSize = new Size(54, 28);
             for (int i = 0; i < 7; i++)
             {
                 TablControl.TabPages[i].Text = titles[i];
                 TablControl.TabPages[i].AutoScroll = true;
                 TablControl.TabPages[i].BackColor = Color.White;
             }
+            // Format only the placeholder display. Legacy pet commands compare SelectedItem.ToString().
+            cboXuatPet.FormattingEnabled = true;
+            cboXuatPet.Format += FormatPetChoice;
             TabKyNangControl.Dock = DockStyle.Fill;
             StyleLegacyControls(TablControl);
             ArrangeBasicGroups();
@@ -99,7 +109,9 @@ namespace TinhKiemAuto
             listHost.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
             listHost.RowStyles.Add(new RowStyle(SizeType.Absolute, 20));
             var listTitle = new Panel { Dock = DockStyle.Fill, Margin = Padding.Empty };
-            listTitle.Controls.Add(DashboardLabel("Nhân vật"));
+            var sectionTitle = DashboardLabel("Nhân vật");
+            sectionTitle.Name = "sectionCharacters";
+            listTitle.Controls.Add(sectionTitle);
             var clearSelection = new LinkLabel { Text = "Bỏ chọn", Dock = DockStyle.Right, Width = 64,
                 TextAlign = ContentAlignment.MiddleCenter, AccessibleName = "Bỏ chọn nhân vật, giữ trạng thái Auto" };
             clearSelection.LinkClicked += (sender, args) => {
@@ -297,9 +309,11 @@ namespace TinhKiemAuto
                 BackColor = Color.White, Font = new Font("Segoe UI", 9f), Name = "eagleDungeonDashboard" };
             var table = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true,
                 ColumnCount = 1, RowCount = 9, Padding = new Padding(8), MinimumSize = new Size(380, 0) };
-            foreach (int height in new[] { 20, 28, 28, 32, 28, 58, 36, 38, 28 })
+            foreach (int height in new[] { 28, 28, 28, 32, 28, 58, 36, 38, 28 })
                 table.RowStyles.Add(new RowStyle(SizeType.Absolute, height));
-            table.Controls.Add(DashboardLabel("NHIỆM VỤ – PHÓ BẢN"), 0, 0);
+            var sectionTitle = DashboardLabel("NHIỆM VỤ – PHÓ BẢN");
+            sectionTitle.Name = "sectionDungeons";
+            table.Controls.Add(sectionTitle, 0, 0);
             dungeonTask = new ComboBox { Dock = DockStyle.Fill, DropDownStyle = ComboBoxStyle.DropDownList,
                 Name = "dungeonTask", AccessibleName = "Chọn nhiệm vụ phó bản" };
             foreach (DungeonKind kind in Enum.GetValues(typeof(DungeonKind)))

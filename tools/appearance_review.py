@@ -18,6 +18,8 @@ def apply_ui_hook(text, count, reverse=False):
 
 
 def restore_direct_source(repo, path, text):
+    from typography_review import restore_source as restore_typography
+    text = restore_typography(repo, path, text)
     from local_diagnostics_review import restore_source
     text = restore_source(repo, path, text)
     for edit in reversed(review_data(repo)['direct_source_edits']):
@@ -46,6 +48,8 @@ def write_ui_sources(repo, prepared):
 
 
 def verify_ui_sources(repo):
+    from typography_review import verify_sources
+    verify_sources(repo)
     review = review_data(repo)
     root = repo / '.build/chickenautoex/appearance'
     assert {str(p.relative_to(root)) for p in root.rglob('*.cs')} == set(review['recovered_ui_sources'])
