@@ -172,12 +172,14 @@ def main():
             return match.group(1) + ', '.join(['"[REDACTED]"'] * count) + " /* analysis redaction */"
         redacted, count = re.subn(pattern, redact, text)
         if relative.endswith("/Game.cs"):
+            from dungeon_party_review import apply_game as dungeon_party
             from ac_tac_runtime_review import apply_review as ac_tac_runtime
             from thuy_lao_review import apply_review
             from ky_cuoc_review import apply_review as ky_cuoc
             from ac_tac_review import apply_review as ac_tac
             from ac_ba_review import apply_review as ac_ba
             from hook_diagnostics_review import apply_review as hooks
+            redacted = dungeon_party(repo, redacted, reverse=True)
             redacted = ac_tac_runtime(repo, redacted, reverse=True)
             redacted = hooks(repo, redacted, reverse=True)
             redacted = ac_ba(repo, redacted, reverse=True)
@@ -218,13 +220,16 @@ def main():
         "reviewed_aptos_theme_and_eagle_icon": True,
         "reviewed_opt_in_local_diagnostics": True,
         "reviewed_vietnamese_typography": True,
-        "ui_font_minimum_pt": 10,
+        "ui_font_minimum_pt": 9,
         "reviewed_adaptive_legacy_settings_layout": True,
         "reviewed_local_aptos_folder_selection": True,
-        "tab_headers_and_shared_toggle_heading1": True,
+        "tab_headers_and_shared_toggle_heading1": False,
+        "compact_main_tab_headers_9pt_regular": True,
+        "reviewed_four_tab_navigation_with_original_indexes": True,
         "diagnostic_logs_not_uploaded": True,
         "font_files_redistributed": False,
-        "dungeon_engine_partials_preserved_except_reviewed_v014_ac_tac": True,
+        "dungeon_engine_partials_preserved_except_reviewed_v015_four_team_dungeons": True,
+        "reviewed_team_patrol_state_machine": True,
         "reviewed_ac_tac_runtime_repair": True,
         "native_hook_dll_unchanged": True,
         "unchanged_easyhook_sha256": hashlib.sha256(resources["TinhKiemAuto.EasyHook.dll"]).hexdigest(),

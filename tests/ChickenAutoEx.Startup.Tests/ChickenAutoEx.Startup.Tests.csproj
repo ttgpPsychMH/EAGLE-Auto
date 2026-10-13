@@ -42,6 +42,10 @@
     <None Include="../../analysis/ac-tac/baselines/v0.13-Game.AcTac.cs.txt" Link="RegressionSources/AcTacV013Partial.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/ac-tac/LegacyFrmMain.cs" Link="RegressionSources/AcTacLegacyFrmMain.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../src/ChickenAutoEx/AcTac/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../analysis/dungeon-party-v015/baselines/*.cs.txt" Link="RegressionSources/V014-%(Filename)" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../../src/ChickenAutoEx/Dashboard/CompactNavigationPolicy.cs" Link="Dashboard/CompactNavigationPolicy.cs" />
+    <None Include="../../src/ChickenAutoEx/FrmMain.ClassicLayout.cs" Link="RegressionSources/FrmMain.ClassicLayout.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/Dungeons/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../analysis/chickenautoex-107/recovered/TinhKiemAuto/POINT.cs" Link="RegressionSources/POINT.cs" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/dungeon-reaudit/*-v03.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../.build/trung-ac/ReviewedGame.cs" Link="RegressionSources/TrungAcReviewedGame.cs" CopyToOutputDirectory="PreserveNewest" />

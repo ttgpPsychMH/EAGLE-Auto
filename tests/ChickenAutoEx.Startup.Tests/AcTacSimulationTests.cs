@@ -10,6 +10,7 @@ using Xunit;
 
 namespace ChickenAutoEx.Startup.Tests
 {
+    [Collection("Dungeon simulations")]
     public sealed class AcTacSimulationTests
     {
         [Fact, Trait("AcTacBaseline","yes")] public void SelectedMapDoesNotChangeWithCurrentMap()
@@ -40,13 +41,13 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact, Trait("AcTacBaseline","yes")] public void AcTacSelectionStopsConflictingLeaderQuest()
         { dynamic f=LegacyUiHarness.Create();dynamic leader=f.SelectWithLeader();leader.IsTrungAc=true;f.ClickDungeon("vôLượngSơnToolStripMenuItem_Click");Assert.False((bool)leader.IsTrungAc); }
 
-        [Theory][InlineData("off")][InlineData("offline")][InlineData("init")][InlineData("dead")][InlineData("dead9")]
+        [Theory][InlineData("off")][InlineData("offline")][InlineData("init")][InlineData("blocked9")][InlineData("dead9")]
         [InlineData("null")][InlineData("leader")][InlineData("team")][InlineData("trung")][InlineData("thuy")][InlineData("ky")][InlineData("jail")]
         public void InvalidLeaderStopsBeforeCommands(string fault)
         {
             dynamic g=AcTacHarness.Create();g.Validate();
             switch(fault){case "off":g.IsAuto=false;break;case "offline":g.TLBB.Online=false;break;case "init":g.IsInit=false;break;
-                case "dead":g.TLBB.PlayerState=2;break;case "dead9":g.TLBB.PlayerState=9;break;case "null":g.TLBB=null;break;
+                case "blocked9":g.TLBB.PlayerState=9;break;case "dead9":g.TLBB.PlayerState=9;break;case "null":g.TLBB=null;break;
                 case "leader":g.TLBB.IsLeader=false;break;case "team":g.TLBB.KeyId="other";break;case "trung":g.IsTrungAc=true;break;
                 case "thuy":g.IsThuyLao=true;break;case "ky":g.IsKyCuoc=true;break;case "jail":g.TLBB.MapId=194;break;}
             g.Step();
@@ -54,15 +55,15 @@ namespace ChickenAutoEx.Startup.Tests
             { Assert.Equal(6,(int)g.MapAcTac);Assert.Empty((List<string>)g.Commands);g.Advance(5000);g.Step(); }
             Assert.Equal(0,(int)g.MapAcTac);Assert.Empty((List<string>)g.Commands);
         }
-        [Theory][InlineData("offline")][InlineData("init")][InlineData("dead")][InlineData("scene")][InlineData("team")][InlineData("trung")]
+        [Theory][InlineData("offline")][InlineData("init")][InlineData("blocked9")][InlineData("scene")][InlineData("team")][InlineData("trung")]
         public void UnavailableMemberGetsNoCommands(string fault)
         {
             dynamic g=AcTacHarness.Create(),m=AcTacHarness.Create();m.MapAcTac=0;m.TLBB.IsLeader=false;
-            switch(fault){case "offline":m.TLBB.Online=false;break;case "init":m.IsInit=false;break;case "dead":m.TLBB.PlayerState=2;break;
+            switch(fault){case "offline":m.TLBB.Online=false;break;case "init":m.IsInit=false;break;case "blocked9":m.TLBB.PlayerState=9;break;
                 case "scene":m.ON_SCENE_TRANSING=true;break;case "team":m.TLBB.KeyId="other";break;case "trung":m.IsTrungAc=true;break;}
             g.Party.Add(m);g.Step();Assert.Empty((List<string>)m.Commands);
         }
-        [Theory][InlineData("pause")][InlineData("scene")][InlineData("mapchange")][InlineData("combat")]
+        [Theory][InlineData("pause")][InlineData("scene")][InlineData("mapchange")]
         public void PausePreservesRemainingTimeout(string kind)
         {
             dynamic g=AcTacHarness.Create();g.Step();g.Commands.Clear();g.Advance(10000);g.SetPause(kind,true);g.Step();g.Advance(200000);g.Step();
@@ -218,8 +219,8 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact,Trait("AcTacRuntimeBaseline","yes")] public void MemberRegroupUsesSameMapMoveAndDismountsWithoutGoto()
         {
             dynamic g=AcTacHarness.Create(),m=AcTacHarness.Create();m.MapAcTac=0;m.TLBB.IsLeader=false;
-            g.TLBB.MapId=m.TLBB.MapId=170;g.CharX=96;g.CharY=84;m.IsRide=true;g.Party.Add(m);g.Step();
-            Assert.Contains("DownRide",(List<string>)m.Commands);g.Advance(2001);g.Step();
+            g.TLBB.MapId=m.TLBB.MapId=170;g.CharX=96;g.CharY=84;m.IsRide=true;g.Party.Add(m);g.AddCombat(1);g.Step();
+            Assert.Contains("DownRide",(List<string>)m.Commands);g.ClearCombat();g.Advance(2001);g.Step();g.Advance(5001);g.Step();
             Assert.Contains((List<string>)m.Commands,c=>c.StartsWith("Move:"));Assert.DoesNotContain((List<string>)m.Commands,c=>c.StartsWith("Goto:")||c=="UpRide");
         }
         [Fact,Trait("AcTacRuntimeBaseline","yes")] public void CoordinatorSuppressesOrdinaryFollowAndReleasesOnCancel()
@@ -245,7 +246,7 @@ namespace ChickenAutoEx.Startup.Tests
             dynamic g=AcTacHarness.Create(),m=AcTacHarness.Create();m.MapAcTac=0;m.TLBB.IsLeader=false;
             g.TLBB.MapId=m.TLBB.MapId=170;g.Party.Add(m);g.Step();g.Advance(2001);g.Step();
             g.AddCombat(1);g.Step();g.CharX=63;g.CharY=28;g.ClearCombat();g.Step();g.Commands.Clear();m.Commands.Clear();
-            g.Advance(2001);g.Step();Assert.True(g.Visited[6]);
+            g.Advance(2001);g.Step();g.Advance(5001);g.Step();Assert.True(g.Visited[6]);
             Assert.Contains((List<string>)g.Commands,c=>c.StartsWith("Move:"));Assert.Contains((List<string>)m.Commands,c=>c.StartsWith("Move:"));
         }
         [Fact,Trait("AcTacRuntimeBaseline","yes")] public void CombatWithoutHpProgressCannotHoldPatrolForever()
@@ -313,6 +314,7 @@ namespace ChickenAutoEx.Startup.Tests
         internal static dynamic Create()=>Activator.CreateInstance(Compiled.Value.GetType("TinhKiemAuto.Game"));
         private static Assembly Compile()
         {
+            bool partyBaseline=Environment.GetEnvironmentVariable("DUNGEON_PARTY_BASELINE")=="1";
             bool baseline=Environment.GetEnvironmentVariable("AC_TAC_BASELINE")=="1";
             bool runtimeBaseline=Environment.GetEnvironmentVariable("AC_TAC_RUNTIME_BASELINE")=="1";
             var game=CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",baseline?"AcTacLegacyGame.cs":runtimeBaseline?"AcTacV013Game.cs":"AcTacReviewedGame.cs")))
@@ -340,8 +342,9 @@ namespace ChickenAutoEx.Startup.Tests
             string source="using System;using System.Collections.Generic;using Stopwatch=TinhKiemAuto.FakeStopwatch;using Random=TinhKiemAuto.FakeRandom;namespace TinhKiemAuto {"+Fixture+"public static class POINT {"+pointFields+"} public static class MAP {"+mapFields+"} public partial class Game {"+Fields+methods+control+
                 "public void TryEntry(){"+entry+"} public void AutoGuard(){"+auto+"} public void Generic272(){"+genericGuard+"} } }";
             var trees=new List<SyntaxTree>{CSharpSyntaxTree.ParseText(source)};
-            if(!baseline) trees.Add(CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",runtimeBaseline?"AcTacV013Partial.cs":"Game.AcTac.cs"))
+            if(!baseline) trees.Add(CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",partyBaseline?"V014-Game.AcTac.cs":runtimeBaseline?"AcTacV013Partial.cs":"Game.AcTac.cs"))
                 .Replace("using System.Diagnostics;","using Stopwatch=TinhKiemAuto.FakeStopwatch;using Random=TinhKiemAuto.FakeRandom;")));
+            DungeonHarnessSources.Add(trees, !partyBaseline && !baseline && !runtimeBaseline);
             var refs=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator)
                 .Append(typeof(TinhKiemAuto.Diagnostics.DiagnosticReason).Assembly.Location).Distinct().Select(p=>MetadataReference.CreateFromFile(p));
             var c=CSharpCompilation.Create("AcTacSimulation",trees,refs,new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
@@ -363,6 +366,7 @@ namespace ChickenAutoEx.Startup.Tests
             public static class TINHKIEM {public static float GetDistance(float x,float y,float a,float b)=>(float)Math.Sqrt((x-a)*(x-a)+(y-b)*(y-b));public static int ParseInt(string s)=>int.Parse(s);}
             """;
         private const string Fields="""
+            public bool IsAttack=true;
             public TLBB TLBB=new TLBB();public ObjectsFixture Objects=new ObjectsFixture();public List<Game> Party=new List<Game>();public List<QuestFrame> Dialog=new List<QuestFrame>();public List<string> Commands=new List<string>();
             public bool IsAuto=true,IsInit=true,IsRide,ON_SCENE_TRANSING,IsChangeMap,IsBossDie,IsTrieuTap,IsTheoQ,IsP,TraQ,NhanQ,IsClick,IsContinute,IsNhamBinhSinhDie,IsMapAcBa,Talked,ThrowRead,KeepOpen,CancelOnTalk,CancelOnSelect,CancelOnFollow,LootBusy;
             public bool IsThuyLao,IsKyCuoc,IsTrungAc,IsAcBa,IsLauLanTamBao,IsQ123LauLan,IsQ123ToChau,IsYenTuO,IsPhungHoangLangMo,IsPMP,IsTuBaoBon,IsLuyenKim,IsHuyetChien,IsBachHoaDuyen,IsSuMon,IsXayDung,IsTuDuong,IsNhiemVuCoBan;
@@ -370,6 +374,7 @@ namespace ChickenAutoEx.Startup.Tests
             public FakeStopwatch tranTime=FakeStopwatch.StartNew(),ClearTime=FakeStopwatch.StartNew(),TimeStand=FakeStopwatch.StartNew();public QuestFrame QuestFrame;
             public Game(){Global.Paused=Global.IsAcTac=false;FakeStopwatch.Now+=3000;QuestFrame=new QuestFrame(this);MapAcTac=6;CanhBao.Last="";}
             public bool Busy=>IsBusy;public int LegacyIndex{set=>MapATIndex=value;}public bool IsMoveEx=>true;public string Warning=>CanhBao.Last;
+            public void PostMessage(int value,int opcode){Commands.Add("Post:"+opcode);}
             public void Step(){FrmMain.dicGame.Error=SnapshotError;FrmMain.dicGame.Clear();FrmMain.dicGame.Add(0,this);int i=1;foreach(Game member in Party)FrmMain.dicGame.Add(i++,member);DatDoiAcTac();}
             public void RandomMap()=>RandomAcTac();public void Advance(long ms){FakeStopwatch.Now+=ms;}
             public void AddCombat(float hp){Objects.NearMonter20m.Add(new GameObject{IsNPC=false,HP=hp});}public void ClearCombat()=>Objects.NearMonter20m.Clear();

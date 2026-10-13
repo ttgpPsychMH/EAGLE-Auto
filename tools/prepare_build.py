@@ -160,6 +160,8 @@ def main():
                 review = hook_diagnostics(repo, review)
                 from ac_tac_runtime_review import apply_review as ac_tac_runtime
                 review = ac_tac_runtime(repo, review)
+                from dungeon_party_review import apply_game as dungeon_party
+                review = dungeon_party(repo, review)
             if relative.endswith("/Debug.cs"):
                 from appearance_review import apply_ui_hook
                 review = apply_ui_hook(review, 1)

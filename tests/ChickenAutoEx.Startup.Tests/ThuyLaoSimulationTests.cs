@@ -10,6 +10,7 @@ using Xunit;
 
 namespace ChickenAutoEx.Startup.Tests
 {
+    [Collection("Dungeon simulations")]
     public sealed class ThuyLaoSimulationTests
     {
         [Fact, Trait("ThuyLaoBaseline", "yes")] public void EntryFromAnotherMapTargetsTheNpcMap()
@@ -36,7 +37,7 @@ namespace ChickenAutoEx.Startup.Tests
         }
 
         [Theory]
-        [InlineData("off")][InlineData("offline")][InlineData("dead")][InlineData("zoning")]
+        [InlineData("off")][InlineData("offline")][InlineData("blocked9")][InlineData("scene")]
         [InlineData("transition")][InlineData("mapchange")][InlineData("otherteam")][InlineData("nullmetadata")]
         public void UnavailableMemberReceivesNoCommands(string condition)
         {
@@ -46,8 +47,8 @@ namespace ChickenAutoEx.Startup.Tests
             {
                 case "off": member.IsAuto=false; break;
                 case "offline": member.TLBB.Online=false; break;
-                case "dead": member.TLBB.PlayerState=2; break;
-                case "zoning": member.TLBB.PlayerState=7; break;
+                case "blocked9": member.TLBB.PlayerState=9; break;
+                case "scene": member.ON_SCENE_TRANSING=true; break;
                 case "transition": member.ON_SCENE_TRANSING=true; break;
                 case "mapchange": member.IsChangeMap=true; break;
                 case "otherteam": member.TLBB.KeyId="another-leader"; break;
@@ -57,7 +58,7 @@ namespace ChickenAutoEx.Startup.Tests
         }
 
         [Theory]
-        [InlineData("off")][InlineData("offline")][InlineData("dead")][InlineData("transition")]
+        [InlineData("off")][InlineData("offline")][InlineData("blocked9")][InlineData("transition")]
         [InlineData("mapchange")][InlineData("leaderchanged")][InlineData("nullmetadata")]
         public void InvalidLeaderStopsModuleBeforeAnyCommand(string condition)
         {
@@ -66,7 +67,7 @@ namespace ChickenAutoEx.Startup.Tests
             {
                 case "off": g.IsAuto=false; break;
                 case "offline": g.TLBB.Online=false; break;
-                case "dead": g.TLBB.PlayerState=2; break;
+                case "blocked9": g.TLBB.PlayerState=9; break;
                 case "transition": g.ON_SCENE_TRANSING=true; break;
                 case "mapchange": g.IsChangeMap=true; break;
                 case "leaderchanged": g.TLBB.IsLeader=false; break;
@@ -75,6 +76,13 @@ namespace ChickenAutoEx.Startup.Tests
             g.DatDoiThuyLao(); Assert.Equal(condition=="transition"||condition=="mapchange",(bool)g.IsThuyLao); Assert.Empty((List<string>)g.Commands);
         }
 
+        [Fact] public void EntryUnfollowsThenDismountsBeforeTalkingToNpc()
+        {
+            dynamic g=ThuyLaoHarness.Create();g.TLBB.MapId=4;g.TLBB.IsFollow=true;g.IsRide=true;
+            g.Enter();Assert.Contains("StopFollow",(List<string>)g.Commands);Assert.DoesNotContain((List<string>)g.Commands,c=>c.StartsWith("Talk:"));
+            g.Enter();Assert.Contains("DownRide",(List<string>)g.Commands);Assert.DoesNotContain((List<string>)g.Commands,c=>c.StartsWith("Talk:"));
+            g.Enter();Assert.Contains("Talk:13",(List<string>)g.Commands);
+        }
         [Fact] public void DisabledModuleDoesNotAffectOtherQuestFlags()
         {
             dynamic g=ThuyLaoHarness.Create(); g.IsThuyLao=false; g.IsAcBa=true; g.IsClick=true;
@@ -274,6 +282,7 @@ namespace ChickenAutoEx.Startup.Tests
         internal static dynamic Create() => Activator.CreateInstance(Assembly.Value.GetType("TinhKiemAuto.Game"));
         private static Assembly Compile()
         {
+            bool partyBaseline=Environment.GetEnvironmentVariable("DUNGEON_PARTY_BASELINE")=="1";
             bool baseline = Environment.GetEnvironmentVariable("THUY_LAO_BASELINE") == "1";
             string file = baseline ? "LegacyGame.cs" : "ReviewedGame.cs";
             string text = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", file));
@@ -291,11 +300,12 @@ namespace ChickenAutoEx.Startup.Tests
             var trees = new List<SyntaxTree> { CSharpSyntaxTree.ParseText(source) };
             if (!baseline)
             {
-                string repair = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", (Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"ThuyLao-v03.cs":"Game.ThuyLao.cs")));
+                string repair = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "RegressionSources", (partyBaseline?"V014-Game.ThuyLao.cs":Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"ThuyLao-v03.cs":"Game.ThuyLao.cs")));
                 trees.Add(CSharpSyntaxTree.ParseText(repair.Replace("using System.Diagnostics;", "using Stopwatch = TinhKiemAuto.FakeStopwatch;")));
             }
+            DungeonHarnessSources.Add(trees, !partyBaseline && !baseline && Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE") != "1");
             var references = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator)
-                .Select(p => MetadataReference.CreateFromFile(p));
+                .Append(typeof(TinhKiemAuto.Diagnostics.DiagnosticReason).Assembly.Location).Distinct().Select(p => MetadataReference.CreateFromFile(p));
             var compilation = CSharpCompilation.Create("ThuyLaoSimulation", trees, references,
                 new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
             using var output = new MemoryStream(); var result = compilation.Emit(output);
@@ -343,6 +353,7 @@ namespace ChickenAutoEx.Startup.Tests
             }
             """;
         private const string Fields = """
+            public bool IsAttack=true;
             public static int TickCount=18;
             public TLBB TLBB=new TLBB(); public ObjectsFixture Objects=new ObjectsFixture(); public List<Game> Party=new List<Game>();
             public List<Task> Tasks=new List<Task>(); public List<QuestFrame> Dialog=new List<QuestFrame>();
@@ -373,11 +384,12 @@ namespace ChickenAutoEx.Startup.Tests
             public bool GoTo(float x,float y,int map) { Commands.Add("GotoMap:"+map); return true; }
             public void Move(float x,float y) { Commands.Add("Move"); }
             public bool PickItem() { if(Loot) Commands.Add("Loot"); return Loot; }
-            public void StopFollow() { Commands.Add("StopFollow"); }
-            public void UpRide() { Commands.Add("UpRide"); }
-            public void DownRide() { Commands.Add("DownRide"); }
+            public void StopFollow() { Commands.Add("StopFollow"); TLBB.IsFollow=false; }
+            public void UpRide() { Commands.Add("UpRide"); IsRide=true; TLBB.IsRide=true; }
+            public void DownRide() { Commands.Add("DownRide"); IsRide=false; TLBB.IsRide=false; }
             public void Ride() { Commands.Add("Ride"); }
             public bool IsMapPhuBan()=>false;
+            public void AskTeamFollow(){Commands.Add("FollowAll");}
             public void PostMessage(int a,int b) { Commands.Add($"Post:{a}:{b}"); }
             public void Talk(NPC npc) { Commands.Add("Talk:"+npc.Id); }
             public void QuestFrameOptionClicked(int a,int b) { Commands.Add("Select:"+a); }

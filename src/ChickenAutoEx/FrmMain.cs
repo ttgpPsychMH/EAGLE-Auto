@@ -4158,7 +4158,7 @@ namespace TinhKiemAuto
 			leader.IsTrungAc = false;
 			leader.IsLauLanTamBao = false;
 			leader.IsKyCuoc = false;
-			leader.IsThuyLao = false;
+            leader.IsThuyLao = false;
 			leader.MapAcTac = 0;
 		}
 
@@ -4253,9 +4253,10 @@ namespace TinhKiemAuto
 			{
 				return;
 			}
-			leader.IsThuyLao = false;
+			bool enableThuyLao = !leader.IsThuyLao;
+			ResetDungeonActions(leader);
+			leader.IsThuyLao = enableThuyLao;
 			UpdateDungeonMenu(selectedGame, leader);
-			CanhBao.Msg("Lỗi Thủy Lao", "Not work", CanhBao.Kieu.Eror);
 		}
 
 		private void ItemTrungAc_Click(object sender, EventArgs e)

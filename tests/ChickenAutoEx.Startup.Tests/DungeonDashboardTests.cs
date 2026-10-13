@@ -97,13 +97,16 @@ namespace ChickenAutoEx.Startup.Tests
             Assert.False(DungeonDashboardPolicy.Evaluate(DungeonKind.TrungAc,c).CanStart);
             Assert.True(DungeonDashboardPolicy.Evaluate(DungeonKind.KyCuoc,c).CanStart);
         }
-        [Fact] public void ThuyLaoNeverDispatchesEvenWhenItsFlagIsSet()
+        [Fact] public void ThuyLaoUsesTheSameBoundStartStopGuards()
         {
-            var p = new Port(); p.Context.Active = true;
-            var a = new DungeonDashboardAdapter(p);
-            Assert.False(a.Read(DungeonKind.ThuyLao).CanStart); Assert.False(a.Read(DungeonKind.ThuyLao).CanStop);
-            a.Execute(DungeonKind.ThuyLao,0,true,p.Context.Binding); a.Execute(DungeonKind.ThuyLao,0,false,p.Context.Binding);
-            Assert.Equal(0,p.Writes);
+            var p = new Port(); var a = new DungeonDashboardAdapter(p);
+            Assert.True(a.Read(DungeonKind.ThuyLao).CanStart);
+            a.Execute(DungeonKind.ThuyLao,0,true,p.Context.Binding);
+            Assert.Equal(1,p.Writes);
+            p.Context.Active = true;
+            Assert.True(a.Read(DungeonKind.ThuyLao).CanStop);
+            a.Execute(DungeonKind.ThuyLao,0,false,p.Context.Binding);
+            Assert.Equal(2,p.Writes);
         }
         [Theory][InlineData(2,-1)][InlineData(2,170)]
         [InlineData(3,0)][InlineData(3,10)][InlineData(1,50013)]
@@ -198,7 +201,7 @@ namespace ChickenAutoEx.Startup.Tests
         private static Assembly Compile()
         {
             var refs = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Select(p=>MetadataReference.CreateFromFile(p));
-            var trees = new[]{Read("DungeonDashboard.cs"),Read("Game.DungeonDashboard.cs"),Fixture}.Select(s=>CSharpSyntaxTree.ParseText(s));
+            var trees = new[]{Read("DungeonDashboard.cs"),Read("Game.DungeonDashboard.cs"),Read("DungeonMovementPolicy.cs"),Fixture}.Select(s=>CSharpSyntaxTree.ParseText(s));
             var c = CSharpCompilation.Create("DashboardFakeIntegration",trees,refs,new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
             using var stream = new MemoryStream(); var result = c.Emit(stream);
             Assert.True(result.Success,string.Join("\n",result.Diagnostics.Where(d=>d.Severity==DiagnosticSeverity.Error)));
@@ -212,7 +215,7 @@ namespace TinhKiemAuto {
  public partial class Game {
   public FakeTlbb TLBB = new FakeTlbb(); public Game Leader;
   public bool IsInit=true,IsAuto=true,ON_SCENE_TRANSING,IsChangeMap;
-  public bool IsTrungAc,IsKyCuoc,IsAcBa,IsThuyLao,IsLauLanTamBao,IsQ123LauLan,IsQ123ToChau,IsYenTuO,IsPhungHoangLangMo,IsPMP,IsTuBaoBon,IsLuyenKim,IsHuyetChien,IsBachHoaDuyen,IsSuMon,IsXayDung,IsTuDuong,IsNhiemVuCoBan,IsTrieuTap;
+  private int[] dungeonPatrolDiagnostic=new[]{-1,0,0,0,0,0,0,0,0}; public string thuyLaoStep=""""; public bool IsTrungAc,IsKyCuoc,IsAcBa,IsThuyLao,IsLauLanTamBao,IsQ123LauLan,IsQ123ToChau,IsYenTuO,IsPhungHoangLangMo,IsPMP,IsTuBaoBon,IsLuyenKim,IsHuyetChien,IsBachHoaDuyen,IsSuMon,IsXayDung,IsTuDuong,IsNhiemVuCoBan,IsTrieuTap;
   public int MapAcTac,MapTKC,ManualSchool=-1,ManualCalls;
   private object trungAcLock=new object(),kyCuocLock=new object(),acTacLock=new object();
   private enum TrungAcPhase { Scan,Info,TravelTarget,Spawn,Combat,AcceptAck }

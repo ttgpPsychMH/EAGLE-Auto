@@ -144,7 +144,7 @@ namespace ChickenAutoEx.Startup.Tests
         }
 
         [Fact]
-        public void ThuyLaoKeepsItsExistingDisabledEngineBehaviorAndClearsCheckmark()
+        public void ThuyLaoCanStartAndStopThroughTheGuardedMenu()
         {
             dynamic form = LegacyUiHarness.Create();
             dynamic leader = form.SelectWithLeader();
@@ -154,8 +154,10 @@ namespace ChickenAutoEx.Startup.Tests
             form.ClickDungeon("ItemThuyLao_Click");
             Assert.False((bool)leader.IsThuyLao);
             Assert.False((bool)form.ItemThuyLao.Checked);
-            Assert.True((bool)leader.IsTrungAc);
-            Assert.Contains("Not work", (string)form.WarningText);
+            Assert.False((bool)leader.IsTrungAc);
+            form.ClickDungeon("ItemThuyLao_Click");
+            Assert.True((bool)leader.IsThuyLao);Assert.True((bool)form.ItemThuyLao.Checked);
+            Assert.DoesNotContain("Not work", (string)form.WarningText);
         }
 
         [Theory]

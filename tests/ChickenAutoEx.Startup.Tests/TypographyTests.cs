@@ -123,6 +123,12 @@ namespace ChickenAutoEx.Startup.Tests
             Assert.Equal("Lên Bãi", (string)f.MenuInput.Text);
         }
 
+        [Fact] public void CompactMainUsesNinePointNormalTabHeadersAndMenus()
+        {
+            dynamic f=TypographyHarness.Create();f.EnableCompact();f.ApplyTabHeader();f.ApplyMenu();
+            Assert.Equal(9f,(float)f.Tabs.Font.SizeInPoints);Assert.Equal(0,(int)f.Tabs.Font.Style);
+            Assert.Equal(9f,(float)f.Menu.Font.SizeInPoints);
+        }
         [Fact]
         public void AuditedStaticLabelIsFormattedWhileUnidentifiedLabelIsUntouched()
         {
@@ -215,7 +221,7 @@ namespace TinhKiemAuto.Appearance {
   public int Value {get=>50;set=>throw new Exception(""Value write"");}
   public int SelectedIndex {get=>0;set=>throw new Exception(""Selection write"");}
  }
- public class Form:Control {} public class FrmMain:Form { __PET_DISPLAY_SOURCE__ public static void TestPetFormat(ListControlConvertEventArgs e)=>FormatPetChoice(null,e); }
+ public class Form:Control {} public class FrmMain:Form { public bool CompactUiReady; __PET_DISPLAY_SOURCE__ public static void TestPetFormat(ListControlConvertEventArgs e)=>FormatPetChoice(null,e); }
  public class ListControlConvertEventArgs:EventArgs {public object ListItem,Value;} public class Label:Control {public bool AutoSize,AutoEllipsis;}
  public class ButtonBase:Control {public bool AutoSize,AutoEllipsis;} public class Button:ButtonBase {} public class CheckBox:ButtonBase {} public class RadioButton:ButtonBase {}
  public class TabControl:Control {public List<TabPage> TabPages=new List<TabPage>();}public class GroupBox:Control {}public class TabPage:Control {}public class TextBoxBase:Control {}public class ListControl:Control {}public class ComboBox:ListControl {}
@@ -246,6 +252,7 @@ namespace TinhKiemAuto.Appearance {
   public Button Disposed=new Button{Text=""Lên Bãi""};
   public TypographyFixture(){foreach(var c in new Control[]{Heading,Button,Neighbour,Group,Tab,Input,Combo,DynamicLabel,StaticLabel,List}){c.Parent=Root;Root.Controls.Add(c);}List.Columns.Add(new ColumnHeader{Text=""Tên Nhân Vật""});Tabs.TabPages.Add(Tab);}
   public string[] PetDisplay(string original,int value){var c=new FrmMain.ComboboxItem{Text=original,Value=value};var e=new ListControlConvertEventArgs{ListItem=c,Value=original};FrmMain.TestPetFormat(e);return new[]{(string)e.Value,c.ToString(),c.Value.ToString()};}
+  public void EnableCompact(){((FrmMain)Root).CompactUiReady=true;Tabs.Parent=Root;Menu.Owner=Root;}
   public bool HasOriginalParent=>ReferenceEquals(Button.Parent,Root);
   public void ApplyHeading()=>UiTypography.Apply(Heading);public void ApplyButton()=>UiTypography.Apply(Button);
   public void ApplyTabHeader()=>UiTypography.Apply(Tabs); public void ApplySharedToggle()=>UiTypography.Apply(Shared);

@@ -10,6 +10,7 @@ using Xunit;
 
 namespace ChickenAutoEx.Startup.Tests
 {
+    [Collection("Dungeon simulations")]
     public sealed class KyCuocSimulationTests
     {
         [Fact, Trait("KyCuocBaseline", "yes")]
@@ -54,38 +55,37 @@ namespace ChickenAutoEx.Startup.Tests
         }
 
         [Theory]
-        [InlineData("off")][InlineData("offline")][InlineData("dead")][InlineData("leaderchanged")]
+        [InlineData("off")][InlineData("offline")][InlineData("blocked9")][InlineData("leaderchanged")]
         [InlineData("teamchanged")][InlineData("nullmetadata")][InlineData("othermodule")]
         public void InvalidLeaderCancelsBeforeCommands(string fault)
         {
             dynamic g=KyCuocHarness.Create();
             switch(fault) {
                 case "off":g.IsAuto=false;break; case "offline":g.TLBB.Online=false;break;
-                case "dead":g.TLBB.PlayerState=2;break;case "leaderchanged":g.TLBB.IsLeader=false;break;
+                case "blocked9":g.TLBB.PlayerState=9;break;case "leaderchanged":g.TLBB.IsLeader=false;break;
                 case "teamchanged":g.TLBB.KeyId="other";break;case "nullmetadata":g.TLBB=null;break;
                 case "othermodule":g.IsAcBa=true;break;
             }
             g.Validate(); Assert.False((bool)g.IsKyCuoc); Assert.Empty((List<string>)g.Commands);
         }
         [Theory]
-        [InlineData("off")][InlineData("offline")][InlineData("dead")][InlineData("zoning")]
-        [InlineData("scene")][InlineData("mapchange")][InlineData("otherteam")][InlineData("nullmetadata")]
+        [InlineData("off")][InlineData("offline")][InlineData("blocked9")][InlineData("scene")]
+        [InlineData("mapchange")][InlineData("otherteam")][InlineData("nullmetadata")]
         public void InvalidMemberReceivesNoCommands(string fault)
         {
             dynamic g=KyCuocHarness.Create(),m=KyCuocHarness.Create(); m.TLBB.IsLeader=false;
             switch(fault) {
                 case "off":m.IsAuto=false;break;case "offline":m.TLBB.Online=false;break;
-                case "dead":m.TLBB.PlayerState=2;break;case "zoning":m.TLBB.PlayerState=7;break;
+                case "blocked9":m.TLBB.PlayerState=9;break;
                 case "scene":m.ON_SCENE_TRANSING=true;break;case "mapchange":m.IsChangeMap=true;break;
                 case "otherteam":m.TLBB.KeyId="other";break;case "nullmetadata":m.TLBB=null;break;
             }
             g.Party.Add(m);g.Step();Assert.Empty((List<string>)m.Commands);
         }
-        [Theory][InlineData("zoning")][InlineData("scene")][InlineData("mapchange")]
+        [Theory][InlineData("scene")][InlineData("mapchange")]
         public void SceneTransitionPausesWithoutSendingCommands(string fault)
         {
             dynamic g=KyCuocHarness.Create();
-            if(fault=="zoning")g.TLBB.PlayerState=7;
             if(fault=="scene")g.ON_SCENE_TRANSING=true;
             if(fault=="mapchange")g.IsChangeMap=true;
             g.Step();Assert.Empty((List<string>)g.Commands);Assert.True((bool)g.IsKyCuoc);
@@ -221,6 +221,7 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact] public void CombatOverridesMovementBeforeClearWaitExpires()
         {
             dynamic g=KyCuocHarness.Create();g.TLBB.MapId=61;g.IsRide=g.TLBB.IsRide=true;g.TLBB.IsFollow=true;g.AddMonster();g.Step();
+            Assert.DoesNotContain("DownRide",(List<string>)g.Commands);g.Step();
             Assert.Contains("DownRide",(List<string>)g.Commands);Assert.Contains("StopFollow",(List<string>)g.Commands);
             Assert.DoesNotContain((List<string>)g.Commands,c=>c.StartsWith("Move:"));
         }
@@ -312,7 +313,7 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact] public void MemberRecoveryTimerStartsAtLossInsteadOfSessionStart()
         {
             dynamic g=KyCuocHarness.Create(),m=KyCuocHarness.Create();g.TLBB.MapId=m.TLBB.MapId=61;m.TLBB.IsLeader=false;
-            g.Party.Add(m);g.Step();g.Advance(200000);m.TLBB.PlayerState=7;g.Step();Assert.True((bool)g.IsKyCuoc);
+            g.Party.Add(m);g.Step();g.Advance(200000);m.ON_SCENE_TRANSING=true;g.Step();Assert.True((bool)g.IsKyCuoc);
             g.Advance(2001);m.TLBB.PlayerState=0;g.Step();Assert.True((bool)g.IsKyCuoc);
         }
         [Fact] public void LongLootPauseIsNotReportedAsPatrolStuck()
@@ -366,6 +367,7 @@ namespace ChickenAutoEx.Startup.Tests
         public static dynamic Create()=>Activator.CreateInstance(Compiled.Value.GetType("TinhKiemAuto.Game"));
         private static Assembly Compile()
         {
+            bool partyBaseline=Environment.GetEnvironmentVariable("DUNGEON_PARTY_BASELINE")=="1";
             bool baseline=Environment.GetEnvironmentVariable("KY_CUOC_BASELINE")=="1";
             string text=File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",baseline?"LegacyGame.cs":"KyCuocReviewedGame.cs"));
             var root=CSharpSyntaxTree.ParseText(text).GetRoot();
@@ -386,10 +388,11 @@ namespace ChickenAutoEx.Startup.Tests
                 +Fixture+"public partial class Game {"+Fields+methods+controls+"public void FinishTick(){"+completion+"} } }";
             var trees=new List<SyntaxTree>{CSharpSyntaxTree.ParseText(source)};
             if(!baseline)
-                foreach(string name in new[]{(Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"KyCuoc-v03.cs":"Game.KyCuoc.cs"),"Game.PetAoe.cs"})
+                foreach(string name in new[]{(partyBaseline?"V014-Game.KyCuoc.cs":Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE")=="1"?"KyCuoc-v03.cs":"Game.KyCuoc.cs"),"Game.PetAoe.cs"})
                     trees.Add(CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"RegressionSources",name))
                         .Replace("using System.Diagnostics;","using Stopwatch= TinhKiemAuto.FakeStopwatch;")));
-            var references=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Select(p=>MetadataReference.CreateFromFile(p));
+            DungeonHarnessSources.Add(trees, !partyBaseline && !baseline && Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE") != "1");
+            var references=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Append(typeof(TinhKiemAuto.Diagnostics.DiagnosticReason).Assembly.Location).Distinct().Select(p=>MetadataReference.CreateFromFile(p));
             var compilation=CSharpCompilation.Create("KyCuocSimulation",trees,references,new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
             using var output=new MemoryStream(); var result=compilation.Emit(output);
             Assert.True(result.Success,string.Join("\n",result.Diagnostics.Where(d=>d.Severity==DiagnosticSeverity.Error)));
@@ -426,6 +429,7 @@ namespace ChickenAutoEx.Startup.Tests
                 public static void Msg(string title,string message,Kieu kind){ Messages.Add(message); } }
             """;
         private const string Fields="""
+            public bool IsAttack=true;
             public static int TickCount=18;
             public TLBB TLBB=new TLBB(); public ObjectsFixture Objects=new ObjectsFixture(); public List<Game> Party=new List<Game>();
             public List<QuestFrame> Dialog=new List<QuestFrame>(); public List<string> Commands=new List<string>();

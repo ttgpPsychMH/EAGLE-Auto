@@ -1,0 +1,136 @@
+{
+  "baseline_commit": "f5dc6a9",
+  "product_version": "0.15",
+  "environment": "Linux; SDK 8.0.425; net48/x86 cross-build and net8 managed simulation",
+  "build": {
+    "errors": 0,
+    "legacy_warnings": 49
+  },
+  "managed_tests": {
+    "executed": 872,
+    "passed": 872,
+    "failed": 0,
+    "skipped": 0
+  },
+  "new_regression_groups": {
+    "TeamPatrolSimulationTests": 32,
+    "TeamModuleSimulationTests": 8,
+    "ClassicLayoutIntegrationTests": 9,
+    "CompactNavigationTests": 9
+  },
+  "historical_controls_expected_failures": 63,
+  "historical_control_summaries": {
+    "thuy-lao": {
+      "legacy_tests_executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Same simulation assertions against original recovered methods, never the automation executable"
+    },
+    "ky-cuoc": {
+      "legacy_tests_executed": 6,
+      "expected_behavioral_failures": 6,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "trung-ac": {
+      "legacy_tests_executed": 11,
+      "expected_behavioral_failures": 11,
+      "harness_errors": 0,
+      "scope": "Selected original C# methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "dungeon-reaudit": {
+      "legacy_tests_executed": 9,
+      "expected_behavioral_failures": 9,
+      "harness_errors": 0,
+      "scope": "Restored, hash-checked v0.3 partial methods with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-tac": {
+      "legacy_tests_executed": 13,
+      "expected_behavioral_failures": 13,
+      "harness_errors": 0,
+      "scope": "Selected v0.4 C# methods and UI with fake dependencies; original EXE/native DLL never loaded"
+    },
+    "ac-tac-runtime": {
+      "baseline_commit": "f948e01",
+      "legacy_tests_executed": 8,
+      "expected_behavioral_failures": 8,
+      "harness_errors": 0,
+      "baseline_partial_sha256": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549",
+      "scope": "Actual C# with fake readers/commands/clock; original EXE and native DLL never loaded"
+    },
+    "ac-ba": {
+      "legacy_tests_executed": 8,
+      "expected_behavioral_failures": 8,
+      "harness_errors": 0,
+      "scope": "Selected redacted v0.5 C# against fake dependencies; EXE/native DLL never loaded"
+    },
+    "dungeon-party": {
+      "baseline_commit": "f5dc6a9",
+      "executed": 4,
+      "expected_behavioral_failures": 4,
+      "harness_errors": 0,
+      "scope": "Actual managed dungeon methods; fake state=2, readers, clocks and commands. No EXE/native DLL execution."
+    }
+  },
+  "native_reader_model": {
+    "executed_untrusted_binaries": false,
+    "windows_hook_tested": false,
+    "passed": 26,
+    "failed": 0,
+    "tests": [
+      "recv_length_1",
+      "recv_length_15",
+      "recv_length_16",
+      "recv_length_20",
+      "recv_length_999",
+      "recv_length_1000",
+      "recv_length_4096",
+      "recv_length_65536",
+      "legacy_twenty_bytes_loses_four",
+      "legacy_receiver_missing",
+      "eof_and_socket_error_untouched",
+      "partial_recv_uses_result_not_buffer_capacity",
+      "invalid_result_dropped_without_changing_return",
+      "oversize_chunk_is_explicit_drop",
+      "installation_failure_has_no_data_delivery",
+      "repeated_start_does_not_reinstall",
+      "invalid_pid_does_not_install",
+      "frame_queue_limit_and_gap",
+      "queued_byte_budget_is_bounded",
+      "delivery_timeout_drops_once_without_reinstall",
+      "delivery_failure_does_not_change_game_result",
+      "producer_lock_is_released_during_delivery",
+      "concurrent_producers_own_buffers_and_respect_bound",
+      "cleanup_failure_blocks_reinstall_and_delivery",
+      "stop_flushes_queue_and_is_idempotent",
+      "fragmented_utf8_preserved_as_raw_chunks"
+    ],
+    "source_sha256": {
+      "main.cpp": "9d28d95094f461d3c4769e0d75ac9e1f74a32fd66f6dfe47f0e13ad6f3122332",
+      "reader_model.hpp": "892fec14215a0a9430198694eaba9105127c52782b6990fa62ff7caa56202c9c",
+      "EnvelopeDecoder.cs": "e203656751526cc7a8445d64c8b31a6829c4d844437c50bb44d5848935472142"
+    },
+    "fixture_count": 11,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-O2",
+      "/workspace/EAGLE-Auto/tools/native_reader_simulation/main.cpp",
+      "-o",
+      "/workspace/EAGLE-Auto/.build/native-reader-simulation/reader-simulation"
+    ],
+    "model_executable_sha256": "680becb7ad06204013e322f81cd71a9599f51053a41491d44b31a671c398f927",
+    "fixture_sha256": "86e2e3349fc16caf1901c6c7f16074b25b6246a901d160124b04d4304eef2beb"
+  },
+  "static_verifier_passed": true,
+  "windows_runtime_tested": false,
+  "real_game_tested": false,
+  "micro_reference_zip_sha256": "a56c478aff98e36ae544fecec62e85f4f93eb411bab6c29c6dbf5403e2bea107",
+  "micro_csharp_files": 26,
+  "micro_csharp_files_equal_previous_review": true
+}

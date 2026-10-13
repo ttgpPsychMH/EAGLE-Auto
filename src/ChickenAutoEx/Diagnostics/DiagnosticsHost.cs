@@ -16,6 +16,7 @@ namespace TinhKiemAuto.Diagnostics
         internal bool[] Flags;
         internal int[] Phases;
         internal int[] AcTac;
+        internal int[] TeamPatrol;
     }
     internal sealed class DiagnosticsHost : IDisposable
     {
@@ -40,6 +41,7 @@ namespace TinhKiemAuto.Diagnostics
         private volatile DiagnosticWindow[] windows = new DiagnosticWindow[0];
         private readonly Dictionary<int, string> previousStates = new Dictionary<int, string>();
         private readonly Dictionary<int, string> previousAcTac = new Dictionary<int, string>();
+        private readonly Dictionary<int, string> previousTeamPatrol = new Dictionary<int, string>();
         private readonly Dictionary<int, Tuple<long, double, double>> cpu = new Dictionary<int, Tuple<long, double, double>>();
         private ToolStripMenuItem status, enable, disable;
         internal DiagnosticsHost(Form owner, ToolStripMenuItem menu, Func<DiagnosticWindow[]> snapshot)
@@ -99,7 +101,7 @@ namespace TinhKiemAuto.Diagnostics
             Stop(); var r = consent.Recorder;
             if (r != null && r.Enabled)
             {
-                lock (sampleLock) { previousStates.Clear(); previousAcTac.Clear(); cpu.Clear(); windows = new DiagnosticWindow[0]; lastBeat = clock.ElapsedMilliseconds;
+                lock (sampleLock) { previousStates.Clear(); previousAcTac.Clear(); previousTeamPatrol.Clear(); cpu.Clear(); windows = new DiagnosticWindow[0]; lastBeat = clock.ElapsedMilliseconds;
                     lastDropped = lastQueueDropped = lastErrorDropped = 0; }
                 LocalDiagnostics.Attach(r, typeof(FrmMain).Assembly);
                 r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, DiagnosticEvent.SessionStarted, DiagnosticFeature.General));
@@ -152,6 +154,7 @@ namespace TinhKiemAuto.Diagnostics
                     {
                         alive.Add(window.Alias); SampleProcess(r, window.Alias, window.Pid);
                         SampleAcTac(r, window);
+                        SampleTeamPatrol(r, window);
                         string state = string.Join("", window.Flags.Select(v => v ? "1" : "0")) + ":" + string.Join("/", window.Phases);
                         string previous;
                         if (previousStates.TryGetValue(window.Alias, out previous) && previous == state) continue;
@@ -165,6 +168,7 @@ namespace TinhKiemAuto.Diagnostics
                 }
                 foreach (int alias in previousStates.Keys.Where(key => !alive.Contains(key)).ToArray()) previousStates.Remove(alias);
                 foreach (int alias in previousAcTac.Keys.Where(key => !alive.Contains(key)).ToArray()) previousAcTac.Remove(alias);
+                foreach (int alias in previousTeamPatrol.Keys.Where(key => !alive.Contains(key)).ToArray()) previousTeamPatrol.Remove(alias);
                 foreach (int alias in cpu.Keys.Where(key => key != 0 && !alive.Contains(key)).ToArray()) cpu.Remove(alias);
                 }
             }
@@ -185,6 +189,23 @@ namespace TinhKiemAuto.Diagnostics
             for (int i = 0; i < codes.Length; i++)
                 r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, codes[i], DiagnosticFeature.AcTac,
                     window: window.Alias, count: value[i + 3], reason: reason));
+        }
+        private void SampleTeamPatrol(DiagnosticRecorder r, DiagnosticWindow window)
+        {
+            int[] value = window.TeamPatrol;
+            if (value == null || value.Length != 9 || value[0] < 0 || value[0] > 3) return;
+            string signature = string.Join("/", value), previous;
+            if (previousTeamPatrol.TryGetValue(window.Alias, out previous) && signature == previous) return;
+            previousTeamPatrol[window.Alias] = signature;
+            DiagnosticFeature[] features = { DiagnosticFeature.KyCuoc, DiagnosticFeature.AcTac, DiagnosticFeature.AcBa, DiagnosticFeature.ThuyLao };
+            var feature = features[value[0]]; var reason = (DiagnosticReason)value[8];
+            r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, DiagnosticEvent.TeamPatrolState, feature,
+                window: window.Alias, state: value[2] != 0, phase: value[1], count: value[3], reason: reason));
+            DiagnosticEvent[] codes = { DiagnosticEvent.TeamPatrolReady, DiagnosticEvent.TeamPatrolFollowing,
+                DiagnosticEvent.TeamPatrolMounted, DiagnosticEvent.TeamPatrolMoving };
+            for (int i = 0; i < codes.Length; i++)
+                r.Record(DiagnosticSchema.Row(DateTime.UtcNow, r.Version, codes[i], feature,
+                    window: window.Alias, count: value[i + 4], reason: reason));
         }
         private void SampleProcess(DiagnosticRecorder r, int alias, int pid)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace TinhKiemAuto
 {
@@ -12,16 +13,21 @@ namespace TinhKiemAuto
         private bool thuyLaoSelected, thuyLaoTalkSent, thuyLaoAwaitEntry, thuyLaoBlocked;
         private bool ThuyLaoRouteFinished;
         private bool thuyLaoEnabled;
+        private static readonly int[,] ThuyLaoPatrolRoute = { {71,41},{107,40},{140,39},{150,71},{148,106},{150,139},
+            {122,150},{85,147},{49,149},{43,120},{41,84},{41,50} };
+        private readonly bool[] thuyLaoVisited = new bool[12];
+        private bool thuyLaoReanchor = true;
+        private float thuyLaoBestDistance = float.MaxValue;
         private const long ThuyLaoTimeoutMilliseconds = 60000;
 
         private Game thuyLaoController;
         private string thuyLaoOwner;
         private long thuyLaoPausedAt = -1, thuyLaoPauseOffset;
-        private long ThuyLaoNow { get { return thuyLaoClock.ElapsedMilliseconds - thuyLaoPauseOffset; } }
+        private long ThuyLaoNow { get { return (thuyLaoPausedAt >= 0 ? thuyLaoPausedAt : thuyLaoClock.ElapsedMilliseconds) - thuyLaoPauseOffset; } }
 
         private void ObserveThuyLaoPause()
         {
-            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || (TLBB != null && TLBB.PlayerState == 7);
+            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap;
             long raw = thuyLaoClock.ElapsedMilliseconds;
             if (pause && thuyLaoPausedAt < 0) thuyLaoPausedAt = raw;
             if (!pause && thuyLaoPausedAt >= 0)
@@ -32,8 +38,8 @@ namespace TinhKiemAuto
         {
             ObserveThuyLaoPause();
             if (thuyLaoBlocked || !IsAuto || !IsInit || TLBB == null || !TLBB.Online
-                || TLBB.PlayerState != 0 || Global.Paused || ON_SCENE_TRANSING || IsChangeMap
-                || IsTrungAc || IsKyCuoc || (thuyLaoOwner != null && thuyLaoOwner != TLBB.Id)) return false;
+                || !DungeonMovementPolicy.CanObserve(TLBB.PlayerState) || Global.Paused || ON_SCENE_TRANSING || IsChangeMap
+                || IsTrungAc || IsKyCuoc || IsAcBa || MapAcTac != 0 || (thuyLaoOwner != null && thuyLaoOwner != TLBB.Id)) return false;
             if (thuyLaoController != null)
                 return thuyLaoController != this && thuyLaoController.CanActThuyLao()
                     && thuyLaoController.TLBB.IsLeader && !TLBB.IsLeader && TLBB.KeyId == thuyLaoController.TLBB.Id;
@@ -42,6 +48,7 @@ namespace TinhKiemAuto
 
         private void ResetThuyLaoProgress()
         {
+            ResetDungeonPatrol(DungeonTask.ThuyLao);
             TrangThaiThuyLao = "";
             DaNhanThuyLao = IsXongThuyLao = ThuyLaoRouteFinished = false;
             thuyLaoSelected = thuyLaoTalkSent = thuyLaoAwaitEntry = thuyLaoBlocked = false;
@@ -51,6 +58,8 @@ namespace TinhKiemAuto
             thuyLaoPauseOffset = 0;
             thuyLaoContextTeam = null;
             thuyLaoRouteIndex = 0;
+            Array.Clear(thuyLaoVisited, 0, thuyLaoVisited.Length);
+            thuyLaoReanchor = true; thuyLaoBestDistance = float.MaxValue;
             thuyLaoStep = "";
             thuyLaoStepStarted = thuyLaoClearAt = ThuyLaoNow;
         }
@@ -68,8 +77,10 @@ namespace TinhKiemAuto
 
         private void StopThuyLao(string reason)
         {
+            int[] stopped = CaptureDungeonStop(DungeonTask.ThuyLao, reason);
             IsThuyLao = false;
             ResetThuyLaoProgress();
+            dungeonPatrolDiagnostic = stopped;
             thuyLaoBlocked = true;
             if (reason != null)
                 CanhBao.Msg("Thủy Lao", "Đã dừng Thủy Lao: " + reason, CanhBao.Kieu.Eror);
@@ -114,7 +125,16 @@ namespace TinhKiemAuto
 
         private bool SendThuyLaoDialog(NPC npc, int option)
         {
+            if (!CanActThuyLao() || DungeonMovementPolicy.IsAttacking(TLBB.PlayerState)) return false;
             if (!CanActThuyLao() || !GoTo(npc) || !CanActThuyLao() || !HasThuyLaoNpc(npc)) return false;
+            if (TLBB.IsFollow || IsRide || DungeonMovementPolicy.IsMoving(TLBB.PlayerState))
+            {
+                Game controller = thuyLaoController ?? this;
+                if (!controller.dungeonTaskBound)
+                    controller.BindDungeonParty(DungeonTask.ThuyLao, new List<Game> { controller, this }, controller.CanControlThuyLaoActor);
+                if (!controller.PrepareDungeonNpc(this, controller.CanControlThuyLaoActor, controller.ThuyLaoNow)) return false;
+            }
+            if (!DungeonMovementPolicy.CanTalk(TLBB.PlayerState)) return false;
             if (!TLBB.IsQuestOpen)
             {
                 if (!thuyLaoTalkSent && CanActThuyLao()) { Talk(npc); thuyLaoTalkSent = true; }
@@ -151,6 +171,7 @@ namespace TinhKiemAuto
         private void NhanThuyLao()
         {
             if (!CanActThuyLao()) return;
+            if (!DungeonMovementPolicy.CanTalk(TLBB.PlayerState)) return;
             ObserveThuyLaoContext();
             if (TLBB.MapId == MAP.ThuyLao || DaNhanThuyLao) return;
             if (TrangThaiThuyLao == "")
@@ -204,20 +225,7 @@ namespace TinhKiemAuto
                 member.ObserveThuyLaoContext();
                 if (member.TLBB.MapId == MAP.ThuyLao)
                 {
-                    if (TLBB.MapId != MAP.ThuyLao || member.PickItem()) return;
-                    if (member.Objects.NearMonter20m.Count > 0)
-                    {
-                        if (member.TLBB.PlayerState == 0)
-                        {
-                            if (member.TLBB.IsFollow) member.StopFollow();
-                            if (member.CanActThuyLao() && member.TLBB.IsRide) member.DownRide();
-                        }
-                        return;
-                    }
-                    if (!member.CanActThuyLao()) return;
-                    if (!member.IsRide && member.TLBB.HaveRide) member.UpRide();
-                    else if (TINHKIEM.GetDistance(member.RoundX, member.RoundY, RoundX, RoundY) > 4f)
-                        member.GoTo(RoundX, RoundY);
+                    // In-dungeon movement is coordinated once for the whole team below.
                     return;
                 }
                 if (!member.DaNhanThuyLao) member.NhanThuyLao();
@@ -226,40 +234,95 @@ namespace TinhKiemAuto
             finally { member.thuyLaoController = previousController; }
         }
 
+        private bool CanControlThuyLaoActor(Game actor)
+        {
+            if (!CanActThuyLao() || !TLBB.IsLeader || actor == null) return false;
+            if (actor == this) return true;
+            return actor.IsAuto && actor.IsInit && actor.TLBB != null && actor.TLBB.Online
+                && !string.IsNullOrEmpty(actor.TLBB.Id) && !actor.TLBB.IsLeader && actor.TLBB.KeyId == TLBB.Id
+                && DungeonMovementPolicy.CanObserve(actor.TLBB.PlayerState) && !actor.ON_SCENE_TRANSING && !actor.IsChangeMap
+                && !actor.IsTrungAc && !actor.IsKyCuoc && !actor.IsAcBa && actor.MapAcTac == 0
+                && actor.tranTime.Elapsed.TotalSeconds >= 2.0;
+        }
+
+        private void PatrolThuyLao()
+        {
+            if (thuyLaoReanchor)
+            {
+                float best = float.MaxValue; int nearest = -1;
+                for (int i = 0; i < thuyLaoVisited.Length; i++)
+                {
+                    if (thuyLaoVisited[i]) continue;
+                    float value = TINHKIEM.GetDistance(CharX, CharY, ThuyLaoPatrolRoute[i,0], ThuyLaoPatrolRoute[i,1]);
+                    if (value < best) { best = value; nearest = i; }
+                }
+                if (nearest < 0) { StopThuyLao("tọa độ tuần tra không hợp lệ."); return; }
+                thuyLaoRouteIndex = nearest; thuyLaoReanchor = false; thuyLaoBestDistance = float.MaxValue;
+                thuyLaoStepStarted = ThuyLaoNow;
+            }
+            float distance = TINHKIEM.GetDistance(CharX, CharY, ThuyLaoPatrolRoute[thuyLaoRouteIndex,0], ThuyLaoPatrolRoute[thuyLaoRouteIndex,1]);
+            if (float.IsNaN(distance) || float.IsInfinity(distance)) { StopThuyLao("tọa độ tuần tra không hợp lệ."); return; }
+            if (distance <= 5f)
+            {
+                thuyLaoVisited[thuyLaoRouteIndex] = true;
+                int next = -1;
+                for (int offset = 1; offset <= thuyLaoVisited.Length; offset++)
+                { int candidate = (thuyLaoRouteIndex + offset) % thuyLaoVisited.Length;
+                    if (!thuyLaoVisited[candidate]) { next = candidate; break; } }
+                if (next < 0) { ThuyLaoRouteFinished = true; return; }
+                thuyLaoRouteIndex = next; thuyLaoBestDistance = float.MaxValue; thuyLaoStepStarted = ThuyLaoNow;
+                distance = TINHKIEM.GetDistance(CharX, CharY, ThuyLaoPatrolRoute[next,0], ThuyLaoPatrolRoute[next,1]);
+            }
+            if (distance < thuyLaoBestDistance - 1f) { thuyLaoBestDistance = distance; thuyLaoStepStarted = ThuyLaoNow; }
+            if (CanActThuyLao()) Move(ThuyLaoPatrolRoute[thuyLaoRouteIndex,0], ThuyLaoPatrolRoute[thuyLaoRouteIndex,1]);
+        }
+
         public void DatDoiThuyLao()
         {
             if (!IsThuyLao) return;
             try
             {
+                if (Global.Paused || ON_SCENE_TRANSING || IsChangeMap) { ObserveThuyLaoPause(); return; }
                 if (!IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader
-                    || TLBB.PlayerState == 2 || TLBB.PlayerState == 9
+                    || TLBB.PlayerState == 9
                     || (thuyLaoOwner != null && thuyLaoOwner != TLBB.Id)
                     || IsTrungAc || IsKyCuoc) { StopThuyLao(null); return; }
                 if (!CanActThuyLao()) return;
                 ObserveThuyLaoContext();
-                if (thuyLaoStep != "" && !WaitThuyLaoStep(thuyLaoStep)) return;
-                if (TickCount % 18 != 0 || PickItem()) return;
-                foreach (Game member in Party.ToArray())
+                if (TickCount % 18 != 0) return;
+                var participants = new List<Game> { this };
+                bool allInside = TLBB.MapId == MAP.ThuyLao, combat = false, loot = false;
+                foreach (Game member in DungeonWindowSnapshot())
                 {
                     if (!CanActThuyLao()) return;
+                    if (member == null || member == this || participants.Contains(member)
+                        || !member.IsAuto || member.TLBB == null || member.TLBB.KeyId != TLBB.Id || member.TLBB.IsLeader) continue;
+                    participants.Add(member);
+                    allInside &= CanControlThuyLaoActor(member) && member.TLBB.MapId == MAP.ThuyLao;
                     RunThuyLaoMember(member);
                 }
                 if (!CanActThuyLao()) return;
+                BindDungeonParty(DungeonTask.ThuyLao, participants, CanControlThuyLaoActor);
                 if (TLBB.MapId != MAP.ThuyLao)
                 {
                     if (!DaNhanThuyLao) NhanThuyLao(); else DiThuyLao();
                     return;
                 }
-                if (Objects.NearMonter15m.Count > 0)
+                foreach (Game actor in participants)
                 {
-                    thuyLaoClearAt = ThuyLaoNow;
-                    if (TLBB.PlayerState == 0)
-                    {
-                        if (TLBB.IsFollow) StopFollow();
-                        if (CanActThuyLao() && TLBB.IsRide) DownRide();
-                    }
+                    if (!CanControlThuyLaoActor(actor) || actor.TLBB.MapId != MAP.ThuyLao) continue;
+                    combat |= actor.Objects.NearMonter20m.Count > 0 || actor.Objects.NearMonter15m.Count > 0
+                        || DungeonMovementPolicy.IsAttacking(actor.TLBB.PlayerState);
+                    if (actor.PickItem()) loot = true;
+                }
+                if (combat || loot)
+                {
+                    thuyLaoClearAt = thuyLaoStepStarted = ThuyLaoNow; thuyLaoReanchor = true;
+                    PrepareDungeonPatrol(DungeonTask.ThuyLao, participants, CanControlThuyLaoActor,
+                        ThuyLaoNow, thuyLaoClearAt, 2000, combat, loot, StopThuyLao);
                     return;
                 }
+                if (!allInside) { RegroupDungeonPatrol(participants, CanControlThuyLaoActor, ThuyLaoNow); return; }
                 if (ThuyLaoRouteFinished)
                 {
                     if (!WaitThuyLaoStep("AwaitCompletion")) return;
@@ -270,16 +333,10 @@ namespace TinhKiemAuto
                     return;
                 }
                 if (!WaitThuyLaoStep("Patrol") || ThuyLaoNow - thuyLaoClearAt <= 2000) return;
-                if (!IsRide && TLBB.HaveRide) { UpRide(); return; }
-                int savedIndex = MoveIndex;
-                try
-                {
-                    MoveIndex = thuyLaoRouteIndex;
-                    MoveNext();
-                    if (MoveIndex != thuyLaoRouteIndex) thuyLaoStepStarted = ThuyLaoNow;
-                    thuyLaoRouteIndex = MoveIndex;
-                }
-                finally { MoveIndex = savedIndex; }
+                if (!PrepareDungeonPatrol(DungeonTask.ThuyLao, participants, CanControlThuyLaoActor,
+                    ThuyLaoNow, thuyLaoClearAt, 2000, false, false, StopThuyLao)) return;
+                PatrolThuyLao();
+                RegroupDungeonPatrol(participants, CanControlThuyLaoActor, ThuyLaoNow);
             }
             catch (Exception error)
             {

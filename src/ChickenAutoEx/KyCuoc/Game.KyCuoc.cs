@@ -13,10 +13,10 @@ namespace TinhKiemAuto
         private readonly Dictionary<Game, KyCuocState> kyCuocMembers = new Dictionary<Game, KyCuocState>();
         private string kyCuocTeam;
         private long kyCuocPausedAt = -1, kyCuocPauseOffset;
-        private long KyCuocNow { get { return kyCuocClock.ElapsedMilliseconds - kyCuocPauseOffset; } }
+        private long KyCuocNow { get { return (kyCuocPausedAt >= 0 ? kyCuocPausedAt : kyCuocClock.ElapsedMilliseconds) - kyCuocPauseOffset; } }
         private void ObserveKyCuocPause()
         {
-            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || (TLBB != null && TLBB.PlayerState == 7);
+            bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap;
             long raw = kyCuocClock.ElapsedMilliseconds;
             if (pause && kyCuocPausedAt < 0) kyCuocPausedAt = raw;
             if (!pause && kyCuocPausedAt >= 0)
@@ -25,7 +25,7 @@ namespace TinhKiemAuto
         private KyCuocPhase kyCuocPhase;
         private long kyCuocBossDeadAt = -1;
         private const long KyCuocDialogTimeout = 60000, KyCuocTravelTimeout = 180000;
-        private const long KyCuocClearWait = 4000, KyCuocExitWait = 30000;
+        private const long KyCuocClearWait = 2000, KyCuocExitWait = 30000;
         private static readonly int[,] KyCuocRoute = { {42,42}, {84,42}, {81,81}, {42,85}, {50,49}, {71,50} };
         private enum KyCuocPhase { Entry, Patrol, WaitingExit, Exit }
         private sealed class KyCuocState
@@ -41,6 +41,7 @@ namespace TinhKiemAuto
 
         private void ResetKyCuocSession()
         {
+            ResetDungeonPatrol(DungeonTask.KyCuoc);
             kyCuocLeader = null;
             kyCuocMembers.Clear();
             kyCuocTeam = null;
@@ -61,7 +62,9 @@ namespace TinhKiemAuto
 
         private void StopKyCuoc(string reason)
         {
+            int[] stopped = CaptureDungeonStop(DungeonTask.KyCuoc, reason);
             IsKyCuoc = false;
+            dungeonPatrolDiagnostic = stopped;
             if (reason != null)
                 CanhBao.Msg("Trân Long Kỳ Cuộc", "Đã dừng Kỳ Cuộc: " + reason, CanhBao.Kieu.Eror);
         }
@@ -69,10 +72,10 @@ namespace TinhKiemAuto
         private bool CanControlKyCuoc(Game participant)
         {
             if (!IsKyCuoc || !IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader
-                || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || TLBB.PlayerState == 7 || TLBB.PlayerState == 9 || Global.Paused
+                || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || !DungeonMovementPolicy.CanObserve(TLBB.PlayerState) || Global.Paused
                 || ON_SCENE_TRANSING || IsChangeMap) return false;
             if (participant == null || !participant.IsAuto || !participant.IsInit || participant.TLBB == null || !participant.TLBB.Online
-                || participant.TLBB.PlayerState == 2 || participant.TLBB.PlayerState == 7 || participant.TLBB.PlayerState == 9
+                || !DungeonMovementPolicy.CanObserve(participant.TLBB.PlayerState)
                 || participant.IsTrungAc || participant.IsThuyLao
                 || participant.ON_SCENE_TRANSING || participant.IsChangeMap) return false;
             if (participant != this && participant.tranTime.Elapsed.TotalSeconds < 2.0) return false;
@@ -87,10 +90,11 @@ namespace TinhKiemAuto
             {
                 try
                 {
-                    InitializeKyCuocSession();
                     ObserveKyCuocPause();
+                    if (Global.Paused || ON_SCENE_TRANSING || IsChangeMap) return;
+                    InitializeKyCuocSession();
                     if (!IsAuto || TLBB == null || !TLBB.Online || !TLBB.IsLeader
-                        || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 2 || TLBB.PlayerState == 9 || !IsInit)
+                        || TLBB.Id != kyCuocTeam || TLBB.KeyId != kyCuocTeam || TLBB.PlayerState == 9 || !IsInit)
                     { StopKyCuoc(null); return; }
                     if (IsThuyLao || IsAcBa || IsLauLanTamBao || IsTrungAc || MapAcTac != 0 || MapTKC != 0
                         || IsQ123LauLan || IsQ123ToChau || IsYenTuO || IsPhungHoangLangMo || IsPMP || IsTuBaoBon)
@@ -158,7 +162,9 @@ namespace TinhKiemAuto
         private bool SendKyCuocDialog(Game participant, KyCuocState state, NPC npc, int option, int extra)
         {
             if (!CanControlKyCuoc(participant) || state.Selected) return false;
+            if (DungeonMovementPolicy.IsAttacking(participant.TLBB.PlayerState)) return false;
             if (!participant.GoTo(npc) || !HasKyCuocNpc(participant, npc)) return false;
+            if (!PrepareDungeonNpc(participant, CanControlKyCuoc, KyCuocNow)) return false;
             if (!participant.TLBB.IsQuestOpen)
             {
                 if (!state.TalkSent && CanControlKyCuoc(participant))
@@ -227,7 +233,6 @@ namespace TinhKiemAuto
             if (now - state.ProgressAt >= KyCuocTravelTimeout)
             { StopKyCuoc("không tiến triển trên tuyến tuần tra."); return; }
             if (!CanControlKyCuoc(this)) return;
-            if (!IsRide && TLBB.HaveRide) { UpRide(); return; }
             Move(KyCuocRoute[index,0], KyCuocRoute[index,1]);
         }
 
@@ -241,7 +246,7 @@ namespace TinhKiemAuto
                     CheckKyCuocSession();
                     if (!IsKyCuoc || !CanControlKyCuoc(this) || TickCount % 18 != 0) return;
                     var participants = new List<Game> { this };
-                    foreach (Game member in Party.ToArray())
+                    foreach (Game member in DungeonWindowSnapshot())
                     {
                         if (member == null || member == this || participants.Contains(member) || !member.IsAuto
                             || member.TLBB == null || member.TLBB.KeyId != TLBB.Id || member.TLBB.IsLeader) continue;
@@ -282,31 +287,37 @@ namespace TinhKiemAuto
                         if (state.Exited) continue;
                         ObserveKyCuocBoss(participant, state);
                         if (participant.TLBB.MapId == MAP.TranLongKyCuoc
-                            && participant.Objects.NearMonter20m.Count > 0)
+                            && (participant.Objects.NearMonter20m.Count > 0 || DungeonMovementPolicy.IsAttacking(participant.TLBB.PlayerState)))
                         {
                             combat = true;
-                            if (participant.TLBB.IsFollow && CanControlKyCuoc(participant)) participant.StopFollow();
-                            if (participant.IsRide && CanControlKyCuoc(participant)) participant.DownRide();
                         }
                         if (CanControlKyCuoc(participant) && participant.PickItem()) loot = true;
                     }
-                    if (!ready || !IsKyCuoc) return;
+                    if (!IsKyCuoc) return;
+                    BindDungeonParty(DungeonTask.KyCuoc, participants, CanControlKyCuoc);
                     if (combat)
                     {
                         kyCuocLeader.ClearAt = kyCuocLeader.ProgressAt = KyCuocNow;
                         kyCuocLeader.Reanchor = true;
-                        return;
+                        PrepareDungeonPatrol(DungeonTask.KyCuoc, participants, CanControlKyCuoc, KyCuocNow,
+                            kyCuocLeader.ClearAt, KyCuocClearWait, true, loot, StopKyCuoc);
+                        if (kyCuocPhase != KyCuocPhase.Entry) return;
                     }
-                    if (loot) { kyCuocLeader.ProgressAt = KyCuocNow; return; }
+                    if (loot && kyCuocPhase != KyCuocPhase.Entry)
+                    { kyCuocLeader.ProgressAt = KyCuocNow;
+                        PrepareDungeonPatrol(DungeonTask.KyCuoc, participants, CanControlKyCuoc, KyCuocNow,
+                            kyCuocLeader.ClearAt, KyCuocClearWait, false, true, StopKyCuoc); return; }
                     if (kyCuocPhase == KyCuocPhase.Entry)
                     {
-                        bool allInside = true, atDoor = true;
+                        bool allInside = ready, atDoor = ready;
                         foreach (Game participant in participants)
                         {
+                            if (!CanControlKyCuoc(participant)) { allInside = atDoor = false; continue; }
                             if (participant.TLBB.MapId == MAP.TranLongKyCuoc) continue;
                             allInside = false;
                             KyCuocState state = participant == this ? kyCuocLeader : kyCuocMembers[participant];
                             if (KyCuocTimeout(state, state.Selected ? KyCuocDialogTimeout : KyCuocTravelTimeout, "vào cửa")) return;
+                            if (DungeonMovementPolicy.IsAttacking(participant.TLBB.PlayerState)) { atDoor = false; continue; }
                             if (!state.Selected && CanControlKyCuoc(participant) && !participant.GoTo(LACDUONG.VuongTichTan)) atDoor = false;
                         }
                         if (!allInside)
@@ -322,6 +333,7 @@ namespace TinhKiemAuto
                         }
                         kyCuocPhase = KyCuocPhase.Patrol;
                     }
+                    if (!ready || combat || loot || !IsKyCuoc) return;
                     if (kyCuocBossDeadAt >= 0 && kyCuocPhase == KyCuocPhase.Patrol)
                         kyCuocPhase = KyCuocPhase.WaitingExit;
                     if (kyCuocPhase == KyCuocPhase.WaitingExit)
@@ -352,12 +364,11 @@ namespace TinhKiemAuto
                         if (allExited) { IsKyCuoc = false; IsXongKyCuoc = true; }
                         return;
                     }
+                    if (!PrepareDungeonPatrol(DungeonTask.KyCuoc, participants, CanControlKyCuoc, KyCuocNow,
+                        kyCuocLeader.ClearAt, KyCuocClearWait, false, false, StopKyCuoc)) return;
                     PatrolKyCuoc();
                     if (!IsKyCuoc) return;
-                    foreach (Game participant in participants)
-                        if (participant != this && CanControlKyCuoc(participant)
-                            && TINHKIEM.GetDistance(participant.CharX, participant.CharY, CharX, CharY) > 4f)
-                            participant.GoTo(CharX, CharY);
+                    RegroupDungeonPatrol(participants, CanControlKyCuoc, KyCuocNow);
                 }
                 catch (Exception error) { StopKyCuoc("lỗi đọc/xử lý " + error.GetType().Name + "."); }
             }

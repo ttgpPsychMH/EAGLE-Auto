@@ -25,13 +25,13 @@ namespace ChickenAutoEx.Startup.Tests
         }
 
         [Theory]
-        [InlineData(8.25f, 10f)] [InlineData(9f, 10f)] [InlineData(14f, 14f)]
+        [InlineData(8.25f, 9f)] [InlineData(9f, 9f)] [InlineData(14f, 14f)]
         public void ReadableFloorPreservesLargerSizes(float size, float expected) => Assert.Equal(expected, FontStylePolicy.PreservePointSize(size));
 
         [Theory]
         [InlineData(0f)] [InlineData(-1f)] [InlineData(float.NaN)]
         [InlineData(float.PositiveInfinity)] [InlineData(float.NegativeInfinity)]
-        public void InvalidPointSizeUsesReadableDefault(float size) => Assert.Equal(10f, FontStylePolicy.PreservePointSize(size));
+        public void InvalidPointSizeUsesReadableDefault(float size) => Assert.Equal(9f, FontStylePolicy.PreservePointSize(size));
 
         [Theory]
         [InlineData(0, 0, 0)] [InlineData(1, 1, 1)] [InlineData(2, 2, 2)]
@@ -56,7 +56,7 @@ namespace ChickenAutoEx.Startup.Tests
             dynamic f = AppearanceHarness.Create();
             f.Apply();
             Assert.True((bool)f.AllInitialFontsChanged);
-            Assert.Equal(10f, (float)f.Root.Font.SizeInPoints);
+            Assert.Equal(9f, (float)f.Root.Font.SizeInPoints);
             Assert.Equal(11f, (float)f.NestedControl.Font.SizeInPoints);
             Assert.Equal(3, (int)f.NestedControl.Font.Style);
             Assert.Equal(10.5f, (float)f.NestedItem.Font.SizeInPoints);
@@ -113,7 +113,7 @@ namespace ChickenAutoEx.Startup.Tests
             dynamic context = f.ReplaceContextMenu();
             Assert.Equal("Aptos", (string)context.Font.FamilyName);
             Assert.Equal("Aptos", (string)context.Items[0].Font.FamilyName);
-            Assert.Equal(10f, (float)context.Items[0].Font.SizeInPoints);
+            Assert.Equal(9.5f, (float)context.Items[0].Font.SizeInPoints);
         }
 
         [Fact]

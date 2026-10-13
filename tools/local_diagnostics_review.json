@@ -12,11 +12,11 @@
     "src/ChickenAutoEx/Diagnostics/ConsentSettings.cs": "41abc452a7b0c916994bad80d8a9028844bf28f1bbf56b062d90f2949318b727",
     "src/ChickenAutoEx/Diagnostics/DiagnosticRecorder.cs": "e803748dbaaa7743d98a4a9032477e0d969a87ec9fb7d851246c955e9e8db045",
     "src/ChickenAutoEx/Diagnostics/DiagnosticRowValidator.cs": "40fdd2a5026948ae386562b6acc024971abf1e6f14f2256d46bd119295c6c56c",
-    "src/ChickenAutoEx/Diagnostics/DiagnosticSchema.cs": "f29c37cb8d1ec2dd707340bf32f6b5ced329ff5d83bcd4cd17d1c48c5892e073",
-    "src/ChickenAutoEx/Diagnostics/DiagnosticsHost.cs": "887be5a6907d58d441b2aa57a0235368b9e43174f3907a2f479f20c4a7e70d85",
-    "src/ChickenAutoEx/Diagnostics/Game.LocalDiagnostics.cs": "8a540950afcb2d3a46de2bbd48f9368efefad5828b7283c31bcacbc705585f7c",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticSchema.cs": "dce38dfb7a44bffc226c09473b7fe81e744f0dd2ac354acaeb1a6e061c75c006",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticsHost.cs": "22e7ce6399e0c4b2cd78d2781c53c34212f4046e310360df3eb99f15b3ebf789",
+    "src/ChickenAutoEx/Diagnostics/Game.LocalDiagnostics.cs": "60a20d359d93b6a37c125566514389d5116fca9b268d9f1f8d0933059e4f3109",
     "src/ChickenAutoEx/Diagnostics/LocalDiagnostics.cs": "8bf1a130088c93b2a1241fe974cc70f2bb99a57d58c97b8dbb326258e0152cc6",
     "src/ChickenAutoEx/Diagnostics/RotatingDiagnosticStore.cs": "80c6bc3a947e73eabb1564d0c16fe30f6e1cd8244a3fa5a281983115cca63092",
-    "src/ChickenAutoEx/FrmMain.LocalDiagnostics.cs": "e2066c90dcd2173884e2f86b04c6595074b4031da1ed0b350bfb88396c07b95c"
+    "src/ChickenAutoEx/FrmMain.LocalDiagnostics.cs": "8d6b689599cc85b8b86f7bf4bcfe88fccaae44ec6add263ce9c5a6a678a82642"
   }
 }

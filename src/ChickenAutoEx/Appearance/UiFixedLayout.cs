@@ -27,7 +27,7 @@ namespace TinhKiemAuto.Appearance
         internal static bool Owns(Control control) { State state; return control != null && States.TryGetValue(control, out state); }
         internal static void RegisterTree(Control root)
         {
-            if (root == null || root.Name == "eagleDungeonDashboard") return;
+            if (root == null || root.Name == "eagleDungeonDashboard" || Equals(root.Tag, "compactGroup")) return;
             foreach (Control child in root.Controls) RegisterTree(child);
             if (!(root is GroupBox || root is TabPage || root.Name == "panel3")) return;
             var children = root.Controls.Cast<Control>().ToArray();

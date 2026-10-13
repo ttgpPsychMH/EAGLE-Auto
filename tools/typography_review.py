@@ -16,5 +16,6 @@ def restore_source(repo, path, text):
 
 
 def verify_sources(repo):
+    from dungeon_party_review import restore_source as restore_party
     for relative, expected in review_data(repo)['additional_source_hashes_lf'].items():
-        assert hashlib.sha256((repo / relative).read_text().encode()).hexdigest() == expected, relative
+        assert hashlib.sha256(restore_party(repo, relative).encode()).hexdigest() == expected, relative

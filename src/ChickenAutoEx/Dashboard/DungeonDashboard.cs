@@ -55,8 +55,6 @@ namespace TinhKiemAuto.Dashboard
         internal static DungeonView Evaluate(DungeonKind kind, DungeonContext context)
         {
             var view = new DungeonView { Context = context, State = "Chưa bật / đã dừng" };
-            if (kind == DungeonKind.ThuyLao)
-            { view.State = "Chưa khả dụng"; view.Reason = "Thủy Lao chưa được bật; cần xác nhận trên client riêng."; return view; }
             string reason = null;
             if (context == null || !context.SelectedPresent) reason = "Chọn một nhân vật trong danh sách.";
             else if (!context.ControllerPresent) reason = "Chưa có đội trưởng trong các cửa sổ game được nhận diện.";
@@ -99,7 +97,6 @@ namespace TinhKiemAuto.Dashboard
         { return DungeonDashboardPolicy.Evaluate(kind, port.Capture(kind)); }
         internal string Execute(DungeonKind kind, int option, bool start, DungeonBinding expected)
         {
-            if (kind == DungeonKind.ThuyLao) return "Thủy Lao chưa khả dụng.";
             if (!Enum.IsDefined(typeof(DungeonKind), kind) || (start && !DungeonDashboardPolicy.ValidOption(kind, option)))
                 return "Lựa chọn không hợp lệ; chưa đổi nhiệm vụ.";
             var view = Read(kind);

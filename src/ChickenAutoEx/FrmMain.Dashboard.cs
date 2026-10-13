@@ -55,8 +55,8 @@ namespace TinhKiemAuto
         {
             SuspendLayout();
             MaximumSize = Size.Empty;
-            MinimumSize = new Size(440, 520);
-            ClientSize = new Size(660, 800);
+            MinimumSize = new Size(350, 520);
+            ClientSize = new Size(350, 660);
             BackColor = Color.FromArgb(245, 247, 250);
 
             // Keep the seven legacy tabs in their original order (crafting/login use indexes).
@@ -187,6 +187,7 @@ namespace TinhKiemAuto
             dashboardReady = true;
             ApplyCharacterHeader(CharacterHeader.Empty(0));
             refresh.Start();
+            InitializeClassicLayout(header, listHost, metrics, toolbar);
             TinhKiemAuto.Appearance.UiFixedLayout.RegisterTree(TablControl);
             TinhKiemAuto.Appearance.UiFixedLayout.RegisterTree(panel3);
             ResumeLayout(true);
@@ -301,8 +302,8 @@ namespace TinhKiemAuto
             dungeonDashboardTab = new TabPage("Nhiệm vụ") { AutoScroll = true,
                 BackColor = Color.White, Font = new Font("Segoe UI", 9f), Name = "eagleDungeonDashboard" };
             var table = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true,
-                ColumnCount = 1, RowCount = 9, Padding = new Padding(8), MinimumSize = new Size(380, 0) };
-            foreach (int height in new[] { 32, 34, 34, 36, 36, 76, 44, 48, 48 })
+                ColumnCount = 1, RowCount = 9, Padding = new Padding(8), MinimumSize = new Size(280, 0) };
+            foreach (int height in new[] { 24, 28, 28, 26, 28, 42, 36, 36, 36 })
                 table.RowStyles.Add(new RowStyle(SizeType.Absolute, height));
             var sectionTitle = DashboardLabel("NHIỆM VỤ – PHÓ BẢN");
             sectionTitle.Name = "sectionDungeons";

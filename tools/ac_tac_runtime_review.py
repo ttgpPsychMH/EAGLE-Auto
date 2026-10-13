@@ -13,5 +13,6 @@ def apply_review(repo, text, reverse=False):
         before, after = (selected['reviewed'], selected['original']) if reverse else (selected['original'], selected['reviewed'])
         text = text.replace(before, after, 1)
     for path, expected in review['additional_source_hashes_lf'].items():
-        assert hashlib.sha256((repo / path).read_text().encode()).hexdigest() == expected, path
+        from dungeon_party_review import restore_source
+        assert hashlib.sha256(restore_source(repo, path).encode()).hexdigest() == expected, path
     return text

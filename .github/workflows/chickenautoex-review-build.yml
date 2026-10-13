@@ -16,6 +16,7 @@ on:
       - 'analysis/trung-ac/**'
       - 'analysis/ac-tac/**'
       - 'analysis/ac-ba/**'
+      - 'analysis/dungeon-party-v015/**'
       - 'assets/branding/**'
       - 'src/ChickenAutoEx/**'
       - 'tests/ChickenAutoEx.Startup.Tests/**'
@@ -78,6 +79,8 @@ jobs:
         run: python tools/check_ac_tac_runtime_baseline.py
       - name: Reproduce eight Ac Ba regressions on reviewed v0.5 source
         run: python tools/check_ac_ba_baseline.py
+      - name: Reproduce four moving-state cancellation regressions on v0.14
+        run: python tools/check_dungeon_party_baseline.py
       - name: Verify PE, preserved binaries and licensing source
         run: .build/build-venv/bin/python tools/verify_build.py
       - name: Test dashboard adapter, updater, dungeons, hooks and native envelope fixtures
@@ -100,6 +103,7 @@ jobs:
             .build/test-results/ac-tac-baseline-summary.json
             .build/test-results/ac-tac-runtime-baseline-summary.json
             .build/test-results/ac-ba-baseline-summary.json
+            .build/test-results/dungeon-party-baseline-summary.json
             .build/native-reader-simulation/summary.json
           include-hidden-files: true
           if-no-files-found: error
@@ -113,32 +117,13 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          v0.14 repairs Ac Tac team coordination, entry starvation, transient reads and movement ownership.
-          AC-TAC-RUNTIME.vi.md explains supervised Windows checks and manual alternatives for private-client incompatibilities.
-          Ac Tac task reasons/counts are recorded as bounded anonymous CSV fields; nothing is uploaded.
-          v0.13 sizes legacy settings rows/columns from captions and fonts; tabs/shared controls use 11pt bold Heading 1.
-          About includes local Aptos folder selection; font binaries are not distributed.
-          LAYOUT-APTOS.vi.md explains the Windows/DPI checks and font EULA.
-          v0.12 Vietnamese fixed UI copy and the 10pt body floor remain included.
-          Game names, inputs, configuration values and automation engines are preserved.
-          TYPOGRAPHY.vi.md describes Windows 11/DPI checks; browser preview uses fake data only.
-          v0.11 opt-in local diagnostics remain included: consent, bounded CSV logs and sanitized errors/states.
-          The module uploads nothing; Windows runtime/consent interaction still needs validation.
-          LOCAL-DIAGNOSTICS.vi.md explains how to use it without commands.
-          Eagle/Aptos appearance, unrelated dungeon modules, native DLL and licensing behavior are preserved.
-          The package includes APPEARANCE.vi.md, Fonts/README.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
-          Font binaries are not redistributed; supply local Aptos files or use installed Aptos.
-          WinForms layout, DPI and game integration require Windows validation.
-          The isolated updater, UI/settings, dungeon menu, five dungeon simulations tests ran; no game automation executable was executed.
-          The Thuy Lao menu remains unavailable pending private-client validation; four Thuy Lao, six Ky Cuoc/pet AOE and eleven Trung Ac legacy regressions were reproduced, plus nine v0.3 re-audit controls and thirteen Ac Tac v0.4 controls.
-          Trung Ac controls the selected character; quest/NPC/token/reward semantics still need private-client validation.
-          Ky Cuoc patrol, control and exit changes need supervised testing on the actual private client; map/NPC/dialog values retain the legacy baseline.
-          Ac Tac keeps legacy map170/route14/option50013; it stops on missing boss/map confirmation, without guessing an exit or claiming rewards.
-          Ac Ba adds explicit-codec system notice detection and manual school selection; client framing, NPC, entrance conditions and exit remain subject to private-client validation.
-          Eight Ac Ba v0.5 controls reproduced the old failures.
-          Managed hook diagnostics distinguish queue acceptance from native ACK and data observation.
-          A portable C++ native-reader model and its C# envelope decoder were exercised with synthetic data only.
-          The original EasyHook.dll is unchanged; native ABI and Windows hook behavior remain untested.
-          The package includes the Windows test guide and inherits the original application's embedded constants.
-          Do not submit game credentials or use this build as a validated release.
+          v0.15 corrects moving/attacking state guards in Ky Cuoc, Ac Tac, Ac Ba and Thuy Lao.
+          Shared patrol observes mount/follow/unfollow/dismount/stop before advancing; missing follow ACK has a same-map fallback.
+          Configured skills remain available in confirmed combat, separately from ordinary travel exclusion.
+          Four compact main tabs retain all legacy settings via File > Advanced; EAGLE logo and local Aptos remain.
+          Thuy Lao is enabled for experimental testing; NPC/map/options and native DLL remain unchanged.
+          TEAM-PATROL.vi.md explains supervised Windows checks and manual alternatives.
+          Opt-in diagnostics record bounded anonymous team phases/counts locally; nothing is uploaded.
+          Font binaries are not distributed. Windows rendering, native ACK and actual game behavior require validation.
+          Original binaries, stable 116 and licensing/VIP behavior are preserved by exact source reversal and hashes.
           SUMMARY

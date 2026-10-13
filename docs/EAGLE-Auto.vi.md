@@ -1,5 +1,7 @@
 # EAGLE Auto — tên file và version
 
+**Hiện tại: [v0.15 — tổ đội bốn phó bản và giao diện bốn tab](EAGLE-Auto-TEAM-PATROL.vi.md).** Những mục phiên bản thấp hơn dưới đây mô tả lịch sử.
+
 Ngày cập nhật: 13-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.13**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
 
 Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.13 dùng `EAGLE-Auto-v0.13.exe` và `EAGLE-Auto-v0.13.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.

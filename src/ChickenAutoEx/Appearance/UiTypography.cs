@@ -13,13 +13,14 @@ namespace TinhKiemAuto.Appearance
         internal static void Apply(Control control)
         {
             if (control == null || control.IsDisposed) return;
+            bool compact = control.FindForm() is FrmMain && ((FrmMain)control.FindForm()).CompactUiReady;
             var tabs = control as TabControl;
             if (tabs != null)
             {
                 // Header uses TabControl.Font; page fonts keep content regular.
                 foreach (TabPage page in tabs.TabPages)
-                    page.Font = AppAppearance.GetFont(10f, FontStyle.Regular);
-                tabs.Font = AppAppearance.GetFont(11f, FontStyle.Bold);
+                    page.Font = AppAppearance.GetFont(compact ? 9f : 10f, FontStyle.Regular);
+                tabs.Font = AppAppearance.GetFont(compact ? 9f : 11f, compact ? FontStyle.Regular : FontStyle.Bold);
                 return;
             }
             if (control is TextBoxBase || control is ComboBox || control is ListControl) return;
@@ -46,16 +47,16 @@ namespace TinhKiemAuto.Appearance
                 if (form == null || !UiCopyCatalog.StaticLabels.Contains(form.GetType().Name + ":" + control.Name)) return;
             }
             string rendered;
-            if (!UiCopyPolicy.TryFormat(control.Text, role, out rendered)) return;
+            if (!UiCopyPolicy.TryFormat(control.Text, compact && control is TabPage ? CopyRole.Body : role, out rendered)) return;
             state.Updating = true;
             try
             {
                 if (control.Text != rendered) control.Text = rendered;
-                float minimum = role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f;
+                float minimum = compact ? 9f : role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f;
                 FontStyle style = control.Font.Style;
-                if (role == CopyRole.Heading1) style |= FontStyle.Bold;
+                if (role == CopyRole.Heading1 && !compact) style |= FontStyle.Bold;
                 if (!(control is TabPage))
-                    control.Font = AppAppearance.GetFont(Math.Max(control.Font.SizeInPoints, minimum), style);
+                    control.Font = AppAppearance.GetFont(compact ? minimum : Math.Max(control.Font.SizeInPoints, minimum), style);
                 EnsureRoom(control);
                 UiFixedLayout.Refresh(control.Parent);
             }
@@ -64,6 +65,7 @@ namespace TinhKiemAuto.Appearance
         internal static void Apply(ToolStripItem item)
         {
             if (item == null || item.IsDisposed || item is ToolStripTextBox || item is ToolStripComboBox || item is ToolStripStatusLabel) return;
+            bool compact = item.Owner != null && item.Owner.FindForm() is FrmMain && ((FrmMain)item.Owner.FindForm()).CompactUiReady;
             var state = Items.GetValue(item, key => new State());
             if (state.Updating) return;
             if (!state.Hooked)
@@ -81,8 +83,8 @@ namespace TinhKiemAuto.Appearance
             state.Updating = true;
             try {
                 if (item.Text != rendered) item.Text = rendered;
-                item.Font = AppAppearance.GetFont(Math.Max(item.Font.SizeInPoints, role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f),
-                    role == CopyRole.Heading1 ? item.Font.Style | FontStyle.Bold : item.Font.Style);
+                item.Font = AppAppearance.GetFont(compact ? 9f : Math.Max(item.Font.SizeInPoints, role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f),
+                    role == CopyRole.Heading1 && !compact ? item.Font.Style | FontStyle.Bold : item.Font.Style);
             } finally { state.Updating = false; }
         }
         private static void EnsureRoom(Control control)

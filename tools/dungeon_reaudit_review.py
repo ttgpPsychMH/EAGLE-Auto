@@ -4,7 +4,8 @@ import json
 
 
 def baseline_partial(repo, path):
-    text = (repo / path).read_text(encoding="utf-8")
+    from dungeon_party_review import restore_source
+    text = restore_source(repo, path)
     reviews = json.loads((repo / "tools/dungeon_reaudit_review.json").read_text())
     entry = reviews["partials"].get(path)
     if entry is None:

@@ -18,6 +18,8 @@ def apply_ui_hook(text, count, reverse=False):
 
 
 def restore_direct_source(repo, path, text):
+    from dungeon_party_review import restore_source
+    text = restore_source(repo, path, text)
     from typography_review import restore_source as restore_typography
     text = restore_typography(repo, path, text)
     from local_diagnostics_review import restore_source
@@ -48,11 +50,12 @@ def write_ui_sources(repo, prepared):
 
 
 def verify_ui_sources(repo):
+    from dungeon_party_review import restore_source as restore_party
     from typography_review import verify_sources
     verify_sources(repo)
     layout = json.loads((repo / "tools/layout_review.json").read_text())
     for relative, expected in layout["additional_source_hashes_lf"].items():
-        assert hashlib.sha256((repo / relative).read_text().encode()).hexdigest() == expected, relative
+        assert hashlib.sha256(restore_party(repo, relative).encode()).hexdigest() == expected, relative
     review = review_data(repo)
     root = repo / '.build/chickenautoex/appearance'
     assert {str(p.relative_to(root)) for p in root.rglob('*.cs')} == set(review['recovered_ui_sources'])
@@ -65,5 +68,5 @@ def verify_ui_sources(repo):
     for relative, expected in review['assets_sha256'].items():
         assert hashlib.sha256((repo / relative).read_bytes()).hexdigest() == expected, relative
     for relative, expected in review['additional_source_hashes_lf'].items():
-        assert hashlib.sha256((repo / relative).read_text().encode()).hexdigest() == expected, relative
+        assert hashlib.sha256(restore_party(repo, relative).encode()).hexdigest() == expected, relative
     return len(review['recovered_ui_sources'])

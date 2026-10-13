@@ -10,14 +10,15 @@ namespace TinhKiemAuto.Diagnostics
         Travel, AutoLogin, TrungAc, ThuyLao, KyCuoc, AcTac, AcBa, Hook }
     public enum DiagnosticEvent { SessionStarted, FeatureState, Warning, ExceptionObserved, UnhandledException,
         ProcessSample, InterfaceSample, HookCounter, SamplesDropped, QueueSamplesDropped, ErrorSamplesDropped,
-        TaskState, TaskReady, TaskInside, TaskCombatHold, TaskProgress }
+        TaskState, TaskReady, TaskInside, TaskCombatHold, TaskProgress, TeamPatrolState, TeamPatrolReady,
+        TeamPatrolFollowing, TeamPatrolMounted, TeamPatrolMoving }
     public enum DiagnosticErrorKind { None, NullReference, InvalidOperation, Argument, Index, IO, Access,
         Timeout, Win32, Format, Other }
     public enum DiagnosticReason { None, OtherWarning, WaitingTimeout, MissingTarget, InvalidState, TeamChanged,
         AutoDisabled, SessionCleared, NotInitialized, NotOnline, MissingIdentity, LeaderUnconfirmed,
         CharacterUnavailable, SceneTransition, OtherTask, ReadFailure, SnapshotUnavailable,
         EntrancePending, CombatHold, LootHold, NoProgress, BossPending, ExitPending, CompletedMapReturn,
-        DialogPending, OptionMissing }
+        DialogPending, OptionMissing, CommandPending, CombatDisabled }
 
     public static class DiagnosticSchema
     {
@@ -64,6 +65,7 @@ namespace TinhKiemAuto.Diagnostics
         {
             // Only map existing in-memory text to a finite code. Never return or retain it.
             if (Has(warning, "thời gian chờ", "timeout", "Timeout")) return DiagnosticReason.WaitingTimeout;
+            if (Has(warning, "chưa xác nhận bước cưỡi/theo/dừng")) return DiagnosticReason.CommandPending;
             if (Has(warning, "không có mục tiêu", "thiếu mục tiêu", "thiếu NPC", "NPC vào cửa")) return DiagnosticReason.MissingTarget;
             if (Has(warning, "đội đã thay đổi", "đội thay đổi", "nhân vật đã thay đổi", "rời đội")) return DiagnosticReason.TeamChanged;
             if (Has(warning, "không hợp lệ", "không có tuyến", "thiếu tuyến")) return DiagnosticReason.InvalidState;

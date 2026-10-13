@@ -59,7 +59,7 @@ namespace TinhKiemAuto.Appearance {
  [Flags]public enum TextFormatFlags{NoPrefix=1,WordBreak=2,SingleLine=4}
  public class Font {public float Size=10;public float GetHeight()=>Size*1.5f;public float GetHeight(float dpi)=>GetHeight();}
  public static class TextRenderer {public static Size MeasureText(string text,Font font,Size limit,TextFormatFlags flags)=>new Size((int)Math.Ceiling(text.Length*font.Size*.7f),(int)Math.Ceiling(font.GetHeight()));}
- public class Control {
+ public class Control { public object Tag;
   public string Name="""",Text="""";public int Left,Top,Width=80,Height=20,DeviceDpi=96;public Font Font=new Font();
   public bool IsDisposed,IsHandleCreated,InvokeRequired;public DockStyle Dock;public AnchorStyles Anchor=AnchorStyles.Top|AnchorStyles.Left;
   public Control Parent;public List<Control> Controls=new List<Control>();public Size ClientSize=>new Size(Width,Height);public Size MinimumSize;

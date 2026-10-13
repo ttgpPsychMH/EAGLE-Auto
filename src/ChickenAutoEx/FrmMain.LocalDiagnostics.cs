@@ -30,7 +30,7 @@ namespace TinhKiemAuto
                     diagnosticAliases.Add(game, alias = new DiagnosticAlias { Value = ++nextDiagnosticAlias });
                 }
                 result.Add(new DiagnosticWindow { Alias = alias.Value, Pid = game.ProcessId,
-                    Flags = game.DiagnosticFlags(), Phases = game.DiagnosticPhases(), AcTac = game.DiagnosticAcTac() });
+                    Flags = game.DiagnosticFlags(), Phases = game.DiagnosticPhases(), AcTac = game.DiagnosticAcTac(), TeamPatrol = game.DiagnosticTeamPatrol() });
             }
             return result.ToArray();
         }

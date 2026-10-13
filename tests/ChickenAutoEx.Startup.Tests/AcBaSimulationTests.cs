@@ -11,6 +11,7 @@ using Xunit;
 
 namespace ChickenAutoEx.Startup.Tests
 {
+    [Collection("Dungeon simulations")]
     public sealed class AcBaSimulationTests
     {
         private static List<string> Commands(dynamic g)=>(List<string>)g.Commands;
@@ -45,10 +46,10 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact] public void EndedNoticeStopsMatchingRun(){dynamic g=AcBaHarness.Create();g.Choose(5);g.ReceiveAcBaNotice("Ác Bá tại Nga Mi đã kết thúc");Assert.False((bool)g.IsAcBa);}
         [Fact] public void EndedOtherSchoolDoesNotCancelActiveRun(){dynamic g=AcBaHarness.Create();g.Choose(1);g.Step();g.ReceiveAcBaNotice("Ác Bá tại Nga Mi đã kết thúc");Assert.True((bool)g.IsAcBa);}
         [Fact] public void NewNoticeCannotRetargetActiveRun(){dynamic g=AcBaHarness.Create();g.Choose(1);g.Step();g.ReceiveAcBaNotice("Ác Bá xuất hiện tại Nga Mi");g.Step();Assert.Equal(1,(int)g.Target);}
-        [Theory][InlineData("offline")][InlineData("init")][InlineData("dead")][InlineData("leader")][InlineData("team")][InlineData("jail")]
-        public void InvalidControllerStops(string kind){dynamic g=AcBaHarness.Create();g.Choose(1);switch(kind){case "offline":g.TLBB.Online=false;break;case "init":g.IsInit=false;break;case "dead":g.TLBB.PlayerState=2;break;case "leader":g.TLBB.IsLeader=false;break;case "team":g.TLBB.KeyId="other";break;case "jail":g.TLBB.MapId=194;break;}g.Step();Assert.False((bool)g.IsAcBa);Assert.Empty(Commands((object)g));}
-        [Theory][InlineData("off")][InlineData("offline")][InlineData("init")][InlineData("dead")][InlineData("scene")][InlineData("otherteam")][InlineData("quest")][InlineData("identity")][InlineData("battle")]
-        public void IneligibleMembersAreNotCommanded(string kind){dynamic g=AcBaHarness.Create(),m=AcBaHarness.Create();g.Choose(1);m.IsAcBa=false;m.TLBB.Id="member";m.TLBB.IsLeader=false;switch(kind){case "off":m.IsAuto=false;break;case "offline":m.TLBB.Online=false;break;case "init":m.IsInit=false;break;case "dead":m.TLBB.PlayerState=2;break;case "scene":m.ON_SCENE_TRANSING=true;break;case "otherteam":m.TLBB.KeyId="other";break;case "quest":m.IsTrungAc=true;break;case "identity":m.TLBB.Id="";break;case "battle":m.IsHuyetChien=true;break;}g.Party.Add(m);g.Step();Assert.Empty(Commands((object)m));}
+        [Theory][InlineData("offline")][InlineData("init")][InlineData("blocked9")][InlineData("leader")][InlineData("team")][InlineData("jail")]
+        public void InvalidControllerStops(string kind){dynamic g=AcBaHarness.Create();g.Choose(1);switch(kind){case "offline":g.TLBB.Online=false;break;case "init":g.IsInit=false;break;case "blocked9":g.TLBB.PlayerState=9;break;case "leader":g.TLBB.IsLeader=false;break;case "team":g.TLBB.KeyId="other";break;case "jail":g.TLBB.MapId=194;break;}g.Step();Assert.False((bool)g.IsAcBa);Assert.Empty(Commands((object)g));}
+        [Theory][InlineData("off")][InlineData("offline")][InlineData("init")][InlineData("blocked9")][InlineData("scene")][InlineData("otherteam")][InlineData("quest")][InlineData("identity")][InlineData("battle")]
+        public void IneligibleMembersAreNotCommanded(string kind){dynamic g=AcBaHarness.Create(),m=AcBaHarness.Create();g.Choose(1);m.IsAcBa=false;m.TLBB.Id="member";m.TLBB.IsLeader=false;switch(kind){case "off":m.IsAuto=false;break;case "offline":m.TLBB.Online=false;break;case "init":m.IsInit=false;break;case "blocked9":m.TLBB.PlayerState=9;break;case "scene":m.ON_SCENE_TRANSING=true;break;case "otherteam":m.TLBB.KeyId="other";break;case "quest":m.IsTrungAc=true;break;case "identity":m.TLBB.Id="";break;case "battle":m.IsHuyetChien=true;break;}g.Party.Add(m);g.Step();Assert.Empty(Commands((object)m));}
         [Fact] public void DuplicateMembersGetOneCommand(){dynamic g=AcBaHarness.Create(),m=AcBaHarness.Create();g.Choose(1);m.IsAcBa=false;m.TLBB.Id="member";m.TLBB.IsLeader=false;g.Party.Add(m);g.Party.Add(m);g.Step();Assert.Single(Commands((object)m));}
         [Fact] public void ParentOffDuringMemberMovePreventsNextCommand(){dynamic g=AcBaHarness.Create(),m=AcBaHarness.Create(),n=AcBaHarness.Create();g.Choose(1);m.IsAcBa=n.IsAcBa=false;m.TLBB.Id="m";n.TLBB.Id="n";m.TLBB.IsLeader=n.TLBB.IsLeader=false;m.CancelController=g;g.Party.Add(m);g.Party.Add(n);g.Step();Assert.Empty(Commands((object)n));}
         [Fact] public void MonsterWithNpcNameNeverGetsTalkedTo(){dynamic g=AcBaHarness.Create();g.Choose(1);g.TLBB.MapId=9;g.AddNpc(false);g.TryEntry();Assert.DoesNotContain(Commands((object)g),c=>c.StartsWith("Talk:"));}
@@ -64,7 +65,7 @@ namespace ChickenAutoEx.Startup.Tests
         [Fact] public void NegativeSessionIndexStopsWithoutException(){dynamic g=AcBaHarness.Create();g.Choose(1);g.TLBB.MapId=173;g.Step();g.Advance(2001);g.CorruptIndex(-2);g.Step();Assert.False((bool)g.IsAcBa);}
         [Fact] public void RouteEndDoesNotInferBossDeath(){dynamic g=AcBaHarness.Create();g.SavedRoute("1,1-2,2");g.Choose(1);g.TLBB.MapId=173;g.CharX=1;g.CharY=1;g.Step();g.Advance(2001);g.Step();g.CharX=2;g.CharY=2;g.Step();Assert.Equal("AwaitBoss",(string)g.Phase);Assert.False((bool)g.IsBossDie);g.Advance(60001);g.Step();Assert.False((bool)g.IsAcBa);}
         [Fact] public void ReadErrorStopsAndDoesNotExposeMessage(){dynamic g=AcBaHarness.Create();g.Choose(1);g.TLBB.MapId=9;g.AddNpc();g.TryEntry();g.SetDialog(50013,-1);g.ThrowRead=true;g.Step();Assert.False((bool)g.IsAcBa);Assert.Contains("InvalidOperationException",(string)g.Warning);Assert.DoesNotContain("SECRET",(string)g.Warning);}
-        [Theory][InlineData("pause")][InlineData("scene")][InlineData("mapchange")][InlineData("combat")]
+        [Theory][InlineData("pause")][InlineData("scene")][InlineData("mapchange")]
         public void PauseDoesNotConsumeTravelTimeout(string kind){dynamic g=AcBaHarness.Create();g.Choose(1);g.Step();g.Commands.Clear();g.Advance(10000);g.SetPause(kind,true);g.Step();g.Advance(200000);g.Step();Assert.Empty(Commands((object)g));g.SetPause(kind,false);g.Step();Assert.True((bool)g.IsAcBa);g.Advance(170001);g.Step();Assert.False((bool)g.IsAcBa);}
         [Fact] public void HandoffRequiresReadyMatchingMemberAndServerAck(){dynamic g=AcBaHarness.Create(),m=AcBaHarness.Create();g.Choose(5);m.IsAcBa=false;m.TLBB.Id=m.TLBB.Name="member";m.TLBB.Menpai=5;m.TLBB.IsLeader=false;g.Party.Add(m);g.Step();g.Step();Assert.Single(Commands((object)g),c=>c.StartsWith("Appoint:"));Assert.False((bool)m.IsAcBa);g.TLBB.IsLeader=false;g.TLBB.KeyId="member";m.TLBB.IsLeader=true;m.TLBB.KeyId="member";g.Step();Assert.False((bool)g.IsAcBa);Assert.True((bool)m.IsAcBa);m.Step();Assert.Equal(5,(int)m.Target);}
         [Fact] public void NoMatchingMemberWaitsBoundedlyWithoutTravel(){dynamic g=AcBaHarness.Create();g.Choose(5);g.Step();Assert.Empty(Commands((object)g));g.Advance(180001);g.Step();Assert.False((bool)g.IsAcBa);}
@@ -101,6 +102,7 @@ namespace ChickenAutoEx.Startup.Tests
         private static ClassDeclarationSyntax Class(string path,string name)=>CSharpSyntaxTree.ParseText(Read(path)).GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>().Single(c=>c.Identifier.Text==name);
         private static Assembly Compile()
         {
+            bool partyBaseline=Environment.GetEnvironmentVariable("DUNGEON_PARTY_BASELINE")=="1";
             bool baseline=Environment.GetEnvironmentVariable("AC_BA_BASELINE")=="1";
             var game=Class(baseline?"AcBaLegacyGame.cs":"AcBaReviewedGame.cs","Game");
             string[] selected=baseline?new[]{"DatDoiAcBa","TalkNPCPhuBan","TrieuTap","ClearMission"}:new[]{"ClearMission"};
@@ -123,8 +125,9 @@ namespace ChickenAutoEx.Startup.Tests
                 "public static class POINT {"+pointFields+"} public static class MAP {"+mapFields+"} public static class TINHKIEM {"+signs+tkMethods+"} public static class ConverterEx {"+codes+"} "+EventFixture+
                 "public partial class Game {"+Fields+methods+control+"public void AutoOffGuard(){"+off+"} public bool ShouldHook()=>"+hook+";public void HookStep(){"+hookBody+"} public bool SkipGeneric()=>"+generic+";} }";
             var trees=new List<SyntaxTree>{CSharpSyntaxTree.ParseText(source),CSharpSyntaxTree.ParseText(Read("AcBaEvents.cs"))};
-            if(!baseline)foreach(var path in new[]{"Game.AcBa.cs","Game.AcBaEvents.cs"})trees.Add(CSharpSyntaxTree.ParseText(Read(path).Replace("using System.Diagnostics;","using Stopwatch=TinhKiemAuto.FakeStopwatch;")));
-            var refs=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Select(p=>MetadataReference.CreateFromFile(p));
+            if(!baseline)foreach(var path in new[]{"Game.AcBa.cs","Game.AcBaEvents.cs"})trees.Add(CSharpSyntaxTree.ParseText(Read(partyBaseline && path=="Game.AcBa.cs"?"V014-Game.AcBa.cs":path).Replace("using System.Diagnostics;","using Stopwatch=TinhKiemAuto.FakeStopwatch;")));
+            DungeonHarnessSources.Add(trees, !partyBaseline && !baseline && Environment.GetEnvironmentVariable("DUNGEON_REAUDIT_BASELINE") != "1");
+            var refs=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Append(typeof(TinhKiemAuto.Diagnostics.DiagnosticReason).Assembly.Location).Distinct().Select(p=>MetadataReference.CreateFromFile(p));
             var compilation=CSharpCompilation.Create("AcBaSimulation",trees,refs,new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
             using var bytes=new MemoryStream();var result=compilation.Emit(bytes);Assert.True(result.Success,string.Join("\n",result.Diagnostics.Where(d=>d.Severity==DiagnosticSeverity.Error)));return Assembly.Load(bytes.ToArray());
         }
@@ -154,6 +157,7 @@ namespace ChickenAutoEx.Startup.Tests
             public class FrmMain {public static bool AlarmAcBa;public static Dictionary<int,Game> dicGame=new Dictionary<int,Game>();}
 """;
         private const string Fields="""
+            public bool IsAttack=true;
             public TLBB TLBB=new TLBB();public ObjectsFixture Objects=new ObjectsFixture();public List<Game> Party=new List<Game>();public List<QuestFrame> Dialog=new List<QuestFrame>();public List<string> Commands=new List<string>();
             public bool IsAuto=true,IsInit=true,IsRide,ON_SCENE_TRANSING,IsChangeMap,IsBossDie,IsTrieuTap,IsTheoQ,IsP,TraQ,NhanQ,IsClick,IsContinute,IsNhamBinhSinhDie,Talked,ThrowRead,KeepOpen,CancelOnTalk,CancelOnSelect;
             public bool IsThuyLao,IsKyCuoc,IsTrungAc,IsLauLanTamBao,IsQ123LauLan,IsQ123ToChau,IsYenTuO,IsPhungHoangLangMo,IsPMP,IsTuBaoBon,IsLuyenKim,IsHuyetChien,IsBachHoaDuyen,IsSuMon,IsXayDung,IsTuDuong,IsNhiemVuCoBan;

@@ -8,7 +8,7 @@ namespace TinhKiemAuto.Appearance
     {
         internal const string PreferredFamily = "Aptos";
         internal const string FallbackFamily = "Segoe UI";
-        internal const float DefaultPointSize = 10f;
+        internal const float DefaultPointSize = 9f;
 
         internal static string ResolveFamilyName(bool privateAptosAvailable, bool installedAptosAvailable)
         {

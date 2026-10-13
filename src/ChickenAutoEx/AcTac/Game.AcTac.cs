@@ -77,6 +77,7 @@ namespace TinhKiemAuto
 
         private void ResetAcTacSession()
         {
+            ResetDungeonPatrol(DungeonTask.AcTac);
             foreach (Game actor in acTacActors.Keys)
                 if (actor.acTacCoordinator == this) actor.acTacCoordinator = null;
             acTacActors.Clear();
@@ -98,10 +99,13 @@ namespace TinhKiemAuto
 
         private void StopAcTac(string reason, DiagnosticReason code = DiagnosticReason.InvalidState)
         {
+            int[] teamStopped = CaptureDungeonStop(DungeonTask.AcTac, reason);
+            teamStopped[8] = (int)code;
             int[] stopped = new[] { (int)acTacPhase, 0, acTacParticipantCount, acTacReadyCount,
                 acTacInsideCount, acTacCombatCount, acTacMovingCount, (int)code };
             MapAcTac = 0;
             acTacDiagnostic = stopped;
+            dungeonPatrolDiagnostic = teamStopped;
             if (reason != null) CanhBao.Msg("Ác Tặc", "Đã dừng Ác Tặc: " + reason, CanhBao.Kieu.Eror);
         }
 
@@ -135,10 +139,10 @@ namespace TinhKiemAuto
         {
             if (MapAcTac == 0 || !IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader
                 || TLBB.Id != acTacOwner || TLBB.KeyId != acTacTeam || acTacTeam != acTacOwner
-                || acTacUnconfirmedAt >= 0 || TLBB.PlayerState != 0 || Global.Paused || ON_SCENE_TRANSING || IsChangeMap || AcTacConflict(this)) return false;
+                || acTacUnconfirmedAt >= 0 || !DungeonMovementPolicy.CanObserve(TLBB.PlayerState) || Global.Paused || ON_SCENE_TRANSING || IsChangeMap || AcTacConflict(this)) return false;
             if (actor == null || !actor.IsAuto || !actor.IsInit || actor.TLBB == null || !actor.TLBB.Online
                 || string.IsNullOrEmpty(actor.TLBB.Id)
-                || actor.TLBB.PlayerState != 0 || actor.ON_SCENE_TRANSING || actor.IsChangeMap || AcTacConflict(actor)) return false;
+                || !DungeonMovementPolicy.CanObserve(actor.TLBB.PlayerState) || actor.ON_SCENE_TRANSING || actor.IsChangeMap || AcTacConflict(actor)) return false;
             AcTacActor state;
             if (acTacActors.TryGetValue(actor, out state) && state.CharacterId != actor.TLBB.Id) return false;
             return actor == this || (!actor.TLBB.IsLeader && actor.TLBB.KeyId == acTacOwner
@@ -165,13 +169,13 @@ namespace TinhKiemAuto
                     { StopAcTac("nhân vật hoặc đội trưởng đã thay đổi.", DiagnosticReason.TeamChanged); return; }
                     if (!TLBB.IsLeader || TLBB.KeyId != TLBB.Id)
                     { WaitAcTacRead(DiagnosticReason.LeaderUnconfirmed); return; }
-                    if (TLBB.PlayerState == 2 || TLBB.PlayerState == 9 || TLBB.MapId == MAP.GiamNguc)
+                    if (TLBB.PlayerState == 9 || TLBB.MapId == MAP.GiamNguc)
                     { StopAcTac("nhân vật đang ở trạng thái không thể tiếp tục nhiệm vụ.", DiagnosticReason.CharacterUnavailable); return; }
                     if (acTacOwner == null) { acTacOwner = TLBB.Id; acTacTeam = TLBB.KeyId; }
                     acTacUnconfirmedAt = -1;
                     if (AcTacConflict(this)) { StopAcTac("đang có nhiệm vụ khác.", DiagnosticReason.OtherTask); return; }
-                    PauseAcTacClock(TLBB.PlayerState == 7 || acTacSnapshotAt >= 0);
-                    if (TLBB.PlayerState != 0) PublishAcTac(DiagnosticReason.CharacterUnavailable);
+                    PauseAcTacClock(acTacSnapshotAt >= 0);
+                    if (!DungeonMovementPolicy.CanObserve(TLBB.PlayerState)) PublishAcTac(DiagnosticReason.CharacterUnavailable);
                 }
                 catch (Exception) { WaitAcTacRead(DiagnosticReason.ReadFailure); }
             }
@@ -247,6 +251,7 @@ namespace TinhKiemAuto
         private bool EnterAcTac(Game actor, AcTacActor state)
         {
             if (!CanControlAcTac(actor)) return false;
+            if (DungeonMovementPolicy.IsAttacking(actor.TLBB.PlayerState)) return true;
             if (state.Selected)
             { AcTacTimeout(state.Started, AcTacDialogTimeout, "map sau khi chọn cửa"); return true; }
             if ((state.TalkSent || state.ClosedStale)
@@ -254,12 +259,9 @@ namespace TinhKiemAuto
             GameObject npc = ReadAcTacNpc(actor);
             if (npc == null) { PublishAcTac(DiagnosticReason.MissingTarget); return false; }
             if (state.NpcId >= 0 && state.NpcId != npc.Id) { StopAcTac("NPC vào cửa đã thay đổi."); return true; }
-            if (actor.TLBB.IsFollow)
-            { actor.StopFollow(); return true; }
-            if (actor.IsRide)
-            { actor.DownRide(); return true; }
             if (TINHKIEM.GetDistance(actor.CharX, actor.CharY, npc.X, npc.Y) > 3f)
             { if (CanControlAcTac(actor)) actor.Move(npc.X, npc.Y); return true; }
+            if (!PrepareDungeonNpc(actor, CanControlAcTac, AcTacNow)) return true;
             if (!state.TalkSent)
             {
                 if (actor.TLBB.IsQuestOpen)
@@ -434,8 +436,6 @@ namespace TinhKiemAuto
             }
             if (current < acTacBestDistance - 1f) { acTacBestDistance = current; acTacProgressAt = AcTacNow; }
             if (AcTacTimeout(acTacProgressAt, AcTacTravelTimeout, "tiến triển tuần tra") || !CanControlAcTac(this)) return;
-            if (IsRide) { DownRide(); return; }
-            if (TLBB.IsFollow) { StopFollow(); return; }
             Move(route[acTacIndex,0], route[acTacIndex,1]);
         }
 
@@ -512,20 +512,20 @@ namespace TinhKiemAuto
                         allExited &= state.WasInside && actor.TLBB.MapId == MapAcTac;
                         if (actor.TLBB.MapId == MAP.TacKhauDoanhDia) acTacInsideCount++;
                         ObserveAcTacBoss(actor, state);
-                        if (actor.TLBB.MapId == MAP.TacKhauDoanhDia && actor.Objects.NearMonter20m.Count > 0)
+                        if (actor.TLBB.MapId == MAP.TacKhauDoanhDia
+                            && (actor.Objects.NearMonter20m.Count > 0 || DungeonMovementPolicy.IsAttacking(actor.TLBB.PlayerState)))
                         {
                             combat = true;
                             acTacCombatCount++;
                             foreach (GameObject target in actor.Objects.NearMonter20m)
                                 if (target != null && target.HP > 0 && !float.IsNaN(target.HP) && !float.IsInfinity(target.HP))
                                 { targets++; health += target.HP; }
-                            if (actor.TLBB.IsFollow && CanControlAcTac(actor)) actor.StopFollow();
-                            if (actor.IsRide && CanControlAcTac(actor)) actor.DownRide();
                         }
                         state.Looting = acTacPhase != AcTacPhase.AwaitExit && CanControlAcTac(actor) && actor.PickItem();
                         if (state.Looting) loot = true;
                     }
                     if (MapAcTac == 0) return;
+                    BindDungeonParty(DungeonTask.AcTac, participants, CanControlAcTac);
                     if (acTacPhase == AcTacPhase.AwaitExit)
                     {
                         PublishAcTac(DiagnosticReason.ExitPending);
@@ -538,6 +538,8 @@ namespace TinhKiemAuto
                     if (acTacPhase == AcTacPhase.Entry)
                     {
                         PublishAcTac(ready ? DiagnosticReason.EntrancePending : DiagnosticReason.CharacterUnavailable);
+                        if (combat || loot) PrepareDungeonPatrol(DungeonTask.AcTac, participants, CanControlAcTac,
+                            AcTacNow, AcTacNow, 2000, combat, loot, reason => StopAcTac(reason, DiagnosticReason.CommandPending));
                         // Combat of an already-entered actor must not starve entry commands for the others.
                         if (!combat && !loot) RequestAcTacFollow(participants, snapshot);
                         foreach (Game actor in participants)
@@ -560,15 +562,20 @@ namespace TinhKiemAuto
                         }
                         return;
                     }
-                    if (HoldAcTac(combat, loot, targets, health)) return;
+                    if (HoldAcTac(combat, loot, targets, health))
+                    {
+                        if (MapAcTac != 0) PrepareDungeonPatrol(DungeonTask.AcTac, participants, CanControlAcTac,
+                            AcTacNow, acTacClearAt, 2000, combat, loot, reason => StopAcTac(reason, DiagnosticReason.CommandPending));
+                        return;
+                    }
                     PublishAcTac(ready ? DiagnosticReason.None : DiagnosticReason.CharacterUnavailable);
-                    if (!ready) { RegroupAcTac(participants); return; }
+                    if (!ready) { RegroupDungeonPatrol(participants, CanControlAcTac, AcTacNow); return; }
                     if (acTacPhase == AcTacPhase.AwaitBoss)
                     { PublishAcTac(DiagnosticReason.BossPending); AcTacTimeout(acTacPhaseAt, AcTacDialogTimeout, "boss sau khi hết tuyến; chưa xác nhận hoàn tất"); return; }
-                    RequestAcTacFollow(participants, snapshot);
-                    if (MapAcTac == 0) return;
+                    if (!PrepareDungeonPatrol(DungeonTask.AcTac, participants, CanControlAcTac,
+                        AcTacNow, acTacClearAt, 2000, false, false, reason => StopAcTac(reason, DiagnosticReason.CommandPending))) return;
                     PatrolAcTac(AcTacDungeonRoute, true);
-                    if (MapAcTac != 0) RegroupAcTac(participants);
+                    if (MapAcTac != 0) RegroupDungeonPatrol(participants, CanControlAcTac, AcTacNow);
                 }
                 catch (Exception error) { StopAcTac("lỗi đọc/xử lý " + error.GetType().Name + ".", DiagnosticReason.ReadFailure); }
             }

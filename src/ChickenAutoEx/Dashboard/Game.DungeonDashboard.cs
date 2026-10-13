@@ -9,6 +9,19 @@ namespace TinhKiemAuto
         // Read-only phase projection: does not advance a clock, parse notices or send commands.
         internal string DashboardPhase(DungeonKind kind)
         {
+            if (kind != DungeonKind.TrungAc)
+            {
+                int task = kind == DungeonKind.KyCuoc ? 0 : kind == DungeonKind.AcTac ? 1 : kind == DungeonKind.AcBa ? 2 : 3;
+                int[] state = dungeonPatrolDiagnostic;
+                if (state[0] == task && state[2] != 0 && state[1] >= 0 && state[1] < 9)
+                {
+                    string[] names = { "Chờ yên quái", "Chờ xác nhận lên thú cưỡi", "Chờ xác nhận Theo Sau",
+                        "Dẫn đội tuần tra", "Chờ xác nhận hủy theo", "Chờ xác nhận xuống thú cưỡi",
+                        "Chờ xác nhận dừng di chuyển", "Đánh quái", "Nhặt đồ" };
+                    return state[8] == (int)TinhKiemAuto.Diagnostics.DiagnosticReason.CombatDisabled
+                        ? "Chưa bật Đánh quái cho một số nhân vật" : names[state[1]];
+                }
+            }
             switch (kind)
             {
                 case DungeonKind.TrungAc:
@@ -35,7 +48,7 @@ namespace TinhKiemAuto
                             : acTacPhase == AcTacPhase.Patrol ? "Tuần tra / đánh quái"
                             : acTacPhase == AcTacPhase.AwaitBoss ? "Chờ xác nhận boss" : "Chờ xác nhận map ra";
                 case DungeonKind.AcBa: return AcBaStatus;
-                default: return "Chưa khả dụng";
+                default: return "Thủy Lao (thử nghiệm): " + (thuyLaoStep == "" ? "chờ nhiệm vụ / cửa vào" : thuyLaoStep);
             }
         }
     }
@@ -62,7 +75,7 @@ namespace TinhKiemAuto
             return (kind != DungeonKind.TrungAc && game.IsTrungAc)
                 || (kind != DungeonKind.KyCuoc && game.IsKyCuoc)
                 || (kind != DungeonKind.AcTac && game.MapAcTac != 0)
-                || (kind != DungeonKind.AcBa && game.IsAcBa) || game.IsThuyLao
+                || (kind != DungeonKind.AcBa && game.IsAcBa) || (kind != DungeonKind.ThuyLao && game.IsThuyLao)
                 || game.IsLauLanTamBao || game.MapTKC != 0 || game.IsQ123LauLan || game.IsQ123ToChau
                 || game.IsYenTuO || game.IsPhungHoangLangMo || game.IsPMP || game.IsTuBaoBon
                 || game.IsLuyenKim || game.IsHuyetChien || game.IsBachHoaDuyen || game.IsSuMon
@@ -94,10 +107,10 @@ namespace TinhKiemAuto
             context.Paused = Global.Paused;
             context.ChangingMap = actor.ON_SCENE_TRANSING || controller.ON_SCENE_TRANSING
                 || actor.IsChangeMap || controller.IsChangeMap;
-            context.Dead = actor.TLBB.PlayerState == 2 || actor.TLBB.PlayerState == 9
-                || controller.TLBB.PlayerState == 2 || controller.TLBB.PlayerState == 9
+            context.Dead = actor.TLBB.PlayerState == 9 || controller.TLBB.PlayerState == 9
                 || actor.TLBB.MapId == MAP.GiamNguc || controller.TLBB.MapId == MAP.GiamNguc;
-            context.Busy = actor.TLBB.PlayerState != 0 || controller.TLBB.PlayerState != 0;
+            context.Busy = personal ? actor.TLBB.PlayerState != 0 || controller.TLBB.PlayerState != 0
+                : !DungeonMovementPolicy.CanObserve(actor.TLBB.PlayerState) || !DungeonMovementPolicy.CanObserve(controller.TLBB.PlayerState);
             context.Following = actor.TLBB.IsFollow;
             context.Conflict = Conflict(actor, kind) || Conflict(controller, kind);
             // Personal quests still must not interfere with a team task on the leader.
@@ -131,7 +144,8 @@ namespace TinhKiemAuto
                     if (start && option >= 0) controller.SelectManualAcBaSchool(option);
                     else controller.IsAcBa = start;
                     break;
-                default: throw new InvalidOperationException("Thủy Lao chưa khả dụng.");
+                case DungeonKind.ThuyLao: controller.IsThuyLao = start; break;
+                default: throw new InvalidOperationException("Nhiệm vụ không hợp lệ.");
             }
         }
     }

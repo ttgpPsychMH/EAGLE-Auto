@@ -27,12 +27,14 @@ namespace TinhKiemAuto
             internal int Map = -1, NpcId = -1;
             internal bool TalkSent, Selected, ClosedStale, WasInside, Transitioning;
             internal long Started, UnavailableAt = -1;
+            internal int OutdoorIndex = -1;
             internal readonly HashSet<int> LiveBossIds = new HashSet<int>();
         }
-        private long AcBaNow { get { return acBaClock.ElapsedMilliseconds - acBaPauseOffset; } }
+        private long AcBaNow { get { return (acBaPausedAt >= 0 ? acBaPausedAt : acBaClock.ElapsedMilliseconds) - acBaPauseOffset; } }
 
         private void ResetAcBaSession()
         {
+            ResetDungeonPatrol(DungeonTask.AcBa);
             acBaActors.Clear();
             acBaSchool = -1;
             acBaDungeonRoute = null;
@@ -50,7 +52,9 @@ namespace TinhKiemAuto
 
         private void StopAcBa(string reason)
         {
+            int[] stopped = CaptureDungeonStop(DungeonTask.AcBa, reason);
             IsAcBa = false;
+            dungeonPatrolDiagnostic = stopped;
             if (reason != null) CanhBao.Msg("Ác Bá", "Đã dừng Ác Bá: " + reason, CanhBao.Kieu.Eror);
         }
 
@@ -66,10 +70,10 @@ namespace TinhKiemAuto
         {
             if (!IsAcBa || !IsAuto || !IsInit || TLBB == null || !TLBB.Online || !TLBB.IsLeader
                 || TLBB.Id != acBaOwner || TLBB.KeyId != acBaTeam || acBaTeam != acBaOwner
-                || TLBB.PlayerState != 0 || Global.Paused || ON_SCENE_TRANSING || IsChangeMap || AcBaConflict(this)) return false;
+                || !DungeonMovementPolicy.CanObserve(TLBB.PlayerState) || Global.Paused || ON_SCENE_TRANSING || IsChangeMap || AcBaConflict(this)) return false;
             if (actor == null || !actor.IsAuto || !actor.IsInit || actor.TLBB == null || !actor.TLBB.Online
                 || string.IsNullOrEmpty(actor.TLBB.Id)
-                || actor.TLBB.PlayerState != 0 || actor.ON_SCENE_TRANSING || actor.IsChangeMap || AcBaConflict(actor)) return false;
+                || !DungeonMovementPolicy.CanObserve(actor.TLBB.PlayerState) || actor.ON_SCENE_TRANSING || actor.IsChangeMap || AcBaConflict(actor)) return false;
             AcBaActor state;
             if (acBaActors.TryGetValue(actor, out state) && state.CharacterId != actor.TLBB.Id) return false;
             return actor == this || (!actor.TLBB.IsLeader && actor.TLBB.KeyId == acBaOwner
@@ -84,15 +88,12 @@ namespace TinhKiemAuto
             {
                 try
                 {
-                    if (!IsAuto || !IsInit || TLBB == null || !TLBB.Online
-                        || string.IsNullOrEmpty(TLBB.Id)
-                        || TLBB.PlayerState == 2 || TLBB.PlayerState == 9 || TLBB.MapId == MAP.GiamNguc)
-                    { StopAcBa(null); return; }
-                    bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap || TLBB.PlayerState == 7;
+                    bool pause = Global.Paused || ON_SCENE_TRANSING || IsChangeMap;
                     long raw = acBaClock.ElapsedMilliseconds;
                     if (pause && acBaPausedAt < 0) acBaPausedAt = raw;
                     if (!pause && acBaPausedAt >= 0)
                     { acBaPauseOffset += raw - acBaPausedAt; acBaPausedAt = -1; }
+                    if (!IsAuto) { StopAcBa(null); return; }
                     foreach (KeyValuePair<Game, AcBaActor> tracked in acBaActors)
                     {
                         bool transition = tracked.Key.ON_SCENE_TRANSING || tracked.Key.IsChangeMap;
@@ -105,6 +106,11 @@ namespace TinhKiemAuto
                         }
                         tracked.Value.Transitioning = transition;
                     }
+                    if (pause) return;
+                    if (!IsAuto || !IsInit || TLBB == null || !TLBB.Online
+                        || string.IsNullOrEmpty(TLBB.Id)
+                        || TLBB.PlayerState == 9 || TLBB.MapId == MAP.GiamNguc)
+                    { StopAcBa(null); return; }
                     CheckAcBaNoticeIdentity();
                     if (acBaOwner != null && acBaOwner != TLBB.Id) { StopAcBa("nhân vật đã thay đổi."); return; }
                     if (AcBaConflict(this)) { StopAcBa("đang có nhiệm vụ khác."); return; }
@@ -152,6 +158,7 @@ namespace TinhKiemAuto
             }
             state.Map = map;
             state.NpcId = -1;
+            state.OutdoorIndex = -1;
             state.Selected = state.TalkSent = state.ClosedStale = false;
             state.Started = AcBaNow;
             state.LiveBossIds.Clear();
@@ -176,6 +183,7 @@ namespace TinhKiemAuto
         private bool EnterAcBa(Game actor, AcBaActor state)
         {
             if (!CanControlAcBa(actor)) return false;
+            if (DungeonMovementPolicy.IsAttacking(actor.TLBB.PlayerState)) return true;
             if (state.Selected) return true;
             if ((state.TalkSent || state.ClosedStale)
                 && AcBaTimeout(state.Started, AcBaDialogTimeout, "NPC/dialog vào cửa")) return true;
@@ -184,6 +192,7 @@ namespace TinhKiemAuto
             if (state.NpcId >= 0 && state.NpcId != npc.Id) { StopAcBa("NPC vào cửa đã thay đổi."); return true; }
             if (TINHKIEM.GetDistance(actor.CharX, actor.CharY, npc.X, npc.Y) > 3f)
             { if (CanControlAcBa(actor)) actor.Move(npc.X, npc.Y); return true; }
+            if (!PrepareDungeonNpc(actor, CanControlAcBa, AcBaNow)) return true;
             if (!state.TalkSent)
             {
                 if (actor.TLBB.IsQuestOpen)
@@ -220,6 +229,28 @@ namespace TinhKiemAuto
                 else if (obj.HP == 0 && state.LiveBossIds.Contains(obj.Id))
                 { acBaPhase = AcBaPhase.AwaitExit; acBaPhaseAt = AcBaNow; return; }
             }
+        }
+
+        private void PatrolAcBaOutdoor(Game actor, AcBaActor state)
+        {
+            if (!CanControlAcBa(actor)) return;
+            int[,] route = AcBaOutdoorRoute();
+            if (route == null || route.GetLength(0) == 0) { StopAcBa("thiếu tuyến map ngoài."); return; }
+            if (state.OutdoorIndex < 0)
+            {
+                float best = float.MaxValue;
+                for (int i = 0; i < route.GetLength(0); i++)
+                {
+                    float distance = TINHKIEM.GetDistance(actor.CharX, actor.CharY, route[i,0], route[i,1]);
+                    if (distance < best) { best = distance; state.OutdoorIndex = i; }
+                }
+                if (state.OutdoorIndex < 0) { StopAcBa("tọa độ tìm cửa không hợp lệ."); return; }
+            }
+            if (TINHKIEM.GetDistance(actor.CharX, actor.CharY, route[state.OutdoorIndex,0], route[state.OutdoorIndex,1]) <= 2f)
+                state.OutdoorIndex = (state.OutdoorIndex + 1) % route.GetLength(0);
+            if (actor.TLBB.IsFollow) return;
+            // GoTo preserves the outdoor navigation/mount behavior; each actor searches even if the leader entered first.
+            if (CanControlAcBa(actor)) actor.GoTo(route[state.OutdoorIndex,0], route[state.OutdoorIndex,1], AcBaOutdoorMap);
         }
 
         private void PatrolAcBa(int[,] route, bool dungeon)
@@ -269,8 +300,6 @@ namespace TinhKiemAuto
             }
             if (current < acBaBestDistance - 1f) { acBaBestDistance = current; acBaProgressAt = AcBaNow; }
             if (AcBaTimeout(acBaProgressAt, AcBaTravelTimeout, "tiến triển tuần tra") || !CanControlAcBa(this)) return;
-            if (IsRide) { DownRide(); return; }
-            if (TLBB.IsFollow) { StopFollow(); return; }
             Move(route[acBaIndex,0], route[acBaIndex,1]);
         }
 
@@ -289,7 +318,7 @@ namespace TinhKiemAuto
                     if (acBaSchool != TLBB.Menpai)
                     { TryAcBaHandoff(); return; }
                     var participants = new List<Game> { this };
-                    foreach (Game member in Party.ToArray())
+                    foreach (Game member in DungeonWindowSnapshot())
                         if (member != null && member != this && !participants.Contains(member) && member.IsAuto
                             && member.TLBB != null && member.TLBB.KeyId == acBaOwner && !member.TLBB.IsLeader) participants.Add(member);
                     foreach (Game tracked in new List<Game>(acBaActors.Keys))
@@ -307,7 +336,7 @@ namespace TinhKiemAuto
                         if (state.CharacterId != actor.TLBB.Id) { StopAcBa("nhân vật trong đội đã thay đổi."); return; }
                         if (!CanControlAcBa(actor))
                         {
-                            ready = false;
+                            ready = allInside = allExited = false;
                             if (state.UnavailableAt < 0) state.UnavailableAt = AcBaNow;
                             if (AcBaTimeout(state.UnavailableAt, AcBaTravelTimeout, "thành viên sẵn sàng")) return;
                             continue;
@@ -321,15 +350,15 @@ namespace TinhKiemAuto
                         allInside &= actor.TLBB.MapId == AcBaDungeonMap;
                         allExited &= state.WasInside && actor.TLBB.MapId == AcBaOutdoorMap;
                         ObserveAcBaBoss(actor, state);
-                        if (actor.TLBB.MapId == AcBaDungeonMap && actor.Objects.NearMonter20m.Count > 0)
+                        if (actor.TLBB.MapId == AcBaDungeonMap
+                            && (actor.Objects.NearMonter20m.Count > 0 || DungeonMovementPolicy.IsAttacking(actor.TLBB.PlayerState)))
                         {
                             combat = true;
-                            if (actor.TLBB.IsFollow && CanControlAcBa(actor)) actor.StopFollow();
-                            if (actor.IsRide && CanControlAcBa(actor)) actor.DownRide();
                         }
                         if (CanControlAcBa(actor) && actor.PickItem()) loot = true;
                     }
-                    if (!ready || !IsAcBa) return;
+                    if (!IsAcBa) return;
+                    BindDungeonParty(DungeonTask.AcBa, participants, CanControlAcBa);
                     if (acBaPhase == AcBaPhase.AwaitExit)
                     {
                         if (allExited) { StopAcBa("đã về map ngoài; chưa xác nhận phần thưởng, cần chọn sự kiện mới."); return; }
@@ -337,8 +366,13 @@ namespace TinhKiemAuto
                         return;
                     }
                     if (combat || loot)
-                    { acBaClearAt = acBaProgressAt = AcBaNow; acBaReanchor = true; return; }
-                    if (acBaPhase == AcBaPhase.Entry && allInside)
+                    {
+                        acBaClearAt = acBaProgressAt = AcBaNow; acBaReanchor = true;
+                        PrepareDungeonPatrol(DungeonTask.AcBa, participants, CanControlAcBa, AcBaNow,
+                            acBaClearAt, 2000, combat, loot, StopAcBa);
+                        if (acBaPhase != AcBaPhase.Entry) return;
+                    }
+                    if (acBaPhase == AcBaPhase.Entry && ready && allInside)
                     { acBaPhase = AcBaPhase.Patrol; acBaClearAt = acBaProgressAt = AcBaNow; }
                     if (acBaPhase == AcBaPhase.Entry)
                     {
@@ -354,22 +388,17 @@ namespace TinhKiemAuto
                                 if (CanControlAcBa(actor)) actor.GoTo(route[0,0], route[0,1], AcBaOutdoorMap);
                             }
                             else if (!EnterAcBa(actor, state))
-                            {
-                                if (actor == this) PatrolAcBa(AcBaOutdoorRoute(), false);
-                                else if (CanControlAcBa(actor) && TLBB.MapId == AcBaOutdoorMap
-                                    && TINHKIEM.GetDistance(actor.CharX, actor.CharY, CharX, CharY) > 4f)
-                                    actor.GoTo(CharX, CharY, AcBaOutdoorMap);
-                            }
+                                PatrolAcBaOutdoor(actor, state);
                         }
                         return;
                     }
+                    if (!ready || combat || loot || !IsAcBa) return;
                     if (acBaPhase == AcBaPhase.AwaitBoss)
                     { AcBaTimeout(acBaPhaseAt, AcBaDialogTimeout, "boss sau khi hết tuyến; chưa xác nhận hoàn tất"); return; }
+                    if (!PrepareDungeonPatrol(DungeonTask.AcBa, participants, CanControlAcBa, AcBaNow,
+                        acBaClearAt, 2000, false, false, StopAcBa)) return;
                     PatrolAcBa(acBaDungeonRoute, true);
-                    foreach (Game actor in participants)
-                        if (actor != this && CanControlAcBa(actor) && actor.TLBB.MapId == TLBB.MapId
-                            && TINHKIEM.GetDistance(actor.CharX, actor.CharY, CharX, CharY) > 4f)
-                            actor.GoTo(CharX, CharY, TLBB.MapId);
+                    RegroupDungeonPatrol(participants, CanControlAcBa, AcBaNow);
                 }
                 catch (Exception error) { StopAcBa("lỗi đọc/xử lý " + error.GetType().Name + "."); }
             }
