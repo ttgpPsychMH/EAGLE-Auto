@@ -50,6 +50,9 @@ def write_ui_sources(repo, prepared):
 def verify_ui_sources(repo):
     from typography_review import verify_sources
     verify_sources(repo)
+    layout = json.loads((repo / "tools/layout_review.json").read_text())
+    for relative, expected in layout["additional_source_hashes_lf"].items():
+        assert hashlib.sha256((repo / relative).read_text().encode()).hexdigest() == expected, relative
     review = review_data(repo)
     root = repo / '.build/chickenautoex/appearance'
     assert {str(p.relative_to(root)) for p in root.rglob('*.cs')} == set(review['recovered_ui_sources'])

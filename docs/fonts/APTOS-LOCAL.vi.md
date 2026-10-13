@@ -2,14 +2,16 @@
 
 Gói EAGLE Auto không kèm font TTF. Bộ ZIP anh cung cấp có điều khoản **No Distribution Rights**; việc đóng gói giữ các file font ở máy người dùng.
 
-Có hai cách dùng:
+Từ v0.13, cách tiện nhất: **Tiện Ích → Về EAGLE Auto → Chọn font…**, chọn thư mục chứa bốn tệp đã giải nén rồi mở lại Auto. Xem [hướng dẫn v0.13](../EAGLE-Auto-LAYOUT-APTOS.vi.md). Không cần command hay quyền admin.
+
+Các cách cũ vẫn dùng được:
 
 - Nếu Windows đã nhận diện family **Aptos**, app tự dùng font đó.
 - Để dùng riêng trong EAGLE Auto, tạo thư mục `Fonts` cạnh EXE, chép bốn file từ bộ ZIP đã có:
 
 ```text
-EAGLE-Auto-v0.10.exe
-EAGLE-Auto-v0.10.exe.config
+EAGLE-Auto-v0.13.exe
+EAGLE-Auto-v0.13.exe.config
 Fonts/
   Aptos.ttf
   Aptos-Bold.ttf

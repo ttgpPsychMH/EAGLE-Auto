@@ -91,12 +91,22 @@ namespace ChickenAutoEx.Startup.Tests
         {
             dynamic f = TypographyHarness.Create(); f.ApplyGroup(); f.ApplyTab(); f.ApplyMenu();
             Assert.Equal("Hồi Phục", (string)f.Group.Text);
-            Assert.Equal("Nhiệm Vụ – Phó Bản", (string)f.Tab.Text);
+            Assert.Equal("NHIỆM VỤ – PHÓ BẢN", (string)f.Tab.Text);
             Assert.Equal(10.5f, (float)f.Group.Font.SizeInPoints);
             Assert.Equal("Tiện Ích", (string)f.Menu.Text);
             Assert.Equal("Lên bãi", (string)f.Leaf.Text);
             f.Leaf.Text = "Tìm Bãi";
             Assert.Equal("Tìm bãi", (string)f.Leaf.Text);
+        }
+
+        [Fact]
+        public void TabHeadersAndSharedToggleUseHeadingOneWithoutBoldingPageContent()
+        {
+            dynamic f = TypographyHarness.Create(); f.ApplyTabHeader(); f.ApplySharedToggle();
+            Assert.Equal(11f, (float)f.Tabs.Font.SizeInPoints); Assert.Equal(1, (int)f.Tabs.Font.Style);
+            Assert.Equal(10f, (float)f.Tab.Font.SizeInPoints); Assert.Equal(0, (int)f.Tab.Font.Style);
+            Assert.Equal("ĐIỀU KHIỂN CHUNG", (string)f.Shared.Text);
+            Assert.Equal(11f, (float)f.Shared.Font.SizeInPoints); Assert.Equal(1, (int)f.Shared.Font.Style);
         }
 
         [Fact]
@@ -208,16 +218,17 @@ namespace TinhKiemAuto.Appearance {
  public class Form:Control {} public class FrmMain:Form { __PET_DISPLAY_SOURCE__ public static void TestPetFormat(ListControlConvertEventArgs e)=>FormatPetChoice(null,e); }
  public class ListControlConvertEventArgs:EventArgs {public object ListItem,Value;} public class Label:Control {public bool AutoSize,AutoEllipsis;}
  public class ButtonBase:Control {public bool AutoSize,AutoEllipsis;} public class Button:ButtonBase {} public class CheckBox:ButtonBase {} public class RadioButton:ButtonBase {}
- public class GroupBox:Control {}public class TabPage:Control {}public class TextBoxBase:Control {}public class ListControl:Control {}public class ComboBox:ListControl {}
+ public class TabControl:Control {public List<TabPage> TabPages=new List<TabPage>();}public class GroupBox:Control {}public class TabPage:Control {}public class TextBoxBase:Control {}public class ListControl:Control {}public class ComboBox:ListControl {}
  public class ColumnHeader {public string Text;}
  public class ListView:Control {public List<ColumnHeader> Columns=new List<ColumnHeader>();public string Row=""Lên Bãi"",Subitem=""Kỹ Năng"";}
  public class MenuStrip:Control {}
  public class ToolStripItem {
   public bool IsDisposed;private string text="""";public string Text {get=>text;set{text=value;TextChanged?.Invoke(this,EventArgs.Empty);}}
-  public event EventHandler TextChanged;public Font Font=new Font(9f,FontStyle.Regular);public Control Owner;
+  public string Name="""";public event EventHandler TextChanged;public Font Font=new Font(9f,FontStyle.Regular);public Control Owner;
  }
  public class ToolStripMenuItem:ToolStripItem {public bool HasDropDownItems;}
  public class ToolStripTextBox:ToolStripItem {}public class ToolStripComboBox:ToolStripItem {}public class ToolStripStatusLabel:ToolStripItem {}
+ internal static class UiFixedLayout {internal static bool Owns(Control c)=>false;internal static void Refresh(Control c){}}
  internal static class AppAppearance {
   internal static void Apply(Control control)=>UiTypography.Apply(control);
   private static Dictionary<Tuple<float,FontStyle>,Font> cache=new Dictionary<Tuple<float,FontStyle>,Font>();
@@ -227,15 +238,17 @@ namespace TinhKiemAuto.Appearance {
   public Form Root=new FrmMain();public Label Heading=new Label{ Name=""sectionCharacters"",Text=""Nhân vật""};
   public Button Button=new Button{Text=""Lên Bãi"",Left=10,Top=10};public Control Neighbour=new Control{Left=90,Top=10};
   public GroupBox Group=new GroupBox{Text=""Hồi Phục""};public TabPage Tab=new TabPage{Text=""Nhiệm Vụ - Phụ Bản""};
+  public TabControl Tabs=new TabControl(); public ToolStripItem Shared=new ToolStripItem{Name=""sectionSharedControls"",Text=""Điều khiển chung""};
   public TextBoxBase Input=new TextBoxBase{Text=""Lên Bãi""};public ComboBox Combo=new ComboBox{Text=""Kỹ Năng""};
   public Label DynamicLabel=new Label{Text=""Nhân vật""};public Label StaticLabel=new Label{Name=""label10"",Text=""Phân Cứng :""};public ListView List=new ListView();
   public ToolStripMenuItem Menu=new ToolStripMenuItem{Text=""Tiện Ích"",HasDropDownItems=true},Leaf=new ToolStripMenuItem{Text=""Lên Bãi""};
   public ToolStripStatusLabel Status=new ToolStripStatusLabel{Text=""Nhân vật""};public ToolStripTextBox MenuInput=new ToolStripTextBox{Text=""Lên Bãi""};
   public Button Disposed=new Button{Text=""Lên Bãi""};
-  public TypographyFixture(){foreach(var c in new Control[]{Heading,Button,Neighbour,Group,Tab,Input,Combo,DynamicLabel,StaticLabel,List}){c.Parent=Root;Root.Controls.Add(c);}List.Columns.Add(new ColumnHeader{Text=""Tên Nhân Vật""});}
+  public TypographyFixture(){foreach(var c in new Control[]{Heading,Button,Neighbour,Group,Tab,Input,Combo,DynamicLabel,StaticLabel,List}){c.Parent=Root;Root.Controls.Add(c);}List.Columns.Add(new ColumnHeader{Text=""Tên Nhân Vật""});Tabs.TabPages.Add(Tab);}
   public string[] PetDisplay(string original,int value){var c=new FrmMain.ComboboxItem{Text=original,Value=value};var e=new ListControlConvertEventArgs{ListItem=c,Value=original};FrmMain.TestPetFormat(e);return new[]{(string)e.Value,c.ToString(),c.Value.ToString()};}
   public bool HasOriginalParent=>ReferenceEquals(Button.Parent,Root);
   public void ApplyHeading()=>UiTypography.Apply(Heading);public void ApplyButton()=>UiTypography.Apply(Button);
+  public void ApplyTabHeader()=>UiTypography.Apply(Tabs); public void ApplySharedToggle()=>UiTypography.Apply(Shared);
   public void ApplyGroup()=>UiTypography.Apply(Group);public void ApplyTab()=>UiTypography.Apply(Tab);
   public void ApplyMenu(){UiTypography.Apply(Menu);UiTypography.Apply(Leaf);}
   public void ApplyData(){foreach(var c in new Control[]{Input,Combo,DynamicLabel,List})UiTypography.Apply(c);UiTypography.Apply(Status);UiTypography.Apply(MenuInput);}

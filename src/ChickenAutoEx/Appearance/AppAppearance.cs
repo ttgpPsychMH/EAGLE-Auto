@@ -32,6 +32,7 @@ namespace TinhKiemAuto.Appearance
         private static bool initialized;
         private static bool disposed;
         private static bool styleFallbackUsed;
+        private static bool selectedFontDirectory;
 
         internal static string FontStatus
         {
@@ -41,7 +42,9 @@ namespace TinhKiemAuto.Appearance
                 lock (ResourceLock)
                 {
                     if (privateFamily != null && PrivateFaces.Contains(0))
-                        return styleFallbackUsed ? "Aptos từ thư mục Fonts; một số kiểu chữ dùng Segoe UI." : "Aptos từ thư mục Fonts của ứng dụng.";
+                        return "Aptos: " + PrivateFaces.Count + "/4 kiểu đã nạp "
+                            + (selectedFontDirectory ? "từ thư mục đã chọn." : "từ thư mục Fonts.")
+                            + (styleFallbackUsed ? " Một số kiểu chữ dùng Segoe UI." : "");
                     if (installedFamily != null)
                         return styleFallbackUsed ? "Aptos có trên Windows; một số kiểu chữ dùng Segoe UI." : "Aptos có sẵn trên Windows.";
                     return "Segoe UI dự phòng; chưa nạp được Aptos.";
@@ -80,7 +83,7 @@ namespace TinhKiemAuto.Appearance
             using (var form = new Form())
             {
                 form.Text = AppBranding.AboutTitle;
-                form.ClientSize = new Size(470, 290);
+                form.ClientSize = new Size(520, 320);
                 form.FormBorderStyle = FormBorderStyle.FixedDialog;
                 form.MaximizeBox = false;
                 form.MinimizeBox = false;
@@ -109,12 +112,31 @@ namespace TinhKiemAuto.Appearance
                 layout.SetColumnSpan(attribution, 2);
                 layout.Controls.Add(status, 0, 2);
                 layout.SetColumnSpan(status, 2);
+                var chooseFont = new Button { Text = "Chọn font…", AutoSize = true, Anchor = AnchorStyles.Left | AnchorStyles.Bottom, Margin = Padding.Empty };
+                chooseFont.Click += (sender, args) => ChooseAptosFolder(form);
+                layout.Controls.Add(chooseFont, 0, 3);
                 layout.Controls.Add(close, 1, 3);
                 form.Controls.Add(layout);
                 form.AcceptButton = close;
                 form.CancelButton = close;
                 Apply(form);
                 form.ShowDialog(owner);
+            }
+        }
+
+        private static void ChooseAptosFolder(IWin32Window owner)
+        {
+            using (var picker = new FolderBrowserDialog { Description = "Chọn thư mục chứa bốn kiểu Aptos: Regular, Bold, Italic và Bold Italic.", ShowNewFolderButton = false })
+            {
+                if (picker.ShowDialog(owner) != DialogResult.OK) return;
+                if (!FontDirectorySettings.HasFourFaces(picker.SelectedPath))
+                {
+                    MessageBox.Show(owner, "Chưa tìm thấy đủ bốn tệp Aptos TTF hợp lệ. Hãy giải nén bộ font rồi chọn thư mục chứa các tệp.", "Chọn Font Aptos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                bool saved = FontDirectorySettings.Save(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), picker.SelectedPath);
+                MessageBox.Show(owner, saved ? "Đã lưu thư mục font riêng cho Auto. Đóng và mở lại Auto khi thuận tiện để nạp Aptos; không cần cài font vào Windows."
+                    : "Không lưu được lựa chọn font. Bạn có thể chép bốn tệp vào thư mục Fonts cạnh EXE.", "Chọn Font Aptos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -148,6 +170,7 @@ namespace TinhKiemAuto.Appearance
 
             if (control.ContextMenuStrip != null) ApplyControl(control.ContextMenuStrip);
             foreach (Control child in control.Controls) ApplyControl(child);
+            UiFixedLayout.Refresh(control);
         }
 
         private static void ApplyControlFont(Control control, ControlState state)
@@ -273,7 +296,9 @@ namespace TinhKiemAuto.Appearance
         {
             try
             {
-                string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fonts");
+                string directory = FontDirectorySettings.Read(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+                selectedFontDirectory = directory != null;
+                if (directory == null) directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fonts");
                 if (!Directory.Exists(directory)) return;
                 privateCollection = new PrivateFontCollection();
                 LoadFace(directory, 0, "Aptos.ttf");
@@ -285,6 +310,8 @@ namespace TinhKiemAuto.Appearance
                     if (privateFamily == null && FontStylePolicy.IsPreferredFamily(family.Name)) privateFamily = family;
                     else family.Dispose();
                 }
+                if (privateFamily != null)
+                    PrivateFaces.RemoveWhere(face => !privateFamily.IsStyleAvailable((FontStyle)face));
                 // Do not treat a collection containing only another Aptos variant
                 // or incomplete registration as the requested body-text family.
                 if (privateFamily == null || !PrivateFaces.Contains(0))

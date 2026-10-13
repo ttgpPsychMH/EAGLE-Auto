@@ -18,6 +18,8 @@
     <None Include="../../src/ChickenAutoEx/FrmMain.LocalDiagnostics.cs" Link="RegressionSources/FrmMain.LocalDiagnostics.cs" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../../src/ChickenAutoEx/Appearance/UiCopyPolicy.cs" Link="Appearance/UiCopyPolicy.cs" />
     <Compile Include="../../src/ChickenAutoEx/Appearance/UiCopyCatalog.cs" Link="Appearance/UiCopyCatalog.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Appearance/RowLayoutPolicy.cs" Link="Appearance/RowLayoutPolicy.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Appearance/FontDirectorySettings.cs" Link="Appearance/FontDirectorySettings.cs" />
     <Compile Include="../../src/ChickenAutoEx/Appearance/FontStylePolicy.cs" Link="Appearance/FontStylePolicy.cs" />
     <None Include="../../src/ChickenAutoEx/Appearance/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../../src/ChickenAutoEx/Dashboard/CharacterHeader.cs" Link="Dashboard/CharacterHeader.cs" />

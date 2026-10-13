@@ -110,7 +110,10 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          v0.12 standardizes fixed Vietnamese UI copy by heading/body role and increases the font floor to 10pt.
+          v0.13 sizes legacy settings rows/columns from captions and fonts; tabs/shared controls use 11pt bold Heading 1.
+          About includes local Aptos folder selection; font binaries are not distributed.
+          LAYOUT-APTOS.vi.md explains the Windows/DPI checks and font EULA.
+          v0.12 Vietnamese fixed UI copy and the 10pt body floor remain included.
           Game names, inputs, configuration values and automation engines are preserved.
           TYPOGRAPHY.vi.md describes Windows 11/DPI checks; browser preview uses fake data only.
           v0.11 opt-in local diagnostics remain included: consent, bounded CSV logs and sanitized errors/states.

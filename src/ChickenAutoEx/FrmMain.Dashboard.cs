@@ -33,7 +33,7 @@ namespace TinhKiemAuto
         {
             return new Label { Text = text, Dock = DockStyle.Fill, AutoSize = false,
                 TextAlign = ContentAlignment.MiddleLeft, ForeColor = Color.FromArgb(36, 48, 64),
-                Padding = new Padding(8, 0, 8, 0), UseMnemonic = false };
+                Padding = new Padding(8, 0, 8, 0), Margin = Padding.Empty, UseMnemonic = false };
         }
 
         private static void FormatPetChoice(object sender, ListControlConvertEventArgs args)
@@ -56,13 +56,13 @@ namespace TinhKiemAuto
             SuspendLayout();
             MaximumSize = Size.Empty;
             MinimumSize = new Size(440, 520);
-            ClientSize = new Size(600, 720);
+            ClientSize = new Size(660, 800);
             BackColor = Color.FromArgb(245, 247, 250);
 
             // Keep the seven legacy tabs in their original order (crafting/login use indexes).
             string[] titles = { "Cơ bản", "Kỹ năng", "Vật phẩm", "Pet", "Tiện ích", "Chế đồ", "Đăng nhập" };
             TablControl.Multiline = true;
-            TablControl.ItemSize = new Size(54, 28);
+            TablControl.ItemSize = new Size(54, 34);
             for (int i = 0; i < 7; i++)
             {
                 TablControl.TabPages[i].Text = titles[i];
@@ -86,8 +86,8 @@ namespace TinhKiemAuto
                 Padding = Padding.Empty, Margin = Padding.Empty };
             compactRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 26));
-            compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 140));
-            compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
+            compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 164));
+            compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 38));
             compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 0)); // Shared controls, initially folded.
             compactRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
             compactRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 76));
@@ -105,7 +105,7 @@ namespace TinhKiemAuto
             ListViewNhanVat.Resize += (sender, args) => txtNhanVat.Width = Math.Max(100, ListViewNhanVat.ClientSize.Width - 24);
             var listHost = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 3,
                 Margin = new Padding(0, 0, 6, 0), BackColor = Color.White };
-            listHost.RowStyles.Add(new RowStyle(SizeType.Absolute, 22));
+            listHost.RowStyles.Add(new RowStyle(SizeType.Absolute, 28));
             listHost.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
             listHost.RowStyles.Add(new RowStyle(SizeType.Absolute, 20));
             var listTitle = new Panel { Dock = DockStyle.Fill, Margin = Padding.Empty };
@@ -139,11 +139,12 @@ namespace TinhKiemAuto
 
             var toolbar = new ToolStrip { Dock = DockStyle.Fill, GripStyle = ToolStripGripStyle.Hidden,
                 BackColor = BackColor, RenderMode = ToolStripRenderMode.System, Padding = new Padding(6, 0, 6, 0) };
-            sharedToggle = new ToolStripButton("Điều khiển chung") { CheckOnClick = true, ToolTipText = "Mở các thao tác dùng chung cho nhiều cửa sổ Auto." };
+            sharedToggle = new ToolStripButton("Điều khiển chung") { Name = "sectionSharedControls", CheckOnClick = true, ToolTipText = "Mở các thao tác dùng chung cho nhiều cửa sổ Auto." };
             logToggle = new ToolStripButton("Nhật ký") { CheckOnClick = true, Checked = true, Alignment = ToolStripItemAlignment.Right };
             toolbar.Items.Add(sharedToggle); toolbar.Items.Add(logToggle);
-            sharedControls = new GroupBox { Text = "Điều khiển chung • áp dụng cho nhiều cửa sổ", Dock = DockStyle.Fill,
+            sharedControls = new GroupBox { Text = "Điều khiển chung", Name = "sectionSharedControls", Dock = DockStyle.Fill,
                 Visible = false, Margin = new Padding(6, 0, 6, 4), Padding = new Padding(4), BackColor = Color.White };
+            panel3.Font = TinhKiemAuto.Appearance.AppAppearance.GetFont(10f, FontStyle.Regular);
             panel3.Dock = DockStyle.Fill;
             panel3.BackColor = Color.White;
             panel3.AutoScroll = true;
@@ -186,13 +187,18 @@ namespace TinhKiemAuto
             dashboardReady = true;
             ApplyCharacterHeader(CharacterHeader.Empty(0));
             refresh.Start();
+            TinhKiemAuto.Appearance.UiFixedLayout.RegisterTree(TablControl);
+            TinhKiemAuto.Appearance.UiFixedLayout.RegisterTree(panel3);
             ResumeLayout(true);
             TinhKiemAuto.Appearance.AppAppearance.Apply(this);
+            panel3.Layout += (sender, args) => {
+                UpdateCompactPanelBudget();
+            };
             notifyIcon1.Icon = TinhKiemAuto.Appearance.AppAppearance.Icon;
         }
 
         private float UiScale { get { return Math.Max(1f, Font.GetHeight() / 13f); } }
-        private float SharedControlsHeight() { return 132 * UiScale; }
+        private float SharedControlsHeight() { return Math.Max(132 * UiScale, panel3.AutoScrollMinSize.Height + 40); }
         private float LogPanelHeight() { return 76 * UiScale; }
 
         private void UpdateCompactPanelBudget()
@@ -238,7 +244,6 @@ namespace TinhKiemAuto
 
         private void ArrangeBasicGroups()
         {
-            int buttonGap = Math.Max(6, groupBox2.Width - butlenbai.Right);
             var groups = new[] { groupBox1, groupBox2, groupBox3 };
             string[] names = { "Đánh quái", "Di chuyển", "Hồi phục" };
             var stack = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, ColumnCount = 1, RowCount = 3,
@@ -247,27 +252,15 @@ namespace TinhKiemAuto
             for (int i = 0; i < groups.Length; i++)
             {
                 var group = groups[i];
-                // Keep each group and its radio parent intact; move controls only vertically for the legend.
-                foreach (Control child in group.Controls) child.Top += 12;
                 group.Text = names[i];
-                group.Height += 14;
-                group.MinimumSize = new Size(358, group.Height);
                 group.Dock = DockStyle.Fill;
-                group.Margin = new Padding(2, 2, 2, 6);
-                stack.RowStyles.Add(new RowStyle(SizeType.Absolute, group.Height + group.Margin.Vertical));
+                group.Margin = new Padding(2, 2, 2, 8);
+                stack.RowStyles.Add(new RowStyle(SizeType.AutoSize));
                 stack.Controls.Add(group, 0, i);
             }
             tabtophop.Controls.Add(stack);
-            // Stretch input fields with their group, keep the action buttons on its right.
             foreach (var button in new[] { butlenbai, buttrilieu, buttimbai }) button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comdanhsachbando.Anchor = comlenbai.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Resize += (sender, args) => {
-                foreach (var button in new[] { butlenbai, buttrilieu, buttimbai })
-                    button.Left = groupBox2.ClientSize.Width - button.Width - (int)(buttonGap * UiScale);
-                int right = butlenbai.Left;
-                comdanhsachbando.Width = Math.Max(100, right - comdanhsachbando.Left - 12);
-                comlenbai.Width = Math.Max(100, right - comlenbai.Left - 12);
-            };
         }
 
         private void ApplyCharacterHeader(CharacterHeader header)
@@ -309,7 +302,7 @@ namespace TinhKiemAuto
                 BackColor = Color.White, Font = new Font("Segoe UI", 9f), Name = "eagleDungeonDashboard" };
             var table = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true,
                 ColumnCount = 1, RowCount = 9, Padding = new Padding(8), MinimumSize = new Size(380, 0) };
-            foreach (int height in new[] { 28, 28, 28, 32, 28, 58, 36, 38, 28 })
+            foreach (int height in new[] { 32, 34, 34, 36, 36, 76, 44, 48, 48 })
                 table.RowStyles.Add(new RowStyle(SizeType.Absolute, height));
             var sectionTitle = DashboardLabel("NHIỆM VỤ – PHÓ BẢN");
             sectionTitle.Name = "sectionDungeons";

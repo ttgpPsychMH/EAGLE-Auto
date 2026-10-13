@@ -99,7 +99,7 @@
     "assets/branding/eagle-auto.png": "ed9dfe1cade5419f1e0060b1d9581826287fabcd73bd6551c82c85ed0efe7716"
   },
   "additional_source_hashes_lf": {
-    "src/ChickenAutoEx/Appearance/AppAppearance.cs": "5d4baed532464d52812be692540fd0af8c0ce8245d3b1f0ebc764393c2030dd4",
+    "src/ChickenAutoEx/Appearance/AppAppearance.cs": "d47a5bfcd26e4ca6857143b4d5b58a27b462999aed6e7b76b8930d7af7e944b2",
     "src/ChickenAutoEx/Appearance/FontStylePolicy.cs": "8b697941df4a6338ba44cbe7d775f9defdfe39fc0360108d8f33bcfbb2a5cc62"
   }
 }

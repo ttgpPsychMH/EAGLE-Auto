@@ -1,6 +1,6 @@
 # ChickenAutoEx 107: bản build khôi phục và sửa startup
 
-**Bản hiện tại: [EAGLE Auto v0.12 — quy cách viết và cỡ chữ](EAGLE-Auto-TYPOGRAPHY.vi.md)** trên nhánh `branding/vietnamese-typography`. Gói là `EAGLE-Auto-v0.12-net48.zip`, artifact **EAGLE-Auto-v0.12-net48-review**; chạy **EAGLE-Auto-v0.12.exe** cùng `EAGLE-Auto-v0.12.exe.config`. Sửa `EagleAuto.Version.props` để tự đồng bộ tên file, giao diện, metadata, ZIP và artifact khi nâng version. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
+**Bản hiện tại: [EAGLE Auto v0.13 — căn ô/nút và Aptos](EAGLE-Auto-LAYOUT-APTOS.vi.md)** trên nhánh `branding/heading-layout-aptos`. Gói là `EAGLE-Auto-v0.13-net48.zip`, artifact **EAGLE-Auto-v0.13-net48-review**; chạy **EAGLE-Auto-v0.13.exe** cùng `EAGLE-Auto-v0.13.exe.config`. Sửa `EagleAuto.Version.props` để tự đồng bộ tên file, giao diện, metadata, ZIP và artifact khi nâng version. Các tên nhánh/gói ChickenAuto bên dưới là hồ sơ các đợt sửa trước.
 
 Project build nằm tại `src/ChickenAutoEx`, tiếp nối [điều tra tĩnh](../analysis/chickenautoex-107/REPORT.vi.md). Phần sửa startup đã merge vào master; nhánh `repair/chickenautoex-107-dungeon-menu` kế thừa [hai lỗi UI/cấu hình](ChickenAutoEx-UI-SETTINGS.vi.md) và sửa [menu phó bản](ChickenAutoEx-DUNGEON-MENU.vi.md). Source điều tra được giữ nguyên. Không chạy binary gốc để khôi phục dữ liệu.
 
@@ -19,7 +19,7 @@ Các delta automation được khai báo và review theo từng đợt: Thủy L
 
 ### Tải gói kiểm thử từ GitHub
 
-Source hiện tại nằm trên nhánh [`branding/vietnamese-typography`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/branding/vietnamese-typography). Mở [EAGLE Auto review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **EAGLE-Auto-v0.12-net48-review** (hoặc version mới hơn của nhánh đó) ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
+Source hiện tại nằm trên nhánh [`branding/heading-layout-aptos`](https://github.com/ttgpPsychMH/EAGLE-Auto/tree/branding/heading-layout-aptos). Mở [EAGLE Auto review build](https://github.com/ttgpPsychMH/EAGLE-Auto/actions/workflows/chickenautoex-review-build.yml), chọn lần chạy có dấu xanh của **đúng nhánh và commit**, rồi tải **EAGLE-Auto-v0.13-net48-review** (hoặc version mới hơn của nhánh đó) ở mục **Artifacts**. GitHub yêu cầu đăng nhập để tải artifact. Giải nén file tải về để lấy ZIP ứng dụng, SHA256 và bằng chứng kiểm thử; tiếp tục giải nén ZIP ứng dụng vào thư mục kiểm thử riêng.
 
 Workflow tự chạy khi `master` hoặc các nhánh `repair/**`, `branding/**` có thay đổi liên quan, bao gồm `EagleAuto.Version.props`; không cần sửa workflow cho từng nhánh/version mới. Artifact được giữ **7 ngày**; hết hạn thì người có quyền ghi repository mở lần chạy đã có và chọn **Re-run jobs** để tạo lại. Không cần merge để tải artifact từ lần chạy do push tạo ra. Nếu GitHub yêu cầu bật Actions hoặc phê duyệt workflow của fork, chủ repository cần thực hiện thao tác đó trên GitHub. Download ZIP ở nút Code chỉ tải source và các binary gốc, không phải bản build sửa.
 
@@ -62,7 +62,7 @@ Lockfiles và tool manifest được commit. `PackageDownload` net35 chỉ cung 
 
 **`.build`, `bin`, `obj` chứa dữ liệu nhạy cảm kế thừa và binary chưa qua Windows test, phải giữ ngoài Git.** Việc khôi phục constant chỉ nhằm giữ hành vi baseline; không thử dùng key API bên thứ ba. Gói build vẫn kế thừa các constant ấy trong binary, nên chỉ phục vụ review/test cô lập, chưa phải bản phát hành công khai. Không commit thư mục generated hoặc file account/game config của người dùng.
 
-Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review hiện tại: `.build/artifacts/EAGLE-Auto-v0.12-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
+Output ứng dụng: `src/ChickenAutoEx/bin/Release/net48`. Gói review hiện tại: `.build/artifacts/EAGLE-Auto-v0.13-net48.zip` cùng SHA256. Gói gồm EXE, `.exe.config`, Newtonsoft.Json.dll, Zen.Barcode.Core.dll và tài liệu. EasyHook native được nhúng và code gốc sẽ giải nén lúc khởi động. Không cần AutoUpdate.exe vì luồng mới chỉ thông báo; không thêm cơ chế tải/cài đặt tự động.
 
 V0.4 bổ sung [Trừng Ác](EAGLE-Auto-TRUNG-AC-SIMULATION.vi.md) và [rà soát cả ba nhiệm vụ](EAGLE-Auto-DUNGEON-REAUDIT.vi.md), gồm guard pause/owner/member và callback AutoLogin. Verifier đảo ngược các delta Trừng Ác trong Game/FrmMain và delta partial rà soát, rồi kiểm tra phần còn lại với baseline, không bỏ qua cả method/file vì khác phiên bản.
 
@@ -71,6 +71,8 @@ V0.5 bổ sung [Ác Tặc](EAGLE-Auto-AC-TAC-SIMULATION.vi.md): map/lịch, stat
 V0.6 bổ sung [Ác Bá](EAGLE-Auto-AC-BA-SIMULATION.vi.md): nhận diện thông báo/chọn tay11 phái, state riêng, handoff ACK, guard tổ đội, route/NPC/boss/timeout. Verifier đảo thêm lớp delta Ác Bá trước v0.5; báo cáo phân tích cũ giữ nguyên.
 
 ## Kết quả đã xác nhận
+
+Bản v0.13: **773 test .NET passed, 83 kiểm tra HTML/font mẫu**; source geometry và cài đặt đường dẫn font kiểm thử bằng dependency giả, không chạy EXE/DLL game. Build 0 lỗi, 49 cảnh báo legacy, đủ 29 resource; các binary và partial engine/hook giữ nguyên. Xem [layout/Aptos](EAGLE-Auto-LAYOUT-APTOS.vi.md).
 
 Bản v0.12: **747 test .NET passed (30 ca typography mới), 26 tình huống C++ passed, 51 đối chứng lịch sử, 79 kiểm tra HTML/font/bố cục mẫu**. Build net48/x86: 0 lỗi, 49 cảnh báo legacy; đủ 29 resource. [Bằng chứng v0.12](evidence/EAGLE-Auto-v0.12-typography-validation.json) xác nhận bảo toàn binary/source; chưa kiểm thử WinForms/Windows/game.
 

@@ -52,8 +52,8 @@
     }
   ],
   "additional_source_hashes_lf": {
-    "src/ChickenAutoEx/Appearance/UiCopyCatalog.cs": "3b14ddf42f4aaef83b7c238107dbd0fd1bbefee89fd6b3cce797b0f6c855544c",
+    "src/ChickenAutoEx/Appearance/UiCopyCatalog.cs": "51f921359b0e01e67fe3e5ccf69b1d6a180336605b4137aa75416f397cd01bb7",
     "src/ChickenAutoEx/Appearance/UiCopyPolicy.cs": "3782b61b0a59643084610fdcf425893580d5c1eddd417b7ebf305b5e89ca8249",
-    "src/ChickenAutoEx/Appearance/UiTypography.cs": "fe6b66cabafd63fbef25e9ba9f0e4d3988f4870a938b88ffe31c87a49e8a1417"
+    "src/ChickenAutoEx/Appearance/UiTypography.cs": "9804727348235f3bfb36968f05245039da471c1c41dfe30c7a143e3d069ff13c"
   }
 }

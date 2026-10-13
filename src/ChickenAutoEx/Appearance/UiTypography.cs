@@ -13,6 +13,15 @@ namespace TinhKiemAuto.Appearance
         internal static void Apply(Control control)
         {
             if (control == null || control.IsDisposed) return;
+            var tabs = control as TabControl;
+            if (tabs != null)
+            {
+                // Header uses TabControl.Font; page fonts keep content regular.
+                foreach (TabPage page in tabs.TabPages)
+                    page.Font = AppAppearance.GetFont(10f, FontStyle.Regular);
+                tabs.Font = AppAppearance.GetFont(11f, FontStyle.Bold);
+                return;
+            }
             if (control is TextBoxBase || control is ComboBox || control is ListControl) return;
             var list = control as ListView;
             if (list != null)
@@ -27,7 +36,7 @@ namespace TinhKiemAuto.Appearance
             var state = Controls.GetValue(control, key => new State());
             if (state.Updating) return;
             if (!state.Hooked) { state.Hooked = true; control.TextChanged += (s, e) => AppAppearance.Apply(control); }
-            CopyRole role = control.Name == "sectionCharacters" || control.Name == "sectionDungeons" ? CopyRole.Heading1
+            CopyRole role = control is TabPage || control.Name == "sectionCharacters" || control.Name == "sectionDungeons" || control.Name == "sectionSharedControls" ? CopyRole.Heading1
                 : control is GroupBox || control is TabPage || control is Form ? CopyRole.Heading2 : CopyRole.Body;
             // Labels may contain arbitrary character/NPC/skill values. Only audited static labels are eligible.
             var label = control as Label;
@@ -45,8 +54,10 @@ namespace TinhKiemAuto.Appearance
                 float minimum = role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f;
                 FontStyle style = control.Font.Style;
                 if (role == CopyRole.Heading1) style |= FontStyle.Bold;
-                control.Font = AppAppearance.GetFont(Math.Max(control.Font.SizeInPoints, minimum), style);
+                if (!(control is TabPage))
+                    control.Font = AppAppearance.GetFont(Math.Max(control.Font.SizeInPoints, minimum), style);
                 EnsureRoom(control);
+                UiFixedLayout.Refresh(control.Parent);
             }
             finally { state.Updating = false; }
         }
@@ -64,17 +75,19 @@ namespace TinhKiemAuto.Appearance
                 };
             }
             var menu = item as ToolStripMenuItem;
-            CopyRole role = menu != null && (menu.HasDropDownItems || menu.Owner is MenuStrip) ? CopyRole.Heading2 : CopyRole.Body;
+            CopyRole role = item.Name == "sectionSharedControls" ? CopyRole.Heading1 : menu != null && (menu.HasDropDownItems || menu.Owner is MenuStrip) ? CopyRole.Heading2 : CopyRole.Body;
             string rendered;
             if (!UiCopyPolicy.TryFormat(item.Text, role, out rendered)) return;
             state.Updating = true;
             try {
                 if (item.Text != rendered) item.Text = rendered;
-                item.Font = AppAppearance.GetFont(Math.Max(item.Font.SizeInPoints, role == CopyRole.Heading2 ? 10.5f : 10f), item.Font.Style);
+                item.Font = AppAppearance.GetFont(Math.Max(item.Font.SizeInPoints, role == CopyRole.Heading1 ? 11f : role == CopyRole.Heading2 ? 10.5f : 10f),
+                    role == CopyRole.Heading1 ? item.Font.Style | FontStyle.Bold : item.Font.Style);
             } finally { state.Updating = false; }
         }
         private static void EnsureRoom(Control control)
         {
+            if (UiFixedLayout.Owns(control.Parent)) return;
             if (!(control is ButtonBase || control is Label) || control.Parent == null || control.Dock != DockStyle.None) return;
             Size text = TextRenderer.MeasureText(control.Text, control.Font, new Size(int.MaxValue, int.MaxValue),
                 TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix);

@@ -307,6 +307,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace TinhKiemAuto.Appearance {
  // Traversal fixture isolates typography, which has its own actual-source tests.
+ internal static class UiFixedLayout {internal static void Refresh(Control c){}}
  internal static class UiTypography {internal static void Apply(Control c){} internal static void Apply(ToolStripItem i){}}
  [Flags] public enum FontStyle { Regular=0,Bold=1,Italic=2,Underline=4,Strikeout=8 }
  public sealed class Font {

@@ -7,6 +7,9 @@ namespace TinhKiemAuto.Appearance
     {
         internal static readonly Dictionary<string, string> Captions = new Dictionary<string, string>
         {
+            { "Chọn font…", "Chọn font…" },
+            { "Chọn Font…", "Chọn font…" },
+            { "CHỌN FONT…", "Chọn font…" },
             { "- Auto sẽ tự ăn tuần hoàn theo thời gian chỉ định nếu trong túi vẫn còn vật phẩm", "Auto dùng vật phẩm theo chu kỳ đã đặt nếu túi còn vật phẩm." },
             { "- Cẩn trọng khi sử dụng tính năng Hủy Đồ + Bán Đồ theo loại vì rất nhiều đồ cùng loại", "Cẩn thận khi hủy hoặc bán theo loại vì nhiều vật phẩm có cùng loại." },
             { "- Người chơi sẽ ở trong danh sách sẽ tự động được chấp nhận vào tổ đội", "Người chơi trong danh sách được tự động chấp nhận vào tổ đội." },

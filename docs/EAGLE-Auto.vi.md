@@ -1,10 +1,10 @@
 # EAGLE Auto — tên file và version
 
-Ngày cập nhật: 13-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.12**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
+Ngày cập nhật: 13-10-2026 (Asia/Bangkok). .NET Framework 4.8, x86. Các ví dụ dưới đây dùng **v0.13**; version thực tế của gói luôn ghi trong `BUILD-INFO.json`.
 
-Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.12 dùng `EAGLE-Auto-v0.12.exe` và `EAGLE-Auto-v0.12.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.
+Giải nén gói vào thư mục thử nghiệm riêng, rồi chạy **EAGLE-Auto-v<version>.exe** với version ghi trong `BUILD-INFO.json`. Giữ file `.exe.config` cùng tên bên cạnh EXE và các DLL trong gói. Ví dụ gói v0.13 dùng `EAGLE-Auto-v0.13.exe` và `EAGLE-Auto-v0.13.exe.config`. Không dùng EXE/config cũ còn sót từ bản tải trước.
 
-Với gói v0.12, giao diện hiển thị `EAGLE Auto v0.12`; menu `Về EAGLE Auto` ghi:
+Với gói v0.13, giao diện hiển thị `EAGLE Auto v0.13`; menu `Về EAGLE Auto` ghi:
 
 > Được sửa lại dựa trên Chicken Auto 107, vibe coding bằng Codex bởi tenkafuku.
 
@@ -14,12 +14,12 @@ Chỉ sửa giá trị `EagleAutoVersion` trong [EagleAuto.Version.props](../Eag
 
 MSBuild sinh hằng version trong thư mục `obj` và tự đồng bộ:
 
-| Thành phần | Khi version là `0.12` |
+| Thành phần | Khi version là `0.13` |
 |---|---|
-| File chạy / config | `EAGLE-Auto-v0.12.exe` / `EAGLE-Auto-v0.12.exe.config` |
-| Tiêu đề / giới thiệu | `EAGLE Auto v0.12` |
-| FileVersion / ProductVersion | `0.12.0.0` / `v0.12` |
-| ZIP / artifact GitHub Actions | `EAGLE-Auto-v0.12-net48.zip` / `EAGLE-Auto-v0.12-net48-review` |
+| File chạy / config | `EAGLE-Auto-v0.13.exe` / `EAGLE-Auto-v0.13.exe.config` |
+| Tiêu đề / giới thiệu | `EAGLE Auto v0.13` |
+| FileVersion / ProductVersion | `0.13.0.0` / `v0.13` |
+| ZIP / artifact GitHub Actions | `EAGLE-Auto-v0.13-net48.zip` / `EAGLE-Auto-v0.13-net48-review` |
 
 Không tăng version mỗi lần build: build lại cùng source vẫn là cùng version sản phẩm. File build cũ có thể còn trong `bin`; script package chỉ lấy file đúng version đã xác minh, không đóng gói EXE/config cũ.
 
@@ -40,3 +40,5 @@ V0.10 bổ sung [Aptos và logo đại bàng mới](EAGLE-Auto-APPEARANCE.vi.md)
 V0.11 tích hợp [chẩn đoán tự động có consent](EAGLE-Auto-LOCAL-DIAGNOSTICS.vi.md). Không cần command đo; dùng Tiện ích → Chẩn đoán tự động để bật/tắt và mở CSV. Không tự gửi dữ liệu.
 
 V0.12 chuẩn hóa [cách viết và cỡ chữ](EAGLE-Auto-TYPOGRAPHY.vi.md): tiêu đề khu vực HOA, tab/nhóm Hoa Từng Từ, nút/mô tả theo câu; chữ thường tối thiểu 10 pt. Tên riêng trong game và các engine giữ nguyên.
+
+V0.13 [căn lại ô/nút, Heading 1 cho các tab và chọn thư mục Aptos](EAGLE-Auto-LAYOUT-APTOS.vi.md). Font thường tối thiểu 10 pt; tab/Điều khiển chung 11 pt đậm. Gói không nhúng TTF vì điều khoản của bộ font không cấp quyền phân phối.

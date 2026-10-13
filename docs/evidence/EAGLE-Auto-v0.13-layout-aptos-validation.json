@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-13",
+  "baseline_commit": "556c48f",
+  "product": "EAGLE Auto v0.13",
+  "managed_tests": {
+    "total": "773",
+    "executed": "773",
+    "passed": "773",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  },
+  "new_layout_font_tests": 26,
+  "verified_build": {
+    "framework": "net48",
+    "architecture": "x86",
+    "embedded_resources": 29,
+    "unchanged_original_resources": 26,
+    "json_assembly_version": 13,
+    "original_release_files_unchanged": true,
+    "entitlement_source_preserved": true,
+    "automation_source_preserved_except_reviewed_thuy_lao_ky_cuoc_trung_ac_ac_tac_ac_ba_and_pet_aoe": true,
+    "reviewed_trung_ac_fixes": true,
+    "reviewed_ac_tac_fixes": true,
+    "reviewed_ac_ba_fixes": true,
+    "reviewed_managed_hook_diagnostics": true,
+    "reviewed_dashboard_ui": true,
+    "appearance_ui_override_sources": 13,
+    "reviewed_aptos_theme_and_eagle_icon": true,
+    "reviewed_opt_in_local_diagnostics": true,
+    "reviewed_vietnamese_typography": true,
+    "ui_font_minimum_pt": 10,
+    "reviewed_adaptive_legacy_settings_layout": true,
+    "reviewed_local_aptos_folder_selection": true,
+    "tab_headers_and_shared_toggle_heading1": true,
+    "diagnostic_logs_not_uploaded": true,
+    "font_files_redistributed": false,
+    "dungeon_engine_partials_unchanged_since_v07": true,
+    "native_hook_dll_unchanged": true,
+    "unchanged_easyhook_sha256": "1017f117193687302d3817d66cb9e7914c026d78aced4a02517a5c940efe5d79",
+    "native_reader_simulation_not_linked_into_app": true,
+    "reviewed_three_dungeon_reaudit": true,
+    "reviewed_ky_cuoc_fixes": true,
+    "reviewed_pet_aoe_fix": true,
+    "reviewed_thuy_lao_fixes": true,
+    "reviewed_ui_settings_fixes": [
+      "mp_checkbox_binding",
+      "independent_optional_map_indexes"
+    ],
+    "reviewed_dungeon_menu_fixes": true,
+    "display_name": "EAGLE Auto",
+    "display_version": "v0.13",
+    "product_version": {
+      "version": "0.13",
+      "display_version": "v0.13",
+      "file_version": "0.13.0.0",
+      "executable": "EAGLE-Auto-v0.13.exe",
+      "config": "EAGLE-Auto-v0.13.exe.config",
+      "zip_name": "EAGLE-Auto-v0.13-net48.zip",
+      "artifact_name": "EAGLE-Auto-v0.13-net48-review"
+    },
+    "legacy_protocol_version": "107",
+    "reviewed_branding": true,
+    "target_executable_executed": false,
+    "windows_runtime_tested": false,
+    "artifacts": {
+      "EAGLE-Auto-v0.13.exe": "a89d03b1247cbdb598f2bc4a66326f28b4982133c2903fb6640a4e6e98519ef6",
+      "EAGLE-Auto-v0.13.exe.config": "fff87832f2bd9eec56b060dd53df0a411066e2cd12a48253b16d5dd112b9b2e1",
+      "Newtonsoft.Json.dll": "f0c07af0e84d4dd4da4bd7823ba4535bc0481b3bf623ed40b659b68147a6bb75",
+      "Zen.Barcode.Core.dll": "f559b524ad802ffaec6a81a6155bf0ca6796a8f2968990aea9b65a7157c94b6a"
+    }
+  },
+  "html_tests": {
+    "result": "passed",
+    "tests": 83,
+    "ui": {
+      "result": "passed",
+      "tests": 45,
+      "checks": [
+        "default selection is empty",
+        "empty metrics use em dash",
+        "empty task cannot start",
+        "basic tab is initial tab",
+        "shared controls collapsed initially",
+        "log initially visible",
+        "eight real tab buttons",
+        "client size 660 by 800",
+        "select row displays online metrics",
+        "selection does not turn Auto on",
+        "checkbox does not switch selected actor",
+        "select second row displays its metrics",
+        "clear selection removes all metrics",
+        "clear selection disables configuration",
+        "personal task does not need team leader",
+        "personal start creates running state",
+        "pause still permits stop",
+        "stop during pause clears selected task",
+        "offline clears metrics",
+        "offline still permits stop",
+        "stop while offline clears task",
+        "team task requires known leader",
+        "team task uses leader not selected member",
+        "team start controls only leader",
+        "conflicting task blocks start",
+        "blocked start preserves active task",
+        "team stop clears only leader task",
+        "Thuy Lao remains unavailable",
+        "Ac Ba school settings preserved",
+        "Ac Tac map settings preserved",
+        "tab basic opens its page",
+        "tab skills opens its page",
+        "tab items opens its page",
+        "tab pet opens its page",
+        "tab utilities opens its page",
+        "tab craft opens its page",
+        "tab login opens its page",
+        "tab tasks opens its page",
+        "log collapses",
+        "log expands",
+        "common controls expand",
+        "all Auto explicitly stops both fake actors",
+        "all Auto explicitly starts both fake actors",
+        "common controls collapse",
+        "final clear removes stale selected data"
+      ]
+    },
+    "appearance": {
+      "result": "passed",
+      "tests": 38,
+      "checks": [
+        "loaded font face 13.333px Aptos",
+        "loaded font face bold 13.333px Aptos",
+        "loaded font face italic 13.333px Aptos",
+        "loaded font face italic bold 13.333px Aptos",
+        "body uses Aptos first",
+        "all form controls inherit Aptos",
+        "both new eagle images decode",
+        "title uses new eagle logo",
+        "application version is v0.13",
+        "no chicken title or old logo",
+        "About opens a modal dialog",
+        "About has the new eagle logo",
+        "About keeps requested attribution",
+        "About reports four loaded Aptos faces",
+        "About makes browser test scope explicit",
+        "About closes with its button",
+        "H1 caption is uppercase",
+        "dungeon H1 caption is uppercase",
+        "all eight tab titles use H1 uppercase",
+        "shared toolbar uses H1 uppercase and bold",
+        "H1 tab text is 11pt equivalent",
+        "number controls have room for values and buttons",
+        "About exposes local font choice",
+        "body action uses sentence case",
+        "content uses at least 10pt equivalent",
+        "actor names unchanged",
+        "map names unchanged",
+        "dungeon names unchanged",
+        "all eight tabs fit their caption",
+        "basic page has no horizontal overflow",
+        "map actions have no clipped text",
+        "recovery rows have no horizontal overflow",
+        "About closes with Escape",
+        "actual uploaded Aptos renders Vietnamese glyphs normal 400",
+        "actual uploaded Aptos renders Vietnamese glyphs normal 700",
+        "actual uploaded Aptos renders Vietnamese glyphs italic 400",
+        "actual uploaded Aptos renders Vietnamese glyphs italic 700",
+        "zero network requests from owned HTML"
+      ]
+    },
+    "renderedFonts": [
+      {
+        "style": "normal",
+        "weight": "400",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "normal",
+        "weight": "700",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-Bold",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "italic",
+        "weight": "400",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-Italic",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      },
+      {
+        "style": "italic",
+        "weight": "700",
+        "fonts": [
+          {
+            "familyName": "Aptos",
+            "postScriptName": "Aptos-BoldItalic",
+            "isCustomFont": true,
+            "glyphCount": 62
+          }
+        ]
+      }
+    ],
+    "glyphText": "Ác Bá – Trân Long Kỳ Cuộc – Trừng Ác – Thủy Lao – Được sửa lại",
+    "browser": "151.0.7922.173",
+    "html_sha256": "ab7144a827d6d1e17a8d104361d1df5ef085afc00f75f8f0cf72082bec9ad6ca",
+    "logo_sha256": "ed9dfe1cade5419f1e0060b1d9581826287fabcd73bd6551c82c85ed0efe7716",
+    "fontFiles": [
+      {
+        "file": "Aptos.ttf",
+        "style": "normal",
+        "weight": "400",
+        "sha256": "01bbd2d3bd483045e1dbf4f106935cb86478b937f8d334258ad12eea60554a05"
+      },
+      {
+        "file": "Aptos-Bold.ttf",
+        "style": "normal",
+        "weight": "700",
+        "sha256": "ae318584be8737164e24842e0b27ab180ee6761c1bedd799f5a29c93a8a4e65c"
+      },
+      {
+        "file": "Aptos-Italic.ttf",
+        "style": "italic",
+        "weight": "400",
+        "sha256": "b37b9d734abe6dd9924f914d4a3fbba6b9fdbccb30fedb4fbd6f27131307e6c2"
+      },
+      {
+        "file": "Aptos-Bold-Italic.ttf",
+        "style": "italic",
+        "weight": "700",
+        "sha256": "eccb43dc63b966f97f49abc7031f0337411f64064f8df8ba98aa22a135cac35a"
+      }
+    ],
+    "networkRequests": 0,
+    "screenshots": {
+      "selected": {
+        "file": "v0.13-selected.png",
+        "sha256": "6735f42b556006f62b1fd2da10cc975ccfa25839f14c09b61baa7b445e52185e"
+      },
+      "empty": {
+        "file": "v0.13-empty.png",
+        "sha256": "37d2fe52eb89bab06b324ffe8fb6cd7822898a29598d008f33f6049e0ce1f746"
+      },
+      "about": {
+        "file": "v0.13-about.png",
+        "sha256": "876f5e0b3443bd34357f9c30c3fa566770c888e63a14e014ca6373219b6691d1"
+      }
+    },
+    "scope": "Owned HTML mockup with fake data and privately uploaded Aptos faces. Actual Chromium glyph rendering only; WinForms, Windows DPI, native DLL and game remain untested.",
+    "fontDistribution": "Uploaded TTF bytes exist only in ignored local input files and browser memory. No font bytes are saved in HTML, screenshots metadata, package or Git."
+  },
+  "windows_runtime_tested": false,
+  "fonts_embedded_or_redistributed": false,
+  "local_zip_sha256": "e7a9f18dd1f6ebb632ae6eec9c0b865e8c3c5213e77efd8d028e79293f5de60d"
+}

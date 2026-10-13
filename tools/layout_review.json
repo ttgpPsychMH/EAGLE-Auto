@@ -1,0 +1,9 @@
+{
+  "baseline_commit": "556c48f",
+  "scope": "UI caption/input geometry, Heading 1 tab headers and local Aptos selection only; no font distribution or automation changes",
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/Appearance/UiFixedLayout.cs": "09d1ab7da5e37ac474b55598a2c8311c5891c30618457b797572cfed2cbf9c88",
+    "src/ChickenAutoEx/Appearance/RowLayoutPolicy.cs": "990006dc52936695d2fe69102cbcb5095eef35b40ad2b0f04e8e967c3e40c7fe",
+    "src/ChickenAutoEx/Appearance/FontDirectorySettings.cs": "73104db3d699a268649c90c711a0e432f039d14d17b41ad687ba498a47a37ed3"
+  }
+}
