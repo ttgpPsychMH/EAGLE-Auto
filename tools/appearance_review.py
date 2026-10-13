@@ -18,6 +18,8 @@ def apply_ui_hook(text, count, reverse=False):
 
 
 def restore_direct_source(repo, path, text):
+    from local_diagnostics_review import restore_source
+    text = restore_source(repo, path, text)
     for edit in reversed(review_data(repo)['direct_source_edits']):
         if edit['path'] == path:
             assert text.count(edit['after']) == edit['count'], path
@@ -35,6 +37,9 @@ def write_ui_sources(repo, prepared):
         assert hashlib.sha256(original.encode()).hexdigest() == item['original_sha256_lf'], relative
         changed = apply_ui_hook(original, item['hook_count'])
         assert apply_ui_hook(changed, item['hook_count'], reverse=True) == original
+        if relative == 'TinhKiemAuto/CanhBao.cs':
+            from local_diagnostics_review import warning_hook
+            changed = warning_hook(changed)
         target = root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(changed)
@@ -46,6 +51,9 @@ def verify_ui_sources(repo):
     assert {str(p.relative_to(root)) for p in root.rglob('*.cs')} == set(review['recovered_ui_sources'])
     for relative, item in review['recovered_ui_sources'].items():
         changed = (root / relative).read_text()
+        if relative == 'TinhKiemAuto/CanhBao.cs':
+            from local_diagnostics_review import warning_hook
+            changed = warning_hook(changed, reverse=True)
         assert apply_ui_hook(changed, item['hook_count'], reverse=True) == (repo / 'analysis/chickenautoex-107/recovered' / relative).read_text(), relative
     for relative, expected in review['assets_sha256'].items():
         assert hashlib.sha256((repo / relative).read_bytes()).hexdigest() == expected, relative

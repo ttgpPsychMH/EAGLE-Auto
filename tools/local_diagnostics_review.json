@@ -1,0 +1,22 @@
+{
+  "direct_source_edits": [
+    {
+      "path": "src/ChickenAutoEx/FrmMain.cs",
+      "before": "\t\t\tInitializeDungeonDashboard();",
+      "after": "\t\t\tInitializeDungeonDashboard();\n\t\t\tInitializeLocalDiagnostics();",
+      "count": 1
+    }
+  ],
+  "additional_source_hashes_lf": {
+    "src/ChickenAutoEx/Diagnostics/ConsentController.cs": "f725c5b5d4522381da494fbf46950b0f8c1b04808cbc67e1d3a504d3988ce789",
+    "src/ChickenAutoEx/Diagnostics/ConsentSettings.cs": "41abc452a7b0c916994bad80d8a9028844bf28f1bbf56b062d90f2949318b727",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticRecorder.cs": "971cc429ef89b1f92ab066fb3303f3ade83001da9dcc58767fbd40917ff2b618",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticRowValidator.cs": "40fdd2a5026948ae386562b6acc024971abf1e6f14f2256d46bd119295c6c56c",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticSchema.cs": "bd46d36fdc3fd2b3d8cea9816879040ad51dcc551ff44dee290fd1629cdf209a",
+    "src/ChickenAutoEx/Diagnostics/DiagnosticsHost.cs": "1275e3012f8beae7e30416a0943ceb859f58927182b82ff96e148a07e9f981b1",
+    "src/ChickenAutoEx/Diagnostics/Game.LocalDiagnostics.cs": "31d73e5ecc1775f00f52702efd7dc524e911b53e969cbc20dd574010e0096b8f",
+    "src/ChickenAutoEx/Diagnostics/LocalDiagnostics.cs": "550c2b0c99f939a757941e0c796da819016fe6047a70b6105fa117e06d579a2c",
+    "src/ChickenAutoEx/Diagnostics/RotatingDiagnosticStore.cs": "80c6bc3a947e73eabb1564d0c16fe30f6e1cd8244a3fa5a281983115cca63092",
+    "src/ChickenAutoEx/FrmMain.LocalDiagnostics.cs": "2117c5dcdbe82d7ab559f39ee3b27cb53d2c0eb03ec90226602781df30ec5542"
+  }
+}

@@ -705,6 +705,7 @@ namespace TinhKiemAuto
 			ListView = ListViewNhanVat;
 			Instance = this;
 			InitializeDungeonDashboard();
+			InitializeLocalDiagnostics();
 		}
 
 		public bool VuaBatXong()

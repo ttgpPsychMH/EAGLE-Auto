@@ -96,6 +96,7 @@ def main():
     assert pe.FILE_HEADER.Machine == 0x14c and pe.net.struct.Flags & 3 == 3, "Build must remain x86 IL-only"
     assert pe.net.metadata.struct.Version.startswith(b"v4.0.30319"), "Expected CLR 4"
     assert all(str(row.TypeNamespace) != "EagleAuto.NativeReaderSimulation" for row in pe.net.mdtables.TypeDef), "Test-only envelope decoder must not ship in the app"
+    diagnostic_types = {str(row.TypeName) for row in pe.net.mdtables.TypeDef if str(row.TypeNamespace) == "TinhKiemAuto.Diagnostics"}
     resources = embedded_resources(pe)
     assert set(resources) == set(manifest["resource_hashes"]), "Embedded resources incomplete"
     for name, data in resources.items():
@@ -188,6 +189,11 @@ def main():
 
     from appearance_review import verify_ui_sources
     ui_source_count = verify_ui_sources(repo)
+    from local_diagnostics_review import verify_sources
+    assert verify_sources(repo)
+    assert {"DiagnosticsHost", "DiagnosticRecorder", "LocalDiagnostics", "ConsentSettings", "ConsentController", "RotatingDiagnosticStore"} <= diagnostic_types
+    for caption in ["Chẩn đoán tự động", "Bật ghi nhận…", "Tắt ghi nhận", "EAGLE-DIAGNOSTICS-POLICY-1"]:
+        assert pe.__data__.find(caption.encode("utf-16le")) >= 0, "Missing diagnostic integration: " + caption
     from prepare_build import extract_icon
     assert extract_icon(pe) == (repo / "assets/branding/eagle-auto.ico").read_bytes(), "Win32 icon must be the new Eagle asset"
     assert resources["EagleAuto.Branding.Icon"] == (repo / "assets/branding/eagle-auto.ico").read_bytes()
@@ -206,6 +212,8 @@ def main():
         "reviewed_dashboard_ui": True,
         "appearance_ui_override_sources": ui_source_count,
         "reviewed_aptos_theme_and_eagle_icon": True,
+        "reviewed_opt_in_local_diagnostics": True,
+        "diagnostic_logs_not_uploaded": True,
         "font_files_redistributed": False,
         "dungeon_engine_partials_unchanged_since_v07": True,
         "native_hook_dll_unchanged": True,

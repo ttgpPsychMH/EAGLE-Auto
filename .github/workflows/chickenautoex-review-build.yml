@@ -110,7 +110,10 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           Extract the artifact wrapper, then extract the application ZIP into an isolated Windows test directory.
           This is a review build: Windows 11 runtime testing is still required.
-          v0.10 adds the new Eagle icon and Aptos appearance across app controls/forms over the preserved dungeon/hook engine.
+          v0.11 adds opt-in local diagnostics: consent, bounded CSV logs, resource samples and sanitized multi-feature errors/states.
+          The module uploads nothing; Windows runtime/consent interaction still needs validation.
+          LOCAL-DIAGNOSTICS.vi.md explains how to use it without commands.
+          Eagle/Aptos appearance and dungeon/native/licensing behavior are preserved.
           The package includes APPEARANCE.vi.md, Fonts/README.vi.md and UI-PREVIEW-FAKE-DATA.html (HTML mockup only).
           Font binaries are not redistributed; supply local Aptos files or use installed Aptos.
           WinForms layout, DPI and game integration require Windows validation.

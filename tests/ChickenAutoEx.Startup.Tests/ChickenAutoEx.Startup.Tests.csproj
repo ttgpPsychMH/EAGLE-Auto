@@ -6,6 +6,16 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/DiagnosticSchema.cs" Link="Diagnostics/DiagnosticSchema.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/DiagnosticRowValidator.cs" Link="Diagnostics/DiagnosticRowValidator.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/DiagnosticRecorder.cs" Link="Diagnostics/DiagnosticRecorder.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/ConsentSettings.cs" Link="Diagnostics/ConsentSettings.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/ConsentController.cs" Link="Diagnostics/ConsentController.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/RotatingDiagnosticStore.cs" Link="Diagnostics/RotatingDiagnosticStore.cs" />
+    <Compile Include="../../src/ChickenAutoEx/Diagnostics/LocalDiagnostics.cs" Link="Diagnostics/LocalDiagnostics.cs" />
+    <None Include="../../src/ChickenAutoEx/Diagnostics/DiagnosticsHost.cs" Link="RegressionSources/DiagnosticsHost.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/Diagnostics/Game.LocalDiagnostics.cs" Link="RegressionSources/Game.LocalDiagnostics.cs" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../src/ChickenAutoEx/FrmMain.LocalDiagnostics.cs" Link="RegressionSources/FrmMain.LocalDiagnostics.cs" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../../src/ChickenAutoEx/Appearance/FontStylePolicy.cs" Link="Appearance/FontStylePolicy.cs" />
     <None Include="../../src/ChickenAutoEx/Appearance/*.cs" Link="RegressionSources/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../../src/ChickenAutoEx/Dashboard/CharacterHeader.cs" Link="Dashboard/CharacterHeader.cs" />

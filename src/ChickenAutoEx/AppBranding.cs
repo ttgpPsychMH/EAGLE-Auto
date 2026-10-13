@@ -23,6 +23,7 @@ namespace TinhKiemAuto
             + "• Sửa map, session, dialog và điều phối tổ đội của Ác Tặc.\n"
             + "• Sửa Ác Bá: nhận diện môn phái, chọn thủ công, trạng thái và điều phối đội.\n"
             + "• Logo đại bàng mới và Aptos cho toàn bộ giao diện ứng dụng.\n"
+            + "• Chẩn đoán tự động có đồng ý, đo tài nguyên và ghi lỗi/trạng thái vào CSV chỉ trên máy.\n"
             + "• Giao diện gọn: trạng thái nhân vật rõ ràng, điều khiển chung và nhật ký có thể gập.\n"
             + "• Giao diện theo bố cục 116 và bảng Nhiệm Vụ – Phó Bản có kiểm tra ngữ cảnh.\n"
             + "• Đổi tên hiển thị, file chạy và thông tin giới thiệu sang " + WindowTitle + ".\n\n"

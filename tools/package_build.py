@@ -42,6 +42,7 @@ def main():
         archive.write(repo / "analysis/ac-ba/REPORT.vi.md", "AC-BA-REVIEW.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-AC-BA-SIMULATION.vi.md", "AC-BA-SIMULATION.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-HOOK-DIAGNOSTICS.vi.md", "HOOK-DIAGNOSTICS.vi.md")
+        archive.write(repo / "docs/EAGLE-Auto-LOCAL-DIAGNOSTICS.vi.md", "LOCAL-DIAGNOSTICS.vi.md")
         archive.write(repo / "docs/EAGLE-Auto-UI-116.vi.md", "UI-116.vi.md")
         archive.writestr("UI-PREVIEW-FAKE-DATA.html", (repo / "docs/ui/EAGLE-Auto-v0.10-preview.html").read_text().replace("../../assets/branding/", "assets/branding/"))
         archive.write(repo / "docs/EAGLE-Auto-APPEARANCE.vi.md", "APPEARANCE.vi.md")
