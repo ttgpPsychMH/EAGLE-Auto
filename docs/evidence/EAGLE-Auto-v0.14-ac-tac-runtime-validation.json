@@ -3,10 +3,10 @@
   "baseline_commit": "f948e01",
   "branch": "repair/ac-tac-team-flow-v014",
   "test_counts": {
-    "passed": 811,
+    "passed": 812,
     "failed": 0,
     "skipped": 0,
-    "ac_tac": 101,
+    "ac_tac": 102,
     "local_diagnostics": 54,
     "v013_behavioral_controls": 8,
     "historical_behavioral_controls": 51,
@@ -29,8 +29,8 @@
     "windows_runtime_tested": false
   },
   "source_hashes_lf": {
-    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "3dcdad3b42dcbf1af8f23af031df1ae42ce6ddc1be4a1741af3bf3f70605a661",
-    "tools/ac_tac_runtime_review.json": "2210acfbf0d4b4ee7b6b47a7832a18d44316eb92b75da8d007ab0ae2f2f71588",
+    "src/ChickenAutoEx/AcTac/Game.AcTac.cs": "e80fbe2d0f5b104ea902d36147acadef72b5a97d05eca012172671318f3cb3e8",
+    "tools/ac_tac_runtime_review.json": "d75855ff4bc8b4f7181557bcc2156728d39e31abbd7cb089edb14451b2f0b02e",
     "analysis/ac-tac/baselines/v0.13-Game.AcTac.cs.txt": "7f7f2c512c7b3353b641fd86e2a23285a1af987dd0e71ba1d0bd453b10380549"
   },
   "client_specific_changes": false,

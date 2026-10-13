@@ -73,7 +73,7 @@ V0.6 bổ sung [Ác Bá](EAGLE-Auto-AC-BA-SIMULATION.vi.md): nhận diện thôn
 
 ## Kết quả đã xác nhận
 
-Bản v0.14: **811 test passed, 101 ca Ác Tặc, 53 ca chẩn đoán**, 26 mô phỏng C++, 59 đối chứng hành vi lịch sử/v0.13; build 0 lỗi/49 cảnh báo. Xem [sửa điều phối Ác Tặc và phương án client](EAGLE-Auto-AC-TAC-RUNTIME.vi.md). Chưa kiểm thử Windows/game.
+Bản v0.14: **812 test passed, 102 ca Ác Tặc, 53 ca chẩn đoán**, 26 mô phỏng C++, 59 đối chứng hành vi lịch sử/v0.13; build 0 lỗi/49 cảnh báo. Xem [sửa điều phối Ác Tặc và phương án client](EAGLE-Auto-AC-TAC-RUNTIME.vi.md). Chưa kiểm thử Windows/game.
 
 Bản v0.13: **773 test .NET passed, 83 kiểm tra HTML/font mẫu**; source geometry và cài đặt đường dẫn font kiểm thử bằng dependency giả, không chạy EXE/DLL game. Build 0 lỗi, 49 cảnh báo legacy, đủ 29 resource; các binary và partial engine/hook giữ nguyên. Xem [layout/Aptos](EAGLE-Auto-LAYOUT-APTOS.vi.md).
 

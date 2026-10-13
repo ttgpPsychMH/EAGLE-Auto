@@ -298,6 +298,12 @@ namespace ChickenAutoEx.Startup.Tests
             dynamic g=AcTacHarness.Create();g.Step();g.Commands.Clear();g.SnapshotError=1;g.Step();g.Advance(4999);
             g.SnapshotError=0;g.Step();Assert.Equal(6,(int)g.MapAcTac);Assert.Contains((List<string>)g.Commands,c=>c.StartsWith("Goto:"));
         }
+        [Fact] public void LootingMemberWaitsWithoutStarvingOtherEntryCommands()
+        {
+            dynamic g=AcTacHarness.Create(),m=AcTacHarness.Create();m.MapAcTac=0;m.TLBB.IsLeader=false;m.LootBusy=true;g.Party.Add(m);
+            g.Step();Assert.Contains("Goto:6:58:148",(List<string>)g.Commands);Assert.Empty((List<string>)m.Commands);
+            m.LootBusy=false;g.Step();Assert.Contains("Goto:6:58:148",(List<string>)m.Commands);
+        }
 
     }
 

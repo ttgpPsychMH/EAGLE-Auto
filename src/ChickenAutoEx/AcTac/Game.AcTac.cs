@@ -37,7 +37,7 @@ namespace TinhKiemAuto
         {
             internal string CharacterId;
             internal int Map = -1, NpcId = -1;
-            internal bool TalkSent, Selected, ClosedStale, WasInside;
+            internal bool TalkSent, Selected, ClosedStale, WasInside, Looting;
             internal long Started, UnavailableAt = -1;
             internal int OutdoorIndex = -1, TalkAttempts;
             internal long TalkAt, ProgressAt;
@@ -331,7 +331,7 @@ namespace TinhKiemAuto
             {
                 if (!CanControlAcTac(actor) || actor.TLBB.MapId != TLBB.MapId || actor.TLBB.IsQuestOpen) return;
                 AcTacActor state = acTacActors[actor];
-                if (state.TalkSent || state.Selected) return;
+                if (state.TalkSent || state.Selected || state.Looting) return;
                 if (actor != this && !actor.TLBB.IsFollow) needed = true;
             }
             if (needed && CanControlAcTac(this)) { acTacFollowAt = AcTacNow; AskTeamFollow(); }
@@ -522,7 +522,8 @@ namespace TinhKiemAuto
                             if (actor.TLBB.IsFollow && CanControlAcTac(actor)) actor.StopFollow();
                             if (actor.IsRide && CanControlAcTac(actor)) actor.DownRide();
                         }
-                        if (CanControlAcTac(actor) && actor.PickItem()) loot = true;
+                        state.Looting = acTacPhase != AcTacPhase.AwaitExit && CanControlAcTac(actor) && actor.PickItem();
+                        if (state.Looting) loot = true;
                     }
                     if (MapAcTac == 0) return;
                     if (acTacPhase == AcTacPhase.AwaitExit)
@@ -547,6 +548,7 @@ namespace TinhKiemAuto
                             long started = actor.TLBB.MapId != MapAcTac ? state.ProgressAt : state.Started;
                             if (AcTacTimeout(started, state.Selected || state.TalkSent || state.ClosedStale
                                 ? AcTacDialogTimeout : AcTacTravelTimeout, "vào map phụ bản")) return;
+                            if (state.Looting) continue;
                             if (actor.TLBB.MapId != MapAcTac)
                             {
                                 int[,] route = AcTacOutdoorRoute();

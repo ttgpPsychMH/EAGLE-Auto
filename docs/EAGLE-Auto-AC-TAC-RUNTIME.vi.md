@@ -8,7 +8,7 @@ Chạy **EAGLE-Auto-v0.14.exe** cùng file `.exe.config` trong gói **EAGLE-Auto
 
 | Vấn đề | Hành vi v0.14 |
 |---|---|
-| Một thành viên chưa sẵn sàng chặn mọi người ở bước đi/vào cửa | Các nhân vật đủ điều kiện tiếp tục đi và thao tác cửa riêng. Khi tuần tra, đội trưởng chờ thành viên chưa sẵn sàng; thành viên đủ điều kiện vẫn được tập hợp. |
+| Một thành viên chưa sẵn sàng chặn mọi người ở bước đi/vào cửa | Các nhân vật đủ điều kiện tiếp tục đi và thao tác cửa riêng; nhân vật đang nhặt chờ riêng để tránh lệnh di chuyển cạnh tranh. Khi tuần tra, đội trưởng chờ thành viên chưa sẵn sàng; thành viên đủ điều kiện vẫn được tập hợp. |
 | Nhân vật vào trước gặp quái làm thành viên ngoài cửa không được điều khiển | Đánh/nhặt của nhân vật đã vào không chặn lệnh vào cửa của các nhân vật còn ngoài. Chỉ bắt đầu tuần tra khi tất cả participant được nhận diện đã vào và sẵn sàng. |
 | Đội trưởng đã vào thì thành viên ngoài không tìm NPC | Mỗi nhân vật có index tìm cửa riêng, nối từ điểm ngoài gần nhất. Không còn phụ thuộc đội trưởng vẫn đứng ở map ngoài. |
 | Không yêu cầu Theo Sau | Gọi lệnh yêu cầu Theo Sau hiện hữu, tối đa một lần/5 giây hoạt động, khi ít nhất hai cửa sổ đúng đội, cùng map, đủ điều kiện và không thao tác hội thoại. Không broadcast khi có cửa sổ đã nhận cùng đội tắt Auto/xung đột. Không tự đổi lựa chọn của người dùng. |
@@ -68,4 +68,4 @@ Các ca mới còn kiểm tra pause/identity tạm mất, member null, vào đ�
 
 Stable116, snapshot điều tra, native DLL/ABI/offsets, licensing/VIP/auth và các partial Thủy Lao/Kỳ Cuộc/Trừng Ác/Ác Bá không đổi. Ownership hooks trong Game được khai báo và đảo riêng trước verifier bảo toàn toàn bộ phần ngoài delta; không bỏ kiểm tra cả Game hoặc cập nhật checksum binary gốc.
 
-Kết quả cloud: **811 test passed, 0 failed/skipped**, gồm **101 ca Ác Tặc** và **53 ca local diagnostics**. Tám đối chứng v0.13 và 51 đối chứng lịch sử thất bại đúng hành vi cũ, 0 lỗi harness. Mô hình C++ có 26 ca passed. Build 0 lỗi/49 cảnh báo legacy; verifier xác nhận CLR4/x86, 29 resource và bảo toàn source/binary ngoài delta. [Bằng chứng v0.14](evidence/EAGLE-Auto-v0.14-ac-tac-runtime-validation.json).
+Kết quả cloud: **812 test passed, 0 failed/skipped**, gồm **102 ca Ác Tặc** và **53 ca local diagnostics**. Tám đối chứng v0.13 và 51 đối chứng lịch sử thất bại đúng hành vi cũ, 0 lỗi harness. Mô hình C++ có 26 ca passed. Build 0 lỗi/49 cảnh báo legacy; verifier xác nhận CLR4/x86, 29 resource và bảo toàn source/binary ngoài delta. [Bằng chứng v0.14](evidence/EAGLE-Auto-v0.14-ac-tac-runtime-validation.json).
